@@ -9,13 +9,20 @@
 /* Begin PBXBuildFile section */
 		E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */; };
 		E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */; };
-		E5B38B262615EBCC00D4EB5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B252615EBCC00D4EB5D /* ViewController.swift */; };
 		E5B38B292615EBCC00D4EB5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B38B272615EBCC00D4EB5D /* Main.storyboard */; };
 		E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */; };
 		E5B38B2E2615EBCC00D4EB5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B38B2D2615EBCC00D4EB5D /* Assets.xcassets */; };
 		E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */; };
 		E5B38B3C2615EBCC00D4EB5D /* UnivLadderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B3B2615EBCC00D4EB5D /* UnivLadderTests.swift */; };
 		E5B38B472615EBCD00D4EB5D /* UnivLadderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B462615EBCD00D4EB5D /* UnivLadderUITests.swift */; };
+		E5F3F92626470B4800763ADB /* Accounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F92526470B4800763ADB /* Accounts.storyboard */; };
+		E5F3F94A26470D9600763ADB /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F94826470D9600763ADB /* Calendar.storyboard */; };
+		E5F3F95326470FFC00763ADB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F95126470FFC00763ADB /* Home.storyboard */; };
+		E5F3F95B2647100D00763ADB /* Community.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F95A2647100D00763ADB /* Community.storyboard */; };
+		E5F3F9642647102800763ADB /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F9622647102800763ADB /* Chat.storyboard */; };
+		E5F3F9692647103F00763ADB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F9682647103F00763ADB /* MyPage.storyboard */; };
+		E5F3F9722647108100763ADB /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3F9712647108100763ADB /* MainTabBarVC.swift */; };
+		E5F3F97A264710EE00763ADB /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3F979264710EE00763ADB /* ChatListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,6 @@
 		E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnivLadder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E5B38B252615EBCC00D4EB5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5B38B282615EBCC00D4EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5B38B2B2615EBCC00D4EB5D /* UnivLadder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UnivLadder.xcdatamodel; sourceTree = "<group>"; };
 		E5B38B2D2615EBCC00D4EB5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +57,14 @@
 		E5B38B422615EBCC00D4EB5D /* UnivLadderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnivLadderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B38B462615EBCD00D4EB5D /* UnivLadderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnivLadderUITests.swift; sourceTree = "<group>"; };
 		E5B38B482615EBCD00D4EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5F3F92526470B4800763ADB /* Accounts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Accounts.storyboard; sourceTree = "<group>"; };
+		E5F3F94926470D9600763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
+		E5F3F95226470FFC00763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UnivLadder/Storyboards/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		E5F3F95A2647100D00763ADB /* Community.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
+		E5F3F9632647102800763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UnivLadder/Storyboards/Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
+		E5F3F9682647103F00763ADB /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		E5F3F9712647108100763ADB /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
+		E5F3F979264710EE00763ADB /* ChatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +115,12 @@
 		E5B38B202615EBCC00D4EB5D /* UnivLadder */ = {
 			isa = PBXGroup;
 			children = (
-				E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */,
-				E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */,
-				E5B38B252615EBCC00D4EB5D /* ViewController.swift */,
-				E5B38B272615EBCC00D4EB5D /* Main.storyboard */,
-				E5B38B2D2615EBCC00D4EB5D /* Assets.xcassets */,
-				E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */,
-				E5B38B322615EBCC00D4EB5D /* Info.plist */,
-				E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */,
+				E5F3F91D264709B300763ADB /* Extensions */,
+				E5F3F91C264709AC00763ADB /* Models */,
+				E5F3F91B264709A600763ADB /* Managers */,
+				E5F3F91A2647098200763ADB /* ViewControllers */,
+				E5F3F9192647097800763ADB /* Storyboards */,
+				E5F3F9182647093B00763ADB /* SupportingFiles */,
 			);
 			path = UnivLadder;
 			sourceTree = "<group>";
@@ -129,6 +141,71 @@
 				E5B38B482615EBCD00D4EB5D /* Info.plist */,
 			);
 			path = UnivLadderUITests;
+			sourceTree = "<group>";
+		};
+		E5F3F9182647093B00763ADB /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E5B38B322615EBCC00D4EB5D /* Info.plist */,
+				E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */,
+				E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */,
+				E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */,
+				E5B38B2D2615EBCC00D4EB5D /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		E5F3F9192647097800763ADB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E5F3F9682647103F00763ADB /* MyPage.storyboard */,
+				E5F3F9622647102800763ADB /* Chat.storyboard */,
+				E5F3F95A2647100D00763ADB /* Community.storyboard */,
+				E5F3F95126470FFC00763ADB /* Home.storyboard */,
+				E5F3F94826470D9600763ADB /* Calendar.storyboard */,
+				E5B38B272615EBCC00D4EB5D /* Main.storyboard */,
+				E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */,
+				E5F3F92526470B4800763ADB /* Accounts.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E5F3F91A2647098200763ADB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5F3F9702647105400763ADB /* Chat */,
+				E5F3F9712647108100763ADB /* MainTabBarVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E5F3F91B264709A600763ADB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E5F3F91C264709AC00763ADB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5F3F91D264709B300763ADB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E5F3F9702647105400763ADB /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				E5F3F979264710EE00763ADB /* ChatListVC.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +311,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F3F94A26470D9600763ADB /* Calendar.storyboard in Resources */,
 				E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */,
 				E5B38B2E2615EBCC00D4EB5D /* Assets.xcassets in Resources */,
+				E5F3F95326470FFC00763ADB /* Home.storyboard in Resources */,
+				E5F3F9692647103F00763ADB /* MyPage.storyboard in Resources */,
+				E5F3F92626470B4800763ADB /* Accounts.storyboard in Resources */,
+				E5F3F95B2647100D00763ADB /* Community.storyboard in Resources */,
+				E5F3F9642647102800763ADB /* Chat.storyboard in Resources */,
 				E5B38B292615EBCC00D4EB5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,8 +344,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B38B262615EBCC00D4EB5D /* ViewController.swift in Sources */,
+				E5F3F9722647108100763ADB /* MainTabBarVC.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
+				E5F3F97A264710EE00763ADB /* ChatListVC.swift in Sources */,
 				E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 			);
@@ -314,6 +398,30 @@
 				E5B38B302615EBCC00D4EB5D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E5F3F94826470D9600763ADB /* Calendar.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5F3F94926470D9600763ADB /* Base */,
+			);
+			name = Calendar.storyboard;
+			sourceTree = "<group>";
+		};
+		E5F3F95126470FFC00763ADB /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5F3F95226470FFC00763ADB /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		E5F3F9622647102800763ADB /* Chat.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5F3F9632647102800763ADB /* Base */,
+			);
+			name = Chat.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -441,7 +549,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = UnivLadder/Info.plist;
+				DEVELOPMENT_TEAM = 25WJPJB95F;
+				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,7 +568,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = UnivLadder/Info.plist;
+				DEVELOPMENT_TEAM = 25WJPJB95F;
+				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
