@@ -28,7 +28,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9hB-2v-lT6">
-                                                    <rect key="frame" x="10" y="11.5" width="50" height="57"/>
+                                                    <rect key="frame" x="10" y="16.5" width="50" height="47"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="FdK-d5-Ra1"/>
@@ -105,11 +105,10 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="9hB-2v-lT6" secondAttribute="bottom" constant="10" id="0xB-3i-Y1P"/>
                                                 <constraint firstAttribute="trailing" secondItem="frk-xB-htO" secondAttribute="trailing" constant="20" id="9zm-pY-Kwf"/>
                                                 <constraint firstItem="9hB-2v-lT6" firstAttribute="leading" secondItem="nlD-ZR-s9F" secondAttribute="leading" constant="10" id="IXo-aO-zpN"/>
                                                 <constraint firstItem="frk-xB-htO" firstAttribute="centerY" secondItem="nlD-ZR-s9F" secondAttribute="centerY" id="JRW-Yw-cbD"/>
-                                                <constraint firstItem="9hB-2v-lT6" firstAttribute="top" secondItem="nlD-ZR-s9F" secondAttribute="top" constant="10" id="bDM-8x-SNn"/>
+                                                <constraint firstItem="9hB-2v-lT6" firstAttribute="centerY" secondItem="nlD-ZR-s9F" secondAttribute="centerY" id="N4T-3R-tIs"/>
                                                 <constraint firstItem="yTr-Y9-NmR" firstAttribute="centerY" secondItem="nlD-ZR-s9F" secondAttribute="centerY" id="gOw-dV-g65"/>
                                                 <constraint firstItem="yTr-Y9-NmR" firstAttribute="leading" secondItem="9hB-2v-lT6" secondAttribute="trailing" constant="20" id="h6Z-3P-AYN"/>
                                             </constraints>
@@ -150,7 +149,7 @@
         <!--Title-->
         <scene sceneID="t0X-00-Gr4">
             <objects>
-                <viewController id="XqB-gE-GBg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatRoomVC" id="XqB-gE-GBg" customClass="ChatRoomVC" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="imI-hq-5pB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -29,12 +29,21 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
         return chatRooms.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatRoomCell") as! UITableViewCell
-        print(chatRooms[indexPath.row])
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ChatRoomVC.instance()
+        vc.navigationItem.title = chatRooms[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
 }
