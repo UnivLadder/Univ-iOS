@@ -9,21 +9,32 @@ import UIKit
 
 class ChatListVC: UIViewController {
 
+    @IBOutlet weak var chatRoomListTableView: UITableView!
+    
+    let chatRooms = ["클라라", "클라리", "클러리"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        chatRoomListTableView.delegate = self
+        chatRoomListTableView.dataSource = self
+        
+        self.navigationItem.title = "과외문의"
+    }
+
+}
+
+extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return chatRooms.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatRoomCell") as! UITableViewCell
+        print(chatRooms[indexPath.row])
+        return cell
     }
-    */
-
+    
+    
 }
