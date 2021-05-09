@@ -154,29 +154,153 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y6E-Oy-CXd">
-                                <rect key="frame" x="0.0" y="163" width="414" height="128"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y6E-Oy-CXd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="618"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="YourBubble" rowHeight="200" id="EVI-wg-AnY" customClass="ChatBubbleCell" customModule="UnivLadder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EVI-wg-AnY" id="fnf-wr-PUc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DqZ-CA-a4g">
+                                                    <rect key="frame" x="30" y="31.5" width="30" height="37"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="Od4-X0-bve"/>
+                                                        <constraint firstAttribute="height" constant="40" id="vhe-I1-OiF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="클라라" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3g-Am-k7Y">
+                                                    <rect key="frame" x="80" y="30" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CW5-Ul-OTQ">
+                                                    <rect key="frame" x="80" y="71" width="250" height="100"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DhA-47-0IG">
+                                                            <rect key="frame" x="10" y="10" width="230" height="80"/>
+                                                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                            <color key="textColor" systemColor="labelColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="250" id="6Sb-9A-Pur"/>
+                                                        <constraint firstAttribute="height" constant="100" id="ABh-dn-Wie"/>
+                                                        <constraint firstAttribute="trailing" secondItem="DhA-47-0IG" secondAttribute="trailing" constant="10" id="Czu-HV-7YA"/>
+                                                        <constraint firstAttribute="bottom" secondItem="DhA-47-0IG" secondAttribute="bottom" constant="10" id="Vr5-Sc-y1a"/>
+                                                        <constraint firstItem="DhA-47-0IG" firstAttribute="leading" secondItem="CW5-Ul-OTQ" secondAttribute="leading" constant="10" id="fGa-kW-3kG"/>
+                                                        <constraint firstItem="DhA-47-0IG" firstAttribute="top" secondItem="CW5-Ul-OTQ" secondAttribute="top" constant="10" id="vT2-Mv-cz5"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="11am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFb-i5-4ID">
+                                                    <rect key="frame" x="338" y="150" width="39" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemGray4Color"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OFb-i5-4ID" firstAttribute="bottom" secondItem="CW5-Ul-OTQ" secondAttribute="bottom" id="Cdf-0T-7Ha"/>
+                                                <constraint firstItem="DqZ-CA-a4g" firstAttribute="top" secondItem="fnf-wr-PUc" secondAttribute="top" constant="30" id="E4s-vL-aDM"/>
+                                                <constraint firstItem="DqZ-CA-a4g" firstAttribute="leading" secondItem="fnf-wr-PUc" secondAttribute="leading" constant="30" id="OMB-QX-nG4"/>
+                                                <constraint firstItem="CW5-Ul-OTQ" firstAttribute="leading" secondItem="DqZ-CA-a4g" secondAttribute="trailing" constant="20" id="Wh6-uq-KWM"/>
+                                                <constraint firstItem="L3g-Am-k7Y" firstAttribute="leading" secondItem="DqZ-CA-a4g" secondAttribute="trailing" constant="20" id="bsx-Hx-uWx"/>
+                                                <constraint firstItem="L3g-Am-k7Y" firstAttribute="top" secondItem="DqZ-CA-a4g" secondAttribute="top" id="gO5-Tp-3Lk"/>
+                                                <constraint firstItem="OFb-i5-4ID" firstAttribute="leading" secondItem="CW5-Ul-OTQ" secondAttribute="trailing" constant="20" id="oYO-ae-ZUh"/>
+                                                <constraint firstItem="CW5-Ul-OTQ" firstAttribute="top" secondItem="L3g-Am-k7Y" secondAttribute="bottom" constant="20" id="zGG-1a-EPh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyBubble" rowHeight="200" id="3aP-t1-bMC" customClass="ChatBubbleCell" customModule="UnivLadder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="228" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3aP-t1-bMC" id="az4-QY-rNQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vke-5P-FE7">
+                                                    <rect key="frame" x="114" y="41" width="250" height="100"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p1y-8r-SkY">
+                                                            <rect key="frame" x="10" y="10" width="230" height="80"/>
+                                                            <color key="backgroundColor" red="0.42745098039215684" green="0.3529411764705882" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                            <color key="textColor" systemColor="labelColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.42745098039215684" green="0.3529411764705882" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="p1y-8r-SkY" secondAttribute="trailing" constant="10" id="1n1-qh-das"/>
+                                                        <constraint firstAttribute="width" constant="250" id="LdG-6W-mkV"/>
+                                                        <constraint firstAttribute="height" constant="100" id="aCR-Ag-N7r"/>
+                                                        <constraint firstAttribute="bottom" secondItem="p1y-8r-SkY" secondAttribute="bottom" constant="10" id="eBy-yR-hVc"/>
+                                                        <constraint firstItem="p1y-8r-SkY" firstAttribute="leading" secondItem="vke-5P-FE7" secondAttribute="leading" constant="10" id="h4w-eM-xHy"/>
+                                                        <constraint firstItem="p1y-8r-SkY" firstAttribute="top" secondItem="vke-5P-FE7" secondAttribute="top" constant="10" id="ylo-aH-Sfe"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smY-bC-RtX">
+                                                    <rect key="frame" x="55" y="120" width="39" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemGray4Color"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="smY-bC-RtX" firstAttribute="bottom" secondItem="vke-5P-FE7" secondAttribute="bottom" id="861-Ge-jPq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vke-5P-FE7" secondAttribute="trailing" constant="30" id="JF1-OU-DKJ"/>
+                                                <constraint firstItem="vke-5P-FE7" firstAttribute="top" secondItem="az4-QY-rNQ" secondAttribute="topMargin" constant="30" id="cF1-gz-XTB"/>
+                                                <constraint firstItem="vke-5P-FE7" firstAttribute="leading" secondItem="smY-bC-RtX" secondAttribute="trailing" constant="20" id="vlc-cy-BXu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IQz-l8-6OD">
-                                <rect key="frame" x="87" y="480" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6i-TK-3fk">
+                                <rect key="frame" x="0.0" y="662" width="414" height="200"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="메세지를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7M8-bX-4BC">
+                                        <rect key="frame" x="0.0" y="166" width="414" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7M8-bX-4BC" secondAttribute="trailing" id="7f8-G9-E84"/>
+                                    <constraint firstAttribute="bottom" secondItem="7M8-bX-4BC" secondAttribute="bottom" id="khg-s5-YzE"/>
+                                    <constraint firstItem="7M8-bX-4BC" firstAttribute="leading" secondItem="y6i-TK-3fk" secondAttribute="leading" id="mZ7-kh-OUv"/>
+                                    <constraint firstAttribute="height" constant="200" id="uif-Jy-ZL4"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bya-if-ZGZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="y6E-Oy-CXd" firstAttribute="leading" secondItem="bya-if-ZGZ" secondAttribute="leading" id="Jv7-2y-n5W"/>
+                            <constraint firstItem="y6i-TK-3fk" firstAttribute="leading" secondItem="bya-if-ZGZ" secondAttribute="leading" id="Krp-zM-vfv"/>
                             <constraint firstItem="bya-if-ZGZ" firstAttribute="trailing" secondItem="y6E-Oy-CXd" secondAttribute="trailing" id="Q8S-kQ-Who"/>
                             <constraint firstItem="y6E-Oy-CXd" firstAttribute="top" secondItem="bya-if-ZGZ" secondAttribute="top" id="SHX-Tu-bMi"/>
+                            <constraint firstItem="bya-if-ZGZ" firstAttribute="trailing" secondItem="y6i-TK-3fk" secondAttribute="trailing" id="cXq-ey-Npj"/>
+                            <constraint firstItem="y6i-TK-3fk" firstAttribute="bottom" secondItem="bya-if-ZGZ" secondAttribute="bottom" id="ihi-lt-Iz8"/>
+                            <constraint firstItem="y6i-TK-3fk" firstAttribute="top" secondItem="y6E-Oy-CXd" secondAttribute="bottom" id="w2G-7n-Mkc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="jX6-A7-sYq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sj-Cr-Qi9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2906" y="957"/>
+            <point key="canvasLocation" x="2905.7971014492755" y="956.91964285714278"/>
         </scene>
         <!--과외 문의 채팅-->
         <scene sceneID="wFj-x4-OQM">
@@ -202,6 +326,9 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mustache.fill" catalog="system" width="128" height="49"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -210,6 +337,9 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

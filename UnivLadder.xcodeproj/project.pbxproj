@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */; };
 		E56ABEE82647C8A100A45786 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */; };
+		E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */; };
 		E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */; };
 		E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */; };
 		E5B38B292615EBCC00D4EB5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B38B272615EBCC00D4EB5D /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListCell.swift; sourceTree = "<group>"; };
 		E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
+		E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
 		E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnivLadder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				E5F3F979264710EE00763ADB /* ChatListVC.swift */,
 				E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */,
 				E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */,
+				E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				E56ABEE82647C8A100A45786 /* ChatRoomVC.swift in Sources */,
 				E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */,
 				E5F3F9722647108100763ADB /* MainTabBarVC.swift in Sources */,
+				E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
 				E5F3F97A264710EE00763ADB /* ChatListVC.swift in Sources */,
 				E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */,
