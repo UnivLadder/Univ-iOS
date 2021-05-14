@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16427165264D8400003A953C /* esamanru OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16427162264D8400003A953C /* esamanru OTF Light.otf */; };
+		16427166264D8400003A953C /* esamanru OTF Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16427163264D8400003A953C /* esamanru OTF Medium.otf */; };
+		16427167264D8400003A953C /* esamanru OTF Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16427164264D8400003A953C /* esamanru OTF Bold.otf */; };
+		1642716E264D84B3003A953C /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1642716B264D84B3003A953C /* GmarketSansMedium.otf */; };
+		1642716F264D84B3003A953C /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1642716C264D84B3003A953C /* GmarketSansLight.otf */; };
+		16427170264D84B3003A953C /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1642716D264D84B3003A953C /* GmarketSansBold.otf */; };
 		E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */; };
 		E56ABEE82647C8A100A45786 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */; };
 		E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */; };
@@ -46,6 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16427162264D8400003A953C /* esamanru OTF Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "esamanru OTF Light.otf"; path = "../../../../../Downloads/esamanru_OTF(Mac)/esamanru OTF Light.otf"; sourceTree = "<group>"; };
+		16427163264D8400003A953C /* esamanru OTF Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "esamanru OTF Medium.otf"; path = "../../../../../Downloads/esamanru_OTF(Mac)/esamanru OTF Medium.otf"; sourceTree = "<group>"; };
+		16427164264D8400003A953C /* esamanru OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "esamanru OTF Bold.otf"; path = "../../../../../Downloads/esamanru_OTF(Mac)/esamanru OTF Bold.otf"; sourceTree = "<group>"; };
+		1642716B264D84B3003A953C /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansMedium.otf; path = ../../../../../Downloads/GmarketSansOTF/GmarketSansMedium.otf; sourceTree = "<group>"; };
+		1642716C264D84B3003A953C /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansLight.otf; path = ../../../../../Downloads/GmarketSansOTF/GmarketSansLight.otf; sourceTree = "<group>"; };
+		1642716D264D84B3003A953C /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansBold.otf; path = ../../../../../Downloads/GmarketSansOTF/GmarketSansBold.otf; sourceTree = "<group>"; };
 		E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListCell.swift; sourceTree = "<group>"; };
 		E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
 		E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
@@ -98,6 +110,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16427161264D83DA003A953C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1642716D264D84B3003A953C /* GmarketSansBold.otf */,
+				1642716C264D84B3003A953C /* GmarketSansLight.otf */,
+				1642716B264D84B3003A953C /* GmarketSansMedium.otf */,
+				16427164264D8400003A953C /* esamanru OTF Bold.otf */,
+				16427162264D8400003A953C /* esamanru OTF Light.otf */,
+				16427163264D8400003A953C /* esamanru OTF Medium.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E5B38B152615EBCC00D4EB5D = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +177,7 @@
 		E5F3F9182647093B00763ADB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				16427161264D83DA003A953C /* Fonts */,
 				E5B38B322615EBCC00D4EB5D /* Info.plist */,
 				E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */,
 				E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */,
@@ -322,12 +348,18 @@
 			files = (
 				E5F3F94A26470D9600763ADB /* Calendar.storyboard in Resources */,
 				E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */,
+				16427166264D8400003A953C /* esamanru OTF Medium.otf in Resources */,
 				E5B38B2E2615EBCC00D4EB5D /* Assets.xcassets in Resources */,
 				E5F3F95326470FFC00763ADB /* Home.storyboard in Resources */,
+				1642716E264D84B3003A953C /* GmarketSansMedium.otf in Resources */,
 				E5F3F9692647103F00763ADB /* MyPage.storyboard in Resources */,
 				E5F3F92626470B4800763ADB /* Accounts.storyboard in Resources */,
 				E5F3F95B2647100D00763ADB /* Community.storyboard in Resources */,
 				E5F3F9642647102800763ADB /* Chat.storyboard in Resources */,
+				16427170264D84B3003A953C /* GmarketSansBold.otf in Resources */,
+				16427165264D8400003A953C /* esamanru OTF Light.otf in Resources */,
+				1642716F264D84B3003A953C /* GmarketSansLight.otf in Resources */,
+				16427167264D8400003A953C /* esamanru OTF Bold.otf in Resources */,
 				E5B38B292615EBCC00D4EB5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
