@@ -19,7 +19,16 @@ class ChatListVC: UIViewController {
         chatRoomListTableView.delegate = self
         chatRoomListTableView.dataSource = self
         
-        self.navigationItem.title = "과외문의"
+        setUI()
+    }
+    
+    
+    private func setUI() {
+        self.navigationController?.navigationBar.transparentNavigationBar()
+        
+        self.navigationItem.title = ""
+        
+        self.chatRoomListTableView.separatorStyle = .none
     }
 
 }
@@ -35,7 +44,8 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatRoomCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatRoomCell") as! ChatRoomListCell
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -45,5 +55,6 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
+    
     
 }

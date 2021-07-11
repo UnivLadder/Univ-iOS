@@ -22,6 +22,9 @@
 		E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */; };
 		E5B38B3C2615EBCC00D4EB5D /* UnivLadderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B3B2615EBCC00D4EB5D /* UnivLadderTests.swift */; };
 		E5B38B472615EBCD00D4EB5D /* UnivLadderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B462615EBCD00D4EB5D /* UnivLadderUITests.swift */; };
+		E5B6CECA269A87AF005D0501 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6CEC9269A87AF005D0501 /* UIColorExtension.swift */; };
+		E5B6CECC269A8808005D0501 /* UINavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6CECB269A8808005D0501 /* UINavigationBarExtension.swift */; };
+		E5B6CED3269A9596005D0501 /* TodayTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6CED2269A9596005D0501 /* TodayTaskCell.swift */; };
 		E5F3F92626470B4800763ADB /* Accounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F92526470B4800763ADB /* Accounts.storyboard */; };
 		E5F3F94A26470D9600763ADB /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F94826470D9600763ADB /* Calendar.storyboard */; };
 		E5F3F95326470FFC00763ADB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F95126470FFC00763ADB /* Home.storyboard */; };
@@ -77,6 +80,9 @@
 		E5B38B422615EBCC00D4EB5D /* UnivLadderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnivLadderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B38B462615EBCD00D4EB5D /* UnivLadderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnivLadderUITests.swift; sourceTree = "<group>"; };
 		E5B38B482615EBCD00D4EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5B6CEC9269A87AF005D0501 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		E5B6CECB269A8808005D0501 /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
+		E5B6CED2269A9596005D0501 /* TodayTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTaskCell.swift; sourceTree = "<group>"; };
 		E5F3F92526470B4800763ADB /* Accounts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Accounts.storyboard; sourceTree = "<group>"; };
 		E5F3F94926470D9600763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
 		E5F3F95226470FFC00763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UnivLadder/Storyboards/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
@@ -135,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				E58E7DF926761A8E0004501B /* CalendarVC.swift */,
-				E58E7DFB26761AC40004501B /* CalendarCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 		E5B38B202615EBCC00D4EB5D /* UnivLadder */ = {
 			isa = PBXGroup;
 			children = (
+				E5B6CECF269A9562005D0501 /* Cells */,
 				E5F3F91D264709B300763ADB /* Extensions */,
 				E5F3F91C264709AC00763ADB /* Models */,
 				E5F3F91B264709A600763ADB /* Managers */,
@@ -198,6 +204,33 @@
 				E5B38B482615EBCD00D4EB5D /* Info.plist */,
 			);
 			path = UnivLadderUITests;
+			sourceTree = "<group>";
+		};
+		E5B6CECF269A9562005D0501 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6CED1269A9570005D0501 /* Calendar */,
+				E5B6CED0269A9568005D0501 /* Chat */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E5B6CED0269A9568005D0501 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */,
+				E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		E5B6CED1269A9570005D0501 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				E58E7DFB26761AC40004501B /* CalendarCell.swift */,
+				E5B6CED2269A9596005D0501 /* TodayTaskCell.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		E5F3F9182647093B00763ADB /* SupportingFiles */ = {
@@ -256,6 +289,8 @@
 		E5F3F91D264709B300763ADB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E5B6CEC9269A87AF005D0501 /* UIColorExtension.swift */,
+				E5B6CECB269A8808005D0501 /* UINavigationBarExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,9 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				E5F3F979264710EE00763ADB /* ChatListVC.swift */,
-				E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */,
 				E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */,
-				E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -419,10 +452,13 @@
 				E5F3F9722647108100763ADB /* MainTabBarVC.swift in Sources */,
 				E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */,
 				E58E7DFF26761AF50004501B /* Day.swift in Sources */,
+				E5B6CECA269A87AF005D0501 /* UIColorExtension.swift in Sources */,
+				E5B6CED3269A9596005D0501 /* TodayTaskCell.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
 				E58E7DFA26761A8E0004501B /* CalendarVC.swift in Sources */,
 				E5F3F97A264710EE00763ADB /* ChatListVC.swift in Sources */,
 				E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */,
+				E5B6CECC269A8808005D0501 /* UINavigationBarExtension.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				E58E7DFC26761AC40004501B /* CalendarCell.swift in Sources */,
 			);

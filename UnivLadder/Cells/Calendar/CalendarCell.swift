@@ -15,7 +15,7 @@ class CalendarCell: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
-        view.backgroundColor = .systemRed
+        view.backgroundColor = UIColor(hex: "#6D5AE6")
         return view
     }()
     

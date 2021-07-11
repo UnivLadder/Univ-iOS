@@ -9,9 +9,11 @@ import UIKit
 
 class CalendarVC: UIViewController {
     // calendar
-    @IBOutlet weak var calendarTitleLabel: UILabel!
+//    @IBOutlet weak var calendarTitleLabel: UILabel!
+//    @IBOutlet weak var calendarTitleLabel: UILabel!
     @IBOutlet weak var weekDayStack: UIStackView!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
+    @IBOutlet weak var todayTaskTable: UITableView!
     
     // MARK: Calendar Data Values
     private lazy var selectedDate: Date = baseDate
@@ -39,7 +41,7 @@ class CalendarVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // calendar setting
-        calendarTitleLabel.text = titleDateFormatter.string(from: baseDate)
+        self.title = titleDateFormatter.string(from: baseDate)
         
         setDayOfWeekStack()
         calendarCollectionView.register(
@@ -59,7 +61,31 @@ class CalendarVC: UIViewController {
 
         calendarCollectionView.addGestureRecognizer(prevSwipeGestureRecogniser)
         calendarCollectionView.addGestureRecognizer(nextSwipeGestureRecogniser)
+        
+        
+        todayTaskTable.delegate = self
+        todayTaskTable.dataSource = self
+        setUI()
     }
+    
+    
+    private func setUI() {
+        let tableViewHeader = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        
+        let tableViewHeaderLabel = UILabel(frame: tableViewHeader.bounds)
+        tableViewHeaderLabel.text = "Today"
+        tableViewHeaderLabel.textAlignment = .center
+        tableViewHeader.addSubview(tableViewHeaderLabel)
+        todayTaskTable.tableHeaderView = tableViewHeader
+        todayTaskTable.separatorStyle = .none
+        
+        self.view.backgroundColor = .white
+        
+        self.navigationController?.navigationBar.transparentNavigationBar()
+        
+        
+    }
+    
     
     override func viewWillTransition(
         to size: CGSize,
@@ -74,7 +100,7 @@ class CalendarVC: UIViewController {
     @objc func prevHandleSwipe(_ sender:UISwipeGestureRecognizer) {
         if (sender.state == .ended) {
             self.baseDate = self.calendar.date(byAdding: .month, value: -1, to: self.baseDate) ?? self.baseDate
-            calendarTitleLabel.text = titleDateFormatter.string(from: baseDate)
+            self.title = titleDateFormatter.string(from: baseDate)
             days = generateDaysInMonth(for: baseDate)
             calendarCollectionView.reloadData()
         }
@@ -83,7 +109,7 @@ class CalendarVC: UIViewController {
     @objc func nextHandleSwipe(_ sender:UISwipeGestureRecognizer) {
         if (sender.state == .ended) {
             self.baseDate = self.calendar.date(byAdding: .month, value: 1, to: self.baseDate) ?? self.baseDate
-            calendarTitleLabel.text = titleDateFormatter.string(from: baseDate)
+            self.title = titleDateFormatter.string(from: baseDate)
             days = generateDaysInMonth(for: baseDate)
             calendarCollectionView.reloadData()
         }
@@ -271,7 +297,7 @@ extension CalendarVC: UICollectionViewDelegateFlowLayout {
         // 다른달이면 calendar 변경
         if !day.isWithinDisplayedMonth {
             baseDate = selectedDate
-            calendarTitleLabel.text = titleDateFormatter.string(from: baseDate)
+            self.title = titleDateFormatter.string(from: baseDate)
         }
         days = generateDaysInMonth(for: baseDate)
         calendarCollectionView.reloadData()
@@ -282,5 +308,29 @@ extension CalendarVC: UICollectionViewDelegateFlowLayout {
         let height = Int(collectionView.frame.height) / numberOfWeeksInBaseDate
 
         return CGSize(width: width, height: height)
+    }
+}
+
+extension CalendarVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TodayTaskCell") as! TodayTaskCell
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let vc = ChatRoomVC.instance()
+//        vc.navigationItem.title = chatRooms[indexPath.row]
+//        self.navigationController?.pushViewController(vc, animated: true)
+//
     }
 }
