@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E50439FE26A41795004D2870 /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50439FD26A41795004D2870 /* ScheduleVC.swift */; };
+		E5043A0026A41D58004D2870 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50439FF26A41D58004D2870 /* ScheduleCell.swift */; };
 		E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */; };
 		E56ABEE82647C8A100A45786 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */; };
 		E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E50439FD26A41795004D2870 /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
+		E50439FF26A41D58004D2870 /* ScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListCell.swift; sourceTree = "<group>"; };
 		E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
 		E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				E58E7DF926761A8E0004501B /* CalendarVC.swift */,
+				E50439FD26A41795004D2870 /* ScheduleVC.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 			children = (
 				E58E7DFB26761AC40004501B /* CalendarCell.swift */,
 				E5B6CED2269A9596005D0501 /* TodayTaskCell.swift */,
+				E50439FF26A41D58004D2870 /* ScheduleCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -447,9 +453,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E56ABEE82647C8A100A45786 /* ChatRoomVC.swift in Sources */,
+				E50439FE26A41795004D2870 /* ScheduleVC.swift in Sources */,
 				E58E7E0126761B0C0004501B /* MonthMetaData.swift in Sources */,
 				E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */,
 				E5F3F9722647108100763ADB /* MainTabBarVC.swift in Sources */,
+				E5043A0026A41D58004D2870 /* ScheduleCell.swift in Sources */,
 				E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */,
 				E58E7DFF26761AF50004501B /* Day.swift in Sources */,
 				E5B6CECA269A87AF005D0501 /* UIColorExtension.swift in Sources */,

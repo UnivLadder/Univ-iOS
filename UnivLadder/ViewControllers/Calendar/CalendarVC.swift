@@ -13,7 +13,10 @@ class CalendarVC: UIViewController {
 //    @IBOutlet weak var calendarTitleLabel: UILabel!
     @IBOutlet weak var weekDayStack: UIStackView!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
-    @IBOutlet weak var todayTaskTable: UITableView!
+    @IBOutlet weak var scheduleTableView: UITableView!
+
+    // MARK: TodoTask Data Values
+    var subjectData = ["수학 과제", "영어 과제", "수학 4-1"]
     
     // MARK: Calendar Data Values
     private lazy var selectedDate: Date = baseDate
@@ -44,10 +47,12 @@ class CalendarVC: UIViewController {
         self.title = titleDateFormatter.string(from: baseDate)
         
         setDayOfWeekStack()
+        
         calendarCollectionView.register(
             CalendarCell.self,
             forCellWithReuseIdentifier: CalendarCell.reuseIdentifier
         )
+        
         calendarCollectionView.dataSource = self
         calendarCollectionView.delegate  = self
         
@@ -63,21 +68,21 @@ class CalendarVC: UIViewController {
         calendarCollectionView.addGestureRecognizer(nextSwipeGestureRecogniser)
         
         
-        todayTaskTable.delegate = self
-        todayTaskTable.dataSource = self
+        scheduleTableView.delegate = self
+        scheduleTableView.dataSource = self
         setUI()
     }
     
     
     private func setUI() {
-        let tableViewHeader = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        let tableViewHeader = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
         
         let tableViewHeaderLabel = UILabel(frame: tableViewHeader.bounds)
         tableViewHeaderLabel.text = "Today"
-        tableViewHeaderLabel.textAlignment = .center
+        tableViewHeaderLabel.textAlignment = .natural
         tableViewHeader.addSubview(tableViewHeaderLabel)
-        todayTaskTable.tableHeaderView = tableViewHeader
-        todayTaskTable.separatorStyle = .none
+        scheduleTableView.tableHeaderView = tableViewHeader
+        scheduleTableView.separatorStyle = .none
         
         self.view.backgroundColor = .white
         
@@ -324,10 +329,21 @@ extension CalendarVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodayTaskCell") as! TodayTaskCell
         cell.selectionStyle = .none
+        
+        var isFirst: Bool = false
+        var isLast: Bool = false
+        if indexPath.row == 0 {
+            isFirst = true
+        } else if indexPath.row == 2 {
+            isLast = true
+        }
+        cell.configure(isFirst: isFirst, isLast: isLast, subject: subjectData[indexPath.row], detail: "10:20 - 11:20")
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ScheduleVC.instance()
+        self.navigationController?.pushViewController(vc, animated: true)
 //        let vc = ChatRoomVC.instance()
 //        vc.navigationItem.title = chatRooms[indexPath.row]
 //        self.navigationController?.pushViewController(vc, animated: true)
