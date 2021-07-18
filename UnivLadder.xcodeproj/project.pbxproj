@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E50439FE26A41795004D2870 /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50439FD26A41795004D2870 /* ScheduleVC.swift */; };
 		E5043A0026A41D58004D2870 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50439FF26A41D58004D2870 /* ScheduleCell.swift */; };
+		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */; };
 		E56ABEE82647C8A100A45786 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */; };
 		E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		E50439FD26A41795004D2870 /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
 		E50439FF26A41D58004D2870 /* ScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		E5043A0126A4285E004D2870 /* AppColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorSet.swift; sourceTree = "<group>"; };
 		E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListCell.swift; sourceTree = "<group>"; };
 		E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
 		E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */,
 				E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */,
 				E5B38B2D2615EBCC00D4EB5D /* Assets.xcassets */,
+				E5043A0126A4285E004D2870 /* AppColorSet.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				E58E7DFF26761AF50004501B /* Day.swift in Sources */,
 				E5B6CECA269A87AF005D0501 /* UIColorExtension.swift in Sources */,
 				E5B6CED3269A9596005D0501 /* TodayTaskCell.swift in Sources */,
+				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
 				E58E7DFA26761A8E0004501B /* CalendarVC.swift in Sources */,
 				E5F3F97A264710EE00763ADB /* ChatListVC.swift in Sources */,

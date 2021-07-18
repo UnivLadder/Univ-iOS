@@ -21,6 +21,7 @@ class ScheduleVC: UIViewController {
         // Do any additional setup after loading the view.
         scheduleTableView.delegate = self
         scheduleTableView.dataSource = self
+        scheduleTableView.allowsSelection = false
     }
     
 
@@ -42,10 +43,33 @@ extension ScheduleVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleCell
-        cell.selectionStyle = .none
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleCell
+            cell.setSchedule()
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleAlarmCell") as! ScheduleCell
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ParticipantsCell") as! ScheduleCell
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FileCell") as! ScheduleCell
+            cell.setFile()
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! ScheduleCell
+            return cell
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell") as! ScheduleCell
+            return cell
+        default:
+            return UITableViewCell()
+        }
         
-        return cell
+        
+
     }
     
     

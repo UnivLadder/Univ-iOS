@@ -263,8 +263,8 @@
                                                         <constraint firstAttribute="width" constant="16" id="B0c-IQ-hgx"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-C2-9Yc" userLabel="SubjectLabel">
-                                                    <rect key="frame" x="67" y="16.5" width="55.5" height="23.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수학과제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-C2-9Yc" userLabel="SubjectLabel">
+                                                    <rect key="frame" x="67" y="16" width="74" height="24"/>
                                                     <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -276,8 +276,10 @@
                                                         <constraint firstAttribute="height" constant="17" id="nwf-9v-ZF0"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DC-Xt-qUT">
-                                                    <rect key="frame" x="67.5" y="87.5" width="39.5" height="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DC-Xt-qUT">
+                                                    <rect key="frame" x="67.5" y="87.5" width="271" height="13"/>
+                                                    <string key="text">4월 28일 수요일 01:00 pm - 4월 29일 목요일 
+02:00 am</string>
                                                     <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -301,57 +303,193 @@
                                             <outlet property="subjectLabel" destination="Ybj-C2-9Yc" id="wKD-sj-21V"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="SlL-0h-ZWi" customClass="ScheduleCell" customModule="UnivLadder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="160.5" width="414" height="94"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleAlarmCell" rowHeight="148" id="SlL-0h-ZWi" customClass="ScheduleCell" customModule="UnivLadder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="160.5" width="414" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SlL-0h-ZWi" id="NQg-Lz-yOp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bellIcon" translatesAutoresizingMaskIntoConstraints="NO" id="W8u-EL-s1e">
-                                                    <rect key="frame" x="35" y="20" width="16" height="16"/>
+                                                    <rect key="frame" x="35" y="20" width="17" height="17"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="16" id="YF3-rw-jwW"/>
-                                                        <constraint firstAttribute="height" constant="16" id="w76-ha-CqJ"/>
+                                                        <constraint firstAttribute="width" constant="17" id="YF3-rw-jwW"/>
+                                                        <constraint firstAttribute="height" constant="17" id="w76-ha-CqJ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15분 전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUf-VC-QWp">
+                                                    <rect key="frame" x="68" y="22" width="43.5" height="13"/>
+                                                    <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1일 전 알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GE-hn-kY0">
+                                                    <rect key="frame" x="68" y="55" width="63.5" height="62"/>
+                                                    <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5GE-hn-kY0" secondAttribute="bottom" constant="20" id="EhW-kc-5Vt"/>
+                                                <constraint firstItem="W8u-EL-s1e" firstAttribute="top" secondItem="NQg-Lz-yOp" secondAttribute="top" constant="20" id="Gf1-SO-wTz"/>
+                                                <constraint firstItem="5GE-hn-kY0" firstAttribute="leading" secondItem="NUf-VC-QWp" secondAttribute="leading" id="Rpu-vY-QhD"/>
+                                                <constraint firstItem="W8u-EL-s1e" firstAttribute="leading" secondItem="NQg-Lz-yOp" secondAttribute="leading" constant="35" id="XI7-0W-dtB"/>
+                                                <constraint firstItem="NUf-VC-QWp" firstAttribute="centerY" secondItem="W8u-EL-s1e" secondAttribute="centerY" id="cTW-Ys-XSg"/>
+                                                <constraint firstItem="NUf-VC-QWp" firstAttribute="leading" secondItem="W8u-EL-s1e" secondAttribute="trailing" constant="16" id="h7x-L1-EOv"/>
+                                                <constraint firstItem="5GE-hn-kY0" firstAttribute="top" secondItem="NUf-VC-QWp" secondAttribute="bottom" constant="20" id="nbl-OM-38j"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParticipantsCell" rowHeight="145" id="RMb-4y-wi2" customClass="ScheduleCell" customModule="UnivLadder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="308.5" width="414" height="145"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RMb-4y-wi2" id="6GL-i7-aXi">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="145"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="peopleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KKM-0M-AlO">
+                                                    <rect key="frame" x="35" y="20" width="17" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="17" id="fyp-QS-KbB"/>
+                                                        <constraint firstAttribute="height" constant="17" id="qmV-17-V0w"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="참여자 2명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUQ-5u-GoH">
+                                                    <rect key="frame" x="68" y="8" width="62.5" height="41"/>
+                                                    <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="o5d-Wh-TeU">
+                                                    <rect key="frame" x="68" y="69.5" width="56" height="55"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="HQ1-km-kaJ"/>
+                                                        <constraint firstAttribute="width" constant="56" id="rap-9P-RZa"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.2.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DE6-Gk-sxf">
+                                                    <rect key="frame" x="144" y="69.5" width="56" height="55"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="QPQ-cU-2Xa"/>
+                                                        <constraint firstAttribute="width" constant="56" id="YGX-l3-ySS"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="W8u-EL-s1e" firstAttribute="top" secondItem="NQg-Lz-yOp" secondAttribute="top" constant="20" id="Gf1-SO-wTz"/>
-                                                <constraint firstItem="W8u-EL-s1e" firstAttribute="leading" secondItem="NQg-Lz-yOp" secondAttribute="leading" constant="35" id="XI7-0W-dtB"/>
+                                                <constraint firstItem="XUQ-5u-GoH" firstAttribute="leading" secondItem="KKM-0M-AlO" secondAttribute="trailing" constant="16" id="1Bx-5F-q00"/>
+                                                <constraint firstItem="o5d-Wh-TeU" firstAttribute="top" secondItem="XUQ-5u-GoH" secondAttribute="bottom" constant="20" id="1H1-HS-d6h"/>
+                                                <constraint firstItem="KKM-0M-AlO" firstAttribute="leading" secondItem="6GL-i7-aXi" secondAttribute="leading" constant="35" id="LWL-yU-wAn"/>
+                                                <constraint firstItem="o5d-Wh-TeU" firstAttribute="leading" secondItem="XUQ-5u-GoH" secondAttribute="leading" id="Ms5-0J-cTZ"/>
+                                                <constraint firstItem="DE6-Gk-sxf" firstAttribute="centerY" secondItem="o5d-Wh-TeU" secondAttribute="centerY" id="PW4-Nv-Km7"/>
+                                                <constraint firstItem="DE6-Gk-sxf" firstAttribute="leading" secondItem="o5d-Wh-TeU" secondAttribute="trailing" constant="20" id="ZpT-p1-dp2"/>
+                                                <constraint firstItem="XUQ-5u-GoH" firstAttribute="centerY" secondItem="KKM-0M-AlO" secondAttribute="centerY" id="hoe-3K-izB"/>
+                                                <constraint firstItem="KKM-0M-AlO" firstAttribute="top" secondItem="6GL-i7-aXi" secondAttribute="top" constant="20" id="qRW-hh-mPK"/>
+                                                <constraint firstAttribute="bottom" secondItem="o5d-Wh-TeU" secondAttribute="bottom" constant="20" id="vXN-cJ-Owy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="RMb-4y-wi2">
-                                        <rect key="frame" x="0.0" y="254.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RMb-4y-wi2" id="6GL-i7-aXi">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fdX-gv-SoG">
-                                        <rect key="frame" x="0.0" y="298" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FileCell" rowHeight="158" id="fdX-gv-SoG" customClass="ScheduleCell" customModule="UnivLadder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="453.5" width="414" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fdX-gv-SoG" id="uhp-9Z-PuC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="158"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="X1l-lC-nDj">
+                                                    <rect key="frame" x="35" y="20" width="17" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="17" id="IGe-oI-N3l"/>
+                                                        <constraint firstAttribute="height" constant="17" id="oSl-3B-msB"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="첨부파일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qk-8W-rlg">
+                                                    <rect key="frame" x="68" y="0.0" width="50.5" height="57"/>
+                                                    <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWE-ax-10v">
+                                                    <rect key="frame" x="68" y="77" width="291" height="50"/>
+                                                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="KsG-t5-u4Q"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DWE-ax-10v" secondAttribute="bottom" constant="20" id="885-dQ-ikE"/>
+                                                <constraint firstItem="X1l-lC-nDj" firstAttribute="leading" secondItem="uhp-9Z-PuC" secondAttribute="leading" constant="35" id="G7a-g2-7kV"/>
+                                                <constraint firstItem="1qk-8W-rlg" firstAttribute="centerY" secondItem="X1l-lC-nDj" secondAttribute="centerY" id="GgI-Ct-0Dj"/>
+                                                <constraint firstItem="DWE-ax-10v" firstAttribute="leading" secondItem="1qk-8W-rlg" secondAttribute="leading" id="SRC-QO-6jL"/>
+                                                <constraint firstItem="X1l-lC-nDj" firstAttribute="top" secondItem="uhp-9Z-PuC" secondAttribute="top" constant="20" id="WFM-B2-LZ0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DWE-ax-10v" secondAttribute="trailing" constant="35" id="YCx-CF-hnV"/>
+                                                <constraint firstItem="DWE-ax-10v" firstAttribute="top" secondItem="1qk-8W-rlg" secondAttribute="bottom" constant="20" id="iqJ-yp-HHZ"/>
+                                                <constraint firstItem="1qk-8W-rlg" firstAttribute="leading" secondItem="X1l-lC-nDj" secondAttribute="trailing" constant="16" id="wPl-zf-jla"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fileView" destination="DWE-ax-10v" id="Zd1-gG-kTm"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="i3X-Fv-g13">
-                                        <rect key="frame" x="0.0" y="341.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" id="i3X-Fv-g13" customClass="ScheduleCell" customModule="UnivLadder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="611.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i3X-Fv-g13" id="me7-jo-bNf">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Rdk-ct-Wqx">
+                                                    <rect key="frame" x="35" y="20" width="17" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="17" id="Gbl-yI-An4"/>
+                                                        <constraint firstAttribute="height" constant="17" id="os7-Nk-hl0"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mT-z0-lGF">
+                                                    <rect key="frame" x="68" y="22" width="25.5" height="13"/>
+                                                    <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Rdk-ct-Wqx" firstAttribute="top" secondItem="me7-jo-bNf" secondAttribute="top" constant="20" id="E5W-n5-BfU"/>
+                                                <constraint firstItem="7mT-z0-lGF" firstAttribute="centerY" secondItem="Rdk-ct-Wqx" secondAttribute="centerY" id="Fgr-xR-43V"/>
+                                                <constraint firstItem="7mT-z0-lGF" firstAttribute="leading" secondItem="Rdk-ct-Wqx" secondAttribute="trailing" constant="16" id="OBm-Qj-P5c"/>
+                                                <constraint firstItem="Rdk-ct-Wqx" firstAttribute="leading" secondItem="me7-jo-bNf" secondAttribute="leading" constant="35" id="cuM-Sp-MNW"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Uqr-Mz-O4z">
-                                        <rect key="frame" x="0.0" y="385" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MemoCell" rowHeight="111" id="Uqr-Mz-O4z" customClass="ScheduleCell" customModule="UnivLadder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="655" width="414" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uqr-Mz-O4z" id="uR6-hL-5Hl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yLy-AA-BOV">
+                                                    <rect key="frame" x="35" y="20" width="17" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="QKU-YI-c2f"/>
+                                                        <constraint firstAttribute="width" constant="17" id="pz6-71-kPF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 문서, 음성, 동영상 파일 업로드 가능한 종료 정하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x62-U7-5en">
+                                                    <rect key="frame" x="72" y="22" width="292" height="13"/>
+                                                    <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yLy-AA-BOV" firstAttribute="leading" secondItem="uR6-hL-5Hl" secondAttribute="leading" constant="35" id="4v3-ea-ZsF"/>
+                                                <constraint firstItem="yLy-AA-BOV" firstAttribute="top" secondItem="uR6-hL-5Hl" secondAttribute="top" constant="20" id="DqJ-4p-vPq"/>
+                                                <constraint firstItem="x62-U7-5en" firstAttribute="centerY" secondItem="yLy-AA-BOV" secondAttribute="centerY" id="jN4-D5-wAp"/>
+                                                <constraint firstItem="x62-U7-5en" firstAttribute="leading" secondItem="yLy-AA-BOV" secondAttribute="trailing" constant="20" id="lo9-4u-W8C"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -399,6 +537,12 @@
     <resources>
         <image name="bellIcon" width="16" height="15"/>
         <image name="calendar" width="24" height="24.667999267578125"/>
+        <image name="fileIcon" width="21" height="21"/>
+        <image name="locationIcon" width="16" height="20"/>
+        <image name="memoIcon" width="18" height="18"/>
+        <image name="peopleIcon" width="15" height="19"/>
+        <image name="person.2.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="timeIcon" width="17" height="17"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
