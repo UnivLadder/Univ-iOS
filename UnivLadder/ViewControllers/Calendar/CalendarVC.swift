@@ -13,6 +13,7 @@ class CalendarVC: UIViewController {
 //    @IBOutlet weak var calendarTitleLabel: UILabel!
     @IBOutlet weak var weekDayStack: UIStackView!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
+    @IBOutlet weak var plusButton: UIImageView!
     @IBOutlet weak var scheduleTableView: UITableView!
 
     // MARK: TodoTask Data Values
@@ -74,6 +75,7 @@ class CalendarVC: UIViewController {
     }
     
     
+    
     private func setUI() {
         let tableViewHeader = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
         
@@ -88,7 +90,7 @@ class CalendarVC: UIViewController {
         
         self.navigationController?.navigationBar.transparentNavigationBar()
         
-        
+        plusButton.layer.cornerRadius = plusButton.frame.width * 0.5        
     }
     
     

@@ -3,16 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E501A17326F74752004E5954 /* CommunityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501A17226F74752004E5954 /* CommunityVC.swift */; };
 		E50439FE26A41795004D2870 /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50439FD26A41795004D2870 /* ScheduleVC.swift */; };
 		E5043A0026A41D58004D2870 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50439FF26A41D58004D2870 /* ScheduleCell.swift */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */; };
 		E56ABEE82647C8A100A45786 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */; };
 		E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */; };
+		E587B0652712E84800FAD77D /* CommunityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B0642712E84800FAD77D /* CommunityCell.swift */; };
+		E587B0682712E93500FAD77D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E587B0672712E93500FAD77D /* SnapKit */; };
+		E587B06B2712E94100FAD77D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = E587B06A2712E94100FAD77D /* Then */; };
+		E587B06E2712F4CD00FAD77D /* CreateArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B06D2712F4CD00FAD77D /* CreateArticleVC.swift */; };
+		E587B0712712F54D00FAD77D /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B0702712F54D00FAD77D /* MyPageVC.swift */; };
+		E587B0732712F66100FAD77D /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B0722712F66100FAD77D /* MyPageCell.swift */; };
 		E58E7DFA26761A8E0004501B /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E7DF926761A8E0004501B /* CalendarVC.swift */; };
 		E58E7DFC26761AC40004501B /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E7DFB26761AC40004501B /* CalendarCell.swift */; };
 		E58E7DFF26761AF50004501B /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E7DFE26761AF50004501B /* Day.swift */; };
@@ -62,12 +69,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E501A17226F74752004E5954 /* CommunityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityVC.swift; sourceTree = "<group>"; };
 		E50439FD26A41795004D2870 /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
 		E50439FF26A41D58004D2870 /* ScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		E5043A0126A4285E004D2870 /* AppColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorSet.swift; sourceTree = "<group>"; };
 		E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListCell.swift; sourceTree = "<group>"; };
 		E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
 		E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
+		E587B0642712E84800FAD77D /* CommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCell.swift; sourceTree = "<group>"; };
+		E587B06D2712F4CD00FAD77D /* CreateArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateArticleVC.swift; sourceTree = "<group>"; };
+		E587B0702712F54D00FAD77D /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		E587B0722712F66100FAD77D /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
 		E58E7DF926761A8E0004501B /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		E58E7DFB26761AC40004501B /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		E58E7DFE26761AF50004501B /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -110,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E587B0682712E93500FAD77D /* SnapKit in Frameworks */,
+				E587B06B2712E94100FAD77D /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +155,31 @@
 				E5FDFBE3264E775F000269F9 /* GmarketSansMedium.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E501A17126F74681004E5954 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				E501A17226F74752004E5954 /* CommunityVC.swift */,
+				E587B06D2712F4CD00FAD77D /* CreateArticleVC.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		E587B0632712E82D00FAD77D /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				E587B0642712E84800FAD77D /* CommunityCell.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		E587B06F2712F53B00FAD77D /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				E587B0702712F54D00FAD77D /* MyPageVC.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		E58E7DF826761A750004501B /* Calendar */ = {
@@ -216,8 +255,10 @@
 		E5B6CECF269A9562005D0501 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E587B0632712E82D00FAD77D /* Community */,
 				E5B6CED1269A9570005D0501 /* Calendar */,
 				E5B6CED0269A9568005D0501 /* Chat */,
+				E587B0722712F66100FAD77D /* MyPageCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -273,6 +314,8 @@
 		E5F3F91A2647098200763ADB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E587B06F2712F53B00FAD77D /* MyPage */,
+				E501A17126F74681004E5954 /* Community */,
 				E58E7DF826761A750004501B /* Calendar */,
 				E5F3F9702647105400763ADB /* Chat */,
 				E5F3F9712647108100763ADB /* MainTabBarVC.swift */,
@@ -329,6 +372,10 @@
 			dependencies = (
 			);
 			name = UnivLadder;
+			packageProductDependencies = (
+				E587B0672712E93500FAD77D /* SnapKit */,
+				E587B06A2712E94100FAD77D /* Then */,
+			);
 			productName = UnivLadder;
 			productReference = E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */;
 			productType = "com.apple.product-type.application";
@@ -400,6 +447,10 @@
 				Base,
 			);
 			mainGroup = E5B38B152615EBCC00D4EB5D;
+			packageReferences = (
+				E587B0662712E93500FAD77D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E587B0692712E94100FAD77D /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = E5B38B1F2615EBCC00D4EB5D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -466,10 +517,15 @@
 				E5B6CECA269A87AF005D0501 /* UIColorExtension.swift in Sources */,
 				E5B6CED3269A9596005D0501 /* TodayTaskCell.swift in Sources */,
 				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
+				E587B0652712E84800FAD77D /* CommunityCell.swift in Sources */,
+				E501A17326F74752004E5954 /* CommunityVC.swift in Sources */,
+				E587B06E2712F4CD00FAD77D /* CreateArticleVC.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
+				E587B0712712F54D00FAD77D /* MyPageVC.swift in Sources */,
 				E58E7DFA26761A8E0004501B /* CalendarVC.swift in Sources */,
 				E5F3F97A264710EE00763ADB /* ChatListVC.swift in Sources */,
 				E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */,
+				E587B0732712F66100FAD77D /* MyPageCell.swift in Sources */,
 				E5B6CECC269A8808005D0501 /* UINavigationBarExtension.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				E58E7DFC26761AC40004501B /* CalendarCell.swift in Sources */,
@@ -825,6 +881,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E587B0662712E93500FAD77D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		E587B0692712E94100FAD77D /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E587B0672712E93500FAD77D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E587B0662712E93500FAD77D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		E587B06A2712E94100FAD77D /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E587B0692712E94100FAD77D /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */ = {
