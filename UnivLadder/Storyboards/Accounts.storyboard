@@ -1,7 +1,276 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <customFonts key="customFonts">
+        <array key="GmarketSansMedium.otf">
+            <string>GmarketSansMedium</string>
+        </array>
+        <array key="esamanru OTF Medium.otf">
+            <string>esamanruOTFMedium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Accounts Main View Controller-->
+        <scene sceneID="WE6-3q-R0h">
+            <objects>
+                <viewController id="iKF-cV-Kkq" customClass="AccountsMainViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oTj-ii-5Ql">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="이메일" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" disabledBackground="emailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BLi-G2-zE3">
+                                <rect key="frame" x="50" y="349" width="314" height="58"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="RBW-V0-3v3"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반가워요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrC-Tm-tlK">
+                                <rect key="frame" x="50" y="215" width="138.5" height="41"/>
+                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호를 잊어버렸어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgl-3I-rdd">
+                                <rect key="frame" x="123.5" y="797" width="167" height="15"/>
+                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRZ-eV-CwS">
+                                <rect key="frame" x="102.5" y="817" width="209.5" height="29"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정이 없어요? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVH-71-sFH">
+                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="29"/>
+                                        <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd6-Xn-3dr">
+                                        <rect key="frame" x="104.5" y="0.0" width="105" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="105" id="BNZ-TN-vFH"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.42745098039215684" green="0.3529411764705882" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="계정 만들기!">
+                                            <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moveToRegister:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="mX0-hB-BFl"/>
+                                            <segue destination="lUM-qj-M7J" kind="presentation" modalPresentationStyle="fullScreen" id="h7e-of-kDu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="비밀번호" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MyI-2Y-6aw">
+                                <rect key="frame" x="50" y="439" width="314" height="58"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="L8K-gw-Fdy"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlB-XG-dWc">
+                                <rect key="frame" x="50" y="545" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="IP6-xH-gXE"/>
+                                    <constraint firstAttribute="height" constant="22" id="xMm-Jh-l6x"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="checkBox" title=""/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGb-gK-HYi">
+                                <rect key="frame" x="82" y="548" width="81.5" height="16"/>
+                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8h-7T-09z">
+                                <rect key="frame" x="50" y="597" width="314" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kAv-pq-O94"/>
+                                </constraints>
+                                <color key="tintColor" red="0.42745098039215684" green="0.3529411764705882" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="로그인">
+                                    <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
+                                </buttonConfiguration>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="exE-B2-gCH">
+                                <rect key="frame" x="147" y="697" width="120" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ani-da-8ib">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="8Am-i5-WVF"/>
+                                            <constraint firstAttribute="height" constant="50" id="ah6-I3-Jta"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="구글"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGI-L8-tGI">
+                                        <rect key="frame" x="70" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="dOh-sw-ZiZ"/>
+                                            <constraint firstAttribute="height" constant="50" id="mQt-bP-ncB"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="네이버"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잘못된 형식의 이메일입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2a-Lm-9Up">
+                                <rect key="frame" x="60" y="417" width="142" height="14"/>
+                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="12"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호를 다시 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5g-pr-cP9">
+                                <rect key="frame" x="60" y="507" width="153" height="14"/>
+                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="12"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZWP-Gs-2Zu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="exE-B2-gCH" firstAttribute="top" secondItem="a8h-7T-09z" secondAttribute="bottom" constant="50" id="04F-Mm-zCY"/>
+                            <constraint firstItem="W5g-pr-cP9" firstAttribute="top" secondItem="MyI-2Y-6aw" secondAttribute="bottom" constant="10" id="1M9-od-0YP"/>
+                            <constraint firstItem="fgl-3I-rdd" firstAttribute="centerX" secondItem="ZWP-Gs-2Zu" secondAttribute="centerX" id="2G5-kT-WcW"/>
+                            <constraint firstItem="v2a-Lm-9Up" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="60" id="4gh-q2-m40"/>
+                            <constraint firstItem="a8h-7T-09z" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="50" id="5sS-m2-YGT"/>
+                            <constraint firstItem="BLi-G2-zE3" firstAttribute="top" secondItem="ZrC-Tm-tlK" secondAttribute="bottom" constant="93" id="6nM-Yx-ViM"/>
+                            <constraint firstItem="ZWP-Gs-2Zu" firstAttribute="trailing" secondItem="MyI-2Y-6aw" secondAttribute="trailing" constant="50" id="9Pg-IP-AM5"/>
+                            <constraint firstItem="exE-B2-gCH" firstAttribute="centerX" secondItem="ZWP-Gs-2Zu" secondAttribute="centerX" id="CEV-IH-Jz6"/>
+                            <constraint firstItem="v2a-Lm-9Up" firstAttribute="top" secondItem="BLi-G2-zE3" secondAttribute="bottom" constant="10" id="QAa-er-svR"/>
+                            <constraint firstItem="RRZ-eV-CwS" firstAttribute="centerX" secondItem="ZWP-Gs-2Zu" secondAttribute="centerX" id="SlR-as-Z0e"/>
+                            <constraint firstItem="MyI-2Y-6aw" firstAttribute="top" secondItem="BLi-G2-zE3" secondAttribute="bottom" constant="32" id="SwB-WE-QCG"/>
+                            <constraint firstItem="RRZ-eV-CwS" firstAttribute="top" secondItem="fgl-3I-rdd" secondAttribute="bottom" constant="5" id="UYa-yv-3Xg"/>
+                            <constraint firstItem="ZWP-Gs-2Zu" firstAttribute="trailing" secondItem="a8h-7T-09z" secondAttribute="trailing" constant="50" id="VwU-6c-ZYV"/>
+                            <constraint firstItem="fgl-3I-rdd" firstAttribute="top" secondItem="exE-B2-gCH" secondAttribute="bottom" constant="50" id="XHj-el-IwU"/>
+                            <constraint firstItem="MyI-2Y-6aw" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="50" id="dhW-Ul-LtJ"/>
+                            <constraint firstItem="BLi-G2-zE3" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="50" id="gda-b4-Wgq"/>
+                            <constraint firstItem="W5g-pr-cP9" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="60" id="j06-qt-I3c"/>
+                            <constraint firstItem="a8h-7T-09z" firstAttribute="top" secondItem="ZlB-XG-dWc" secondAttribute="bottom" constant="30" id="jIV-cd-2Pj"/>
+                            <constraint firstItem="ZrC-Tm-tlK" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="50" id="nEH-jm-17Y"/>
+                            <constraint firstItem="ZlB-XG-dWc" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="50" id="piH-4p-LaR"/>
+                            <constraint firstItem="ZlB-XG-dWc" firstAttribute="top" secondItem="MyI-2Y-6aw" secondAttribute="bottom" constant="48" id="r51-5a-TKL"/>
+                            <constraint firstItem="RGb-gK-HYi" firstAttribute="centerY" secondItem="ZlB-XG-dWc" secondAttribute="centerY" id="u3l-Ni-qSW"/>
+                            <constraint firstItem="RGb-gK-HYi" firstAttribute="leading" secondItem="ZlB-XG-dWc" secondAttribute="trailing" constant="10" id="uec-Na-3eM"/>
+                            <constraint firstItem="ZrC-Tm-tlK" firstAttribute="top" secondItem="ZWP-Gs-2Zu" secondAttribute="top" constant="171" id="vMb-VZ-xTK"/>
+                            <constraint firstItem="ZWP-Gs-2Zu" firstAttribute="trailing" secondItem="BLi-G2-zE3" secondAttribute="trailing" constant="50" id="vs4-GS-w7m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="autoLoginCheckmark" destination="ZlB-XG-dWc" id="trl-0r-woA"/>
+                        <outlet property="emailErrorLabel" destination="v2a-Lm-9Up" id="v4M-XO-FDe"/>
+                        <outlet property="emailTextField" destination="BLi-G2-zE3" id="KYj-bf-jE5"/>
+                        <outlet property="loginBtn" destination="a8h-7T-09z" id="OJn-33-EWG"/>
+                        <outlet property="passwordErrorLabel" destination="W5g-pr-cP9" id="6EW-IU-6Yn"/>
+                        <outlet property="passwordTextField" destination="MyI-2Y-6aw" id="V4M-Rz-ub1"/>
+                        <outlet property="registerBtn" destination="wd6-Xn-3dr" id="p0N-ty-0B6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BP8-zY-M6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-872" y="-312"/>
+        </scene>
+        <!--Accounts Register View Controller-->
+        <scene sceneID="fTW-cq-GdW">
+            <objects>
+                <viewController id="lUM-qj-M7J" customClass="AccountsRegisterViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cEj-vt-HcL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yw2-Hy-e6a">
+                                <rect key="frame" x="50" y="215" width="129" height="41"/>
+                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호를 잊어버렸어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5y-VF-Edk">
+                                <rect key="frame" x="50" y="270" width="167" height="15"/>
+                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="이메일" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" disabledBackground="emailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="lqs-3R-Fcm">
+                                <rect key="frame" x="50" y="419" width="314" height="58"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="uaK-mn-f6e"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="이메일" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" disabledBackground="emailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NnE-bu-BTB">
+                                <rect key="frame" x="50" y="485" width="314" height="58"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Pbx-BL-bsa"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="이메일" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" disabledBackground="emailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gBK-fh-Vlf">
+                                <rect key="frame" x="50" y="343" width="314" height="58"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="gfT-mj-H8h"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lp9-rE-UDh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s5y-VF-Edk" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="1gP-pg-tFx"/>
+                            <constraint firstItem="Yw2-Hy-e6a" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="9NT-73-C5l"/>
+                            <constraint firstItem="Yw2-Hy-e6a" firstAttribute="top" secondItem="lp9-rE-UDh" secondAttribute="top" constant="171" id="BKB-UM-zNv"/>
+                            <constraint firstItem="gBK-fh-Vlf" firstAttribute="top" secondItem="s5y-VF-Edk" secondAttribute="bottom" constant="58" id="BQY-cS-I58"/>
+                            <constraint firstItem="gBK-fh-Vlf" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="BpZ-Fi-mSn"/>
+                            <constraint firstItem="s5y-VF-Edk" firstAttribute="top" secondItem="Yw2-Hy-e6a" secondAttribute="bottom" constant="14" id="boO-tM-aOb"/>
+                            <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="gBK-fh-Vlf" secondAttribute="trailing" constant="50" id="jNf-wQ-dUo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yOR-dt-T5X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZrK-F4-NpN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-64" y="-312"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkBox" width="23" height="24"/>
+        <image name="emailIcon" width="19" height="14"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
