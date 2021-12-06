@@ -1,5 +1,5 @@
 //
-//  ChatListVC.swift
+//  ChatListViewController.swift
 //  UnivLadder
 //
 //  Created by Ahyeonway on 2021/05/09.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatListVC: UIViewController {
+class ChatListViewController: UIViewController {
 
     @IBOutlet weak var chatRoomListTableView: UITableView!
     
@@ -33,7 +33,7 @@ class ChatListVC: UIViewController {
 
 }
 
-extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
+extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatRooms.count
     }

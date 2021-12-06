@@ -12,89 +12,12 @@
         <!--마이페이지-->
         <scene sceneID="0MV-gN-iVV">
             <objects>
-                <viewController id="NXb-HQ-XxT" customClass="MyPageVC" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageViewController" id="NXb-HQ-XxT" customClass="MyPageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VEf-co-mLu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSw-yb-HBR">
-                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마이페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvM-WQ-1VH">
-                                        <rect key="frame" x="16" y="39.5" width="74" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="zvM-WQ-1VH" firstAttribute="centerY" secondItem="TSw-yb-HBR" secondAttribute="centerY" id="Gjq-ni-M8m"/>
-                                    <constraint firstAttribute="height" constant="100" id="lJj-8N-RGX"/>
-                                    <constraint firstItem="zvM-WQ-1VH" firstAttribute="leading" secondItem="TSw-yb-HBR" secondAttribute="leading" constant="16" id="pmb-oJ-h90"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eJ7-vY-3uX">
-                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyProfileCell" rowHeight="194" id="57z-hb-1On" customClass="MyPageCell" customModule="UnivLadder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="194"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="57z-hb-1On" id="7bZ-0z-Xxl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="194"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김연진님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQS-x6-5Tq">
-                                                    <rect key="frame" x="20" y="108" width="55.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a@a.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZO-NT-wjt">
-                                                    <rect key="frame" x="20" y="135.5" width="56" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Woc-1E-FDL">
-                                                    <rect key="frame" x="20" y="20" width="80" height="80"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="HAS-d3-lKw"/>
-                                                        <constraint firstAttribute="height" constant="80" id="Hut-dj-dGy"/>
-                                                        <constraint firstAttribute="width" constant="80" id="oGs-4L-2nQ"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="x8f-lB-Vsr"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="cQS-x6-5Tq" firstAttribute="top" secondItem="Woc-1E-FDL" secondAttribute="bottom" constant="8" id="5Yg-a6-hih"/>
-                                                <constraint firstItem="Woc-1E-FDL" firstAttribute="top" secondItem="7bZ-0z-Xxl" secondAttribute="top" constant="20" id="GoG-0G-lAf"/>
-                                                <constraint firstItem="Woc-1E-FDL" firstAttribute="leading" secondItem="7bZ-0z-Xxl" secondAttribute="leading" constant="20" id="JQ2-YN-dVX"/>
-                                                <constraint firstItem="cQS-x6-5Tq" firstAttribute="leading" secondItem="Woc-1E-FDL" secondAttribute="leading" id="WOo-81-cAp"/>
-                                                <constraint firstItem="oZO-NT-wjt" firstAttribute="leading" secondItem="Woc-1E-FDL" secondAttribute="leading" id="aSm-Ru-PRz"/>
-                                                <constraint firstItem="oZO-NT-wjt" firstAttribute="top" secondItem="cQS-x6-5Tq" secondAttribute="bottom" constant="8" id="eGD-YD-29V"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="NXb-HQ-XxT" id="Ixh-aP-gZZ"/>
-                                    <outlet property="delegate" destination="NXb-HQ-XxT" id="GKl-Jh-BOI"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Jze-o7-WNM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="TSw-yb-HBR" firstAttribute="leading" secondItem="Jze-o7-WNM" secondAttribute="leading" id="2en-MM-sJF"/>
-                            <constraint firstItem="Jze-o7-WNM" firstAttribute="trailing" secondItem="eJ7-vY-3uX" secondAttribute="trailing" id="Lp5-A8-o6Z"/>
-                            <constraint firstItem="TSw-yb-HBR" firstAttribute="top" secondItem="Jze-o7-WNM" secondAttribute="top" id="P4B-W5-lBm"/>
-                            <constraint firstItem="Jze-o7-WNM" firstAttribute="bottom" secondItem="eJ7-vY-3uX" secondAttribute="bottom" id="YdC-Q1-gM0"/>
-                            <constraint firstItem="Jze-o7-WNM" firstAttribute="trailing" secondItem="TSw-yb-HBR" secondAttribute="trailing" id="bIx-aW-L83"/>
-                            <constraint firstItem="eJ7-vY-3uX" firstAttribute="top" secondItem="TSw-yb-HBR" secondAttribute="bottom" id="cr8-86-ZSB"/>
-                            <constraint firstItem="eJ7-vY-3uX" firstAttribute="leading" secondItem="Jze-o7-WNM" secondAttribute="leading" id="emn-cD-3CJ"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="마이페이지" image="person.fill" catalog="system" id="otj-Od-niL"/>
                 </viewController>

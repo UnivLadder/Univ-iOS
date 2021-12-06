@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P0I-FC-k9W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P0I-FC-k9W">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Tab BarVC-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="5Ff-vy-ePF">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="P0I-FC-k9W" customClass="MainTabBarVC" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="P0I-FC-k9W" customClass="MainTabBarViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S8y-M6-Zoh">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -19,8 +20,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="ile-80-Vhq" kind="relationship" relationship="viewControllers" id="Xhc-mW-wU1"/>
-                        <segue destination="uCl-cd-CBA" kind="relationship" relationship="viewControllers" id="WJv-y5-cmZ"/>
-                        <segue destination="8lg-Xn-U8g" kind="relationship" relationship="viewControllers" id="jg4-Ph-ELk"/>
                         <segue destination="8CB-Gd-Xpe" kind="relationship" relationship="viewControllers" id="ZoF-g6-n54"/>
                         <segue destination="QRf-l5-6KT" kind="relationship" relationship="viewControllers" id="UV9-H2-axv"/>
                     </connections>
@@ -29,35 +28,15 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="121.875"/>
         </scene>
-        <!--Calendar-->
-        <scene sceneID="g2G-7f-8HG">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Calendar" id="uCl-cd-CBA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="캘린더" image="calendar" catalog="system" id="w5P-yw-yk3"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H0R-wr-d8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-710" y="957"/>
-        </scene>
-        <!--Home-->
+        <!--MentoList-->
         <scene sceneID="aFv-Ib-cyr">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="ile-80-Vhq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MentoList" id="ile-80-Vhq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="홈" image="house.fill" catalog="system" id="kBx-rn-MGv"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwC-pX-07V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1343" y="881"/>
-        </scene>
-        <!--Community-->
-        <scene sceneID="ux6-fa-Cyg">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Community" id="8lg-Xn-U8g" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="커뮤니티" image="person.3.fill" catalog="system" id="Vsg-XM-bqc"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xrq-gK-UwR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="138" y="957"/>
         </scene>
         <!--Chat-->
         <scene sceneID="JQZ-6f-8KC">
@@ -67,7 +46,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VpD-7i-CTP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="957"/>
+            <point key="canvasLocation" x="79" y="976"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="bux-e8-e6I">
@@ -81,10 +60,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="ellipsis.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>
 </document>
