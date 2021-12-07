@@ -9,7 +9,11 @@ import UIKit
 
 class ChatListViewController: UIViewController {
 
-    @IBOutlet weak var chatRoomListTableView: UITableView!
+    @IBOutlet weak var chatRoomListTableView: UITableView! {
+        didSet {
+            chatRoomListTableView.rowHeight = UITableView.automaticDimension
+        }
+    }
     
     let chatRooms = ["클라라", "클라리", "클러리"]
     
@@ -38,11 +42,6 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         return chatRooms.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatRoomCell") as! ChatRoomListCell
         cell.selectionStyle = .none
@@ -50,11 +49,14 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = ChatRoomVC.instance()
+        let vc = ChatRoomViewController.instance()
         vc.navigationItem.title = chatRooms[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
 }

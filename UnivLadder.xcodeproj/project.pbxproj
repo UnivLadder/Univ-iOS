@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
+		E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5576B04275E27DC002BF041 /* ConstantManager.swift */; };
 		E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */; };
-		E56ABEE82647C8A100A45786 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */; };
+		E56ABEE82647C8A100A45786 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */; };
 		E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */; };
 		E587B0682712E93500FAD77D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E587B0672712E93500FAD77D /* SnapKit */; };
 		E587B06B2712E94100FAD77D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = E587B06A2712E94100FAD77D /* Then */; };
@@ -60,8 +61,9 @@
 
 /* Begin PBXFileReference section */
 		E5043A0126A4285E004D2870 /* AppColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorSet.swift; sourceTree = "<group>"; };
+		E5576B04275E27DC002BF041 /* ConstantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantManager.swift; sourceTree = "<group>"; };
 		E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListCell.swift; sourceTree = "<group>"; };
-		E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
+		E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		E56ABEEC2647CC0D00A45786 /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
 		E587B0702712F54D00FAD77D /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		E587B0722712F66100FAD77D /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				E58D4B5F275DF339009CF08D /* ThemeManager.swift */,
+				E5576B04275E27DC002BF041 /* ConstantManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -289,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				E5F3F979264710EE00763ADB /* ChatListViewController.swift */,
-				E56ABEE72647C8A100A45786 /* ChatRoomVC.swift */,
+				E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -442,11 +445,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E56ABEE82647C8A100A45786 /* ChatRoomVC.swift in Sources */,
+				E56ABEE82647C8A100A45786 /* ChatRoomViewController.swift in Sources */,
 				E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */,
 				E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */,
 				E56ABEED2647CC0D00A45786 /* ChatBubbleCell.swift in Sources */,
 				E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */,
+				E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */,
 				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
 				E587B0712712F54D00FAD77D /* MyPageViewController.swift in Sources */,
