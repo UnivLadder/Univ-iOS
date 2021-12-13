@@ -12,7 +12,7 @@
         <!--마이페이지-->
         <scene sceneID="0MV-gN-iVV">
             <objects>
-                <viewController storyboardIdentifier="MyPageViewController" id="NXb-HQ-XxT" customClass="MyPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageViewController" id="NXb-HQ-XxT" customClass="MyPageViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VEf-co-mLu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

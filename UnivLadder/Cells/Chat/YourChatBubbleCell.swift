@@ -1,5 +1,5 @@
 //
-//  ChatBubbleCell.swift
+//  YourChatBubbleCell.swift
 //  UnivLadder
 //
 //  Created by Ahyeonway on 2021/05/09.
@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ChatBubbleCell: UITableViewCell {
-
+class YourChatBubbleCell: UITableViewCell {
+    static let identifier: String = "YourChatBubbleCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -22,7 +22,6 @@ class ChatListViewController: UIViewController {
 
         chatRoomListTableView.delegate = self
         chatRoomListTableView.dataSource = self
-        
         setUI()
     }
     

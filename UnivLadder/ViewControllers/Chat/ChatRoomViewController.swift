@@ -26,7 +26,7 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var inputBackgroundView: UIView! {
         didSet {
             inputBackgroundView.layer.cornerRadius = Constant.cornerRadius
-            inputBackgroundView.backgroundColor = Theme.lightGrayBackgroundColor
+            inputBackgroundView.backgroundColor = Theme.light500
             
         }
     }
@@ -41,7 +41,7 @@ class ChatRoomViewController: UIViewController {
         didSet {
             textView.backgroundColor = .clear
             textView.text = "메시지를 입력해주세요"
-            textView.textColor = Theme.inputLabelColor
+            textView.textColor = Theme.label1Color
         }
     }
     @IBOutlet weak var sendButton: UIButton! {
@@ -60,19 +60,19 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var cameraView: UIView! {
         didSet {
             cameraView.layer.cornerRadius = cameraView.frame.width / 2
-            cameraView.backgroundColor = Theme.lightGrayBackgroundColor
+            cameraView.backgroundColor = Theme.light500
         }
     }
     @IBOutlet weak var galleryView: UIView! {
         didSet {
             galleryView.layer.cornerRadius = galleryView.frame.width / 2
-            galleryView.backgroundColor = Theme.lightGrayBackgroundColor
+            galleryView.backgroundColor = Theme.light500
         }
     }
     @IBOutlet weak var documentView: UIView! {
         didSet {
             documentView.layer.cornerRadius = documentView.frame.width / 2
-            documentView.backgroundColor = Theme.lightGrayBackgroundColor
+            documentView.backgroundColor = Theme.light500
         }
     }
     @IBOutlet weak var cameraButton: UIButton! {
@@ -99,6 +99,7 @@ class ChatRoomViewController: UIViewController {
         chatBubbleTableView.dataSource = self
         
         chatBubbleTableView.separatorStyle = .none
+
     }
 }
 
@@ -111,7 +112,10 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row % 2 == 0 {
             
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyBubble", for: indexPath) as! ChatBubbleCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: YourChatBubbleCell.identifier, for: indexPath) as? YourChatBubbleCell else {
+            return UITableViewCell()
+        }
+        
         cell.selectionStyle = .none
         return cell
     }
