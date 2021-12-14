@@ -41,7 +41,7 @@ class ChatRoomViewController: UIViewController {
         didSet {
             textView.backgroundColor = .clear
             textView.text = "메시지를 입력해주세요"
-            textView.textColor = Theme.label1Color
+            textView.textColor = Theme.text1000
         }
     }
     @IBOutlet weak var sendButton: UIButton! {
@@ -59,19 +59,19 @@ class ChatRoomViewController: UIViewController {
     
     @IBOutlet weak var cameraView: UIView! {
         didSet {
-            cameraView.layer.cornerRadius = cameraView.frame.width / 2
+            cameraView.layer.cornerRadius = cameraView.bounds.width / 2
             cameraView.backgroundColor = Theme.light500
         }
     }
     @IBOutlet weak var galleryView: UIView! {
         didSet {
-            galleryView.layer.cornerRadius = galleryView.frame.width / 2
+            galleryView.layer.cornerRadius = galleryView.bounds.width / 2
             galleryView.backgroundColor = Theme.light500
         }
     }
     @IBOutlet weak var documentView: UIView! {
         didSet {
-            documentView.layer.cornerRadius = documentView.frame.width / 2
+            documentView.layer.cornerRadius = documentView.bounds.width / 2
             documentView.backgroundColor = Theme.light500
         }
     }
@@ -109,9 +109,6 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0 {
-            
-        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: YourChatBubbleCell.identifier, for: indexPath) as? YourChatBubbleCell else {
             return UITableViewCell()
         }
@@ -129,7 +126,8 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
 extension ChatRoomViewController {
     @objc func expandButtonClicked(_ sender: UIButton) {
         isExpanded.toggle()
-        UIView.animate(withDuration: 0.3, delay: 0, options: .overrideInheritedCurve) {
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
             self.buttonStackView.isHidden = !self.isExpanded
         }
     }

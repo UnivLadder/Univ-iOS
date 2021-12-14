@@ -10,6 +10,36 @@ import UIKit
 class YourChatBubbleCell: UITableViewCell {
     static let identifier: String = "YourChatBubbleCell"
     
+    @IBOutlet weak var profileImageView: UIImageView! {
+        didSet {
+            profileImageView.backgroundColor = Theme.light500
+            profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+        }
+    }
+//
+    @IBOutlet weak var bubbleView: UIView! {
+        didSet {
+            bubbleView.backgroundColor = Theme.light300
+            bubbleView.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet weak var bubbleLabel: UILabel! {
+        didSet {
+            bubbleLabel.textColor = Theme.labelColor
+            bubbleLabel.font = Theme.esamanru14Light
+            bubbleLabel.text = "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트"
+            
+        }
+    }
+    
+    @IBOutlet weak var timeLabel: UILabel! {
+        didSet {
+            timeLabel.textColor = Theme.text1000
+            timeLabel.font = Theme.gmarketSans12Medium
+            timeLabel.text = "12:30"
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

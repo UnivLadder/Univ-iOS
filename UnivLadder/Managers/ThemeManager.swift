@@ -25,11 +25,10 @@ struct Theme {
     static var text300 = UIColor(hex: "#ABAAB1")
     static var text400 = UIColor(hex: "#89888E")
     
-    
-    static var label1Color = UIColor(hex: "##ABAFB3")
-    static var label2Color = UIColor(hex: "#ABAAB1")
+    static var text1000 = UIColor(hex: "##ABAFB3")
     
     // light
+    static var light300 = UIColor(hex: "#F8F8F8")
     static var light500 = UIColor(hex: "#F4F4F4")
 }
 
@@ -40,8 +39,14 @@ extension Theme {
     static var esamanru13Light: UIFont {
         return UIFont(name: "esamanruOTFLight", size: 13)!
     }
+    static var esamanru14Light: UIFont {
+        return UIFont(name: "esamanruOTFLight", size: 14)!
+    }
     static var esamanru16Medium: UIFont {
         return UIFont(name: "esamanruOTFMedium", size: 16)!
+    }
+    static var gmarketSans12Medium: UIFont {
+        return UIFont(name: "GmarketSansMedium", size: 12)!
     }
 }
 
