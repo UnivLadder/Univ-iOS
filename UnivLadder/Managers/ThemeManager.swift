@@ -14,18 +14,22 @@ struct Theme {
     
     static var backgroundColor = UIColor.systemBackground
     
-    // red500
+    // red
     static var red500 = UIColor(hex: "#FB3030")
     
-    // textColor
+    // text
     static var labelColor = UIColor.label
     static var whiteColor = UIColor.white
     static var text100 = UIColor(hex: "#DFDEE4")
     static var text200 = UIColor(hex: "#C6C5CD")
     static var text300 = UIColor(hex: "#ABAAB1")
     static var text400 = UIColor(hex: "#89888E")
-    
-    static var text1000 = UIColor(hex: "##ABAFB3")
+    static var text500 = UIColor(hex: "#5E5D65")
+    static var text600 = UIColor(hex: "#454354")
+    static var text700 = UIColor(hex: "#302E43")
+    static var text800 = UIColor(hex: "#252339")
+    static var text900 = UIColor(hex: "#191632")
+    static var text1000 = UIColor(hex: "#ABAFB3")
     
     // light
     static var light300 = UIColor(hex: "#F8F8F8")
@@ -35,6 +39,9 @@ struct Theme {
 extension Theme {
     static var numberFont: UIFont {
         return UIFont(name: "Helvetica", size: 13)!
+    }
+    static var esamanru11Light: UIFont {
+        return UIFont(name: "esamanruOTFLight", size: 11)!
     }
     static var esamanru13Light: UIFont {
         return UIFont(name: "esamanruOTFLight", size: 13)!

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
+		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
 		E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5576B04275E27DC002BF041 /* ConstantManager.swift */; };
 		E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */; };
 		E56ABEE82647C8A100A45786 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		E5043A0126A4285E004D2870 /* AppColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorSet.swift; sourceTree = "<group>"; };
+		E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatBubbleCell.swift; sourceTree = "<group>"; };
 		E5576B04275E27DC002BF041 /* ConstantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantManager.swift; sourceTree = "<group>"; };
 		E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListCell.swift; sourceTree = "<group>"; };
 		E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				E56ABEEC2647CC0D00A45786 /* YourChatBubbleCell.swift */,
 				E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */,
+				E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */,
 				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
+				E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */,
 				E587B0712712F54D00FAD77D /* MyPageViewController.swift in Sources */,
 				E5F3F97A264710EE00763ADB /* ChatListViewController.swift in Sources */,
 				E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */,

@@ -13,9 +13,15 @@ class ChatRoomViewController: UIViewController {
         let vc = UIStoryboard.init(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
         return vc
     }
-    let data: [String] = ["안녕", "하하하하"]
+    let data: [String] = Array(repeating: "test", count: 10)
 
-    var isExpanded: Bool = false
+    var isExpanded: Bool = false {
+        didSet {
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+                self.buttonStackView.isHidden = !self.isExpanded
+            }
+        }
+    }
     
     @IBOutlet weak var chatBubbleTableView: UITableView! {
         didSet {
@@ -63,16 +69,40 @@ class ChatRoomViewController: UIViewController {
             cameraView.backgroundColor = Theme.light500
         }
     }
+    @IBOutlet weak var cameraButtonTitle: UILabel! {
+        didSet {
+            cameraButtonTitle.text = "카메라"
+            cameraButtonTitle.textAlignment = .center
+            cameraButtonTitle.textColor = Theme.text900
+            cameraButtonTitle.font = Theme.esamanru11Light
+        }
+    }
     @IBOutlet weak var galleryView: UIView! {
         didSet {
             galleryView.layer.cornerRadius = galleryView.bounds.width / 2
             galleryView.backgroundColor = Theme.light500
         }
     }
+    @IBOutlet weak var galleryButtonTitle: UILabel! {
+        didSet {
+            galleryButtonTitle.text = "앨범"
+            galleryButtonTitle.textAlignment = .center
+            galleryButtonTitle.textColor = Theme.text900
+            galleryButtonTitle.font = Theme.esamanru11Light
+        }
+    }
     @IBOutlet weak var documentView: UIView! {
         didSet {
             documentView.layer.cornerRadius = documentView.bounds.width / 2
             documentView.backgroundColor = Theme.light500
+        }
+    }
+    @IBOutlet weak var documentButtonTitle: UILabel! {
+        didSet {
+            documentButtonTitle.text = "파일"
+            documentButtonTitle.textAlignment = .center
+            documentButtonTitle.textColor = Theme.text900
+            documentButtonTitle.font = Theme.esamanru11Light
         }
     }
     @IBOutlet weak var cameraButton: UIButton! {
@@ -103,12 +133,29 @@ class ChatRoomViewController: UIViewController {
     }
 }
 
+extension ChatRoomViewController {
+    
+}
+
+
 extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if data.count == 0 {
+            setEmptyMessage()
+        } else {
+            restore()
+        }
         return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row % 2 == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChatBubbleCell.identifier, for: indexPath) as? MyChatBubbleCell else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            return cell
+        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: YourChatBubbleCell.identifier, for: indexPath) as? YourChatBubbleCell else {
             return UITableViewCell()
         }
@@ -121,14 +168,25 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableView.automaticDimension
     }
     
+    func setEmptyMessage() {
+        let imageView = UIImageView(image: UIImage(named: "emptybubble"))
+
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.frame = CGRect(x: view.frame.midX-75, y: view.frame.midY-175, width: 150, height: 150)
+        let tableViewBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: chatBubbleTableView.bounds.size.width, height: chatBubbleTableView.bounds.size.height))
+        tableViewBackgroundView.addSubview(imageView)
+        
+        chatBubbleTableView.backgroundView = tableViewBackgroundView
+    }
+
+    func restore() {
+        chatBubbleTableView.backgroundView = nil
+    }
+    
 }
 
 extension ChatRoomViewController {
     @objc func expandButtonClicked(_ sender: UIButton) {
         isExpanded.toggle()
-        
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
-            self.buttonStackView.isHidden = !self.isExpanded
-        }
     }
 }
