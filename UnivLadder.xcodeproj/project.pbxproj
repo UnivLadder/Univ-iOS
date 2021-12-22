@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AE927730E21009DF75A /* AccountsMainViewController.swift */; };
+		68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */; };
+		68442AEF27730E2F009DF75A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEE27730E2F009DF75A /* UserModel.swift */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
 		E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5576B04275E27DC002BF041 /* ConstantManager.swift */; };
@@ -61,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		68442AE927730E21009DF75A /* AccountsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsMainViewController.swift; sourceTree = "<group>"; };
+		68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsRegisterViewController.swift; sourceTree = "<group>"; };
+		68442AEE27730E2F009DF75A /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E5043A0126A4285E004D2870 /* AppColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorSet.swift; sourceTree = "<group>"; };
 		E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatBubbleCell.swift; sourceTree = "<group>"; };
 		E5576B04275E27DC002BF041 /* ConstantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantManager.swift; sourceTree = "<group>"; };
@@ -141,6 +147,24 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		68442AE827730E21009DF75A /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				68442AE927730E21009DF75A /* AccountsMainViewController.swift */,
+				68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */,
+			);
+			name = Accounts;
+			path = ViewControllers/Accounts;
+			sourceTree = "<group>";
+		};
+		68442AED27730E2F009DF75A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				68442AEE27730E2F009DF75A /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,9 +204,10 @@
 		E5B38B202615EBCC00D4EB5D /* UnivLadder */ = {
 			isa = PBXGroup;
 			children = (
+				68442AED27730E2F009DF75A /* Models */,
+				68442AE827730E21009DF75A /* Accounts */,
 				E5B6CECF269A9562005D0501 /* Cells */,
 				E5F3F91D264709B300763ADB /* Extensions */,
-				E5F3F91C264709AC00763ADB /* Models */,
 				E5F3F91B264709A600763ADB /* Managers */,
 				E5F3F91A2647098200763ADB /* ViewControllers */,
 				E5F3F9192647097800763ADB /* Storyboards */,
@@ -273,13 +298,6 @@
 				E5576B04275E27DC002BF041 /* ConstantManager.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		E5F3F91C264709AC00763ADB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		E5F3F91D264709B300763ADB /* Extensions */ = {
@@ -450,6 +468,7 @@
 			files = (
 				E56ABEE82647C8A100A45786 /* ChatRoomViewController.swift in Sources */,
 				E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */,
+				68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */,
 				E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */,
 				E56ABEED2647CC0D00A45786 /* YourChatBubbleCell.swift in Sources */,
 				E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */,
@@ -462,8 +481,10 @@
 				E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */,
 				E587B0732712F66100FAD77D /* MyPageCell.swift in Sources */,
 				E5B6CECC269A8808005D0501 /* UINavigationBar+Extension.swift in Sources */,
+				68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
+				68442AEF27730E2F009DF75A /* UserModel.swift in Sources */,
 				E58D4B63275DF3F1009CF08D /* MentoListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,7 +678,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25WJPJB95F;
+				DEVELOPMENT_TEAM = W832C4SNYD;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -676,7 +697,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25WJPJB95F;
+				DEVELOPMENT_TEAM = W832C4SNYD;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
