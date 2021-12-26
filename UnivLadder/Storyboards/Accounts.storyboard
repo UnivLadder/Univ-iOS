@@ -253,29 +253,34 @@
                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-0t-gM5">
-                                <rect key="frame" x="50" y="528" width="161" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="161" id="QAw-Io-bvX"/>
-                                    <constraint firstAttribute="height" constant="58" id="awo-6x-7qb"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="남성">
-                                    <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEE-O2-2n0">
-                                <rect key="frame" x="203" y="528" width="161" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="161" id="lDj-Qp-f04"/>
-                                    <constraint firstAttribute="height" constant="58" id="lNL-CU-IsP"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="여성">
-                                    <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwx-yw-fVb">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sbR-zW-5Ze">
+                                <rect key="frame" x="50" y="528" width="314" height="58"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-0t-gM5">
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="58"/>
+                                        <color key="backgroundColor" red="0.60412872969999998" green="0.72533008450000003" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="58" id="awo-6x-7qb"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="남성">
+                                            <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEE-O2-2n0">
+                                        <rect key="frame" x="162" y="0.0" width="152" height="58"/>
+                                        <color key="backgroundColor" red="0.60412872969999998" green="0.72533008450000003" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="58" id="lNL-CU-IsP"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="여성">
+                                            <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwx-yw-fVb">
                                 <rect key="frame" x="50" y="618" width="314" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6Mf-Ud-XSd"/>
@@ -289,7 +294,7 @@
                                     <action selector="loginCheck:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="Dzq-cN-glJ"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-97-Bko">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-97-Bko">
                                 <rect key="frame" x="109.5" y="700" width="195.5" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미 계정이 있어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFJ-mM-7t2">
@@ -316,26 +321,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="s5y-VF-Edk" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="1gP-pg-tFx"/>
-                            <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="XEE-O2-2n0" secondAttribute="trailing" constant="50" id="3Wq-kU-L9m"/>
-                            <constraint firstItem="Xhe-0t-gM5" firstAttribute="top" secondItem="NnE-bu-BTB" secondAttribute="bottom" constant="32" id="3dL-cg-E7B"/>
-                            <constraint firstItem="hwx-yw-fVb" firstAttribute="top" secondItem="Xhe-0t-gM5" secondAttribute="bottom" constant="32" id="6nD-lq-ouf"/>
                             <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="hwx-yw-fVb" secondAttribute="trailing" constant="50" id="7Wy-zA-X9p"/>
                             <constraint firstItem="Yw2-Hy-e6a" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="9NT-73-C5l"/>
                             <constraint firstItem="hwx-yw-fVb" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="AeA-xL-eir"/>
                             <constraint firstItem="Yw2-Hy-e6a" firstAttribute="top" secondItem="lp9-rE-UDh" secondAttribute="top" constant="130" id="BKB-UM-zNv"/>
                             <constraint firstItem="gBK-fh-Vlf" firstAttribute="top" secondItem="s5y-VF-Edk" secondAttribute="bottom" constant="58" id="BQY-cS-I58"/>
                             <constraint firstItem="gBK-fh-Vlf" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="BpZ-Fi-mSn"/>
-                            <constraint firstItem="Xhe-0t-gM5" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="Ceh-1X-9Oy"/>
                             <constraint firstItem="WzI-97-Bko" firstAttribute="centerX" secondItem="lp9-rE-UDh" secondAttribute="centerX" id="Ci0-fC-Jvu"/>
+                            <constraint firstItem="sbR-zW-5Ze" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="FIn-SO-rbK"/>
                             <constraint firstItem="WzI-97-Bko" firstAttribute="top" secondItem="hwx-yw-fVb" secondAttribute="bottom" constant="32" id="Hb2-AJ-Uq6"/>
+                            <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="sbR-zW-5Ze" secondAttribute="trailing" constant="50" id="MtQ-b7-yya"/>
                             <constraint firstItem="lqs-3R-Fcm" firstAttribute="top" secondItem="gBK-fh-Vlf" secondAttribute="bottom" constant="32" id="Pqq-ZN-0wm"/>
-                            <constraint firstItem="XEE-O2-2n0" firstAttribute="top" secondItem="NnE-bu-BTB" secondAttribute="bottom" constant="32" id="W2y-Fz-wOl"/>
                             <constraint firstItem="s5y-VF-Edk" firstAttribute="top" secondItem="Yw2-Hy-e6a" secondAttribute="bottom" constant="14" id="boO-tM-aOb"/>
                             <constraint firstItem="lqs-3R-Fcm" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="gBQ-g3-EOj"/>
                             <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="gBK-fh-Vlf" secondAttribute="trailing" constant="50" id="jNf-wQ-dUo"/>
                             <constraint firstItem="NnE-bu-BTB" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="50" id="oZL-dl-g0Y"/>
                             <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="lqs-3R-Fcm" secondAttribute="trailing" constant="50" id="srW-Y0-PKu"/>
                             <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="NnE-bu-BTB" secondAttribute="trailing" constant="50" id="vm9-1B-j4q"/>
+                            <constraint firstItem="sbR-zW-5Ze" firstAttribute="top" secondItem="NnE-bu-BTB" secondAttribute="bottom" constant="32" id="yZv-83-lPS"/>
                             <constraint firstItem="NnE-bu-BTB" firstAttribute="top" secondItem="lqs-3R-Fcm" secondAttribute="bottom" constant="32" id="zyl-RX-4GG"/>
                         </constraints>
                     </view>
@@ -347,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZrK-F4-NpN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-64" y="-312"/>
+            <point key="canvasLocation" x="-65.217391304347828" y="-312.05357142857139"/>
         </scene>
     </scenes>
     <resources>

@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import AuthenticationServices
 
-class AccountsMainViewController: UIViewController {
+class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
+
+    
     
     var userModel = UserModel() // 인스턴스 생성
     
@@ -127,13 +130,47 @@ class AccountsMainViewController: UIViewController {
     
     //애플 소셜 로그인
     @IBAction func appleLogin(_ sender: Any) {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+            
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
     }
     
+    // Apple ID 연동 성공 시
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        // Apple ID
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                
+            // 계정 정보 가져오기
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+                
+            print("User ID : \(userIdentifier)")
+            print("User Email : \(email ?? "")")
+            print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
+     
+        default:
+            break
+        }
+    }
+        
+    // Apple ID 연동 실패 시
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        // Handle error.
+    }
     @IBAction func moveToRegist(_ sender: Any) {
         performSegue(withIdentifier: "toRegist", sender: nil)
     }
-    
-    
 }
 
 class DesignableUITextField: UITextField {
@@ -176,4 +213,6 @@ class DesignableUITextField: UITextField {
         // Placeholder text color
         attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: color])
     }
+    
+
 }
