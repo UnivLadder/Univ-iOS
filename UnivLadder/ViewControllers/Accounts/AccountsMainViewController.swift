@@ -8,8 +8,8 @@
 import UIKit
 import AuthenticationServices
 
-class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
-
+class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate {
+    
     
     
     var userModel = UserModel() // 인스턴스 생성
@@ -131,13 +131,13 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
-            
+        
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
-
+    
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
@@ -145,23 +145,23 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     // Apple ID 연동 성공 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
-        // Apple ID
+            // Apple ID
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                
+            
             // 계정 정보 가져오기
             let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
             let email = appleIDCredential.email
-                
+            
             print("User ID : \(userIdentifier)")
             print("User Email : \(email ?? "")")
             print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
-     
+            
         default:
             break
         }
     }
-        
+    
     // Apple ID 연동 실패 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
@@ -170,6 +170,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         performSegue(withIdentifier: "toRegist", sender: nil)
     }
     
+    // MARK: - View Components
     func viewComponents(){
         let imageView = UIImageView();
         let image = UIImage(named: "emailIcon.png");
@@ -178,6 +179,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         emailErrorLabel.isHidden = true
         passwordErrorLabel.isHidden = true
         
+        //로그인 버튼
         googleSignInBtn.layer.borderWidth = 1
         googleSignInBtn.layer.borderColor = UIColor.black.cgColor
         googleSignInBtn.layer.cornerRadius = 10
@@ -185,13 +187,58 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         appleSingInBtn.layer.borderWidth = 1
         appleSingInBtn.layer.borderColor = UIColor.black.cgColor
         appleSingInBtn.layer.cornerRadius = 10
-  
+        
+        //텍스트필드
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        emailTextField.clearsOnBeginEditing = true
+        passwordTextField.clearsOnBeginEditing = true
+        self.emailTextField.addTarget(self, action: #selector(self.textFieldDidChange1(_:)), for: .editingChanged)
+        self.passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange2(_:)), for: .editingChanged)
+        
+//        emailTextField.addleftimage(image: UIImage(named: "emailIcon.png")!)
+        
+        //키패드 제어
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        
+        
+    }
+    //키보드 올라갔다는 알림을 받으면 실행되는 메서드
+    @objc func keyboardWillShow(_ sender:Notification){
+        self.view.frame.origin.y = -80
+    }
+    //키보드 내려갔다는 알림을 받으면 실행되는 메서드
+    @objc func keyboardWillHide(_ sender:Notification){
+        self.view.frame.origin.y = 0
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
+    //텍스트필드 값 변경 감지
+    @objc func textFieldDidChange1(_ sender: Any?) {
+        emailTextField.clearsOnBeginEditing = false
+    }
+    @objc func textFieldDidChange2(_ sender: Any?) {
+        passwordTextField.clearsOnBeginEditing = false
     }
 }
 
-//TextField Designable 생성
+
 @IBDesignable
 class DesignableUITextField: UITextField {
+    
     // Provides left padding for images
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         var textRect = super.leftViewRect(forBounds: bounds)
