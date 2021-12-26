@@ -24,15 +24,12 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     
+    @IBOutlet weak var googleSignInBtn: UIButton!
+    @IBOutlet weak var appleSingInBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageView = UIImageView();
-        let image = UIImage(named: "emailIcon.png");
-        imageView.image = image;
-        emailTextField.leftView = imageView;
-        
-        emailErrorLabel.isHidden = true
-        passwordErrorLabel.isHidden = true
+        self.viewComponents()
     }
     //로그인 구현
     //1. 자체 로그인 2.구글 소셜 로그인 3.애플 소셜 로그인
@@ -126,6 +123,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     //구글 소셜 로그인
     @IBAction func googleLogin(_ sender: Any) {
+        
     }
     
     //애플 소셜 로그인
@@ -171,10 +169,29 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     @IBAction func moveToRegist(_ sender: Any) {
         performSegue(withIdentifier: "toRegist", sender: nil)
     }
+    
+    func viewComponents(){
+        let imageView = UIImageView();
+        let image = UIImage(named: "emailIcon.png");
+        imageView.image = image;
+        emailTextField.leftView = imageView;
+        emailErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+        
+        googleSignInBtn.layer.borderWidth = 1
+        googleSignInBtn.layer.borderColor = UIColor.black.cgColor
+        googleSignInBtn.layer.cornerRadius = 10
+        
+        appleSingInBtn.layer.borderWidth = 1
+        appleSingInBtn.layer.borderColor = UIColor.black.cgColor
+        appleSingInBtn.layer.cornerRadius = 10
+  
+    }
 }
 
+//TextField Designable 생성
+@IBDesignable
 class DesignableUITextField: UITextField {
-    
     // Provides left padding for images
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         var textRect = super.leftViewRect(forBounds: bounds)
@@ -202,7 +219,6 @@ class DesignableUITextField: UITextField {
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
             imageView.contentMode = .scaleAspectFit
             imageView.image = image
-            // Note: In order for your image to use the tint color, you have to select the image in the Assets.xcassets and change the "Render As" property to "Template Image".
             imageView.tintColor = color
             leftView = imageView
         } else {
@@ -213,6 +229,4 @@ class DesignableUITextField: UITextField {
         // Placeholder text color
         attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: color])
     }
-    
-
 }
