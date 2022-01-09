@@ -7,30 +7,32 @@
 
 import UIKit
 import AuthenticationServices
+import GoogleSignIn
 
 class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate {
     
-    
-    
     var userModel = UserModel() // 인스턴스 생성
+    
+    let logInError: Int = 0
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordErrorLabel: UILabel!
-    @IBOutlet weak var autoLoginCheckmark: UIButton!
+    @IBOutlet weak var autoLogInCheckmark: UIButton!
     
-    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var logInBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     
-    @IBOutlet weak var googleSignInBtn: UIButton!
-    @IBOutlet weak var appleSingInBtn: UIButton!
+    @IBOutlet weak var googleLogInBtn: UIButton!
+    @IBOutlet weak var appleLogInBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewComponents()
     }
+    
     //로그인 구현
     //1. 자체 로그인 2.구글 소셜 로그인 3.애플 소셜 로그인
     
@@ -38,7 +40,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     //    "username" : "sign-in@gmail.com",
     //    "password" : "password"
     //텍스트에 이모티콘 넣기
-    @IBAction func loginCheck(_ sender: Any) {
+    @IBAction func logInCheck(_ sender: Any) {
         // 옵셔널 바인딩 & 예외 처리 : Textfield가 빈문자열이 아니고, nil이 아닐 때
         guard let email = emailTextField.text, !email.isEmpty else { return }
         guard let password = passwordTextField.text, !password.isEmpty else { return }
@@ -46,7 +48,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         // 이메일 형식 오류
         if userModel.isValidEmail(id: email){
             //nil 처리 추가
-            //            emailErrorLabel.text = " "
+            //emailErrorLabel.text = " "
             if let removable = self.view.viewWithTag(100) {
                 removable.removeFromSuperview()
             }
@@ -74,8 +76,8 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         }
         
         if userModel.isValidEmail(id: email) && userModel.isValidPassword(pwd: password) {
-            let loginSuccess: Bool = loginCheck(id: email, pwd: password)
-            if loginSuccess {
+            let logInSuccess: Bool = logInCheck(id: email, pwd: password)
+            if logInSuccess {
                 print("로그인 성공")
                 if let removable = self.view.viewWithTag(102) {
                     removable.removeFromSuperview()
@@ -86,18 +88,18 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                 print("로그인 실패")
                 shakeTextField(textField: emailTextField)
                 shakeTextField(textField: passwordTextField)
-                let loginFailLabel = UILabel(frame: CGRect(x: 68, y: 510, width: 279, height: 45))
-                loginFailLabel.text = "비밀번호를 다시 입력해주세요."
-                loginFailLabel.textColor = UIColor.red
-                loginFailLabel.tag = 102
+                let logInFailLabel = UILabel(frame: CGRect(x: 68, y: 510, width: 279, height: 45))
+                logInFailLabel.text = "비밀번호를 다시 입력해주세요."
+                logInFailLabel.textColor = UIColor.red
+                logInFailLabel.tag = 102
                 
-                self.view.addSubview(loginFailLabel)
+                self.view.addSubview(logInFailLabel)
             }
         }
     }
     
     // 로그인 method
-    func loginCheck(id: String, pwd: String) -> Bool {
+    func logInCheck(id: String, pwd: String) -> Bool {
         for user in userModel.users {
             if user.username == id && user.password == pwd {
                 return true // 로그인 성공
@@ -120,14 +122,32 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             })
         })
     }
-    
     //구글 소셜 로그인
-    @IBAction func googleLogin(_ sender: Any) {
-        
+    @IBAction func googleLogInAction(_ sender: Any) {
+        // OAuth 2.0 클라이언트 ID
+        let signInConfig = GIDConfiguration.init(clientID: "895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com")
+
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+          guard error == nil else { return }
+            guard let user = user else { return }
+            
+            guard let accessToken = user.authentication.idToken, let name = user.profile?.name else {
+                        print("Error : User Data Not Found"); return }
+            print("Google accessToken : \(accessToken)")
+            
+//            let emailAddress = user.profile?.email
+//            let fullName = user.profile?.name
+//            let givenName = user.profile?.givenName
+//            let familyName = user.profile?.familyName
+//            let profilePicUrl = user.profile?.imageURL(withDimension: 320)
+
+          // If sign in succeeded, display the app's main content View.
+        }
     }
+
     
     //애플 소셜 로그인
-    @IBAction func appleLogin(_ sender: Any) {
+    @IBAction func appleLogIn(_ sender: Any) {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -152,19 +172,38 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
             let email = appleIDCredential.email
+            // accessToken (Data -> 아스키 인코딩 -> 스트링)
+            let accessToken = String(data: appleIDCredential.identityToken!, encoding: .ascii) ?? ""
             
             print("User ID : \(userIdentifier)")
             print("User Email : \(email ?? "")")
             print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
+            print("Token Value : \(accessToken)")
             
         default:
             break
         }
     }
     
-    // Apple ID 연동 실패 시
+    // Apple ID 연동 실패 시 - 에러코드 정제 필요
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error)
+        
+        
+        let alert = UIAlertController()
+        alert.title = "ERROR"
+        
         // Handle error.
+        switch logInError{
+            // 버전이 13.0 미만인 경우
+        case 1:
+            alert.message = "애플 로그인은 iOS 13.0 이상부터 가능합니다."
+        default:
+            alert.message = "\(error)"
+            break
+        }
+
+
     }
     @IBAction func moveToRegist(_ sender: Any) {
         performSegue(withIdentifier: "toRegist", sender: nil)
@@ -180,13 +219,13 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         passwordErrorLabel.isHidden = true
         
         //로그인 버튼
-        googleSignInBtn.layer.borderWidth = 1
-        googleSignInBtn.layer.borderColor = UIColor.black.cgColor
-        googleSignInBtn.layer.cornerRadius = 10
+        googleLogInBtn.layer.borderWidth = 1
+        googleLogInBtn.layer.borderColor = UIColor.black.cgColor
+        googleLogInBtn.layer.cornerRadius = 10
         
-        appleSingInBtn.layer.borderWidth = 1
-        appleSingInBtn.layer.borderColor = UIColor.black.cgColor
-        appleSingInBtn.layer.cornerRadius = 10
+        appleLogInBtn.layer.borderWidth = 1
+        appleLogInBtn.layer.borderColor = UIColor.black.cgColor
+        appleLogInBtn.layer.cornerRadius = 10
         
         //텍스트필드
         emailTextField.delegate = self
@@ -196,7 +235,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         self.emailTextField.addTarget(self, action: #selector(self.textFieldDidChange1(_:)), for: .editingChanged)
         self.passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange2(_:)), for: .editingChanged)
         
-//        emailTextField.addleftimage(image: UIImage(named: "emailIcon.png")!)
+        //        emailTextField.addleftimage(image: UIImage(named: "emailIcon.png")!)
         
         //키패드 제어
         NotificationCenter.default.addObserver(self,

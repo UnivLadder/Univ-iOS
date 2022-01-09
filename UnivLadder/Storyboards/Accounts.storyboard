@@ -122,7 +122,7 @@
                                     <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="loginCheck:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="0OK-NP-WWV"/>
+                                    <action selector="logInCheck:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="0PQ-Sy-9ve"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="exE-B2-gCH">
@@ -139,7 +139,7 @@
                                             <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="googleLogin:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="G8o-k1-iuE"/>
+                                            <action selector="googleLogInAction:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="4Fr-1L-tZk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGI-L8-tGI">
@@ -156,7 +156,7 @@
                                             <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="appleLogin:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="S78-5s-v33"/>
+                                            <action selector="appleLogIn:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="pMT-Cd-aum"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -211,14 +211,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="appleSingInBtn" destination="fGI-L8-tGI" id="g1O-Pg-WrH"/>
-                        <outlet property="autoLoginCheckmark" destination="ZlB-XG-dWc" id="trl-0r-woA"/>
+                        <outlet property="appleLogInBtn" destination="fGI-L8-tGI" id="Brk-Z2-60P"/>
+                        <outlet property="autoLogInCheckmark" destination="ZlB-XG-dWc" id="hGp-Jf-UHZ"/>
                         <outlet property="emailErrorLabel" destination="Mlh-2w-ZYG" id="eEK-a1-dq6"/>
                         <outlet property="emailTextField" destination="BLi-G2-zE3" id="KYj-bf-jE5"/>
-                        <outlet property="googleSignInBtn" destination="ani-da-8ib" id="qsN-tt-Ub3"/>
-                        <outlet property="loginBtn" destination="a8h-7T-09z" id="OJn-33-EWG"/>
+                        <outlet property="googleLogInBtn" destination="ani-da-8ib" id="nef-cz-sOT"/>
+                        <outlet property="logInBtn" destination="a8h-7T-09z" id="E3F-aK-jMw"/>
                         <outlet property="passwordErrorLabel" destination="MVg-rp-52B" id="JaV-oT-0My"/>
                         <outlet property="passwordTextField" destination="MyI-2Y-6aw" id="V4M-Rz-ub1"/>
+                        <outlet property="registerBtn" destination="wd6-Xn-3dr" id="mGe-40-ewn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BP8-zY-M6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -234,19 +235,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yw2-Hy-e6a">
-                                <rect key="frame" x="50" y="110" width="121.5" height="41"/>
+                                <rect key="frame" x="50" y="110" width="129" height="41"/>
                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 계정을 만들어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5y-VF-Edk">
-                                <rect key="frame" x="50" y="165" width="142.5" height="17.5"/>
+                                <rect key="frame" x="50" y="165" width="157" height="15"/>
                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="이메일" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" disabledBackground="emailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="lqs-3R-Fcm">
-                                <rect key="frame" x="50" y="330.5" width="314" height="58"/>
+                                <rect key="frame" x="50" y="328" width="314" height="58"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="uaK-mn-f6e"/>
@@ -256,7 +257,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="비밀번호" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" disabledBackground="emailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NnE-bu-BTB">
-                                <rect key="frame" x="50" y="420.5" width="314" height="58"/>
+                                <rect key="frame" x="50" y="418" width="314" height="58"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="Pbx-BL-bsa"/>
@@ -266,7 +267,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="성명" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" disabledBackground="emailIcon" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="gBK-fh-Vlf">
-                                <rect key="frame" x="50" y="240.5" width="314" height="58"/>
+                                <rect key="frame" x="50" y="238" width="314" height="58"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="gfT-mj-H8h"/>
@@ -276,7 +277,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sbR-zW-5Ze">
-                                <rect key="frame" x="50" y="510.5" width="314" height="58"/>
+                                <rect key="frame" x="50" y="508" width="314" height="58"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-0t-gM5">
                                         <rect key="frame" x="0.0" y="0.0" width="152" height="58"/>
@@ -303,7 +304,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwx-yw-fVb">
-                                <rect key="frame" x="50" y="600.5" width="314" height="50"/>
+                                <rect key="frame" x="50" y="598" width="314" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6Mf-Ud-XSd"/>
                                 </constraints>
@@ -312,21 +313,18 @@
                                 <buttonConfiguration key="configuration" style="filled" title="다음">
                                     <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="loginCheck:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="Dzq-cN-glJ"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-97-Bko">
-                                <rect key="frame" x="117.5" y="682.5" width="179.5" height="31.5"/>
+                                <rect key="frame" x="109.5" y="680" width="195.5" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미 계정이 있어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFJ-mM-7t2">
-                                        <rect key="frame" x="0.0" y="0.0" width="116.5" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="29"/>
                                         <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ju3-Ky-WIx">
-                                        <rect key="frame" x="116.5" y="0.0" width="63" height="31.5"/>
+                                        <rect key="frame" x="128" y="0.0" width="67.5" height="29"/>
                                         <color key="tintColor" red="0.42745098040000001" green="0.35294117650000001" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="로그인">
