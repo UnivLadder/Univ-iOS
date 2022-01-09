@@ -130,17 +130,11 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
           guard error == nil else { return }
             guard let user = user else { return }
             
-            guard let accessToken = user.authentication.idToken, let name = user.profile?.name else {
+            guard let accessToken = user.authentication.idToken, let _ = user.profile?.name else {
                         print("Error : User Data Not Found"); return }
-            print("Google accessToken : \(accessToken)")
             
-//            let emailAddress = user.profile?.email
-//            let fullName = user.profile?.name
-//            let givenName = user.profile?.givenName
-//            let familyName = user.profile?.familyName
-//            let profilePicUrl = user.profile?.imageURL(withDimension: 320)
+            print("Google accessToken : \(accessToken)")
 
-          // If sign in succeeded, display the app's main content View.
         }
     }
 

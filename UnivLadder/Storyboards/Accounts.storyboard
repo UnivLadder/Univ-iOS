@@ -313,6 +313,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="다음">
                                     <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="registerCompleteAction:" destination="lUM-qj-M7J" eventType="touchUpInside" id="iNa-VF-Bdl"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-97-Bko">
                                 <rect key="frame" x="109.5" y="680" width="195.5" height="29"/>
@@ -331,6 +334,7 @@
                                             <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="backBtnAction:" destination="lUM-qj-M7J" eventType="touchUpInside" id="Mz5-Ak-QuJ"/>
                                             <action selector="moveToRegist:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="xvw-u7-Hrv"/>
                                         </connections>
                                     </button>
@@ -365,8 +369,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="yOR-dt-T5X"/>
                     <connections>
+                        <outlet property="backBtn" destination="Ju3-Ky-WIx" id="HI5-z2-TUF"/>
                         <outlet property="femaleBtn" destination="XEE-O2-2n0" id="aDG-qy-9BJ"/>
                         <outlet property="maleBtn" destination="Xhe-0t-gM5" id="Boe-p7-AmM"/>
+                        <outlet property="nextBtn" destination="hwx-yw-fVb" id="w2x-aM-4B2"/>
+                        <outlet property="registerEmail" destination="lqs-3R-Fcm" id="TFc-pv-sSV"/>
+                        <outlet property="registerName" destination="gBK-fh-Vlf" id="qfy-fo-WMd"/>
+                        <outlet property="registerPassword" destination="NnE-bu-BTB" id="2tH-Zw-f4W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZrK-F4-NpN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -376,10 +385,10 @@
     </scenes>
     <designables>
         <designable name="BLi-G2-zE3">
-            <size key="intrinsicContentSize" width="98" height="34"/>
+            <size key="intrinsicContentSize" width="72" height="34"/>
         </designable>
         <designable name="MyI-2Y-6aw">
-            <size key="intrinsicContentSize" width="108" height="34"/>
+            <size key="intrinsicContentSize" width="86" height="34"/>
         </designable>
     </designables>
     <resources>

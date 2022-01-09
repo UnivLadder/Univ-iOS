@@ -10,10 +10,14 @@ import AuthenticationServices
 
 class AccountsRegisterViewController: UIViewController {
     
-    
+    @IBOutlet weak var registerName: UITextField!
+    @IBOutlet weak var registerEmail: UITextField!
+    @IBOutlet weak var registerPassword: UITextField!
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
     
+    @IBOutlet weak var backBtn: UIButton!
     
     //회원가입
     //1. 자체 회원가입
@@ -35,6 +39,22 @@ class AccountsRegisterViewController: UIViewController {
         femaleBtn.layer.borderWidth = 1
         femaleBtn.layer.borderColor = UIColor.black.cgColor
         femaleBtn.layer.cornerRadius = 10
+    }
+    
+    //입력받은 값들 확인
+    
+    
+    //회원가입 완료
+    
+    @IBAction func registerCompleteAction(_ sender: Any) {
+        //서버 전송
+        //
+        //완료 후 Main 화면 전환
+    }
+    
+    //다시 로그인 화면으로
+    @IBAction func backBtnAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
