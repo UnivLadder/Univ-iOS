@@ -126,7 +126,6 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     @IBAction func googleLogInAction(_ sender: Any) {
         // OAuth 2.0 클라이언트 ID
         let signInConfig = GIDConfiguration.init(clientID: "895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com")
-
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
           guard error == nil else { return }
             guard let user = user else { return }

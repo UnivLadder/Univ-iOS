@@ -9,6 +9,7 @@ target 'UnivLadder' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'Alamofire'
 
   target 'UnivLadderTests' do
     inherit! :search_paths
