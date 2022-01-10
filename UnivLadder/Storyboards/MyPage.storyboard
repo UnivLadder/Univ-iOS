@@ -16,8 +16,38 @@
                     <view key="view" contentMode="scaleToFill" id="VEf-co-mLu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nUD-Ai-sUn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="304" id="Oh7-cK-6Tv">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="304"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oh7-cK-6Tv" id="6Zd-VD-TcS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="304"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="155" id="dIs-ga-uIT">
+                                        <rect key="frame" x="0.0" y="348.5" width="414" height="155"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dIs-ga-uIT" id="KT8-t7-fnv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Jze-o7-WNM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jze-o7-WNM" firstAttribute="bottom" secondItem="nUD-Ai-sUn" secondAttribute="bottom" id="4jn-jj-gjG"/>
+                            <constraint firstItem="nUD-Ai-sUn" firstAttribute="top" secondItem="Jze-o7-WNM" secondAttribute="top" id="79W-dh-8If"/>
+                            <constraint firstItem="nUD-Ai-sUn" firstAttribute="leading" secondItem="Jze-o7-WNM" secondAttribute="leading" id="OMn-Vs-kJk"/>
+                            <constraint firstItem="Jze-o7-WNM" firstAttribute="trailing" secondItem="nUD-Ai-sUn" secondAttribute="trailing" id="oZq-Pk-XNw"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="마이페이지" image="person.fill" catalog="system" id="otj-Od-niL"/>
                 </viewController>
