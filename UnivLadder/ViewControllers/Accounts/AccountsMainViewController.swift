@@ -78,6 +78,8 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         if userModel.isValidEmail(id: email) && userModel.isValidPassword(pwd: password) {
             let logInSuccess: Bool = logInCheck(id: email, pwd: password)
             if logInSuccess {
+                //자체 로그인 api
+
                 print("로그인 성공")
                 if let removable = self.view.viewWithTag(102) {
                     removable.removeFromSuperview()
@@ -96,6 +98,9 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                 self.view.addSubview(logInFailLabel)
             }
         }
+        
+        
+        
     }
     
     // 로그인 method
@@ -133,6 +138,9 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             guard let accessToken = user.authentication.idToken, let _ = user.profile?.name else {
                         print("Error : User Data Not Found"); return }
             
+            LoginDataModel.token = accessToken
+            // google login post
+            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "google")
             print("Google accessToken : \(accessToken)")
 
         }
@@ -167,11 +175,15 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             let email = appleIDCredential.email
             // accessToken (Data -> 아스키 인코딩 -> 스트링)
             let accessToken = String(data: appleIDCredential.identityToken!, encoding: .ascii) ?? ""
-            
+            LoginDataModel.token = accessToken
+
             print("User ID : \(userIdentifier)")
             print("User Email : \(email ?? "")")
             print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
             print("Token Value : \(accessToken)")
+            
+            // apple login post
+            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "apple")
             
         default:
             break
