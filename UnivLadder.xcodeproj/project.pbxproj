@@ -194,8 +194,8 @@
 		68442AED27730E2F009DF75A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				68442AEE27730E2F009DF75A /* UserModel.swift */,
 				68D4385127942FA80082BE11 /* Config.swift */,
+				68442AEE27730E2F009DF75A /* UserModel.swift */,
 				68B27C89279D610C0064D1DD /* LoginDataModel.swift */,
 			);
 			path = Models;
