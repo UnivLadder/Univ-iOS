@@ -130,7 +130,7 @@ class AccountsRegisterViewController: UIViewController {
         //        ]
         
         let registeParam: Parameters = [
-            "email" : "lxxyeon43@gmail.com",
+            "email" : "test4@gmail.com",
             "password" : "PASSWORD",
             "name" : "이연",
             "thumbnail" : "THUMBNAIL",

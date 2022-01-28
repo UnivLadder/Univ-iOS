@@ -18,6 +18,7 @@ class APIService {
             switch response.result {
             case .success:
                 if let data = try! response.result.get() as? [String: Any] {
+//                    print(Config.baseURL+"sign-up")
                     print(data)
                 }
             case .failure(let error):
