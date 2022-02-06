@@ -29,18 +29,22 @@ class APIService {
     }
     
     //자체 로그인
-    func signin(param: Parameters) {
+    func signin(param: Parameters){
         AF.request(Config.baseURL+"sign-in", method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
             switch response.result {
             case .success:
                 if let data = try! response.result.get() as? [String: Any] {
                     print(data)
+                    DummyData.resultDummy = data
                 }
+                break
             case .failure(let error):
                 print("Error: \(error)")
-                return
+                break
             }
         }
+        
+        
     }
     
     //소셜 로그인 - 애플, 구글

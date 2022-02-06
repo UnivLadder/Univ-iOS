@@ -8,7 +8,7 @@
 import UIKit
 import AuthenticationServices
 import Alamofire
-import Alamofire
+
 class AccountsRegisterViewController: UIViewController {
     
     var userModel = UserModel() // 인스턴스 생성
@@ -146,7 +146,7 @@ class AccountsRegisterViewController: UIViewController {
     }
     
     // TextField 흔들기 애니메이션
-    func shakeTextField(textField: UITextField) -> Void{
+    func shakeTextField(textField: UITextField){
         UIView.animate(withDuration: 0.2, animations: {
             textField.frame.origin.x -= 10
         }, completion: { _ in
