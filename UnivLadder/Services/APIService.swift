@@ -12,6 +12,8 @@ class APIService {
     
     static let shared = APIService()
     
+    var accessToken: String = ""
+    
     //회원가입
     func signup(param: Parameters) {
         AF.request(Config.baseURL+"sign-up", method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
@@ -29,18 +31,25 @@ class APIService {
     }
     
     //자체 로그인
-    func signin(param: Parameters) {
+    func signin(param: Parameters){
         AF.request(Config.baseURL+"sign-in", method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
             switch response.result {
             case .success:
                 if let data = try! response.result.get() as? [String: Any] {
-                    print(data)
+//                    print(String(describing: data["accessToken"]!))
+//                    LoginDataModel.token = String(describing: data["accessToken"]!)
+                    self.accessToken = String(describing: data["accessToken"]!)
+                    
                 }
+                
+                break
             case .failure(let error):
                 print("Error: \(error)")
-                return
+                break
             }
         }
+        
+        
     }
     
     //소셜 로그인 - 애플, 구글
