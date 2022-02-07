@@ -44,7 +44,8 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     @IBAction func signInAction(_ sender: Any) {
         //dummydata Test
         APIService.shared.signin(param: DummyData.singInDummy)
-        if (DummyData.resultDummy["accessToken"] != nil){
+        
+        if (APIService.shared.accessToken != nil){
             print("로그인 성공")
         }else{
             print("로그인 실패")

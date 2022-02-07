@@ -12,6 +12,8 @@ class APIService {
     
     static let shared = APIService()
     
+    var accessToken: String = ""
+    
     //회원가입
     func signup(param: Parameters) {
         AF.request(Config.baseURL+"sign-up", method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
@@ -34,9 +36,12 @@ class APIService {
             switch response.result {
             case .success:
                 if let data = try! response.result.get() as? [String: Any] {
-                    print(data)
-                    DummyData.resultDummy = data
+//                    print(String(describing: data["accessToken"]!))
+//                    LoginDataModel.token = String(describing: data["accessToken"]!)
+                    self.accessToken = String(describing: data["accessToken"]!)
+                    
                 }
+                
                 break
             case .failure(let error):
                 print("Error: \(error)")
