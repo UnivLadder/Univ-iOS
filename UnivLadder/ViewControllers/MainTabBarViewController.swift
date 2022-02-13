@@ -24,8 +24,11 @@ enum TabBarItem: Int {
     }
 }
 
-class MainTabBarViewController: UITabBarController {
+class MainTabBarViewController: UITabBarController, StoryboardInitializable {
 
+    static var storyboardID: String = "MainTabBarViewController"
+    static var storyboardName: String = "Main"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +38,7 @@ class MainTabBarViewController: UITabBarController {
         
         tabBar.items?[TabBarItem.Chat.rawValue].title = TabBarItem.Chat.description
         tabBar.items?[TabBarItem.MyPage.rawValue].title = TabBarItem.MyPage.description
+        
     }
 
 }
