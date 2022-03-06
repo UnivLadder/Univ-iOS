@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		05530B779783DA6910A9FF70 /* Pods_UnivLadderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A5156E50B644F53E6E3798 /* Pods_UnivLadderTests.framework */; };
 		20C14BFCBEC865BD59606B18 /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25770B4DA5ADDFA30CE1E8CF /* Pods_UnivLadder_UnivLadderUITests.framework */; };
-		31F58457134B5A9D1D289197 /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39736B6678CB074D50AD0C1F /* Pods_UnivLadder.framework */; };
 		68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AE927730E21009DF75A /* AccountsMainViewController.swift */; };
 		68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */; };
 		68442AEF27730E2F009DF75A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEE27730E2F009DF75A /* UserModel.swift */; };
@@ -17,6 +16,9 @@
 		6864B288278AFE3C00CE80FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864B287278AFE3C00CE80FE /* APIService.swift */; };
 		689C759D27AFD80E00C04978 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C759C27AFD80E00C04978 /* DummyData.swift */; };
 		68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B27C89279D610C0064D1DD /* LoginDataModel.swift */; };
+		68C31D1F27D4ADEA00A044B8 /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39736B6678CB074D50AD0C1F /* Pods_UnivLadder.framework */; };
+		68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */; };
+		68C42AF427D4C50400CE9E38 /* AccountModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */; };
 		68D4385227942FA80082BE11 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4385127942FA80082BE11 /* Config.swift */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
@@ -85,6 +87,8 @@
 		6864B287278AFE3C00CE80FE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		689C759C27AFD80E00C04978 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		68B27C89279D610C0064D1DD /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
+		68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterViewController.swift; sourceTree = "<group>"; };
+		68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyViewController.swift; sourceTree = "<group>"; };
 		68D4385127942FA80082BE11 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		68F06FA927782576008A9511 /* UnivLadder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnivLadder.entitlements; sourceTree = "<group>"; };
 		97A5156E50B644F53E6E3798 /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +145,7 @@
 			files = (
 				E587B0682712E93500FAD77D /* SnapKit in Frameworks */,
 				E587B06B2712E94100FAD77D /* Then in Frameworks */,
-				31F58457134B5A9D1D289197 /* Pods_UnivLadder.framework in Frameworks */,
+				68C31D1F27D4ADEA00A044B8 /* Pods_UnivLadder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,9 +196,9 @@
 			children = (
 				68442AE927730E21009DF75A /* AccountsMainViewController.swift */,
 				68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */,
+				68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */,
 			);
-			name = Accounts;
-			path = ViewControllers/Accounts;
+			path = Accounts;
 			sourceTree = "<group>";
 		};
 		68442AED27730E2F009DF75A /* Models */ = {
@@ -259,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */,
+				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
 			);
 			path = MentoList;
 			sourceTree = "<group>";
@@ -289,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				E57A31BA27B902DA00276D7F /* Utils */,
-				68442AE827730E21009DF75A /* Accounts */,
 				E5B6CECF269A9562005D0501 /* Cells */,
 				68442AED27730E2F009DF75A /* Models */,
 				6864B286278AFE0600CE80FE /* Services */,
@@ -360,8 +364,8 @@
 				E5F3F9622647102800763ADB /* Chat.storyboard */,
 				E5F3F95126470FFC00763ADB /* MentoList.storyboard */,
 				E5B38B272615EBCC00D4EB5D /* Main.storyboard */,
-				E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */,
 				E5F3F92526470B4800763ADB /* Accounts.storyboard */,
+				E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -369,6 +373,7 @@
 		E5F3F91A2647098200763ADB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				68442AE827730E21009DF75A /* Accounts */,
 				E58D4B61275DF3D2009CF08D /* MentoList */,
 				E587B06F2712F53B00FAD77D /* MyPage */,
 				E5F3F9702647105400763ADB /* Chat */,
@@ -674,6 +679,7 @@
 				68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */,
 				E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */,
 				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
+				68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
 				E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */,
 				E57A31B927B900DF00276D7F /* UIViewController+Extension.swift in Sources */,
@@ -685,6 +691,7 @@
 				E5B6CECC269A8808005D0501 /* UINavigationBar+Extension.swift in Sources */,
 				68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
+				68C42AF427D4C50400CE9E38 /* AccountModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
 				68442AEF27730E2F009DF75A /* UserModel.swift in Sources */,
 				E58D4B63275DF3F1009CF08D /* MentoListViewController.swift in Sources */,

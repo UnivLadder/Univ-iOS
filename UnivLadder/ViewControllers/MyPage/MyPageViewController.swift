@@ -8,12 +8,34 @@
 import UIKit
 
 class MyPageViewController: UIViewController {
-
+    @IBOutlet weak var MyPageTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.transparentNavigationBar()
+        self.navigationItem.title = ""  
         // Do any additional setup after loading the view.
     }
     
+    
 
+}
+extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageCell") as! MyPageCell
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 170
+        }else {
+            return 100
+        }
+    }
 }
