@@ -54,6 +54,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         
         if (APIService.shared.accessToken != nil){
             print("로그인 성공")
+            UIViewController.changeRootViewControllerToHome()
         }else{
             print("로그인 실패")
         }
