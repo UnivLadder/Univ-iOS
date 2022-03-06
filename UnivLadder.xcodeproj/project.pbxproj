@@ -19,6 +19,7 @@
 		68C31D1F27D4ADEA00A044B8 /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39736B6678CB074D50AD0C1F /* Pods_UnivLadder.framework */; };
 		68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */; };
 		68C42AF427D4C50400CE9E38 /* AccountModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */; };
+		68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */; };
 		68D4385227942FA80082BE11 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4385127942FA80082BE11 /* Config.swift */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
@@ -89,6 +90,7 @@
 		68B27C89279D610C0064D1DD /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterViewController.swift; sourceTree = "<group>"; };
 		68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyViewController.swift; sourceTree = "<group>"; };
+		68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		68D4385127942FA80082BE11 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		68F06FA927782576008A9511 /* UnivLadder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnivLadder.entitlements; sourceTree = "<group>"; };
 		97A5156E50B644F53E6E3798 /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +222,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		68C42AF727D4CEF600CE9E38 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */,
+				E587B0722712F66100FAD77D /* MyPageCell.swift */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
 		6C6576DBF1AEC189ACCCF05A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
+				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -263,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */,
-				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
 			);
 			path = MentoList;
 			sourceTree = "<group>";
@@ -326,8 +337,8 @@
 		E5B6CECF269A9562005D0501 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				68C42AF727D4CEF600CE9E38 /* Accounts */,
 				E5B6CED0269A9568005D0501 /* Chat */,
-				E587B0722712F66100FAD77D /* MyPageCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -693,6 +704,7 @@
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				68C42AF427D4C50400CE9E38 /* AccountModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
+				68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */,
 				68442AEF27730E2F009DF75A /* UserModel.swift in Sources */,
 				E58D4B63275DF3F1009CF08D /* MentoListViewController.swift in Sources */,
 			);
