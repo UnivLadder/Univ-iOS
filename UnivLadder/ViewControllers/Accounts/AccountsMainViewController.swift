@@ -34,6 +34,13 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         self.viewComponents()
     }
     
+    
+    func saveUserInfoInUserDefaults(){
+//        UserDefaults.standard.setValue(id, forKey: "id")
+//        UserDefaults.standard.setValue(password, forKey: "password")
+    }
+
+
     //로그인 구현
     //1. 자체 로그인 2.구글 소셜 로그인 3.애플 소셜 로그인
     
@@ -206,7 +213,6 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             LoginDataModel.token = accessToken
             
             print("User ID : \(userIdentifier)")
-            print("User Email : \(email ?? "")")
             print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
             print("Token Value : \(accessToken)")
             
