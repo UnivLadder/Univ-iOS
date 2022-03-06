@@ -171,23 +171,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="어떤 분야의 과외를 진행하실 수 있나요? " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zaX-pb-jWm">
-                                <rect key="frame" x="10" y="74" width="394" height="77"/>
+                                <rect key="frame" x="10" y="49" width="394" height="77"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="77" id="6Cj-a7-Ip5"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세부적인 과목은 마이페이지에서 설정해주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghf-51-EHC">
-                                <rect key="frame" x="15" y="156" width="306" height="15"/>
-                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="15" y="131" width="285" height="15"/>
+                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DMi-Dy-cfg">
-                                <rect key="frame" x="10" y="181" width="394" height="601"/>
+                                <rect key="frame" x="10" y="186" width="394" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7gL-Mf-Hyb">
                                     <size key="itemSize" width="128" height="128"/>
@@ -203,14 +203,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fs-cv-GDi">
-                                                    <rect key="frame" x="43" y="54" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fs-cv-GDi">
+                                                    <rect key="frame" x="45.5" y="55" width="37.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0Fs-cv-GDi" firstAttribute="centerY" secondItem="oJ5-EH-aVN" secondAttribute="centerY" id="0hY-1V-TT1"/>
+                                                <constraint firstItem="0Fs-cv-GDi" firstAttribute="centerX" secondItem="oJ5-EH-aVN" secondAttribute="centerX" id="7UZ-5m-POp"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="subjectContentView" destination="oJ5-EH-aVN" id="eeF-zX-Cjy"/>
@@ -240,7 +243,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iIw-19-TtS" firstAttribute="trailing" secondItem="zaX-pb-jWm" secondAttribute="trailing" constant="10" id="0Mu-gw-2Dh"/>
-                            <constraint firstItem="zaX-pb-jWm" firstAttribute="top" secondItem="iIw-19-TtS" secondAttribute="top" constant="30" id="6m8-BG-gBj"/>
+                            <constraint firstItem="zaX-pb-jWm" firstAttribute="top" secondItem="iIw-19-TtS" secondAttribute="top" constant="5" id="6m8-BG-gBj"/>
                             <constraint firstItem="iIw-19-TtS" firstAttribute="trailing" secondItem="pd5-hQ-WD5" secondAttribute="trailing" constant="20" id="MFC-Xc-oFq"/>
                             <constraint firstItem="iIw-19-TtS" firstAttribute="bottom" secondItem="pd5-hQ-WD5" secondAttribute="bottom" constant="20" id="Pcv-IG-Gk3"/>
                             <constraint firstItem="zaX-pb-jWm" firstAttribute="leading" secondItem="iIw-19-TtS" secondAttribute="leading" constant="10" id="UJE-zD-s7R"/>
@@ -250,7 +253,7 @@
                             <constraint firstItem="iIw-19-TtS" firstAttribute="trailing" secondItem="DMi-Dy-cfg" secondAttribute="trailing" constant="10" id="syD-kZ-mvb"/>
                             <constraint firstItem="pd5-hQ-WD5" firstAttribute="top" secondItem="DMi-Dy-cfg" secondAttribute="bottom" constant="10" id="vbp-zs-wNs"/>
                             <constraint firstItem="pd5-hQ-WD5" firstAttribute="leading" secondItem="iIw-19-TtS" secondAttribute="leading" constant="20" id="wfJ-na-eqP"/>
-                            <constraint firstItem="DMi-Dy-cfg" firstAttribute="top" secondItem="ghf-51-EHC" secondAttribute="bottom" constant="10" id="zGZ-E4-MuG"/>
+                            <constraint firstItem="DMi-Dy-cfg" firstAttribute="top" secondItem="ghf-51-EHC" secondAttribute="bottom" constant="40" id="zGZ-E4-MuG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="과외 분야 설정" id="uua-pB-KSr"/>
@@ -290,6 +293,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

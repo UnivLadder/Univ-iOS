@@ -11,7 +11,7 @@ class MentoRegisterViewController: UIViewController {
 
     @IBOutlet weak var subjectCollectionView: UICollectionView!
 
-    var subjectList = ["1", "2", "3", "4" ,"5", "6", "7", "8", "9", "10"]
+    var subjectList = ["교과목", "수시/논술", "입시/경시대회", "외국어" ,"외국어 시험", "미술", "음악", "악기", "국악", "댄스", "IT/컴퓨터", "디자인", "취업 준비", "스포츠", "패션/뷰티", "사진/영상", "연기/공연/영화", "요리/커피"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,12 @@ class MentoRegisterViewController: UIViewController {
 }
 
 extension MentoRegisterViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    //선택시 데이터 저장 및 코너 컬러 변경 로직 추가 필요
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return subjectList.count
@@ -33,15 +39,20 @@ extension MentoRegisterViewController: UICollectionViewDelegate, UICollectionVie
         cell.subjectLabel.text = subjectList[indexPath.row]
 //        cell.lbl.backgroundColor = .yellow
 //
+        if indexPath.item == 0 {
+              cell.isSelected = true
+          }
+          
         return cell
     }
+    
 }
 
 extension MentoRegisterViewController: UICollectionViewDelegateFlowLayout {
 
     // 위 아래 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 30
     }
 
     // 옆 간격
@@ -57,7 +68,9 @@ extension MentoRegisterViewController: UICollectionViewDelegateFlowLayout {
         print("cell하나당 width=\(width)")
         print("root view width = \(self.view.frame.width)")
 
-        let size = CGSize(width: width, height: width)
+        let height = collectionView.frame.width / 3 - 70
+        let size = CGSize(width: width, height: height)
+        
         return size
     }
 }

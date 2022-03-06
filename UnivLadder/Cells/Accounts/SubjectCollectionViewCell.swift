@@ -10,12 +10,23 @@ import UIKit
 class SubjectCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var subjectLabel: UILabel!
-    
     @IBOutlet weak var subjectContentView: UIView!
- 
-    func settingCellContentView()  {
-        self.subjectContentView.layer.cornerRadius = 2.0
+    
+    override func awakeFromNib() {
+        self.subjectContentView.layer.cornerRadius = 10.0
         self.subjectContentView.layer.borderWidth = 1.0
-        self.subjectContentView.layer.borderColor = UIColor.black.cgColor
+        self.subjectContentView.layer.borderColor = UIColor.lightGray.cgColor
     }
+    
+    override var isSelected: Bool {
+           didSet{
+               if isSelected {
+                   self.subjectContentView.layer.borderColor = UIColor.red.cgColor
+               }
+//               else {
+//                   self.subjectContentView.layer.borderColor = UIColor.lightGray.cgColor
+//               }
+           }
+       }
+       
 }
