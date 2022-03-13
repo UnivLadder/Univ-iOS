@@ -26,7 +26,7 @@ class YourChatBubbleCell: UITableViewCell {
     @IBOutlet weak var bubbleLabel: UILabel! {
         didSet {
             bubbleLabel.textColor = Theme.labelColor
-            bubbleLabel.font = Theme.esamanru14Light
+            bubbleLabel.font = Fonts.EsamanruOTF.light.font(size: 14)
             bubbleLabel.text = "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트"
             
         }
@@ -35,7 +35,7 @@ class YourChatBubbleCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel! {
         didSet {
             timeLabel.textColor = Theme.text1000
-            timeLabel.font = Theme.gmarketSans12Medium
+            timeLabel.font = Fonts.GmarketSans.medium.font(size: 12)
             timeLabel.text = "12:30"
         }
     }

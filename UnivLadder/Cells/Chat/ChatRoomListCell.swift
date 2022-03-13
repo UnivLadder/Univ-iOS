@@ -12,13 +12,13 @@ class ChatRoomListCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
-            nameLabel.font = Theme.esamanru16Medium
+            nameLabel.font = Fonts.EsamanruOTF.medium.font(size: 16)
             nameLabel.text = "이름"
         }
     }
     @IBOutlet weak var lastMessageLabel: UILabel! {
         didSet {
-            lastMessageLabel.font = Theme.esamanru13Light
+            lastMessageLabel.font = Fonts.EsamanruOTF.light.font(size: 13)
             lastMessageLabel.textColor = Theme.text300
             lastMessageLabel.text = "마지막 메세지"
         }
