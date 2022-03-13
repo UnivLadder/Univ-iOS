@@ -12,7 +12,7 @@ class MyChatBubbleCell: UITableViewCell {
     
     @IBOutlet weak var bubbleView: UIView! {
         didSet {
-            bubbleView.backgroundColor = Theme.mainColor
+            bubbleView.backgroundColor = Colors.main.color
             bubbleView.layer.cornerRadius = Constant.cornerRadius
         }
     }
