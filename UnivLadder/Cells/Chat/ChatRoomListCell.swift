@@ -19,20 +19,20 @@ class ChatRoomListCell: UITableViewCell {
     @IBOutlet weak var lastMessageLabel: UILabel! {
         didSet {
             lastMessageLabel.font = Fonts.EsamanruOTF.light.font(size: 13)
-            lastMessageLabel.textColor = Theme.text300
+            lastMessageLabel.textColor = Colors.Text.text300.color
             lastMessageLabel.text = "마지막 메세지"
         }
     }
     @IBOutlet weak var timeLabel: UILabel! {
         didSet {
             timeLabel.font = Theme.numberFont
-            timeLabel.textColor = Theme.text300
+            timeLabel.textColor = Colors.Text.text300.color
             timeLabel.text = "10:32"
         }
     }
     @IBOutlet weak var messageCountView: UIView! {
         didSet {
-            messageCountView.backgroundColor = Theme.red500
+            messageCountView.backgroundColor = Colors.Red.red500.color
         }
     }
     
