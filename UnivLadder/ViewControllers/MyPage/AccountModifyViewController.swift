@@ -40,5 +40,20 @@ extension AccountModifyViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        modifyTableView.deselectRow(at: indexPath, animated: true)
+
+        switch indexPath.row {
+        // 서비스 과목 선택 수정 화면
+        case 9:
+            self.performSegue(withIdentifier: "toSubjectModify", sender: nil)
+
+        default:
+
+            return
+
+        }
+
+    }
 }

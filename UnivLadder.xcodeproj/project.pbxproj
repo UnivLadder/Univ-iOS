@@ -22,6 +22,8 @@
 		68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */; };
 		68D4385227942FA80082BE11 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4385127942FA80082BE11 /* Config.swift */; };
 		68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */; };
+		68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */; };
+		68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
 		E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5576B04275E27DC002BF041 /* ConstantManager.swift */; };
@@ -94,6 +96,8 @@
 		68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		68D4385127942FA80082BE11 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyTableViewCell.swift; sourceTree = "<group>"; };
+		68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModifyViewController.swift; sourceTree = "<group>"; };
+		68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		68F06FA927782576008A9511 /* UnivLadder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnivLadder.entitlements; sourceTree = "<group>"; };
 		97A5156E50B644F53E6E3798 /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CA9BB8C0EE1DE2E56F16EA /* Pods-UnivLadderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,7 +204,6 @@
 			children = (
 				68442AE927730E21009DF75A /* AccountsMainViewController.swift */,
 				68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */,
-				68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -232,6 +235,14 @@
 				68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */,
 			);
 			path = Accounts;
+			sourceTree = "<group>";
+		};
+		68D92B9A27DE0E7E00866E0D /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		6C6576DBF1AEC189ACCCF05A /* Pods */ = {
@@ -268,8 +279,10 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */,
 				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
 				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
+				68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -340,6 +353,7 @@
 		E5B6CECF269A9562005D0501 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				68D92B9A27DE0E7E00866E0D /* MyPage */,
 				68C42AF727D4CEF600CE9E38 /* Accounts */,
 				E5B6CED0269A9568005D0501 /* Chat */,
 			);
@@ -694,7 +708,9 @@
 				E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */,
 				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
 				68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */,
+				68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
+				68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */,
 				68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */,
 				E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */,
 				E57A31B927B900DF00276D7F /* UIViewController+Extension.swift in Sources */,
