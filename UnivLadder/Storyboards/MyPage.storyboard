@@ -30,11 +30,11 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPageCell" rowHeight="304" id="Oh7-cK-6Tv" customClass="MyPageCell" customModule="UnivLadder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="304"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPageCell" rowHeight="206" id="Oh7-cK-6Tv" customClass="MyPageCell" customModule="UnivLadder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="206"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oh7-cK-6Tv" id="6Zd-VD-TcS">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="304"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="206"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BNH-jE-2Ll">
@@ -89,7 +89,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="155" id="dIs-ga-uIT">
-                                        <rect key="frame" x="0.0" y="348.5" width="414" height="155"/>
+                                        <rect key="frame" x="0.0" y="250.5" width="414" height="155"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dIs-ga-uIT" id="KT8-t7-fnv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
@@ -152,19 +152,77 @@
                     <view key="view" contentMode="scaleToFill" id="UDx-T8-Hiw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o5J-mA-iOf">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ModifyCell" id="fLl-N6-YHr" customClass="AccountModifyTableViewCell" customModule="UnivLadder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fLl-N6-YHr" id="Gdj-nJ-89T">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CQ-n2-Hgc">
+                                                    <rect key="frame" x="30" y="10.5" width="52.5" height="22.5"/>
+                                                    <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0CQ-n2-Hgc" firstAttribute="centerY" secondItem="Gdj-nJ-89T" secondAttribute="centerY" id="bFY-df-LmD"/>
+                                                <constraint firstItem="0CQ-n2-Hgc" firstAttribute="leading" secondItem="Gdj-nJ-89T" secondAttribute="leadingMargin" constant="10" id="vcq-HR-mOl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="0CQ-n2-Hgc" id="2M5-dQ-ci3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="R9C-1J-Ijq" id="OlJ-qy-F0f"/>
+                                    <outlet property="delegate" destination="R9C-1J-Ijq" id="2Kf-Fi-oqH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Kjv-Au-qaW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Kjv-Au-qaW" firstAttribute="trailing" secondItem="o5J-mA-iOf" secondAttribute="trailing" id="4Cg-GC-7T7"/>
+                            <constraint firstItem="o5J-mA-iOf" firstAttribute="leading" secondItem="Kjv-Au-qaW" secondAttribute="leading" id="Pl5-B1-rax"/>
+                            <constraint firstItem="o5J-mA-iOf" firstAttribute="top" secondItem="Kjv-Au-qaW" secondAttribute="top" id="bkq-ZF-39O"/>
+                            <constraint firstItem="Kjv-Au-qaW" firstAttribute="bottom" secondItem="o5J-mA-iOf" secondAttribute="bottom" id="vls-45-xFX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="프로필 수정" id="XKS-Et-MTQ"/>
+                    <connections>
+                        <outlet property="modifyTableView" destination="o5J-mA-iOf" id="E76-P5-HHk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERq-Ln-IE0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3809" y="1358"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="vE7-57-GF3">
+            <objects>
+                <viewController id="ncy-G3-hT2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OvO-Ph-kDA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="rYa-ve-3MY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OVh-G6-m1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4624" y="1372"/>
+        </scene>
         <!--과외 분야 설정-->
         <scene sceneID="Tl5-zs-qBP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="di8-Xp-Nng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MentoRegister" id="eu3-ai-69y" customClass="MentoRegisterViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kWq-u2-sSd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -237,6 +295,9 @@
                                 <buttonConfiguration key="configuration" style="tinted" title="확인">
                                     <fontDescription key="titleFontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="confirmBtn:" destination="eu3-ai-69y" eventType="touchUpInside" id="eMc-wl-1pr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iIw-19-TtS"/>
@@ -261,6 +322,7 @@
                         <outlet property="subjectCollectionView" destination="DMi-Dy-cfg" id="lVS-Bk-aU4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="di8-Xp-Nng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3791.3043478260875" y="617.41071428571422"/>
         </scene>
