@@ -40,12 +40,12 @@ class AccountsRegisterViewController: UIViewController {
     func viewComponents() {
         maleBtn.backgroundColor = UIColor.white
         maleBtn.layer.borderWidth = 1
-        maleBtn.layer.borderColor = Theme.mainColor.cgColor
+        maleBtn.layer.borderColor = Colors.main.color.cgColor
         maleBtn.layer.cornerRadius = 10
         
         femaleBtn.backgroundColor = UIColor.white
         femaleBtn.layer.borderWidth = 1
-        femaleBtn.layer.borderColor = Theme.mainColor.cgColor
+        femaleBtn.layer.borderColor = Colors.main.color.cgColor
         femaleBtn.layer.cornerRadius = 10
         
         emailErrorLabel.isHidden = true

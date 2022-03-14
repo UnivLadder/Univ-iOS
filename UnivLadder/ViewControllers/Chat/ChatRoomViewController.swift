@@ -74,7 +74,7 @@ class ChatRoomViewController: UIViewController {
             cameraButtonTitle.text = "카메라"
             cameraButtonTitle.textAlignment = .center
             cameraButtonTitle.textColor = Theme.text900
-            cameraButtonTitle.font = Theme.esamanru11Light
+            cameraButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
         }
     }
     @IBOutlet weak var galleryView: UIView! {
@@ -88,7 +88,7 @@ class ChatRoomViewController: UIViewController {
             galleryButtonTitle.text = "앨범"
             galleryButtonTitle.textAlignment = .center
             galleryButtonTitle.textColor = Theme.text900
-            galleryButtonTitle.font = Theme.esamanru11Light
+            galleryButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
         }
     }
     @IBOutlet weak var documentView: UIView! {
@@ -102,7 +102,7 @@ class ChatRoomViewController: UIViewController {
             documentButtonTitle.text = "파일"
             documentButtonTitle.textAlignment = .center
             documentButtonTitle.textColor = Theme.text900
-            documentButtonTitle.font = Theme.esamanru11Light
+            documentButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
         }
     }
     @IBOutlet weak var cameraButton: UIButton! {
