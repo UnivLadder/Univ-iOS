@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U9G-j6-eev">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U9G-j6-eev">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -253,8 +253,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="ncy-G3-hT2" id="AtR-KO-IjO"/>
-                                    <outlet property="delegate" destination="ncy-G3-hT2" id="Qau-HE-POO"/>
+                                    <outlet property="dataSource" destination="ncy-G3-hT2" id="wS8-JG-Trp"/>
+                                    <outlet property="delegate" destination="ncy-G3-hT2" id="ftz-2e-crP"/>
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AxH-l4-Jdf">
@@ -274,7 +274,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DjL-04-9Ik">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="DjL-04-9Ik">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qr9-oI-pbD">
@@ -283,10 +283,6 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="ncy-G3-hT2" id="Zyl-Sn-KuT"/>
-                                    <outlet property="delegate" destination="ncy-G3-hT2" id="MBw-am-p24"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rYa-ve-3MY"/>
@@ -309,8 +305,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchBtn" destination="Heg-8D-TtA" id="CDh-27-99l"/>
-                        <outlet property="subjecCategoryCollectionView" destination="xEE-77-bhx" id="jHr-Gj-GXJ"/>
-                        <outlet property="subjectModifyCollectionView" destination="drh-ph-rFR" id="8sd-6t-z8q"/>
+                        <outlet property="subjecCategoryCollectionView" destination="xEE-77-bhx" id="FiK-Q2-0BP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVh-G6-m1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -336,13 +331,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세부적인 과목은 마이페이지에서 설정해주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghf-51-EHC">
-                                <rect key="frame" x="15" y="131" width="285" height="15"/>
+                                <rect key="frame" x="15" y="131" width="285" height="14.5"/>
                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DMi-Dy-cfg">
-                                <rect key="frame" x="10" y="186" width="394" height="596"/>
+                                <rect key="frame" x="10" y="185.5" width="394" height="596.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7gL-Mf-Hyb">
                                     <size key="itemSize" width="128" height="128"/>

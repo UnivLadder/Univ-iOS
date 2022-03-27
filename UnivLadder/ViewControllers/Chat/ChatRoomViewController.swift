@@ -13,6 +13,7 @@ class ChatRoomViewController: UIViewController {
         let vc = UIStoryboard.init(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
         return vc
     }
+    
     let data: [String] = Array(repeating: "test", count: 10)
 
     var isExpanded: Bool = false {

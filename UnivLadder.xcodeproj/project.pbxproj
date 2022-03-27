@@ -335,14 +335,14 @@
 		E5B38B202615EBCC00D4EB5D /* UnivLadder */ = {
 			isa = PBXGroup;
 			children = (
-				E57A31BA27B902DA00276D7F /* Utils */,
+				E5F3F91A2647098200763ADB /* ViewControllers */,
 				E5B6CECF269A9562005D0501 /* Cells */,
+				E57A31BA27B902DA00276D7F /* Utils */,
 				68442AED27730E2F009DF75A /* Models */,
 				6864B286278AFE0600CE80FE /* Services */,
 				E5F3F9192647097800763ADB /* Storyboards */,
 				E5F3F9182647093B00763ADB /* SupportingFiles */,
 				68F06FA927782576008A9511 /* UnivLadder.entitlements */,
-				E5F3F91A2647098200763ADB /* ViewControllers */,
 			);
 			path = UnivLadder;
 			sourceTree = "<group>";
