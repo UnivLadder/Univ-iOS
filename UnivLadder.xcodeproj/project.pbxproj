@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F447DF0A9349C7A0E298F45 /* Pods_UnivLadderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B82F5F1FACD8468B1AF903A /* Pods_UnivLadderTests.framework */; };
 		34B2BF0407D9A593F42B601D /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256C1813DFD41F241F2A4B0E /* Pods_UnivLadder_UnivLadderUITests.framework */; };
+		680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */; };
 		68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AE927730E21009DF75A /* AccountsMainViewController.swift */; };
 		68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */; };
 		68442AEF27730E2F009DF75A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEE27730E2F009DF75A /* UserModel.swift */; };
@@ -90,6 +91,7 @@
 		331F2834622AEBC2D932E359 /* Pods-UnivLadderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		373182530261F18B763182F8 /* Pods-UnivLadder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.debug.xcconfig"; sourceTree = "<group>"; };
 		3F9A8AB45E1114FC03C7AABA /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		68442AE927730E21009DF75A /* AccountsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsMainViewController.swift; sourceTree = "<group>"; };
 		68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsRegisterViewController.swift; sourceTree = "<group>"; };
 		68442AEE27730E2F009DF75A /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */,
+				680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				68C42AF427D4C50400CE9E38 /* AccountModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
+				680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */,
 				E58A9C1E27DDF68A00A4ACBB /* Fonts+Generated.swift in Sources */,
 				68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */,
 				E58A9C1C27DDF02B00A4ACBB /* Colors+Generated.swift in Sources */,

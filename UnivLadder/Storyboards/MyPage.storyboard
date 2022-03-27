@@ -274,15 +274,34 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="DjL-04-9Ik">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pageCell" id="DjL-04-9Ik" customClass="PageCollectionViewCell" customModule="UnivLadder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qr9-oI-pbD">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReB-oa-Gsp">
+                                                    <rect key="frame" x="43" y="53.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ReB-oa-Gsp" firstAttribute="centerX" secondItem="Qr9-oI-pbD" secondAttribute="centerX" id="9xw-l5-YUz"/>
+                                                <constraint firstItem="ReB-oa-Gsp" firstAttribute="centerY" secondItem="Qr9-oI-pbD" secondAttribute="centerY" id="UBa-uI-Hia"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="subjectTitle" destination="ReB-oa-Gsp" id="VxX-qu-MsK"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ncy-G3-hT2" id="ZjM-Ve-SPR"/>
+                                    <outlet property="delegate" destination="ncy-G3-hT2" id="sm0-Ss-dEj"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rYa-ve-3MY"/>
@@ -304,6 +323,8 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="Heg-8D-TtA"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="highlightView" destination="AxH-l4-Jdf" id="Q39-Rg-Zaw"/>
+                        <outlet property="pageCollectionView" destination="drh-ph-rFR" id="eYP-3m-Ju1"/>
                         <outlet property="searchBtn" destination="Heg-8D-TtA" id="CDh-27-99l"/>
                         <outlet property="subjecCategoryCollectionView" destination="xEE-77-bhx" id="FiK-Q2-0BP"/>
                     </connections>
