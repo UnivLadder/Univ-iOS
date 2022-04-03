@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class APIService {
+final class APIService {
     
     static let shared = APIService()
     
@@ -58,6 +58,7 @@ class APIService {
             switch response.result {
             case .success:
                 if let data = try! response.result.get() as? [String: Any] {
+                    print("function")
                     print(data)
                 }
             case .failure(let error):
