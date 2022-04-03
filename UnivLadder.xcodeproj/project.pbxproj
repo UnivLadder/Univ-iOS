@@ -36,6 +36,7 @@
 		E58A9C1A27DDEF1000A4ACBB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A9C1927DDEF1000A4ACBB /* UIButton+Extension.swift */; };
 		E58A9C1C27DDF02B00A4ACBB /* Colors+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A9C1B27DDF02B00A4ACBB /* Colors+Generated.swift */; };
 		E58A9C1E27DDF68A00A4ACBB /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A9C1D27DDF68A00A4ACBB /* Fonts+Generated.swift */; };
+		E58A9C2027DE0A6700A4ACBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E58A9C1F27DE0A6700A4ACBB /* Images.xcassets */; };
 		E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D4B5F275DF339009CF08D /* ThemeManager.swift */; };
 		E58D4B63275DF3F1009CF08D /* MentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */; };
 		E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */; };
@@ -116,6 +117,7 @@
 		E58A9C1927DDEF1000A4ACBB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		E58A9C1B27DDF02B00A4ACBB /* Colors+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Colors+Generated.swift"; sourceTree = "<group>"; };
 		E58A9C1D27DDF68A00A4ACBB /* Fonts+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
+		E58A9C1F27DE0A6700A4ACBB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E58D4B5F275DF339009CF08D /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListViewController.swift; sourceTree = "<group>"; };
 		E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnivLadder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -439,6 +441,7 @@
 		E5FA9B9C27DDEA42009C9C9E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E58A9C1F27DE0A6700A4ACBB /* Images.xcassets */,
 				E58A9C1D27DDF68A00A4ACBB /* Fonts+Generated.swift */,
 				E58A9C1B27DDF02B00A4ACBB /* Colors+Generated.swift */,
 				16427161264D83DA003A953C /* Fonts */,
@@ -564,6 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5FA9B9E27DDEA5B009C9C9E /* Colors.xcassets in Resources */,
+				E58A9C2027DE0A6700A4ACBB /* Images.xcassets in Resources */,
 				E5FDFBEB264E7857000269F9 /* esamanru OTF Bold.otf in Resources */,
 				E5FDFBEC264E7857000269F9 /* esamanru OTF Light.otf in Resources */,
 				E5FDFBED264E7857000269F9 /* esamanru OTF Medium.otf in Resources */,
