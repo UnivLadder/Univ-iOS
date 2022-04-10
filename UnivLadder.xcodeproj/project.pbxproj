@@ -32,6 +32,7 @@
 		E546934427F9C31A007A1791 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546934327F9C31A007A1791 /* SocketManager.swift */; };
 		E546934727F9C749007A1791 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546934627F9C749007A1791 /* ChatModel.swift */; };
 		E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5576B04275E27DC002BF041 /* ConstantManager.swift */; };
+		E567E33E2802E09900F83683 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E567E33D2802E09900F83683 /* Endpoint.swift */; };
 		E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */; };
 		E56ABEE82647C8A100A45786 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */; };
 		E56ABEED2647CC0D00A45786 /* YourChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEEC2647CC0D00A45786 /* YourChatBubbleCell.swift */; };
@@ -122,6 +123,7 @@
 		E546934327F9C31A007A1791 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		E546934627F9C749007A1791 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		E5576B04275E27DC002BF041 /* ConstantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantManager.swift; sourceTree = "<group>"; };
+		E567E33D2802E09900F83683 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E56ABEE22647C4B800A45786 /* ChatRoomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListCell.swift; sourceTree = "<group>"; };
 		E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		E56ABEEC2647CC0D00A45786 /* YourChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatBubbleCell.swift; sourceTree = "<group>"; };
@@ -226,8 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				E546934527F9C73A007A1791 /* Chat */,
-				68D4385127942FA80082BE11 /* Config.swift */,
 				68442AEE27730E2F009DF75A /* UserModel.swift */,
+				68D4385127942FA80082BE11 /* Config.swift */,
 				68B27C89279D610C0064D1DD /* LoginDataModel.swift */,
 				689C759C27AFD80E00C04978 /* DummyData.swift */,
 			);
@@ -240,6 +242,7 @@
 				6864B287278AFE3C00CE80FE /* APIService.swift */,
 				E546934127F9C12B007A1791 /* APIService+Chat.swift */,
 				E546934327F9C31A007A1791 /* SocketManager.swift */,
+				E567E33D2802E09900F83683 /* Endpoint.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				68D4385227942FA80082BE11 /* Config.swift in Sources */,
 				E58A9C1A27DDEF1000A4ACBB /* UIButton+Extension.swift in Sources */,
 				E5B6CECC269A8808005D0501 /* UINavigationBar+Extension.swift in Sources */,
+				E567E33E2802E09900F83683 /* Endpoint.swift in Sources */,
 				E5FA9B9827DDE4CC009C9C9E /* MentoListView.swift in Sources */,
 				68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,

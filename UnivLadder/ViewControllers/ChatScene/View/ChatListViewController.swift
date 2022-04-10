@@ -19,7 +19,9 @@ final class ChatListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("챗룸")
+        let params = ["criteria": "ALL"]
+        AFNetworkService.shared.get(requestType: .chats, parameters: params)
         chatRoomListTableView.delegate = self
         chatRoomListTableView.dataSource = self
         setUI()

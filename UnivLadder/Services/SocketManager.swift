@@ -22,12 +22,12 @@ class SocketIOManager: NSObject {
     override init() {
         super.init()
         
-        let url = URL(string: Config.baseURL + "/chats")!
+        let url = URL(string: Endpoint.baseURL + "/chats")!
         
         manager = SocketManager(socketURL: url, config: [
             .log(true),
             .compress,
-            .extraHeaders(["Authentication": "Bearer token"])
+            .extraHeaders(["Authentication": "Bearer \(UserDefaults.standard.string(forKey: "AccessKey"))"])
         ])
         
         socket = manager.defaultSocket
