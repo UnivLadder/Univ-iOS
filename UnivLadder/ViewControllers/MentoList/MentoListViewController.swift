@@ -8,11 +8,15 @@
 import UIKit
 
 class MentoListViewController: UIViewController {
-
+    let mainView = MentoListView()
+    
+    override func loadView() {
+        view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = Theme.backgroundColor
     }
 
 }

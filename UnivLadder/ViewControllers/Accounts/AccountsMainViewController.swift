@@ -52,6 +52,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         //dummydata Test
         APIService.shared.signin(param: DummyData.singInDummy)
         
+    //nil, 빈값 2개 다 처리 수정하기
         if (APIService.shared.accessToken != nil){
             print("로그인 성공")
             UIViewController.changeRootViewControllerToHome()

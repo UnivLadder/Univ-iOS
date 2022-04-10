@@ -12,7 +12,7 @@ class MyChatBubbleCell: UITableViewCell {
     
     @IBOutlet weak var bubbleView: UIView! {
         didSet {
-            bubbleView.backgroundColor = Colors.main.color
+            bubbleView.backgroundColor = Colors.mainPurple.color
             bubbleView.layer.cornerRadius = Constant.cornerRadius
         }
     }
@@ -26,7 +26,7 @@ class MyChatBubbleCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel! {
         didSet {
-            timeLabel.textColor = Theme.text1000
+            timeLabel.textColor = Colors.Text.text1000.color
             timeLabel.font = Fonts.GmarketSans.medium.font(size: 12)
             timeLabel.text = "12:30"
         }

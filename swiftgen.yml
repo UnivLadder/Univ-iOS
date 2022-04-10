@@ -30,6 +30,13 @@ xcassets:
     params:
       forceProvidesNamespaces: true
       enumName: Colors
+  inputs: Images.xcassets
+  outputs:
+    templateName: swift5
+    output: Images+Generated.swift
+    params:
+      forceProvidesNamespaces: true
+      enumName: Images
     
 fonts:
   inputs: Fonts

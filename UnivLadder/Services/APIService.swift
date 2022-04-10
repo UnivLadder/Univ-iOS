@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class APIService {
+final class APIService {
     
     static let shared = APIService()
     
@@ -39,7 +39,9 @@ class APIService {
 //                    print(String(describing: data["accessToken"]!))
 //                    LoginDataModel.token = String(describing: data["accessToken"]!)
                     self.accessToken = String(describing: data["accessToken"]!)
-                    
+                    //토큰 로컬 저장
+                    UserInfo.accessToken = self.accessToken
+
                 }
                 
                 break
@@ -58,6 +60,7 @@ class APIService {
             switch response.result {
             case .success:
                 if let data = try! response.result.get() as? [String: Any] {
+                    print("function")
                     print(data)
                 }
             case .failure(let error):

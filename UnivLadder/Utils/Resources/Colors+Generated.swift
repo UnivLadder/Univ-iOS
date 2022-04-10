@@ -19,7 +19,26 @@ internal typealias AssetColorTypeAlias = ColorAsset.Color
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Colors {
-  internal static let main = ColorAsset(name: "main")
+  internal enum Light {
+    internal static let light300 = ColorAsset(name: "light300")
+    internal static let light500 = ColorAsset(name: "light500")
+  }
+  internal static let mainPurple = ColorAsset(name: "mainPurple")
+  internal enum Red {
+    internal static let red500 = ColorAsset(name: "red500")
+  }
+  internal enum Text {
+    internal static let text100 = ColorAsset(name: "text100")
+    internal static let text1000 = ColorAsset(name: "text1000")
+    internal static let text200 = ColorAsset(name: "text200")
+    internal static let text300 = ColorAsset(name: "text300")
+    internal static let text400 = ColorAsset(name: "text400")
+    internal static let text500 = ColorAsset(name: "text500")
+    internal static let text600 = ColorAsset(name: "text600")
+    internal static let text700 = ColorAsset(name: "text700")
+    internal static let text800 = ColorAsset(name: "text800")
+    internal static let text900 = ColorAsset(name: "text900")
+  }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

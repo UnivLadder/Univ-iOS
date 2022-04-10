@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatListViewController: UIViewController {
+final class ChatListViewController: UIViewController {
 
     @IBOutlet weak var chatRoomListTableView: UITableView! {
         didSet {

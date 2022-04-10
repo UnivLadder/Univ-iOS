@@ -33,7 +33,7 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var inputBackgroundView: UIView! {
         didSet {
             inputBackgroundView.layer.cornerRadius = Constant.cornerRadius
-            inputBackgroundView.backgroundColor = Theme.light500
+            inputBackgroundView.backgroundColor = Colors.Light.light500.color
             
         }
     }
@@ -48,7 +48,7 @@ class ChatRoomViewController: UIViewController {
         didSet {
             textView.backgroundColor = .clear
             textView.text = "메시지를 입력해주세요"
-            textView.textColor = Theme.text1000
+            textView.textColor = Colors.Text.text1000.color
         }
     }
     @IBOutlet weak var sendButton: UIButton! {
@@ -67,42 +67,42 @@ class ChatRoomViewController: UIViewController {
     @IBOutlet weak var cameraView: UIView! {
         didSet {
             cameraView.layer.cornerRadius = cameraView.bounds.width / 2
-            cameraView.backgroundColor = Theme.light500
+            cameraView.backgroundColor = Colors.Light.light500.color
         }
     }
     @IBOutlet weak var cameraButtonTitle: UILabel! {
         didSet {
             cameraButtonTitle.text = "카메라"
             cameraButtonTitle.textAlignment = .center
-            cameraButtonTitle.textColor = Theme.text900
+            cameraButtonTitle.textColor = Colors.Text.text900.color
             cameraButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
         }
     }
     @IBOutlet weak var galleryView: UIView! {
         didSet {
             galleryView.layer.cornerRadius = galleryView.bounds.width / 2
-            galleryView.backgroundColor = Theme.light500
+            galleryView.backgroundColor = Colors.Light.light500.color
         }
     }
     @IBOutlet weak var galleryButtonTitle: UILabel! {
         didSet {
             galleryButtonTitle.text = "앨범"
             galleryButtonTitle.textAlignment = .center
-            galleryButtonTitle.textColor = Theme.text900
+            galleryButtonTitle.textColor = Colors.Text.text900.color
             galleryButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
         }
     }
     @IBOutlet weak var documentView: UIView! {
         didSet {
             documentView.layer.cornerRadius = documentView.bounds.width / 2
-            documentView.backgroundColor = Theme.light500
+            documentView.backgroundColor = Colors.Light.light500.color
         }
     }
     @IBOutlet weak var documentButtonTitle: UILabel! {
         didSet {
             documentButtonTitle.text = "파일"
             documentButtonTitle.textAlignment = .center
-            documentButtonTitle.textColor = Theme.text900
+            documentButtonTitle.textColor = Colors.Text.text900.color
             documentButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
         }
     }
