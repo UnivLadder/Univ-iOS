@@ -11,8 +11,7 @@ import Alamofire
 final class APIService {
     
     static let shared = APIService()
-    
-    var accessToken: String = ""
+    var accessToken: String?
     
     //회원가입
     func signup(param: Parameters) {
@@ -31,7 +30,8 @@ final class APIService {
     }
     
     //자체 로그인
-    func signin(param: Parameters){
+    func signin(param: Parameters,
+                completion: @escaping () -> Void){
         AF.request(Config.baseURL+"sign-in", method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
             switch response.result {
             case .success:
@@ -40,8 +40,11 @@ final class APIService {
 //                    LoginDataModel.token = String(describing: data["accessToken"]!)
                     self.accessToken = String(describing: data["accessToken"]!)
                     //토큰 로컬 저장
-                    UserInfo.accessToken = self.accessToken
-
+                    if let accessToken = self.accessToken {
+                        UserInfo.accessToken = accessToken
+                        print("토큰 저장 성공")
+                    }
+                    completion()
                 }
                 
                 break

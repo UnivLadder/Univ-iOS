@@ -50,15 +50,21 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     //텍스트에 이모티콘 넣기
     @IBAction func signInAction(_ sender: Any) {
         //dummydata Test
-        APIService.shared.signin(param: DummyData.singInDummy)
+        APIService.shared.signin(param: DummyData.singInDummy, completion: {
+            //nil, 빈값 2개 다 처리
+            if let token = APIService.shared.accessToken{
+                if !token.isEmpty{
+                    print("로그인 성공")
+                    UIViewController.changeRootViewControllerToHome()
+                }else{
+                    print("빈 값")
+                }
+            }else{
+                print("로그인 실패")
+            }
+        })
         
-    //nil, 빈값 2개 다 처리 수정하기
-        if (APIService.shared.accessToken != nil){
-            print("로그인 성공")
-            UIViewController.changeRootViewControllerToHome()
-        }else{
-            print("로그인 실패")
-        }
+
 
         // 옵셔널 바인딩 & 예외 처리 : Textfield가 빈문자열이 아니고, nil이 아닐 때
 //        guard let email = emailTextField.text, !email.isEmpty else { return }
