@@ -9,8 +9,8 @@ import Foundation
 import Alamofire
 
 final class APIService {
-    
     static let shared = APIService()
+    private init() {}
     
     var accessToken: String = ""
     

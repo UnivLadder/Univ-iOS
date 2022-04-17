@@ -6,59 +6,59 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class ChatListViewController: UIViewController {
 
     @IBOutlet weak var chatRoomListTableView: UITableView! {
         didSet {
             chatRoomListTableView.rowHeight = UITableView.automaticDimension
+            chatRoomListTableView.separatorStyle = .none
         }
     }
     
-    let chatRooms = ["클라라", "클라리", "클러리"]
+    let viewModel = ChatListViewModel()
+    var disposeBag = DisposeBag()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("챗룸")
-        let params = ["criteria": "ALL"]
-        AFNetworkService.shared.get(requestType: .chats, parameters: params)
-        chatRoomListTableView.delegate = self
-        chatRoomListTableView.dataSource = self
+//        chatRoomListTableView.delegate = self
+//        chatRoomListTableView.dataSource = self
         setUI()
+        bindViewModel()
     }
     
-    
-    private func setUI() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("뷰 나타마?")
+    }
+}
+
+private extension ChatListViewController {
+    func setUI() {
         self.navigationController?.navigationBar.transparentNavigationBar()
-        
         self.navigationItem.title = ""
+    }
+    
+    func bindViewModel() {
+        let input = ChatListViewModel.Input(
+            viewWillAppearEvent: self.rx.methodInvoked(#selector(UIViewController.viewWillAppear)).map { _ in })
         
-        self.chatRoomListTableView.separatorStyle = .none
-    }
+        let output = viewModel.transform(input: input, disposeBag: disposeBag)
+        
+        output.chatroomList.bind(to: chatRoomListTableView.rx.items(
+            cellIdentifier: "ChatRoomCell",
+            cellType: ChatRoomListCell.self)) { (index: Int, element: ChatRoom, cell: ChatRoomListCell) in
+                cell.nameLabel.text = "\(element.id)"
+                cell.lastMessageLabel.text = element.lastChatMessage ?? ""
+                cell.timeLabel.text = element.createdDate
 
-}
-
-extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatRooms.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatRoomCell") as! ChatRoomListCell
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = ChatRoomViewController.instance()
-        vc.navigationItem.title = chatRooms[indexPath.row]
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        }.disposed(by: disposeBag)
         
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
 }
+
+
+
