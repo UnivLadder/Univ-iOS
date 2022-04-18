@@ -11,16 +11,44 @@ import Alamofire
 final class APIService {
     static let shared = APIService()
     private init() {}
+    var accessToken: String?
     
-    var accessToken: String = ""
+    
+    //GET - 과목 데이터
+    func getSubjects() {
+        AF.request(Config.baseURL+"assets/extracurricular-subjects",
+                   method: .get,
+                   parameters: nil,
+                   encoding: JSONEncoding.default)
+        .responseData { response in
+                switch response.result {
+                case .success(let value):
+                    print(String(data: value, encoding: .utf8)!)
+
+                case .failure(let error):
+                    print(error)
+//                    completion(nil)
+            }
+            //            if let data = try! response.result.get() as? [String: Any] {
+            //                //                    print(Config.baseURL+"sign-up")
+            //                print(data)
+            //            }
+            //            print("json.result : \(response.result)")
+            
+        }
+    }
+    
     
     //회원가입
     func signup(param: Parameters) {
-        AF.request(Config.baseURL+"sign-up", method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
+        AF.request(Config.baseURL+"sign-up",
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default).responseJSON() { response in
             switch response.result {
             case .success:
                 if let data = try! response.result.get() as? [String: Any] {
-//                    print(Config.baseURL+"sign-up")
+                    //                    print(Config.baseURL+"sign-up")
                     print(data)
                 }
             case .failure(let error):
@@ -31,15 +59,21 @@ final class APIService {
     }
     
     //자체 로그인
-    func signin(param: Parameters){
+    func signin(param: Parameters,
+                completion: @escaping () -> Void){
         AF.request(Config.baseURL+"sign-in", method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
             switch response.result {
             case .success:
                 if let data = try! response.result.get() as? [String: Any] {
-//                    print(String(describing: data["accessToken"]!))
-//                    LoginDataModel.token = String(describing: data["accessToken"]!)
+                    //                    print(String(describing: data["accessToken"]!))
+                    //                    LoginDataModel.token = String(describing: data["accessToken"]!)
                     self.accessToken = String(describing: data["accessToken"]!)
-                    
+                    //토큰 로컬 저장
+                    if let accessToken = self.accessToken {
+                        UserInfo.accessToken = accessToken
+                        print("토큰 저장 성공")
+                    }
+                    completion()
                 }
                 
                 break

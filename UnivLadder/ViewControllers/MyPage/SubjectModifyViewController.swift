@@ -23,8 +23,16 @@ class SubjectModifyViewController: UIViewController {
     @IBOutlet weak var highlightView: UIView!
     
     // Data - 과목은 서버에서 받아와
-    private let subjectCategoryList = ["전체", "교과목", "수시/논술", "입시/경시대회", "외국어" ,"외국어 시험", "미술", "음악", "악기", "국악", "댄스", "IT/컴퓨터", "디자인", "취업 준비", "스포츠", "패션/뷰티", "사진/영상", "연기/공연/영화", "요리/커피"]
+//    [ {
+//      "code" : 1,
+//      "topic" : "외국어",
+//      "value" : "영어"
+//    } ]
     
+    //topic 값들
+    private let subjectCategoryList = ["전체"]
+    
+    //value 값들
     private let subjectList: [Int: [String]] = [1 : ["전체", "교과목"],
                                                 2 : ["전체", "교과목"]]
     
@@ -38,6 +46,10 @@ class SubjectModifyViewController: UIViewController {
         self.configureLayout()
         self.collectionViewLayout()
         highlightView.backgroundColor = .darkGray
+        
+        APIService.shared.getSubjects()
+        
+                
     }
     
     private func collectionViewLayout() {
