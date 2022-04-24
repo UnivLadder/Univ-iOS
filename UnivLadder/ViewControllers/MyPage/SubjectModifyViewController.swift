@@ -50,9 +50,13 @@ class SubjectModifyViewController: UIViewController {
         self.collectionViewLayout()
         highlightView.backgroundColor = .darkGray
         
-        saveNewSubject(1, topic: "외국어", value: "영어")
+        // local 확인
+        
+        //없으면 api 호출
+        APIService.shared.getSubjects()
+        
+        //있으면 뿌려주기
         getAllSubjects()
-//        APIService.shared.getSubjects()
     }
     
     
@@ -61,17 +65,11 @@ class SubjectModifyViewController: UIViewController {
         let subjects: [Subject] = CoreDataManager.shared.getSubjects()
         let topic: [String] = subjects.map({$0.topic!})
 
-        print("allUsers = \(subjects)")
+        print("subjects = \(subjects)")
         print("topics = \(topic)")
     }
     
-    // 새로운 유저 등록
-    fileprivate func saveNewSubject(_ code: Int64, topic: String, value: String) {
-        CoreDataManager.shared
-            .saveSubject(code: code, topic: topic, value: value, onSuccess:  { onSuccess in
-                print("saved = \(onSuccess)")
-            })
-    }
+
 
     private func collectionViewLayout() {
         //카테고리바
