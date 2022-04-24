@@ -25,6 +25,7 @@
 		68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */; };
 		68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */; };
 		68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */; };
+		68F3AE6A280C24AC00CF53DC /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3AE69280C24AC00CF53DC /* SubjectModel.swift */; };
 		B482380578533402A3FE29B2 /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80B38848C16DB0D07CC410E /* Pods_UnivLadder.framework */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
@@ -115,6 +116,7 @@
 		68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModifyViewController.swift; sourceTree = "<group>"; };
 		68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		68F06FA927782576008A9511 /* UnivLadder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnivLadder.entitlements; sourceTree = "<group>"; };
+		68F3AE69280C24AC00CF53DC /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		784D7EA598906AD541905974 /* Pods-UnivLadderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B82F5F1FACD8468B1AF903A /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47F0E180D0C8F394BA656A8 /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		68442AED27730E2F009DF75A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				68F3AE68280C249200CF53DC /* Subject */,
 				E546934527F9C73A007A1791 /* Chat */,
 				68442AEE27730E2F009DF75A /* UserModel.swift */,
 				68D4385127942FA80082BE11 /* Config.swift */,
@@ -267,6 +270,14 @@
 				680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		68F3AE68280C249200CF53DC /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				68F3AE69280C24AC00CF53DC /* SubjectModel.swift */,
+			);
+			path = Subject;
 			sourceTree = "<group>";
 		};
 		6C6576DBF1AEC189ACCCF05A /* Pods */ = {
@@ -814,6 +825,7 @@
 				E58A9C1C27DDF02B00A4ACBB /* Colors+Generated.swift in Sources */,
 				E5FA9B9A27DDE55C009C9C9E /* ViewRepresentable.swift in Sources */,
 				68442AEF27730E2F009DF75A /* UserModel.swift in Sources */,
+				68F3AE6A280C24AC00CF53DC /* SubjectModel.swift in Sources */,
 				E58D4B63275DF3F1009CF08D /* MentoListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

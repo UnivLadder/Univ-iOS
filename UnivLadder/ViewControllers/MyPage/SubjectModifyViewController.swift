@@ -9,6 +9,8 @@ import UIKit
 
 class SubjectModifyViewController: UIViewController {
     
+    var subjectData: [SubjectModel]?
+                      
     // 서치바
     @IBOutlet weak var searchBtn: UIButton!
     let searchBar = UISearchBar()
@@ -48,6 +50,7 @@ class SubjectModifyViewController: UIViewController {
         highlightView.backgroundColor = .darkGray
         
         APIService.shared.getSubjects()
+        
         
                 
     }

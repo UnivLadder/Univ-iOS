@@ -7,37 +7,134 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 final class APIService {
     
     static let shared = APIService()
     var accessToken: String?
+    var values: [String] = [""]
     
+    func getSubjects() {
+        AF.request(Config.baseURL+"assets/extracurricular-subjects", method: .get)
+            .validate().responseData{ response in
+                switch response.result{
+                case .success(let value):
+                    do {
+                        let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                        let SubjectModel = try JSONDecoder().decode(SubjectModel.self, from: data)
+                    }
+                    catch {
+                    }
+                case .failure(let error):
+                    break;
+                }
+            }
+    }
+    //    func getSubjects() {
+    //        AF.request(Config.baseURL+"assets/extracurricular-subjects", method: .get)
+    //            .validate().responseData{ response in
+    //                switch response.result{
+    //                case .success:
+    //                    if let jsonData = response.data {
+    //                        let jsonDecoder = JSONDecoder()
+    //                        do {
+    //                            let subjects = try jsonDecoder.decode([SubjectModel].self, from: jsonData)
+    //
+    //
+    //
+    ////                            print(subjects)
+    ////                            completion(subjects, nil)
+    //                        }catch let error{
+    //                            print(error.localizedDescription)
+    ////                            completion(nil, error)
+    //                        }
+    //                    }
+    //                case .failure:
+    //                    print("error : \(response.error!)")
+    //                }
+    //            }
+    
+    
+    
+    
+    
+    
+    
+    
+    //func getSubjects() {
+    //    AF.request(Config.baseURL+"assets/extracurricular-subjects", method: .get)
+    //        .validate().responseData{ response in
+    //            switch response.result{
+    //            case .success(let value):
+    //                do {
+    //                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+    //                    let SubjectModel = try JSONDecoder().decode(SubjectModel.self, from: data)
+    //                    //예){"email" : "hi", "result" : "성공"} print("email : \(userlists.email)") print("result : \(userlists.result)")
+    //
+    //                }
+    //                catch {
+    //
+    //                }
+    //            case .failure(let error):
+    //                break;
+    //
+    //
+    //                //                        let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+    //                //                        let userlists = try JSONDecoder().decode(SubjectModel.self, from: data)
+    //                //                        if let data = response.data {
+    //                //                            let json1 = JSON(data)
+    //                //                            if let siArray = json1.array {
+    //                //                                var res: [SubjectModel] = []
+    //                //                                let obj = SubjectModel.self
+    //                //                                for i in 0..<siArray.count {
+    //                //
+    //                ////                                    let value = siArray[i]["value"]
+    //                //    //                                values.append(value.stringValue)
+    //                //
+    //                ////                                    self.values.append(siArray[i]["value"].stringValue)
+    //                //                                    //json1에서 "value"만 가져옴.
+    //                //                                }
+    //                //                            }
+    //                ////                            print(self.values)
+    //                //                        }
+    //                //                    case .failure:
+    //                //                        print("error : \(response.error!)")
+    //            }
+    //        }
+    //}
     
     //GET - 과목 데이터
-    func getSubjects() {
-        AF.request(Config.baseURL+"assets/extracurricular-subjects",
-                   method: .get,
-                   parameters: nil,
-                   encoding: JSONEncoding.default)
-        .responseData { response in
-                switch response.result {
-                case .success(let value):
-                    print(String(data: value, encoding: .utf8)!)
-
-                case .failure(let error):
-                    print(error)
-//                    completion(nil)
-            }
-            //            if let data = try! response.result.get() as? [String: Any] {
-            //                //                    print(Config.baseURL+"sign-up")
-            //                print(data)
-            //            }
-            //            print("json.result : \(response.result)")
-            
-        }
-    }
-    
+    //    func getSubjects() {
+    //        AF.request(Config.baseURL+"assets/extracurricular-subjects",
+    //                   method: .get,
+    //                   parameters: nil,
+    //                   encoding: JSONEncoding.default)
+    //        .responseData { response in
+    //            switch response.result {
+    //            case .success(let value):
+    //
+    //
+    //                if let res = String(data: value, encoding: .utf8) as? Array<Any>{
+    //                    for i in res{
+    //                        print("i번째 : \(res)")
+    //                    }
+    //                }
+    //
+    //                print("response : \(String(data: value, encoding: .utf8)!)")
+    //            case .failure(let error):
+    //                print(error)
+    //                //                    completion(nil)
+    //            }
+    //            //            if let data = try! response.result.get() as? [String: Any] {
+    //            //                //                    print(Config.baseURL+"sign-up")
+    //            //                print(data)
+    //            //            }
+    //            //            print("json.result : \(response.result)")
+    //
+    //        }
+    //    }
+    //
     
     //회원가입
     func signup(param: Parameters) {
