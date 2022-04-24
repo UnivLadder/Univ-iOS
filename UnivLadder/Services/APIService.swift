@@ -10,8 +10,8 @@ import Alamofire
 import SwiftyJSON
 
 final class APIService {
-    
     static let shared = APIService()
+    private init() {}
     var accessToken: String?
     var values: [String] = [""]
     
