@@ -44,6 +44,13 @@ class SubjectModifyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //없으면 api 호출
+        APIService.shared.getSubjects()
+        //있으면 뿌려주기
+        getAllSubjects()
+        
+        
         self.navigationItem.rightBarButtonItem = self.rightButton
         
         self.configureLayout()
@@ -52,11 +59,9 @@ class SubjectModifyViewController: UIViewController {
         
         // local 확인
         
-        //없으면 api 호출
-        APIService.shared.getSubjects()
+
         
-        //있으면 뿌려주기
-        getAllSubjects()
+
     }
     
     

@@ -11,8 +11,6 @@
 		34B2BF0407D9A593F42B601D /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256C1813DFD41F241F2A4B0E /* Pods_UnivLadder_UnivLadderUITests.framework */; };
 		680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */; };
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
-		6836D2E828154A1800048E21 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2E628154A1800048E21 /* Subject+CoreDataProperties.swift */; };
-		6836D2E928154A1800048E21 /* Subject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2E728154A1800048E21 /* Subject+CoreDataClass.swift */; };
 		6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2EA28154B9300048E21 /* CoreDataManager.swift */; };
 		6836D2EC2815553000048E21 /* Mento.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2D72815470000048E21 /* Mento.xcdatamodeld */; };
 		68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AE927730E21009DF75A /* AccountsMainViewController.swift */; };
@@ -20,6 +18,8 @@
 		68442AEF27730E2F009DF75A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEE27730E2F009DF75A /* UserModel.swift */; };
 		6855269E27830BF40030594A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6855269D27830BF40030594A /* GoogleService-Info.plist */; };
 		6864B288278AFE3C00CE80FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864B287278AFE3C00CE80FE /* APIService.swift */; };
+		6887F96828162F9100DF22E9 /* Subject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2E728154A1800048E21 /* Subject+CoreDataClass.swift */; };
+		6887F96A28162FDA00DF22E9 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2E628154A1800048E21 /* Subject+CoreDataProperties.swift */; };
 		689C759D27AFD80E00C04978 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C759C27AFD80E00C04978 /* DummyData.swift */; };
 		68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B27C89279D610C0064D1DD /* LoginDataModel.swift */; };
 		68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */; };
@@ -839,11 +839,11 @@
 				E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */,
 				E56ABEED2647CC0D00A45786 /* YourChatBubbleCell.swift in Sources */,
 				E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */,
-				6836D2E828154A1800048E21 /* Subject+CoreDataProperties.swift in Sources */,
 				68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */,
 				E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */,
 				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
 				68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */,
+				6887F96A28162FDA00DF22E9 /* Subject+CoreDataProperties.swift in Sources */,
 				6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */,
 				68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */,
 				6836D2EC2815553000048E21 /* Mento.xcdatamodeld in Sources */,
@@ -867,7 +867,7 @@
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				68C42AF427D4C50400CE9E38 /* AccountModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
-				6836D2E928154A1800048E21 /* Subject+CoreDataClass.swift in Sources */,
+				6887F96828162F9100DF22E9 /* Subject+CoreDataClass.swift in Sources */,
 				680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */,
 				E58A9C1E27DDF68A00A4ACBB /* Fonts+Generated.swift in Sources */,
 				E546934427F9C31A007A1791 /* SocketManager.swift in Sources */,

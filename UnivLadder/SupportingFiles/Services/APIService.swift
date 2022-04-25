@@ -23,21 +23,24 @@ final class APIService {
           .responseJSON { response in
               switch response.result {
                   case .success(let value):
+                  
+                  let responseJson = JSON(value)
+
+                  for (index, subJson) : (String, JSON) in responseJson {
+                      guard let code = subJson["code"].int,
+                            let topic = subJson["topic"].string,
+                            let value = subJson["value"].string else {
+                          continue
+                      }
+
+                      self.saveNewSubject(Int64(code), topic: topic, value: value)
+                      print("[\(index)] code: \(code) / topic: \(topic) / value: \(value)")
+                      
+                  }
                   let json = JSON(value)
                   let result = json["result"].intValue
-                  //
-                  print(value)
-                  // server data > local 저장
-
-                  
-
-
-
-  //                self.saveNewSubject(1, topic: "외국어", value: "영어")
-                  
                   if result == 404 {
 //                      completion(true)
-                      
                   }else {
 //                      completion(false)
                       
