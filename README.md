@@ -2,6 +2,15 @@
 
 
 
+## 라이브러리  
+* Alamofire  
+  + HTTP 통신 처리  
+* SwiftyJSON
+  + JSON 파싱
+* Firebase, GoogleSignIn
+  + 소셜로그인 - 구글로그인
+* Coredata
+  + 교과목 정보를 저장
 
 
 ++ swiftgen을 적용했습니다(22.03.13)
