@@ -15,42 +15,29 @@ final class APIService {
     var accessToken: String?
     var values: [String] = [""]
     
+
     
     //GET - 과목 데이터
     func getSubjects() {
-        
         AF.request(Config.baseURL+"assets/extracurricular-subjects")
           .responseJSON { response in
               switch response.result {
                   case .success(let value):
-                  
                   let responseJson = JSON(value)
-
                   for (index, subJson) : (String, JSON) in responseJson {
                       guard let code = subJson["code"].int,
                             let topic = subJson["topic"].string,
                             let value = subJson["value"].string else {
                           continue
                       }
-
+                      // core 저장
                       self.saveNewSubject(Int64(code), topic: topic, value: value)
                       print("[\(index)] code: \(code) / topic: \(topic) / value: \(value)")
                       
                   }
-                  let json = JSON(value)
-                  let result = json["result"].intValue
-                  if result == 404 {
-//                      completion(true)
-                  }else {
-//                      completion(false)
-                      
-                  }
                   default: return
-                  
               }
-
           }
-
     }
 
 

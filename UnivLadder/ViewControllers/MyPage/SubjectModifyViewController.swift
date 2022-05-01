@@ -8,10 +8,16 @@
 import UIKit
 import CoreData
 
+
+
+//다음에 할거
+// cell width 유동적으로
+// paging cell custom
+
 class SubjectModifyViewController: UIViewController {
     
     var subjectData: [SubjectModel]?
-                      
+    
     // 서치바
     @IBOutlet weak var searchBtn: UIButton!
     let searchBar = UISearchBar()
@@ -26,56 +32,58 @@ class SubjectModifyViewController: UIViewController {
     @IBOutlet weak var highlightView: UIView!
     
     // Data - 과목은 서버에서 받아와
-//    [ {
-//      "code" : 1,
-//      "topic" : "외국어",
-//      "value" : "영어"
-//    } ]
+    //    [ {
+    //      "code" : 1,
+    //      "topic" : "외국어",
+    //      "value" : "영어"
+    //    } ]
     
     //topic 값들
-    private let subjectCategoryList = ["전체"]
+    private var subjectCategoryList = ["전체"]
     
     //value 값들
-    private let subjectList: [Int: [String]] = [1 : ["전체", "교과목"],
-                                                2 : ["전체", "교과목"]]
-    
+    lazy var subjectList: [String: String] = [subjectCategoryList[0] : "국어"]
     
     var constraints: [NSLayoutConstraint] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //없으면 api 호출
-        APIService.shared.getSubjects()
-        //있으면 뿌려주기
-        getAllSubjects()
-        
-        
         self.navigationItem.rightBarButtonItem = self.rightButton
         
+        // local 데이터 확인 로직 추가
+        
+        //없으면 api 호출
+//        APIService.shared.getSubjects()
+        //있으면 뿌려주기
+        getAllSubjects()
         self.configureLayout()
         self.collectionViewLayout()
-        highlightView.backgroundColor = .darkGray
-        
-        // local 확인
-        
 
-        
 
     }
-    
-    
     
     fileprivate func getAllSubjects() {
         let subjects: [Subject] = CoreDataManager.shared.getSubjects()
-        let topic: [String] = subjects.map({$0.topic!})
-
-        print("subjects = \(subjects)")
-        print("topics = \(topic)")
+        
+        
+        
+        subjectCategoryList.append(contentsOf: removeDuplicate(subjects.map({$0.topic!})))
+        
+        for index in 0..<subjectCategoryList.count{
+            print("\(index) : \(subjectCategoryList[index])")
+            var key = subjectCategoryList[index]
+            subjectList[key] = subjects.map({$0.value!})[index]
+        }
+        
+        print(subjectList)
+        
+        //        dict["key"] = "value"
+        
+        //
+        //        print("subjects = \(subjects)")
+        //        print("topics = \(subjectCategoryList)")
     }
     
-
-
     private func collectionViewLayout() {
         //카테고리바
         let categoryLayout = UICollectionViewFlowLayout()
@@ -106,12 +114,14 @@ class SubjectModifyViewController: UIViewController {
         subjecCategoryCollectionView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         highlightView.translatesAutoresizingMaskIntoConstraints = false
+        highlightView.backgroundColor = #colorLiteral(red: 0.359387219, green: 0.1173390374, blue: 0.6395683885, alpha: 1)
+        
         constraints = [
             highlightView.topAnchor.constraint(equalTo: subjecCategoryCollectionView.bottomAnchor),
-            //            highlightView.bottomAnchor.constraint(equalTo: pageCollectionView.topAnchor),
+            highlightView.bottomAnchor.constraint(equalTo: pageCollectionView.topAnchor),
             highlightView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            highlightView.heightAnchor.constraint(equalToConstant: 1),
-            highlightView.widthAnchor.constraint(equalToConstant: 80)
+            highlightView.heightAnchor.constraint(equalToConstant: 3),
+            highlightView.widthAnchor.constraint(equalToConstant: 50)
         ]
         NSLayoutConstraint.activate(constraints)
         
@@ -139,6 +149,17 @@ class SubjectModifyViewController: UIViewController {
             }
         }
     }
+    
+    func removeDuplicate (_ array: [String]) -> [String] {
+        var removedArray = [String]()
+        for i in array {
+            if removedArray.contains(i) == false {
+                removedArray.append(i)
+            }
+        }
+        return removedArray
+    }
+    
 }
 
 extension SubjectModifyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -150,8 +171,8 @@ extension SubjectModifyViewController: UICollectionViewDelegate, UICollectionVie
             highlightView.translatesAutoresizingMaskIntoConstraints = false
             constraints = [
                 highlightView.topAnchor.constraint(equalTo: subjecCategoryCollectionView.bottomAnchor),
-                //                highlightView.bottomAnchor.constraint(equalTo: pageCollectionView.topAnchor),
-                highlightView.heightAnchor.constraint(equalToConstant: 1),
+                highlightView.bottomAnchor.constraint(equalTo: pageCollectionView.topAnchor),
+                highlightView.heightAnchor.constraint(equalToConstant: 3),
                 highlightView.leadingAnchor.constraint(equalTo: cell.leadingAnchor),
                 highlightView.trailingAnchor.constraint(equalTo: cell.trailingAnchor)
             ]
@@ -166,9 +187,13 @@ extension SubjectModifyViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        // 대주제(topic) cell view
         if collectionView == subjecCategoryCollectionView{
             return subjectCategoryList.count
+            // 교과목(value) cell view
+        }else if collectionView == pageCollectionView {
+            
+            return 10
         }else{
             return 1
         }
@@ -176,22 +201,28 @@ extension SubjectModifyViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
+        // 대주제(topic) cell view
         if collectionView == subjecCategoryCollectionView {
-            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubjectCategoryCell", for: indexPath) as! SubjectCategoryCollectionViewCell
             cell.backgroundColor = .white
+            
+//            cell.isSelected = false
+            if indexPath.row == 0 {
+                cell.isSelected = true
+            }
+      
+            cell.subjectCategoryTitleLabel.textColor = .lightGray
             cell.subjectCategoryTitleLabel.text = subjectCategoryList[indexPath.row]
-            
-            //            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabCollectionViewCell.identifier, for: indexPath) as? TabCollectionViewCell else { return UICollectionViewCell() }
-            //            cell.configureCell(tapName[indexPath.item])
-            
             return cell
+            
+            // 교과목(value) cell view
         } else if collectionView == pageCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pageCell", for: indexPath) as? PageCollectionViewCell else { return UICollectionViewCell() }
-            
-//            cell.subjectTitle.text = subjectList[indexPath.row]
+            lazy var backColor: [UIColor] = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1), #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1), #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1), #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), #colorLiteral(red: 1, green: 0.8492714985, blue: 0.8835704761, alpha: 1), #colorLiteral(red: 1, green: 0.5409764051, blue: 0.8473142982, alpha: 1)]
+            cell.subjectTitle.text = "영어"
+            // indexPath 에러처리 로직 추가하기
+            cell.backgroundColor = backColor[indexPath.row]
+            //            cell.subjectTitle.text = subjectList[indexPath.row]
             //            cell.configureCell(color: pageBackgroundColor[indexPath.item])
             
             return cell
@@ -203,25 +234,26 @@ extension SubjectModifyViewController: UICollectionViewDelegate, UICollectionVie
 
 
 extension SubjectModifyViewController {
+    // 스크롤 부드럽게
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        //        guard let layout = self.pageCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        //        if scrollView == pageCollectionView {
-        //            let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
-        //            let offset = targetContentOffset.pointee
-        //            let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
-        //            let roundedIndex = round(index)
-        //            let indexPath = IndexPath(item: Int(roundedIndex), section: 0)
-        //
-        //            targetContentOffset.pointee = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left,
-        //                                                  y: scrollView.contentInset.top)
-        //
-        //            // topTapItem Select
-        //            tapBarCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
-        //            // collectionView didSelectedItemAt delegate
-        //            collectionView(tapBarCollectionView, didSelectItemAt: indexPath)
-        //            // topTapMenu Scroll
-        //            tapBarCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
-        //        }
+        guard let layout = self.pageCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        if scrollView == pageCollectionView {
+            let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
+            let offset = targetContentOffset.pointee
+            let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
+            let roundedIndex = round(index)
+            let indexPath = IndexPath(item: Int(roundedIndex), section: 0)
+            
+            targetContentOffset.pointee = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left,
+                                                  y: scrollView.contentInset.top)
+            
+            // topTapItem Select
+            subjecCategoryCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
+            // collectionView didSelectedItemAt delegate
+            collectionView(subjecCategoryCollectionView, didSelectItemAt: indexPath)
+            // topTapMenu Scroll
+            subjecCategoryCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+        }
     }
     
 }

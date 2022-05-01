@@ -21,7 +21,7 @@
         <!--My Page View Controller-->
         <scene sceneID="0MV-gN-iVV">
             <objects>
-                <viewController storyboardIdentifier="MyPageViewController" id="NXb-HQ-XxT" customClass="MyPageViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPage" id="NXb-HQ-XxT" customClass="MyPageViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VEf-co-mLu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="3809" y="1358"/>
         </scene>
-        <!--분야 설정-->
+        <!--Subject-->
         <scene sceneID="vE7-57-GF3">
             <objects>
-                <viewController id="ncy-G3-hT2" customClass="SubjectModifyViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Subject" id="ncy-G3-hT2" customClass="SubjectModifyViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OvO-Ph-kDA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,14 +257,12 @@
                                     <outlet property="delegate" destination="ncy-G3-hT2" id="ftz-2e-crP"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AxH-l4-Jdf">
+                            <view contentMode="scaleToFill" id="AxH-l4-Jdf">
                                 <rect key="frame" x="0.0" y="158" width="414" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60412872969999998" green="0.91266634410000003" blue="0.92812597429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="eMB-TD-SN5"/>
-                                </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="drh-ph-rFR">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="drh-ph-rFR">
                                 <rect key="frame" x="0.0" y="168" width="414" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T4A-dc-7mv">
@@ -311,12 +309,8 @@
                             <constraint firstItem="xEE-77-bhx" firstAttribute="leading" secondItem="rYa-ve-3MY" secondAttribute="leading" id="8xc-mJ-MKg"/>
                             <constraint firstItem="xEE-77-bhx" firstAttribute="top" secondItem="rYa-ve-3MY" secondAttribute="top" id="FVz-yY-LXR"/>
                             <constraint firstItem="rYa-ve-3MY" firstAttribute="trailing" secondItem="drh-ph-rFR" secondAttribute="trailing" id="INq-3k-YdP"/>
-                            <constraint firstItem="AxH-l4-Jdf" firstAttribute="leading" secondItem="rYa-ve-3MY" secondAttribute="leading" id="Rq7-mn-QqP"/>
-                            <constraint firstItem="drh-ph-rFR" firstAttribute="top" secondItem="AxH-l4-Jdf" secondAttribute="bottom" id="Umg-as-TJx"/>
                             <constraint firstItem="drh-ph-rFR" firstAttribute="leading" secondItem="rYa-ve-3MY" secondAttribute="leading" id="aBQ-7n-6I8"/>
-                            <constraint firstItem="rYa-ve-3MY" firstAttribute="trailing" secondItem="AxH-l4-Jdf" secondAttribute="trailing" id="oOc-x6-KKC"/>
                             <constraint firstItem="rYa-ve-3MY" firstAttribute="trailing" secondItem="xEE-77-bhx" secondAttribute="trailing" id="wEG-gl-7C7"/>
-                            <constraint firstItem="AxH-l4-Jdf" firstAttribute="top" secondItem="xEE-77-bhx" secondAttribute="bottom" id="wpE-NZ-kfj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="분야 설정" id="0L2-Y0-980">
