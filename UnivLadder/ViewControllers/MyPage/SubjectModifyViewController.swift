@@ -87,7 +87,7 @@ class SubjectModifyViewController: UIViewController {
     private func collectionViewLayout() {
         //카테고리바
         let categoryLayout = UICollectionViewFlowLayout()
-        categoryLayout.itemSize = CGSize(width: 70, height: 50)
+        categoryLayout.itemSize = CGSize(width: 80, height: 50)
         categoryLayout.minimumLineSpacing = 10
         categoryLayout.scrollDirection = .horizontal
         subjecCategoryCollectionView.frame = .zero
@@ -121,7 +121,7 @@ class SubjectModifyViewController: UIViewController {
             highlightView.bottomAnchor.constraint(equalTo: pageCollectionView.topAnchor),
             highlightView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             highlightView.heightAnchor.constraint(equalToConstant: 3),
-            highlightView.widthAnchor.constraint(equalToConstant: 50)
+            highlightView.widthAnchor.constraint(equalToConstant: 80)
         ]
         NSLayoutConstraint.activate(constraints)
         
