@@ -33,7 +33,6 @@
 		B482380578533402A3FE29B2 /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80B38848C16DB0D07CC410E /* Pods_UnivLadder.framework */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
-		E546933E27F9BD52007A1791 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = E546933D27F9BD52007A1791 /* SocketIO */; };
 		E546934227F9C12B007A1791 /* APIService+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546934127F9C12B007A1791 /* APIService+Ex.swift */; };
 		E546934427F9C31A007A1791 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546934327F9C31A007A1791 /* SocketManager.swift */; };
 		E546934727F9C749007A1791 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546934627F9C749007A1791 /* ChatModel.swift */; };
@@ -44,8 +43,6 @@
 		E56ABEED2647CC0D00A45786 /* YourChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56ABEEC2647CC0D00A45786 /* YourChatBubbleCell.swift */; };
 		E57A31B927B900DF00276D7F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A31B827B900DF00276D7F /* UIViewController+Extension.swift */; };
 		E57A31BD27B902F000276D7F /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A31BC27B902F000276D7F /* StoryboardInitializable.swift */; };
-		E587B0682712E93500FAD77D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E587B0672712E93500FAD77D /* SnapKit */; };
-		E587B06B2712E94100FAD77D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = E587B06A2712E94100FAD77D /* Then */; };
 		E587B0712712F54D00FAD77D /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B0702712F54D00FAD77D /* MyPageViewController.swift */; };
 		E587B0732712F66100FAD77D /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587B0722712F66100FAD77D /* MyPageCell.swift */; };
 		E58A9C1A27DDEF1000A4ACBB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A9C1927DDEF1000A4ACBB /* UIButton+Extension.swift */; };
@@ -55,9 +52,6 @@
 		E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D4B5F275DF339009CF08D /* ThemeManager.swift */; };
 		E58D4B63275DF3F1009CF08D /* MentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */; };
 		E5AF9A38280C2A1B00601AE2 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF9A37280C2A1B00601AE2 /* ChatListViewModel.swift */; };
-		E5AF9A3B280C2AA900601AE2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E5AF9A3A280C2AA900601AE2 /* RxCocoa */; };
-		E5AF9A3D280C2AA900601AE2 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = E5AF9A3C280C2AA900601AE2 /* RxRelay */; };
-		E5AF9A3F280C2AA900601AE2 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5AF9A3E280C2AA900601AE2 /* RxSwift */; };
 		E5AF9A42280C2D1000601AE2 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF9A41280C2D1000601AE2 /* ViewModelType.swift */; };
 		E5B38B222615EBCC00D4EB5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */; };
 		E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */; };
@@ -195,13 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5AF9A3D280C2AA900601AE2 /* RxRelay in Frameworks */,
-				E587B0682712E93500FAD77D /* SnapKit in Frameworks */,
-				E546933E27F9BD52007A1791 /* SocketIO in Frameworks */,
-				E5AF9A3B280C2AA900601AE2 /* RxCocoa in Frameworks */,
-				E587B06B2712E94100FAD77D /* Then in Frameworks */,
 				B482380578533402A3FE29B2 /* Pods_UnivLadder.framework in Frameworks */,
-				E5AF9A3F280C2AA900601AE2 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,12 +569,6 @@
 			);
 			name = UnivLadder;
 			packageProductDependencies = (
-				E587B0672712E93500FAD77D /* SnapKit */,
-				E587B06A2712E94100FAD77D /* Then */,
-				E546933D27F9BD52007A1791 /* SocketIO */,
-				E5AF9A3A280C2AA900601AE2 /* RxCocoa */,
-				E5AF9A3C280C2AA900601AE2 /* RxRelay */,
-				E5AF9A3E280C2AA900601AE2 /* RxSwift */,
 			);
 			productName = UnivLadder;
 			productReference = E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */;
@@ -1071,7 +1053,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W832C4SNYD;
+				DEVELOPMENT_TEAM = 25WJPJB95F;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1092,7 +1074,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W832C4SNYD;
+				DEVELOPMENT_TEAM = 25WJPJB95F;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1264,39 +1246,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E546933D27F9BD52007A1791 /* SocketIO */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E546933C27F9BD52007A1791 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
-			productName = SocketIO;
-		};
-		E587B0672712E93500FAD77D /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E587B0662712E93500FAD77D /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		E587B06A2712E94100FAD77D /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E587B0692712E94100FAD77D /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-		E5AF9A3A280C2AA900601AE2 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		E5AF9A3C280C2AA900601AE2 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		E5AF9A3E280C2AA900601AE2 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		6836D2D72815470000048E21 /* Mento.xcdatamodeld */ = {
