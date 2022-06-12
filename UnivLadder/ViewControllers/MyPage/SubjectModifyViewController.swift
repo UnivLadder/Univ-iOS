@@ -53,7 +53,7 @@ class SubjectModifyViewController: UIViewController {
         // local 데이터 확인 로직 추가
         
         //없으면 api 호출
-//        APIService.shared.getSubjects()
+        APIService.shared.getSubjects()
         //있으면 뿌려주기
         getAllSubjects()
         self.configureLayout()
@@ -64,9 +64,7 @@ class SubjectModifyViewController: UIViewController {
     
     fileprivate func getAllSubjects() {
         let subjects: [Subject] = CoreDataManager.shared.getSubjects()
-        
-        
-        
+        // 중복 topic 제거
         subjectCategoryList.append(contentsOf: removeDuplicate(subjects.map({$0.topic!})))
         
         for index in 0..<subjectCategoryList.count{
@@ -192,7 +190,6 @@ extension SubjectModifyViewController: UICollectionViewDelegate, UICollectionVie
             return subjectCategoryList.count
             // 교과목(value) cell view
         }else if collectionView == pageCollectionView {
-            
             return 10
         }else{
             return 1

@@ -8,15 +8,24 @@
 import UIKit
 import AuthenticationServices
 import Alamofire
+import MessageUI
 
-class AccountsRegisterViewController: UIViewController {
+class AccountsRegisterViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var userModel = UserModel() // 인스턴스 생성
     
     @IBOutlet weak var registerName: UITextField!
     @IBOutlet weak var registerEmail: UITextField!
+    @IBOutlet weak var authView: UIView!
+    @IBOutlet weak var authSendBtn: UIButton!
+    @IBOutlet weak var authCheckBtn: UIButton!
+    
+    
+    
+    
     @IBOutlet weak var registerPassword: UITextField!
     @IBOutlet weak var registerPassword2: UITextField!
+    @IBOutlet weak var emailAuthNum: UITextField!
     
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordErrorLabel: UILabel!
@@ -27,6 +36,15 @@ class AccountsRegisterViewController: UIViewController {
     
     @IBOutlet weak var backBtn: UIButton!
     
+    //constraint
+    
+    
+    
+    
+    
+    
+    @IBOutlet weak var rangeWithEmailAndPwd: NSLayoutConstraint!
+    
     //회원가입
     //1. 자체 회원가입
     //2. 소셜 회원가입
@@ -35,7 +53,53 @@ class AccountsRegisterViewController: UIViewController {
         super.viewDidLoad()
         self.viewComponents()
         // Do any additional setup after loading the view.
+//        emailAuthNum.isHidden = true
+        authView.isHidden = true
+        registerPassword.frame.origin.y = registerPassword.frame.origin.y-80
     }
+    
+    @IBAction func sendNumToEmail(_ sender: Any) {
+//        emailAuthNum.isHidden = false
+//        registerPassword.frame.origin.y = 0
+//        rangeWithEmailAndPwd.constant = 90
+        
+        
+        authView.isHidden = false
+        authSendBtn.setTitle("재전송", for: .normal)
+        
+        
+        // 이메일 사용가능한지 체크하는 if문
+//        if MFMailComposeViewController.canSendMail() {
+//            let compseVC = MFMailComposeViewController()
+//            compseVC.mailComposeDelegate = self
+//            guard let userEmail = registerEmail.text else { return  }
+////            compseVC.setToRecipients(["userEmail"])
+//            compseVC.setToRecipients(["leeyeon0527@naver.com"])
+//            compseVC.setSubject("send from UnivLadder")
+//            compseVC.setMessageBody("1234", isHTML: false)
+//
+//            self.present(compseVC, animated: true, completion: nil)
+//
+//        }
+//        else {
+//            self.showSendMailErrorAlert()
+//        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default) {
+            (action) in
+            print("확인")
+        }
+        sendMailErrorAlert.addAction(confirmAction)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
     
     func viewComponents() {
         maleBtn.backgroundColor = UIColor.white

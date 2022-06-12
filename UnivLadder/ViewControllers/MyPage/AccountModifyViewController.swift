@@ -11,14 +11,9 @@ class AccountModifyViewController: UIViewController {
     @IBOutlet weak var modifyTableView: UITableView!
     
     var modifyList = ["본인 인증", "수업 인증 지역", "이동 가능 거리", "연락 가능 시간 등록" ,"수업 가능 일자 등록", "수업 가격 정보 등록", "사업자등록증 등록", "자격증 등록", "졸업증명서/재학증명서 등록", "제공 서비스 분야 등록", "서비스 상세설명 등록"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
     }
-    
-
 }
 
 

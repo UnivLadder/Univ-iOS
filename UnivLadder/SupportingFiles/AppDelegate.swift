@@ -18,10 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // 과목 리스트 초기화
-
         //과목 리스트
 //        APIService.shared.getSubjects()
         
+        //앱파일 경로 확인
+        print("App bundle path : \(Bundle.main)")
         return true
     }
     
