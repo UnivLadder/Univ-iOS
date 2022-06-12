@@ -40,7 +40,21 @@ class AccountsRegisterViewController: UIViewController, MFMailComposeViewControl
     
     
     
-    
+    // MARK: - View Components
+    func viewComponents(){
+        
+        //키패드 제어
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        
+        
+    }
     
     
     @IBOutlet weak var rangeWithEmailAndPwd: NSLayoutConstraint!
