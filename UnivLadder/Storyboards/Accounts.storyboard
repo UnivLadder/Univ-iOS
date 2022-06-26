@@ -238,19 +238,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yw2-Hy-e6a">
-                                <rect key="frame" x="40" y="94" width="129" height="41"/>
+                                <rect key="frame" x="40" y="124" width="129" height="41"/>
                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 계정을 만들어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5y-VF-Edk">
-                                <rect key="frame" x="40" y="149" width="156.66666666666666" height="15"/>
+                                <rect key="frame" x="40" y="175" width="156.66666666666666" height="15"/>
                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mPO-DC-WKP">
-                                <rect key="frame" x="40" y="174" width="295" height="352"/>
+                                <rect key="frame" x="40" y="220" width="295" height="352"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="성명" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" disabledBackground="emailIcon" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gBK-fh-Vlf">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
@@ -279,7 +279,7 @@
                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3to-U2-0gI">
-                                                        <rect key="frame" x="236.66666666666671" y="9.6666666666666572" width="48.333333333333343" height="31"/>
+                                                        <rect key="frame" x="236.66666666666671" y="9.6666666666666856" width="48.333333333333343" height="31"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="gray" title="전송"/>
                                                         <connections>
@@ -323,6 +323,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="gray" title="확인"/>
                                                 <connections>
+                                                    <action selector="authCheckBtn:" destination="lUM-qj-M7J" eventType="touchUpInside" id="UvK-gQ-0a8"/>
                                                     <action selector="sendNumToEmail:" destination="lUM-qj-M7J" eventType="touchUpInside" id="7ne-cd-Zgb"/>
                                                 </connections>
                                             </button>
@@ -374,7 +375,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sbR-zW-5Ze">
-                                <rect key="frame" x="40" y="546" width="295" height="58"/>
+                                <rect key="frame" x="40" y="592" width="295" height="58"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-0t-gM5">
                                         <rect key="frame" x="0.0" y="0.0" width="142.66666666666666" height="58"/>
@@ -403,7 +404,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwx-yw-fVb">
-                                <rect key="frame" x="40" y="624" width="295" height="50"/>
+                                <rect key="frame" x="40" y="670" width="295" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6Mf-Ud-XSd"/>
                                 </constraints>
@@ -417,7 +418,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-97-Bko">
-                                <rect key="frame" x="40" y="694" width="295" height="29"/>
+                                <rect key="frame" x="40" y="740" width="295" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="이미 계정이 있어요!" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFJ-mM-7t2">
                                         <rect key="frame" x="0.0" y="7" width="193.33333333333334" height="15"/>
@@ -446,16 +447,16 @@
                             <constraint firstItem="s5y-VF-Edk" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="40" id="1gP-pg-tFx"/>
                             <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="hwx-yw-fVb" secondAttribute="trailing" constant="40" id="7Wy-zA-X9p"/>
                             <constraint firstItem="Yw2-Hy-e6a" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="40" id="9NT-73-C5l"/>
-                            <constraint firstItem="Yw2-Hy-e6a" firstAttribute="top" secondItem="lp9-rE-UDh" secondAttribute="top" constant="50" id="BKB-UM-zNv"/>
+                            <constraint firstItem="Yw2-Hy-e6a" firstAttribute="top" secondItem="lp9-rE-UDh" secondAttribute="top" constant="80" id="BKB-UM-zNv"/>
                             <constraint firstItem="mPO-DC-WKP" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="40" id="CIf-Wc-hsX"/>
                             <constraint firstItem="sbR-zW-5Ze" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="40" id="FIn-SO-rbK"/>
                             <constraint firstItem="WzI-97-Bko" firstAttribute="top" secondItem="hwx-yw-fVb" secondAttribute="bottom" constant="20" id="Hb2-AJ-Uq6"/>
                             <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="sbR-zW-5Ze" secondAttribute="trailing" constant="40" id="MtQ-b7-yya"/>
                             <constraint firstItem="sbR-zW-5Ze" firstAttribute="top" secondItem="mPO-DC-WKP" secondAttribute="bottom" constant="20" id="WsI-gR-ZZp"/>
                             <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="WzI-97-Bko" secondAttribute="trailing" constant="40" id="at6-ZW-Riy"/>
-                            <constraint firstItem="s5y-VF-Edk" firstAttribute="top" secondItem="Yw2-Hy-e6a" secondAttribute="bottom" constant="14" id="boO-tM-aOb"/>
+                            <constraint firstItem="s5y-VF-Edk" firstAttribute="top" secondItem="Yw2-Hy-e6a" secondAttribute="bottom" constant="10" id="boO-tM-aOb"/>
                             <constraint firstItem="hwx-yw-fVb" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="40" id="c7D-gV-PUo"/>
-                            <constraint firstItem="mPO-DC-WKP" firstAttribute="top" secondItem="s5y-VF-Edk" secondAttribute="bottom" constant="10" id="cf5-Ig-8L6"/>
+                            <constraint firstItem="mPO-DC-WKP" firstAttribute="top" secondItem="s5y-VF-Edk" secondAttribute="bottom" constant="30" id="cf5-Ig-8L6"/>
                             <constraint firstItem="hwx-yw-fVb" firstAttribute="top" secondItem="sbR-zW-5Ze" secondAttribute="bottom" constant="20" id="cge-t1-deA"/>
                             <constraint firstItem="lp9-rE-UDh" firstAttribute="trailing" secondItem="mPO-DC-WKP" secondAttribute="trailing" constant="40" id="gNy-Fu-fuu"/>
                             <constraint firstItem="WzI-97-Bko" firstAttribute="leading" secondItem="lp9-rE-UDh" secondAttribute="leading" constant="40" id="rB2-ae-5Hm"/>
