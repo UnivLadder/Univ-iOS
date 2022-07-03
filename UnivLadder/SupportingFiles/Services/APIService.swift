@@ -15,32 +15,32 @@ final class APIService {
     var accessToken: String?
     var values: [String] = [""]
     
-
+    
     
     //GET - 과목 데이터
     func getSubjects() {
         AF.request(Config.baseURL+"assets/extracurricular-subjects")
-          .responseJSON { response in
-              switch response.result {
-                  case .success(let value):
-                  let responseJson = JSON(value)
-                  for (index, subJson) : (String, JSON) in responseJson {
-                      guard let code = subJson["code"].int,
-                            let topic = subJson["topic"].string,
-                            let value = subJson["value"].string else {
-                          continue
-                      }
-                      // core 저장
-                      self.saveNewSubject(Int64(code), topic: topic, value: value)
-                      print("[\(index)] code: \(code) / topic: \(topic) / value: \(value)")
-                      
-                  }
-                  default: return
-              }
-          }
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let responseJson = JSON(value)
+                    for (index, subJson) : (String, JSON) in responseJson {
+                        guard let code = subJson["code"].int,
+                              let topic = subJson["topic"].string,
+                              let value = subJson["value"].string else {
+                            continue
+                        }
+                        // core 저장
+                        self.saveNewSubject(Int64(code), topic: topic, value: value)
+                        print("[\(index)] code: \(code) / topic: \(topic) / value: \(value)")
+                        
+                    }
+                default: return
+                }
+            }
     }
-
-
+    
+    
     // 새로운 유저 등록
     fileprivate func saveNewSubject(_ code: Int64, topic: String, value: String) {
         CoreDataManager.shared
@@ -48,7 +48,7 @@ final class APIService {
                 print("saved = \(onSuccess)")
             })
     }
-
+    
     //회원가입
     func signup(param: Parameters) {
         AF.request(Config.baseURL+"sign-up",
@@ -241,5 +241,53 @@ final class APIService {
             }
         }
     }
+    
+    //회원가입 인증 이메일 보내기
+    func putEmailAuth(with email: String) {
+        let userData = ["email":email] as Dictionary
+//        let url = Config.baseURL+"/accounts/accountId/email"
+        let url = Config.baseURL+"accounts/3/email"
+        let accessTokenTest = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzMiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6MywiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2NTk0MzYxNDIsImlhdCI6MTY1Njg0NDE0MiwianRpIjoiMDNOMVg5bnduc2tWSGNQb1hDcVZHaW1peXh6dFV3RllueHZDZDRmSGZUczZ0MnRvc2lneUlnT1NiV3k0aUtQc0VKNE9nZUdQV1Uwb0VCRlg1ZlgyYk1YZ2RKQmE0UzFEUkhYdHhoMFU3R0plTmR4Q1NwMFZ3VXBNZkF0RHFqUGMifQ.zblbP_pumL9sFDia0oaMOuO9WFPahfm1jQROZ5wgs2OPS1T8dr6drmi4zjDrbqPpZGqHh4AgFvuBpGWZAvNkiw"
+        
+        let headers: HTTPHeaders = ["Content-Type" : "application/json",
+                                    "Authentication" : "Bearer " + accessTokenTest]
+        AF.request(url, method: .put, parameters: userData, headers: headers).responseJSON() { response in
+            print(response.result)
+            switch response.result {
+            case .success:
+                if let data = try! response.result.get() as? [String: Any] {
+                    print(data)
+                }
+                break
+            case .failure(let error):
+                print("Error: \(error)")
+                break
+            }
+        }
+    }
+    
+    
+    //계정 이메일 수정 인증 이메일 보내기
+    func putEmailModifyAuth(with email: String) {
+        let userData = ["email":email] as Dictionary
+//        let url = Config.baseURL+"/accounts/accountId/email"
+        let url = Config.baseURL+"/accounts/3/email"
+        let accessTokenTest = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzMiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6MywiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2NTk0MzYxNDIsImlhdCI6MTY1Njg0NDE0MiwianRpIjoiMDNOMVg5bnduc2tWSGNQb1hDcVZHaW1peXh6dFV3RllueHZDZDRmSGZUczZ0MnRvc2lneUlnT1NiV3k0aUtQc0VKNE9nZUdQV1Uwb0VCRlg1ZlgyYk1YZ2RKQmE0UzFEUkhYdHhoMFU3R0plTmR4Q1NwMFZ3VXBNZkF0RHFqUGMifQ.zblbP_pumL9sFDia0oaMOuO9WFPahfm1jQROZ5wgs2OPS1T8dr6drmi4zjDrbqPpZGqHh4AgFvuBpGWZAvNkiw"
+        
+        let headers: HTTPHeaders = ["Content-Type" : "application/json",
+                                    "Authentication" : "Bearer " + accessTokenTest]
+        AF.request(url, method: .post, parameters: userData, headers: headers).responseJSON() { response in
+            print(response.result)
+            switch response.result {
+            case .success:
+                if let data = try! response.result.get() as? [String: Any] {
+                    print(data)
+                }
+                break
+            case .failure(let error):
+                print("Error: \(error)")
+                break
+            }
+        }
+    }
 }
-

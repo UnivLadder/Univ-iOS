@@ -13,12 +13,12 @@
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
 		6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2EA28154B9300048E21 /* CoreDataManager.swift */; };
 		6836D2EC2815553000048E21 /* Mento.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2D72815470000048E21 /* Mento.xcdatamodeld */; };
-		6838CD2E2855EE3A00BE5FFE /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6838CD2D2855EE3A00BE5FFE /* Test.storyboard */; };
 		68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AE927730E21009DF75A /* AccountsMainViewController.swift */; };
 		68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */; };
 		68442AEF27730E2F009DF75A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEE27730E2F009DF75A /* UserModel.swift */; };
 		6855269E27830BF40030594A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6855269D27830BF40030594A /* GoogleService-Info.plist */; };
 		6864B288278AFE3C00CE80FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864B287278AFE3C00CE80FE /* APIService.swift */; };
+		6880A66228719F7F00DB6D20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880A66128719F7F00DB6D20 /* User.swift */; };
 		6887F96828162F9100DF22E9 /* Subject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2E728154A1800048E21 /* Subject+CoreDataClass.swift */; };
 		6887F96A28162FDA00DF22E9 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2E628154A1800048E21 /* Subject+CoreDataProperties.swift */; };
 		689C759D27AFD80E00C04978 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C759C27AFD80E00C04978 /* DummyData.swift */; };
@@ -109,12 +109,12 @@
 		6836D2E628154A1800048E21 /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6836D2E728154A1800048E21 /* Subject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6836D2EA28154B9300048E21 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		6838CD2D2855EE3A00BE5FFE /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		68442AE927730E21009DF75A /* AccountsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsMainViewController.swift; sourceTree = "<group>"; };
 		68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsRegisterViewController.swift; sourceTree = "<group>"; };
 		68442AEE27730E2F009DF75A /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		6855269D27830BF40030594A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6864B287278AFE3C00CE80FE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		6880A66128719F7F00DB6D20 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		689C759C27AFD80E00C04978 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		68B27C89279D610C0064D1DD /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +256,7 @@
 				68D4385127942FA80082BE11 /* Config.swift */,
 				68B27C89279D610C0064D1DD /* LoginDataModel.swift */,
 				689C759C27AFD80E00C04978 /* DummyData.swift */,
+				6880A66128719F7F00DB6D20 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -494,7 +495,6 @@
 				E5B38B272615EBCC00D4EB5D /* Main.storyboard */,
 				E5F3F92526470B4800763ADB /* Accounts.storyboard */,
 				E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */,
-				6838CD2D2855EE3A00BE5FFE /* Test.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -678,7 +678,6 @@
 				E5FDFBEF264E7857000269F9 /* GmarketSansLight.otf in Resources */,
 				E5FDFBF0264E7857000269F9 /* GmarketSansMedium.otf in Resources */,
 				E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */,
-				6838CD2E2855EE3A00BE5FFE /* Test.storyboard in Resources */,
 				E5B38B2E2615EBCC00D4EB5D /* Assets.xcassets in Resources */,
 				E5F3F95326470FFC00763ADB /* MentoList.storyboard in Resources */,
 				E5F3F9692647103F00763ADB /* MyPage.storyboard in Resources */,
@@ -835,6 +834,7 @@
 				6836D2EC2815553000048E21 /* Mento.xcdatamodeld in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
 				68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */,
+				6880A66228719F7F00DB6D20 /* User.swift in Sources */,
 				68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */,
 				E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */,
 				E57A31B927B900DF00276D7F /* UIViewController+Extension.swift in Sources */,
@@ -1063,7 +1063,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder.leeyeon;
 				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1085,7 +1084,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder.leeyeon;
 				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
