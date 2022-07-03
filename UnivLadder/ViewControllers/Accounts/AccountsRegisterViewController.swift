@@ -8,9 +8,8 @@
 import UIKit
 import AuthenticationServices
 import Alamofire
-import MessageUI
 
-class AccountsRegisterViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class AccountsRegisterViewController: UIViewController {
     
     var userModel = UserModel() // 인스턴스 생성
     
@@ -40,6 +39,24 @@ class AccountsRegisterViewController: UIViewController, MFMailComposeViewControl
     
     @IBOutlet weak var backBtn: UIButton!
  
+    
+    @IBAction func maleBtn(_ sender: Any) {
+        maleBtn.backgroundColor = #colorLiteral(red: 0.4406229556, green: 0.350309521, blue: 0.9307079911, alpha: 1)
+        maleBtn.tintColor = UIColor.white
+        femaleBtn.backgroundColor = UIColor.white
+        femaleBtn.tintColor = #colorLiteral(red: 0.4406229556, green: 0.350309521, blue: 0.9307079911, alpha: 1)
+        User.gender = "MAN"
+    }
+    
+    @IBAction func femaleBtn(_ sender: Any) {
+        femaleBtn.backgroundColor = #colorLiteral(red: 0.4406229556, green: 0.350309521, blue: 0.9307079911, alpha: 1)
+        femaleBtn.tintColor = UIColor.white
+        maleBtn.backgroundColor = UIColor.white
+        maleBtn.tintColor = #colorLiteral(red: 0.4406229556, green: 0.350309521, blue: 0.9307079911, alpha: 1)
+        User.gender = "WOMAN"
+    }
+    
+    
     //회원가입
     //1. 자체 회원가입
     //2. 소셜 회원가입
@@ -107,20 +124,8 @@ class AccountsRegisterViewController: UIViewController, MFMailComposeViewControl
             if let removable = self.view.viewWithTag(100) {
                 removable.removeFromSuperview()
             }
-            // 이메일 사용가능한지 체크하는 if문
-            if MFMailComposeViewController.canSendMail() {
-                let compseVC = MFMailComposeViewController()
-                compseVC.mailComposeDelegate = self
-                guard let userEmail = registerEmail.text else { return  }
-                compseVC.setToRecipients(["userEmail"])
-//                compseVC.setToRecipients(["leeyeon0527@naver.com"])
-                compseVC.setSubject("send from UnivLadder")
-                compseVC.setMessageBody("1234", isHTML: false)
-                self.present(compseVC, animated: true, completion: nil)
-            }
-            else {
-                self.showSendMailErrorAlert()
-            }
+            // 인증번호 전송
+            APIService.shared.putEmailAuth(with: email)
         }
         // 이메일 validate - ERROR
         else {
@@ -133,9 +138,6 @@ class AccountsRegisterViewController: UIViewController, MFMailComposeViewControl
 
     }
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
     
     func showSendMailErrorAlert() {
         let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
@@ -217,7 +219,7 @@ class AccountsRegisterViewController: UIViewController, MFMailComposeViewControl
             "password" : "PASSWORD",
             "name" : "이연",
             "thumbnail" : "THUMBNAIL",
-            "gender" : "WOMAN"
+            "gender" : User.gender
         ]
         print(registeParam)
         APIService.shared.signup(param: registeParam)
