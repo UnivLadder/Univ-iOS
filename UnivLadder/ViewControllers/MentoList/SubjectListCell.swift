@@ -9,7 +9,7 @@ import UIKit
 
 class SubjectListCell: UICollectionViewCell {
     
-    static let registerId = "\(SubjectListCell.self)"
+    static let subjectRegisterId = "\(SubjectListCell.self)"
     
     let label = UILabel().then {
         $0.textAlignment = .center

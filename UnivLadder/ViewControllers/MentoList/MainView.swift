@@ -76,7 +76,7 @@ class MainView: UIView {
 ////        $0.addTarget(self, action: #selector(touchupSwitchButton(_:)), for: .touchUpInside)
 //    }
     
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+    let subjectCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
@@ -85,16 +85,7 @@ class MainView: UIView {
         $0.showsHorizontalScrollIndicator = false
         $0.collectionViewLayout = layout
     }
-    
-    let collectionView2 = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        
-        $0.backgroundColor = .white
-        $0.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 0)
-        $0.showsHorizontalScrollIndicator = false
-        $0.collectionViewLayout = layout
-    }
+
     
     let mentoListTitleLabel = UILabel().then {
         $0.font = Fonts.EsamanruOTF.bold.font(size: 22)
@@ -102,6 +93,15 @@ class MainView: UIView {
         $0.text = "지금 뜨고 있는 멘토"
     }
     
+    let mentoCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        $0.backgroundColor = .white
+        $0.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 0)
+        $0.showsHorizontalScrollIndicator = false
+        $0.collectionViewLayout = layout
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -131,12 +131,12 @@ extension MainView: ViewRepresentable {
         addSubview(searchMentoTitleLabel)
         addSubview(searchMentoSearchBar)
 //        addSubview(searchMentoButton)
-        addSubview(collectionView)
+        addSubview(subjectCollectionView)
         
         
         // 지금 뜨고 있는 멘토
         addSubview(mentoListTitleLabel)
-        addSubview(collectionView2)
+        addSubview(mentoCollectionView)
     }
     
     func setupConstraints() {
@@ -190,29 +190,25 @@ extension MainView: ViewRepresentable {
 ////            $0.trailing.equalToSuperview().offset(-20)
 //        }
         
-        collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(
-                searchMentoSearchBar.snp.bottom).offset(10)
-            make.left.right.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.height.equalTo(100)
+        subjectCollectionView.snp.makeConstraints {
+            $0.top.equalTo(searchMentoSearchBar.snp.bottom).offset(10)
+            $0.left.right.equalToSuperview()
+//            $0.centerY.equalToSuperview()
+            $0.height.equalTo(100)
         }
         
         mentoListTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(collectionView.snp.bottom).offset(80)
+            $0.top.equalTo(subjectCollectionView.snp.bottom).offset(80)
             $0.leading.equalTo(profileImageView)
             $0.trailing.equalToSuperview().offset(-20)
         }
         
-        collectionView2.snp.makeConstraints { (make) in
-            make.top.equalTo(
-                searchMentoSearchBar.snp.bottom).offset(10)
-            make.left.right.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.height.equalTo(100)
+        mentoCollectionView.snp.makeConstraints {
+            $0.top.equalTo(mentoListTitleLabel.snp.bottom).offset(10)
+            $0.left.right.equalToSuperview()
+//            $0.centerY.equalToSuperview()
+            $0.height.equalTo(100)
         }
-        
-        
     }
 }
 
@@ -229,14 +225,3 @@ extension UIButton {
         self.setBackgroundImage(backgroundImage, for: state)
     }
 }
-
-let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
-        
-    $0.backgroundColor = .white
-    $0.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 0)
-    $0.showsHorizontalScrollIndicator = false
-    $0.collectionViewLayout = layout
-}
-
