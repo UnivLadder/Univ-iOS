@@ -17,14 +17,14 @@ class AccountsRegisterViewController: UIViewController {
     @IBOutlet weak var registerName: UITextField!
 
     //email
-    @IBOutlet weak var registerEmail: UITextField!
-    @IBOutlet weak var authSendBtn: UIButton!
-    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var registerEmailTxt: UITextField!
+    @IBOutlet weak var emailAuthBtn: UIButton!
+    @IBOutlet weak var emailAuthErrorLabel: UILabel!
     
-    //인증번호
+    //email 인증번호
     @IBOutlet weak var authView: UIView!
-    @IBOutlet weak var emailAuthNum: UITextField!
-    @IBOutlet weak var authCheckBtn: UIButton!
+    @IBOutlet weak var emailAuthNumTxt: UITextField!
+    @IBOutlet weak var emailAuthNumCheckBtn: UIButton!
     
     //비밀번호
     @IBOutlet weak var registerPassword: UITextField!
@@ -46,6 +46,7 @@ class AccountsRegisterViewController: UIViewController {
         femaleBtn.backgroundColor = UIColor.white
         femaleBtn.tintColor = #colorLiteral(red: 0.4406229556, green: 0.350309521, blue: 0.9307079911, alpha: 1)
         User.gender = "MAN"
+        
     }
     
     @IBAction func femaleBtn(_ sender: Any) {
@@ -67,11 +68,16 @@ class AccountsRegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        emailAuthNum.isHidden = true
         authView.isHidden = true
-        registerPassword.frame.origin.y = registerPassword.frame.origin.y-80
+//        registerPassword.frame.origin.y = registerPassword.frame.origin.y-80
     }
     
     // MARK: - View Components
     func viewComponents() {
+        if #available(iOS 12.0, *) {
+            registerPassword.textContentType = .oneTimeCode
+            registerPassword2.textContentType = .oneTimeCode
+        }
+        
         maleBtn.backgroundColor = UIColor.white
         maleBtn.layer.borderWidth = 1
         maleBtn.layer.borderColor = Colors.mainPurple.color.cgColor
@@ -82,7 +88,7 @@ class AccountsRegisterViewController: UIViewController {
         femaleBtn.layer.borderColor = Colors.mainPurple.color.cgColor
         femaleBtn.layer.cornerRadius = 10
         
-        emailErrorLabel.isHidden = true
+        emailAuthErrorLabel.isHidden = true
         passwordErrorLabel.isHidden = true
         
         //키패드 제어
@@ -112,11 +118,9 @@ class AccountsRegisterViewController: UIViewController {
     }
     
     // 입력한 이메일로 인증메일 전송
-    @IBAction func sendNumToEmail(_ sender: Any) {
-        authView.isHidden = false
-        authSendBtn.setTitle("재전송", for: .normal)
-        guard let email = registerEmail.text, !email.isEmpty else { return }
-        
+    //emailAuthBtn
+    @IBAction func emailAuthAction(_ sender: Any) {
+        guard let email = registerEmailTxt.text, !email.isEmpty else { return }
         // 이메일 validate 처리
         if userModel.isValidEmail(id: email){
             //nil 처리 추가
@@ -124,18 +128,33 @@ class AccountsRegisterViewController: UIViewController {
             if let removable = self.view.viewWithTag(100) {
                 removable.removeFromSuperview()
             }
+            authView.isHidden = false
+            emailAuthBtn.setTitle("재전송", for: .normal)
+
+            var params = ["email" : email]
             // 인증번호 전송
-            APIService.shared.putEmailAuth(with: email)
+
+            APIService.shared.postEmailAuth(param: params)
         }
         // 이메일 validate - ERROR
         else {
-            shakeTextField(textField: registerEmail)
-            emailErrorLabel.text = "잘못된 형식의 이메일입니다."
-            emailErrorLabel.textColor = UIColor.red
-            emailErrorLabel.tag = 100
-            emailErrorLabel.isHidden = false
+//            shakeTextField(textField: registerEmail)
+            emailAuthErrorLabel.text = "잘못된 형식의 이메일입니다."
+            emailAuthErrorLabel.textColor = UIColor.red
+            emailAuthErrorLabel.tag = 100
+            emailAuthErrorLabel.isHidden = false
         }
+    }
+    
 
+    //Content-Length: 59
+    @IBAction func emailAuthNumCheckAction(_ sender: Any) {
+        guard let email = registerEmailTxt.text, !email.isEmpty else { return }
+        if let emailToken = emailAuthNumTxt.text{
+
+            var params = ["email":email, "token" : emailToken]
+            APIService.shared.emailAuthNumCheckAction(param: params)
+        }
     }
     
     
@@ -165,12 +184,12 @@ class AccountsRegisterViewController: UIViewController {
         // 1. 비밀번호 validate 처리
         // 1-1. 비밀번호 형식 validate
         if userModel.isValidPassword(pwd: password){
-            if let removable = self.view.viewWithTag(101) {
-                removable.removeFromSuperview()
-            }
+//            if let removable = self.view.viewWithTag(101) {
+//                removable.removeFromSuperview()
+//            }
         }
         else {
-            shakeTextField(textField: registerPassword)
+//            shakeTextField(textField: registerPassword)
             passwordErrorLabel.text = "비밀번호를 다시 입력해주세요."
             passwordErrorLabel.textColor = UIColor.red
             passwordErrorLabel.tag = 101
@@ -191,12 +210,12 @@ class AccountsRegisterViewController: UIViewController {
                 passwordErrorLabel.textColor = UIColor.red
                 passwordErrorLabel.tag = 101
                 passwordErrorLabel.isHidden = false
-                shakeTextField(textField: registerPassword)
-                shakeTextField(textField: registerPassword2)
+//                shakeTextField(textField: registerPassword)
+//                shakeTextField(textField: registerPassword2)
             }
         }
         else {
-            shakeTextField(textField: registerPassword)
+//            shakeTextField(textField: registerPassword)
             passwordErrorLabel.text = "비밀번호를 다시 입력해주세요."
             passwordErrorLabel.textColor = UIColor.red
             passwordErrorLabel.tag = 101
@@ -215,7 +234,7 @@ class AccountsRegisterViewController: UIViewController {
         
         //dummy test
         let registeParam: Parameters = [
-            "email" : "test4@gmail.com",
+            "email" : "leeyeon0527@gmail.com",
             "password" : "PASSWORD",
             "name" : "이연",
             "thumbnail" : "THUMBNAIL",
@@ -231,17 +250,17 @@ class AccountsRegisterViewController: UIViewController {
     }
     
     // TextField 흔들기 애니메이션
-    func shakeTextField(textField: UITextField){
-        UIView.animate(withDuration: 0.2, animations: {
-            textField.frame.origin.x -= 10
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.2, animations: {
-                textField.frame.origin.x += 20
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.2, animations: {
-                    textField.frame.origin.x -= 20
-                })
-            })
-        })
-    }
+//    func shakeTextField(textField: UITextField){
+//        UIView.animate(withDuration: 0.2, animations: {
+//            textField.frame.origin.x -= 10
+//        }, completion: { _ in
+//            UIView.animate(withDuration: 0.2, animations: {
+//                textField.frame.origin.x += 20
+//            }, completion: { _ in
+//                UIView.animate(withDuration: 0.2, animations: {
+//                    textField.frame.origin.x -= 20
+//                })
+//            })
+//        })
+//    }
 }

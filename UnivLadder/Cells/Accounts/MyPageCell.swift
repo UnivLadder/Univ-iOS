@@ -20,7 +20,7 @@ class MyPageCell: UITableViewCell {
     
     @IBOutlet weak var userEmailLabel: UILabel!{
         didSet{
-            let email = "lxxyeon@gmail.com"
+            let email = "leeyeon0527@gmail.com"
             userEmailLabel.font = Theme.gmarketSans12Medium
             userEmailLabel.text = "\(email)"
         }

@@ -13,10 +13,9 @@ final class APIService {
     static let shared = APIService()
     private init() {}
     var accessToken: String?
+    var emailToken: String?
     var values: [String] = [""]
-    
-    
-    
+
     //GET - 과목 데이터
     func getSubjects() {
         AF.request(Config.baseURL+"assets/extracurricular-subjects")
@@ -77,10 +76,10 @@ final class APIService {
                 if let data = try! response.result.get() as? [String: Any] {
                     //                    print(String(describing: data["accessToken"]!))
                     //                    LoginDataModel.token = String(describing: data["accessToken"]!)
-                    self.accessToken = String(describing: data["accessToken"]!)
                     //토큰 로컬 저장
-                    if let accessToken = self.accessToken {
-                        UserInfo.accessToken = accessToken
+                    if let token = data["accessToken"]{
+                        self.accessToken = String(describing: token)
+                        UserInfo.accessToken = String(describing: token)
                         print("토큰 저장 성공")
                     }
                     completion()
@@ -194,6 +193,7 @@ final class APIService {
                 if let jsonObject = try! response.result.get() as? [String: Any] {
                     if let accessToken = jsonObject["access_token"] as? String {
                         self.getUser(accessToken: accessToken)
+                        APIService.shared.accessToken = accessToken
                     }
                 }
             case .failure(let error):
@@ -241,30 +241,63 @@ final class APIService {
             }
         }
     }
-    
     //회원가입 인증 이메일 보내기
-    func putEmailAuth(with email: String) {
-        let userData = ["email":email] as Dictionary
-//        let url = Config.baseURL+"/accounts/accountId/email"
-        let url = Config.baseURL+"accounts/3/email"
-        let accessTokenTest = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzMiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6MywiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2NTk0MzYxNDIsImlhdCI6MTY1Njg0NDE0MiwianRpIjoiMDNOMVg5bnduc2tWSGNQb1hDcVZHaW1peXh6dFV3RllueHZDZDRmSGZUczZ0MnRvc2lneUlnT1NiV3k0aUtQc0VKNE9nZUdQV1Uwb0VCRlg1ZlgyYk1YZ2RKQmE0UzFEUkhYdHhoMFU3R0plTmR4Q1NwMFZ3VXBNZkF0RHFqUGMifQ.zblbP_pumL9sFDia0oaMOuO9WFPahfm1jQROZ5wgs2OPS1T8dr6drmi4zjDrbqPpZGqHh4AgFvuBpGWZAvNkiw"
-        
-        let headers: HTTPHeaders = ["Content-Type" : "application/json",
-                                    "Authentication" : "Bearer " + accessTokenTest]
-        AF.request(url, method: .put, parameters: userData, headers: headers).responseJSON() { response in
-            print(response.result)
-            switch response.result {
-            case .success:
-                if let data = try! response.result.get() as? [String: Any] {
-                    print(data)
-                }
-                break
-            case .failure(let error):
-                print("Error: \(error)")
-                break
-            }
-        }
-    }
+    func postEmailAuth(param: Parameters){
+               AF.request(Config.baseURL+"sign-up/verify-email", method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
+                   switch response.result {
+                   case .success:
+                       if let data = try! response.result.get() as? [String: Any] {
+
+//                           completion()
+                       }
+                       
+                       break
+                   case .failure(let error):
+                       print("Error: \(error)")
+                       break
+                   }
+               }    
+           }
+
+    //회원가입 인증 이메일 검증 요청
+//    func emailAuthNumCheckAction(with email: String, token: String) {
+//        let userData = ["email":email, "token" : token] as Dictionary
+//        let url = Config.baseURL+"sign-up/verify-confirm-email"
+//        let headers: HTTPHeaders = ["Content-Type" : "application/json"]
+//        AF.request(url, method: .post, parameters: userData, headers: headers).responseJSON() { response in
+//            print(response.result)
+//            switch response.result {
+//            case .success:
+//                if let data = try! response.result.get() as? [String: Any] {
+//                    print(data)
+//                }
+//                break
+//            case .failure(let error):
+//                print("Error: \(error)")
+//                break
+//            }
+//        }
+//    }
+    
+    func emailAuthNumCheckAction(param: Parameters){
+               AF.request(Config.baseURL+"sign-up/verify-confirm-email", method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
+                   switch response.result {
+                   case .success:
+                       if let data = try! response.result.get() as? [String: Any] {
+
+//                           completion()
+                       }
+                       
+                       break
+                   case .failure(let error):
+                       print("Error: \(error)")
+                       break
+                   }
+               }
+           }
+    
+    
+    
     
     
     //계정 이메일 수정 인증 이메일 보내기

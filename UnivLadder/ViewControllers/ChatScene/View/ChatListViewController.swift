@@ -34,6 +34,19 @@ final class ChatListViewController: UIViewController {
         super.viewWillAppear(animated)
         print("뷰 나타마?")
     }
+    
+    struct TEST: Codable {
+        let id: String
+        let createdDate: String
+        let lastChatMessage: String?
+
+        enum CodingKeys: String, CodingKey {
+            case id = "accountId"
+//            case accountID = "accountId2"
+            case createdDate = "accountId3"
+            case lastChatMessage = "accountId4"
+        }
+    }
 }
 
 private extension ChatListViewController {
@@ -50,7 +63,13 @@ private extension ChatListViewController {
         
         output.chatroomList.bind(to: chatRoomListTableView.rx.items(
             cellIdentifier: "ChatRoomCell",
+            
             cellType: ChatRoomListCell.self)) { (index: Int, element: ChatRoom, cell: ChatRoomListCell) in
+//            cellType: ChatRoomListCell.self)) { (index: Int, element: TEST, cell: ChatRoomListCell) in
+//                cell.nameLabel.text = "이름"
+//                cell.lastMessageLabel.text = "안녕"
+//                cell.timeLabel.text = "9/12"
+                
                 cell.nameLabel.text = "\(element.id)"
                 cell.lastMessageLabel.text = element.lastChatMessage ?? ""
                 cell.timeLabel.text = element.createdDate

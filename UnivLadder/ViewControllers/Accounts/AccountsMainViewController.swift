@@ -23,7 +23,6 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var autoLogInCheckmark: UIButton!
     
-    @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     
     @IBOutlet weak var googleLogInBtn: UIButton!
@@ -48,14 +47,22 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     //    "username" : "sign-in@gmail.com",
     //    "password" : "password"
     //텍스트에 이모티콘 넣기
+    
     @IBAction func signInAction(_ sender: Any) {
-        //dummydata Test
-//        APIService.shared.signin(param: DummyData.singInDummy, completion: {
+        UIViewController.changeRootViewControllerToHome()
+        
+//        var params = ["username" : emailTextField.text!,
+//                      "password" : passwordTextField.text!]
+        //dummy test
+        var params = ["username" : "leeyeon0527@gmail.com",
+                      "password" : "PASSWORD"]
+
+//        APIService.shared.signin(param: params, completion: {
 //            //nil, 빈값 2개 다 처리
 //            if let token = APIService.shared.accessToken{
 //                if !token.isEmpty{
 //                    print("로그인 성공")
-                    UIViewController.changeRootViewControllerToHome()
+//                    UIViewController.changeRootViewControllerToHome()
 //                }else{
 //                    print("빈 값")
 //                }
@@ -267,14 +274,14 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         
         //로그인 버튼
         googleLogInBtn.layer.borderWidth = 1
-        googleLogInBtn.layer.borderColor = UIColor.black.cgColor
+        googleLogInBtn.layer.borderColor = UIColor.lightGray.cgColor
         googleLogInBtn.layer.cornerRadius = 10
         
         appleLogInBtn.layer.borderWidth = 1
-        appleLogInBtn.layer.borderColor = UIColor.black.cgColor
+        appleLogInBtn.layer.borderColor = UIColor.lightGray.cgColor
         appleLogInBtn.layer.cornerRadius = 10
         
-        //텍스트필드
+        //텍스트필드Btn.backgroundColor = UIColor.whiteb
         emailTextField.delegate = self
         passwordTextField.delegate = self
         emailTextField.clearsOnBeginEditing = true

@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 struct DummyData {
-    static var username = "test@gmail.com"
+    static var username = "leeyeon0527@gmail.com"
     static var password = "PASSWORD"
     
     static var accessToken = ""

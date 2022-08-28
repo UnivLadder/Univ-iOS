@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -123,6 +124,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="로그인">
                                     <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
+                                    <color key="baseForegroundColor" name="light300"/>
+                                    <color key="baseBackgroundColor" name="mainPurple"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="signInAction:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="upc-6N-5CE"/>
@@ -222,7 +225,6 @@
                         <outlet property="passwordErrorLabel" destination="MVg-rp-52B" id="JaV-oT-0My"/>
                         <outlet property="passwordTextField" destination="MyI-2Y-6aw" id="V4M-Rz-ub1"/>
                         <outlet property="registerBtn" destination="wd6-Xn-3dr" id="mGe-40-ewn"/>
-                        <outlet property="signInButton" destination="a8h-7T-09z" id="E3F-aK-jMw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BP8-zY-M6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -250,7 +252,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mPO-DC-WKP">
-                                <rect key="frame" x="40" y="220" width="295" height="352"/>
+                                <rect key="frame" x="40" y="220" width="295" height="358"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="성명" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" disabledBackground="emailIcon" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gBK-fh-Vlf">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
@@ -263,7 +265,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="nsM-HQ-ajZ" userLabel="EmailStackView">
-                                        <rect key="frame" x="0.0" y="65" width="295" height="68"/>
+                                        <rect key="frame" x="0.0" y="65" width="295" height="74"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANz-dU-OVK">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
@@ -283,7 +285,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="gray" title="전송"/>
                                                         <connections>
-                                                            <action selector="sendNumToEmail:" destination="lUM-qj-M7J" eventType="touchUpInside" id="V4C-Lg-lMM"/>
+                                                            <action selector="emailAuthAction:" destination="lUM-qj-M7J" eventType="touchUpInside" id="vUQ-pY-Mot"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -298,7 +300,10 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잘못된 형식의 이메일입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NN-q2-TLs">
-                                                <rect key="frame" x="0.0" y="54" width="295" height="14"/>
+                                                <rect key="frame" x="0.0" y="54" width="295" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="u0Z-Uf-ZSE"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -306,7 +311,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Eo-ZZ-i8X" userLabel="AuthView">
-                                        <rect key="frame" x="0.0" y="148" width="295" height="50"/>
+                                        <rect key="frame" x="0.0" y="154" width="295" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="인증번호" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" disabledBackground="emailIcon" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3hR-3A-Fws">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
@@ -323,8 +328,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="gray" title="확인"/>
                                                 <connections>
-                                                    <action selector="authCheckBtn:" destination="lUM-qj-M7J" eventType="touchUpInside" id="UvK-gQ-0a8"/>
-                                                    <action selector="sendNumToEmail:" destination="lUM-qj-M7J" eventType="touchUpInside" id="7ne-cd-Zgb"/>
+                                                    <action selector="emailAuthNumCheckAction:" destination="lUM-qj-M7J" eventType="touchUpInside" id="cG0-m7-s8c"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -339,7 +343,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Avk-Ub-1Qr" userLabel="Pwd Stack View">
-                                        <rect key="frame" x="0.0" y="213" width="295" height="74"/>
+                                        <rect key="frame" x="0.0" y="219" width="295" height="74"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="비밀번호" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" disabledBackground="emailIcon" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NnE-bu-BTB">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
@@ -351,7 +355,7 @@
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호를 다시 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxt-Jp-wWY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  비밀번호를 다시 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxt-Jp-wWY">
                                                 <rect key="frame" x="0.0" y="54" width="295" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="cXg-E9-jf9"/>
@@ -363,7 +367,7 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="비밀번호" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" disabledBackground="emailIcon" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="InT-eS-E2Y">
-                                        <rect key="frame" x="0.0" y="302" width="295" height="50"/>
+                                        <rect key="frame" x="0.0" y="308" width="295" height="50"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="jvm-bj-mIt"/>
@@ -375,7 +379,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sbR-zW-5Ze">
-                                <rect key="frame" x="40" y="592" width="295" height="50"/>
+                                <rect key="frame" x="40" y="598" width="295" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-0t-gM5">
                                         <rect key="frame" x="0.0" y="0.0" width="142.66666666666666" height="50"/>
@@ -410,7 +414,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwx-yw-fVb">
-                                <rect key="frame" x="40" y="662" width="295" height="50"/>
+                                <rect key="frame" x="40" y="668" width="295" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6Mf-Ud-XSd"/>
                                 </constraints>
@@ -423,17 +427,20 @@
                                     <action selector="registerCompleteAction:" destination="lUM-qj-M7J" eventType="touchUpInside" id="iNa-VF-Bdl"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-97-Bko">
-                                <rect key="frame" x="40" y="732" width="295" height="29"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WzI-97-Bko">
+                                <rect key="frame" x="40" y="738" width="295" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="이미 계정이 있어요!" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFJ-mM-7t2">
-                                        <rect key="frame" x="0.0" y="7" width="193.33333333333334" height="15"/>
+                                        <rect key="frame" x="0.0" y="7" width="167" height="15"/>
                                         <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ju3-Ky-WIx">
-                                        <rect key="frame" x="193.33333333333334" y="0.0" width="101.66666666666666" height="29"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ju3-Ky-WIx">
+                                        <rect key="frame" x="175" y="0.0" width="120" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="Aa1-iO-TAx"/>
+                                        </constraints>
                                         <color key="tintColor" red="0.42745098040000001" green="0.35294117650000001" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="로그인">
@@ -470,17 +477,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="yOR-dt-T5X"/>
                     <connections>
-                        <outlet property="authCheckBtn" destination="rXf-fD-lk0" id="39H-q6-bb3"/>
-                        <outlet property="authSendBtn" destination="3to-U2-0gI" id="O6z-SJ-ct2"/>
                         <outlet property="authView" destination="9Eo-ZZ-i8X" id="Wzk-eo-iYB"/>
                         <outlet property="backBtn" destination="Ju3-Ky-WIx" id="HI5-z2-TUF"/>
-                        <outlet property="emailAuthNum" destination="3hR-3A-Fws" id="RXn-v0-9or"/>
-                        <outlet property="emailErrorLabel" destination="9NN-q2-TLs" id="2u5-RJ-Ewx"/>
+                        <outlet property="emailAuthBtn" destination="3to-U2-0gI" id="O6z-SJ-ct2"/>
+                        <outlet property="emailAuthErrorLabel" destination="9NN-q2-TLs" id="2u5-RJ-Ewx"/>
+                        <outlet property="emailAuthNumCheckBtn" destination="rXf-fD-lk0" id="39H-q6-bb3"/>
+                        <outlet property="emailAuthNumTxt" destination="3hR-3A-Fws" id="RXn-v0-9or"/>
                         <outlet property="femaleBtn" destination="XEE-O2-2n0" id="aDG-qy-9BJ"/>
                         <outlet property="maleBtn" destination="Xhe-0t-gM5" id="Boe-p7-AmM"/>
                         <outlet property="nextBtn" destination="hwx-yw-fVb" id="w2x-aM-4B2"/>
                         <outlet property="passwordErrorLabel" destination="xxt-Jp-wWY" id="RUm-Su-ahT"/>
-                        <outlet property="registerEmail" destination="lqs-3R-Fcm" id="TFc-pv-sSV"/>
+                        <outlet property="registerEmailTxt" destination="lqs-3R-Fcm" id="TFc-pv-sSV"/>
                         <outlet property="registerName" destination="gBK-fh-Vlf" id="qfy-fo-WMd"/>
                         <outlet property="registerPassword" destination="NnE-bu-BTB" id="2tH-Zw-f4W"/>
                         <outlet property="registerPassword2" destination="InT-eS-E2Y" id="1QU-4d-jZ8"/>
@@ -505,6 +512,12 @@
         <image name="emailIcon" width="19" height="14"/>
         <image name="googleIcon" width="21" height="21"/>
         <image name="passwordIcon" width="15" height="16"/>
+        <namedColor name="light300">
+            <color red="0.97299998998641968" green="0.97299998998641968" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mainPurple">
+            <color red="0.42699998617172241" green="0.3529999852180481" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
