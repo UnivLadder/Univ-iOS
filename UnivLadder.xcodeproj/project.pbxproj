@@ -34,6 +34,7 @@
 		68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */; };
 		68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */; };
 		68F3AE6A280C24AC00CF53DC /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3AE69280C24AC00CF53DC /* SubjectModel.swift */; };
+		68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F6F5C628D726EA0092B477 /* Assets.xcassets */; };
 		B482380578533402A3FE29B2 /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80B38848C16DB0D07CC410E /* Pods_UnivLadder.framework */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
@@ -61,7 +62,6 @@
 		E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */; };
 		E5B38B292615EBCC00D4EB5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B38B272615EBCC00D4EB5D /* Main.storyboard */; };
 		E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */; };
-		E5B38B2E2615EBCC00D4EB5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B38B2D2615EBCC00D4EB5D /* Assets.xcassets */; };
 		E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */; };
 		E5B38B3C2615EBCC00D4EB5D /* UnivLadderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B3B2615EBCC00D4EB5D /* UnivLadderTests.swift */; };
 		E5B38B472615EBCD00D4EB5D /* UnivLadderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B462615EBCD00D4EB5D /* UnivLadderUITests.swift */; };
@@ -132,6 +132,7 @@
 		68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		68F06FA927782576008A9511 /* UnivLadder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnivLadder.entitlements; sourceTree = "<group>"; };
 		68F3AE69280C24AC00CF53DC /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
+		68F6F5C628D726EA0092B477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		784D7EA598906AD541905974 /* Pods-UnivLadderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B82F5F1FACD8468B1AF903A /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47F0E180D0C8F394BA656A8 /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,7 +164,6 @@
 		E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E5B38B282615EBCC00D4EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5B38B2B2615EBCC00D4EB5D /* UnivLadder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UnivLadder.xcdatamodel; sourceTree = "<group>"; };
-		E5B38B2D2615EBCC00D4EB5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5B38B302615EBCC00D4EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5B38B322615EBCC00D4EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5B38B372615EBCC00D4EB5D /* UnivLadderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnivLadderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -483,12 +483,12 @@
 		E5F3F9182647093B00763ADB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				68F6F5C628D726EA0092B477 /* Assets.xcassets */,
 				6864B286278AFE0600CE80FE /* Services */,
 				E5B38B322615EBCC00D4EB5D /* Info.plist */,
 				E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */,
 				E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */,
 				E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */,
-				E5B38B2D2615EBCC00D4EB5D /* Assets.xcassets */,
 				E5043A0126A4285E004D2870 /* AppColorSet.swift */,
 				6855269D27830BF40030594A /* GoogleService-Info.plist */,
 			);
@@ -687,12 +687,12 @@
 				E5FDFBEF264E7857000269F9 /* GmarketSansLight.otf in Resources */,
 				E5FDFBF0264E7857000269F9 /* GmarketSansMedium.otf in Resources */,
 				E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */,
-				E5B38B2E2615EBCC00D4EB5D /* Assets.xcassets in Resources */,
 				E5F3F95326470FFC00763ADB /* MentoList.storyboard in Resources */,
 				E5F3F9692647103F00763ADB /* MyPage.storyboard in Resources */,
 				E5F3F92626470B4800763ADB /* Accounts.storyboard in Resources */,
 				E5F3F9642647102800763ADB /* Chat.storyboard in Resources */,
 				E5B38B292615EBCC00D4EB5D /* Main.storyboard in Resources */,
+				68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */,
 				6855269E27830BF40030594A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

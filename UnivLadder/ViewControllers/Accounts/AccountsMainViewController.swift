@@ -9,6 +9,10 @@ import UIKit
 import AuthenticationServices
 import GoogleSignIn
 
+
+import KakaoSDKUser
+
+
 class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate {
     
     var userModel = UserModel() // 인스턴스 생성
@@ -27,6 +31,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     @IBOutlet weak var googleLogInBtn: UIButton!
     @IBOutlet weak var appleLogInBtn: UIButton!
+    @IBOutlet weak var kakaoLoginBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +40,11 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     
     func saveUserInfoInUserDefaults(){
-//        UserDefaults.standard.setValue(id, forKey: "id")
-//        UserDefaults.standard.setValue(password, forKey: "password")
+        //        UserDefaults.standard.setValue(id, forKey: "id")
+        //        UserDefaults.standard.setValue(password, forKey: "password")
     }
-
-
+    
+    
     //로그인 구현
     //1. 자체 로그인 2.구글 소셜 로그인 3.애플 소셜 로그인
     
@@ -51,95 +56,95 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     @IBAction func signInAction(_ sender: Any) {
         UIViewController.changeRootViewControllerToHome()
         
-//        var params = ["username" : emailTextField.text!,
-//                      "password" : passwordTextField.text!]
+        //        var params = ["username" : emailTextField.text!,
+        //                      "password" : passwordTextField.text!]
         //dummy test
         var params = ["username" : "leeyeon0527@gmail.com",
                       "password" : "PASSWORD"]
-
-//        APIService.shared.signin(param: params, completion: {
-//            //nil, 빈값 2개 다 처리
-//            if let token = APIService.shared.accessToken{
-//                if !token.isEmpty{
-//                    print("로그인 성공")
-//                    UIViewController.changeRootViewControllerToHome()
-//                }else{
-//                    print("빈 값")
-//                }
-//            }else{
-//                print("로그인 실패")
-//            }
-//        })
         
-
-
+        //        APIService.shared.signin(param: params, completion: {
+        //            //nil, 빈값 2개 다 처리
+        //            if let token = APIService.shared.accessToken{
+        //                if !token.isEmpty{
+        //                    print("로그인 성공")
+        //                    UIViewController.changeRootViewControllerToHome()
+        //                }else{
+        //                    print("빈 값")
+        //                }
+        //            }else{
+        //                print("로그인 실패")
+        //            }
+        //        })
+        
+        
+        
         // 옵셔널 바인딩 & 예외 처리 : Textfield가 빈문자열이 아니고, nil이 아닐 때
-//        guard let email = emailTextField.text, !email.isEmpty else { return }
-//        guard let password = passwordTextField.text, !password.isEmpty else { return }
-//
-//        // 이메일 형식 오류
-//        if userModel.isValidEmail(id: email){
-//            //nil 처리 추가
-//            //emailErrorLabel.text = " "
-//            if let removable = self.view.viewWithTag(100) {
-//                removable.removeFromSuperview()
-//            }
-//        }
-//        else {
-//            shakeTextField(textField: emailTextField)
-//            emailErrorLabel.text = "잘못된 형식의 이메일입니다."
-//            emailErrorLabel.textColor = UIColor.red
-//            emailErrorLabel.tag = 100
-//            emailErrorLabel.isHidden = false        }
-//
-//        // 비밀번호 형식 오류
-//        if userModel.isValidPassword(pwd: password){
-//            if let removable = self.view.viewWithTag(101) {
-//                removable.removeFromSuperview()
-//            }
-//        }
-//        else{
-//            shakeTextField(textField: passwordTextField)
-//            passwordErrorLabel.text = "비밀번호를 다시 입력해주세요."
-//            passwordErrorLabel.textColor = UIColor.red
-//            passwordErrorLabel.tag = 101
-//            passwordErrorLabel.isHidden = false
-//
-//        }
-//
-//        if userModel.isValidEmail(id: email) && userModel.isValidPassword(pwd: password) {
-////            let logInSuccess: Bool = logInCheck(id: email, pwd: password)
-//
-//            //자체로그인 - post
-//
-//            let logInSuccess = true
-//            APIService.shared.signin(param: DummyData.singInDummy)
-//
-//            if logInSuccess {
-//                //자체 로그인 api
-//                print("로그인 성공")
-//                if let removable = self.view.viewWithTag(102) {
-//                    removable.removeFromSuperview()
-//                }
-//                if self.isAutoLogin {
-//                    UserDefaults.standard.set(email, forKey: "id")
-//                    UserDefaults.standard.set(password, forKey: "pwd")
-//                }
-//                self.performSegue(withIdentifier: "showMain", sender: self)
-//            }
-//            else {
-//                print("로그인 실패")
-//                shakeTextField(textField: emailTextField)
-//                shakeTextField(textField: passwordTextField)
-//                let logInFailLabel = UILabel(frame: CGRect(x: 68, y: 510, width: 279, height: 45))
-//                logInFailLabel.text = "비밀번호를 다시 입력해주세요."
-//                logInFailLabel.textColor = UIColor.red
-//                logInFailLabel.tag = 102
-//
-//                self.view.addSubview(logInFailLabel)
-//            }
-//        }
-//
+        //        guard let email = emailTextField.text, !email.isEmpty else { return }
+        //        guard let password = passwordTextField.text, !password.isEmpty else { return }
+        //
+        //        // 이메일 형식 오류
+        //        if userModel.isValidEmail(id: email){
+        //            //nil 처리 추가
+        //            //emailErrorLabel.text = " "
+        //            if let removable = self.view.viewWithTag(100) {
+        //                removable.removeFromSuperview()
+        //            }
+        //        }
+        //        else {
+        //            shakeTextField(textField: emailTextField)
+        //            emailErrorLabel.text = "잘못된 형식의 이메일입니다."
+        //            emailErrorLabel.textColor = UIColor.red
+        //            emailErrorLabel.tag = 100
+        //            emailErrorLabel.isHidden = false        }
+        //
+        //        // 비밀번호 형식 오류
+        //        if userModel.isValidPassword(pwd: password){
+        //            if let removable = self.view.viewWithTag(101) {
+        //                removable.removeFromSuperview()
+        //            }
+        //        }
+        //        else{
+        //            shakeTextField(textField: passwordTextField)
+        //            passwordErrorLabel.text = "비밀번호를 다시 입력해주세요."
+        //            passwordErrorLabel.textColor = UIColor.red
+        //            passwordErrorLabel.tag = 101
+        //            passwordErrorLabel.isHidden = false
+        //
+        //        }
+        //
+        //        if userModel.isValidEmail(id: email) && userModel.isValidPassword(pwd: password) {
+        ////            let logInSuccess: Bool = logInCheck(id: email, pwd: password)
+        //
+        //            //자체로그인 - post
+        //
+        //            let logInSuccess = true
+        //            APIService.shared.signin(param: DummyData.singInDummy)
+        //
+        //            if logInSuccess {
+        //                //자체 로그인 api
+        //                print("로그인 성공")
+        //                if let removable = self.view.viewWithTag(102) {
+        //                    removable.removeFromSuperview()
+        //                }
+        //                if self.isAutoLogin {
+        //                    UserDefaults.standard.set(email, forKey: "id")
+        //                    UserDefaults.standard.set(password, forKey: "pwd")
+        //                }
+        //                self.performSegue(withIdentifier: "showMain", sender: self)
+        //            }
+        //            else {
+        //                print("로그인 실패")
+        //                shakeTextField(textField: emailTextField)
+        //                shakeTextField(textField: passwordTextField)
+        //                let logInFailLabel = UILabel(frame: CGRect(x: 68, y: 510, width: 279, height: 45))
+        //                logInFailLabel.text = "비밀번호를 다시 입력해주세요."
+        //                logInFailLabel.textColor = UIColor.red
+        //                logInFailLabel.tag = 102
+        //
+        //                self.view.addSubview(logInFailLabel)
+        //            }
+        //        }
+        //
         
         
     }
@@ -161,8 +166,6 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         }
     }
     
-    
-    
     // TextField 흔들기 애니메이션
     func shakeTextField(textField: UITextField) -> Void{
         UIView.animate(withDuration: 0.2, animations: {
@@ -177,7 +180,32 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             })
         })
     }
-    //구글 소셜 로그인
+    
+    //소셜 로그인 - 1. 카카오
+    @IBAction func kakaoLogInAction(_ sender: Any) {
+        // 카카오톡 설치 여부 확인
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+                    guard let accessToken = oauthToken else {
+                        print("Error : User Data Not Found"); return }
+                    //                        _ = oauthToken
+                    
+                    // kakaotalk login post
+                    APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "kakao")
+                    print("kakao accessToken : \(accessToken)")
+                    //do something
+                }
+            }
+        }
+    }
+    
+    
+    //소셜 로그인 - 2. 구글
     @IBAction func googleLogInAction(_ sender: Any) {
         // OAuth 2.0 클라이언트 ID
         let signInConfig = GIDConfiguration.init(clientID: "895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com")
@@ -197,7 +225,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     }
     
     
-    //애플 소셜 로그인
+    //소셜 로그인 - 3. 애플
     @IBAction func appleLogIn(_ sender: Any) {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
@@ -281,6 +309,14 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         appleLogInBtn.layer.borderColor = UIColor.lightGray.cgColor
         appleLogInBtn.layer.cornerRadius = 10
         
+        kakaoLoginBtn.layer.cornerRadius = 10
+        kakaoLoginBtn.layer.borderWidth = 1
+        kakaoLoginBtn.layer.borderColor = UIColor.lightGray.cgColor
+        if let image = UIImage(named: "kakao_login_original 2.png") {
+            let image2 = image.withRoundedCorners(radius: 10)!
+            kakaoLoginBtn.setImage(image2, for: .normal)
+        }
+        
         //텍스트필드Btn.backgroundColor = UIColor.whiteb
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -329,7 +365,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     
     
-
+    
 }
 
 
@@ -372,5 +408,25 @@ class DesignableUITextField: UITextField {
         
         // Placeholder text color
         attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: color])
+    }
+}
+
+extension UIImage {
+    // image with rounded corners
+    public func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
+        let maxRadius = min(size.width, size.height) / 2
+        let cornerRadius: CGFloat
+        if let radius = radius, radius > 0 && radius <= maxRadius {
+            cornerRadius = radius
+        } else {
+            cornerRadius = maxRadius
+        }
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        let rect = CGRect(origin: .zero, size: size)
+        UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
+        draw(in: rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }

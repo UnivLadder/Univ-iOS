@@ -1,0 +1,140 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+	<title>kakao_login_original</title>
+	<defs>
+		<image  width="1600" height="1800" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABkAAAAcIAQMAAABevp9RAAAAAXNSR0IB2cksfwAAAANQTFRF////p8QbyAAAAXVJREFUeJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBvhZMAAWOTurQAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: #fee500 } 
+		.s1 { fill-opacity: .9;fill: #000000 } 
+		.t2 { font-size: 15px;fill: #191919;font-weight: bold;font-family: "Apple SD Gothic Neo" } 
+		.s3 { opacity: .9;fill: #000000 } 
+		.t4 { font-size: 30px;fill: #191919;font-weight: 500;font-family: "Apple SD Gothic Neo" } 
+		.s5 { fill: #000000 } 
+		.t6 { font-size: 15px;fill: #000000;font-weight: bold;font-family: "Apple SD Gothic Neo" } 
+		.t7 { font-size: 11px;fill: #000000;font-weight: 500;font-family: "Apple SD Gothic Neo" } 
+		.t8 { font-size: 15px;fill: #191919;font-weight: 500;font-family: "Apple SD Gothic Neo" } 
+		.t9 { font-size: 11px;fill: #191919;font-weight: 500;font-family: "Apple SD Gothic Neo" } 
+	</style>
+	<use id="Background" href="#img1" x="-570" y="-393"/>
+	<g id="국문">
+		<g id="Medium and Narrow (183px X 45px)">
+			<path id="Rounded Rectangle 2" class="s0" d="m1-245h171c3.3 0 6 2.7 6 6v33c0 3.3-2.7 6-6 6h-171c-3.3 0-6-2.7-6-6v-33c0-3.3 2.7-6 6-6z"/>
+			<path id="Shape 1" class="s1" d="m19-231c5 0 9 3.1 9 7 0 3.8-4 7-9 7q-0.6 0-1.1-0.1l-4.4 2.9c-0.3 0.2-0.7-0.1-0.6-0.4l1-3.7c-2.3-1.2-3.9-3.3-3.9-5.7 0-3.9 4-7 9-7"/>
+			<text id="카카오 로그인" style="transform: matrix(1,0,0,1,55.887,-217.023)" >
+				<tspan x="0" y="0" class="t2">카카오 로그인
+</tspan>
+			</text>
+		</g>
+		<g id="Medium and Wide (300px X 45px)">
+			<path id="Rounded Rectangle 2" class="s0" d="m1-180h288c3.3 0 6 2.7 6 6v33c0 3.3-2.7 6-6 6h-288c-3.3 0-6-2.7-6-6v-33c0-3.3 2.7-6 6-6z"/>
+			<path id="Shape 1" class="s3" d="m19-166c5 0 9 3.1 9 7 0 3.8-4 7-9 7q-0.6 0-1.1-0.1l-4.4 2.9c-0.3 0.2-0.7-0.1-0.6-0.4l1-3.7c-2.3-1.2-3.9-3.3-3.9-5.7 0-3.9 4-7 9-7"/>
+			<text id="카카오 로그인" style="transform: matrix(1,0,0,1,113.887,-152.023)" >
+				<tspan x="0" y="0" class="t2">카카오 로그인
+</tspan>
+			</text>
+		</g>
+		<g id="Large and Narrow  (366px X 90px)">
+			<path id="Rounded Rectangle 3" class="s0" d="m7-115h342c6.6 0 12 5.4 12 12v66c0 6.6-5.4 12-12 12h-342c-6.6 0-12-5.4-12-12v-66c0-6.6 5.4-12 12-12z"/>
+			<path id="Shape 2" class="s1" d="m41-87c9.9 0 18 6.2 18 13.9 0 7.8-8.1 14-18 14q-1.1 0-2.3-0.1l-8.7 5.8c-0.6 0.4-1.3-0.1-1.1-0.8l2-7.3c-4.8-2.5-7.9-6.8-7.9-11.6 0-7.7 8.1-13.9 18-13.9"/>
+			<text id="카카오 로그인" style="transform: matrix(1,0,0,1,122.887,-58.023)" >
+				<tspan x="0" y="0" class="t4" dx="0 0 0 0 0 0 0 0" >카카오 로그인
+</tspan>
+			</text>
+		</g>
+		<g id="Large and Narrow (600px X 90px)">
+			<path id="Rounded Rectangle 3" class="s0" d="m7-5h576c6.6 0 12 5.4 12 12v66c0 6.6-5.4 12-12 12h-576c-6.6 0-12-5.4-12-12v-66c0-6.6 5.4-12 12-12z"/>
+			<path id="Shape 2" class="s1" d="m41 23c9.9 0 18 6.2 18 13.9 0 7.8-8.1 14-18 14q-1.1 0-2.3-0.1l-8.7 5.8c-0.6 0.4-1.3-0.1-1.1-0.8l2-7.3c-4.8-2.5-7.9-6.8-7.9-11.6 0-7.7 8.1-13.9 18-13.9"/>
+			<text id="카카오 로그인" style="transform: matrix(1,0,0,1,233.887,51.977)" >
+				<tspan x="0" y="0" class="t4" dx="0 0 0 0 0 0 0 0" >카카오 로그인
+</tspan>
+			</text>
+		</g>
+	</g>
+	<g id="영문">
+		<g id="Medium and Narrow (183px X 45px)">
+			<path id="Rounded Rectangle 2" class="s0" d="m1 205h171c3.3 0 6 2.7 6 6v33c0 3.3-2.7 6-6 6h-171c-3.3 0-6-2.7-6-6v-33c0-3.3 2.7-6 6-6z"/>
+			<path id="Shape 1" class="s5" d="m19 219c5 0 9 3.1 9 7 0 3.8-4 7-9 7q-0.6 0-1.1-0.1l-4.4 2.9c-0.3 0.2-0.7-0.1-0.6-0.4l1-3.7c-2.3-1.2-3.9-3.3-3.9-5.7 0-3.9 4-7 9-7"/>
+			<text id="Login with Kakao" style="opacity: .9;transform: matrix(1,0,0,1,41.887,232.977)" >
+				<tspan x="0" y="0" class="t6" dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" >Login with Kakao
+</tspan>
+			</text>
+		</g>
+		<g id="Medium and Wide (300px X 45px)">
+			<path id="Rounded Rectangle 2" class="s0" d="m1 270h288c3.3 0 6 2.7 6 6v33c0 3.3-2.7 6-6 6h-288c-3.3 0-6-2.7-6-6v-33c0-3.3 2.7-6 6-6z"/>
+			<path id="Shape 1" class="s5" d="m19 284c5 0 9 3.1 9 7 0 3.8-4 7-9 7q-0.6 0-1.1-0.1l-4.4 2.9c-0.3 0.2-0.7-0.1-0.6-0.4l1-3.7c-2.3-1.2-3.9-3.3-3.9-5.7 0-3.9 4-7 9-7"/>
+			<text id="Login with Kakao" style="opacity: .9;transform: matrix(1,0,0,1,99.887,297.977)" >
+				<tspan x="0" y="0" class="t6" dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" >Login with Kakao
+</tspan>
+			</text>
+		</g>
+		<g id="Large and Narrow  (366px X 90px)">
+			<path id="Rounded Rectangle 3" class="s0" d="m7 335h342c6.6 0 12 5.4 12 12v66c0 6.6-5.4 12-12 12h-342c-6.6 0-12-5.4-12-12v-66c0-6.6 5.4-12 12-12z"/>
+			<path id="Shape 2" class="s3" d="m41 363c9.9 0 18 6.2 18 13.9 0 7.8-8.1 14-18 14q-1.1 0-2.3-0.1l-8.7 5.8c-0.6 0.4-1.3-0.1-1.1-0.8l2-7.3c-4.8-2.5-7.9-6.8-7.9-11.6 0-7.7 8.1-13.9 18-13.9"/>
+			<text id="Login with Kakao" style="transform: matrix(1,0,0,1,92.887,391.977)" >
+				<tspan x="0" y="0" class="t4" dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" >Login with Kakao
+</tspan>
+			</text>
+		</g>
+		<g id="Large and Narrow (600px X 90px)">
+			<path id="Rounded Rectangle 3" class="s0" d="m7 445h576c6.6 0 12 5.4 12 12v66c0 6.6-5.4 12-12 12h-576c-6.6 0-12-5.4-12-12v-66c0-6.6 5.4-12 12-12z"/>
+			<path id="Shape 2" class="s1" d="m41 473c9.9 0 18 6.2 18 13.9 0 7.8-8.1 14-18 14q-1.1 0-2.3-0.1l-8.7 5.8c-0.6 0.4-1.3-0.1-1.1-0.8l2-7.3c-4.8-2.5-7.9-6.8-7.9-11.6 0-7.7 8.1-13.9 18-13.9"/>
+			<text id="Login with Kakao" style="transform: matrix(1,0,0,1,209.887,501.977)" >
+				<tspan x="0" y="0" class="t4" dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" >Login with Kakao
+</tspan>
+			</text>
+		</g>
+	</g>
+	<g id="축약_국문">
+		<g id="Small (60px X 30px)">
+			<path id="Rounded Rectangle 4" class="s0" d="m-1 611h52c2.2 0 4 1.8 4 4v22c0 2.2-1.8 4-4 4h-52c-2.2 0-4-1.8-4-4v-22c0-2.2 1.8-4 4-4z"/>
+			<path id="Shape 3" class="s5" d="m9 620c3.3 0 6 2.1 6 4.6 0 2.5-2.7 4.5-6 4.5q-0.4 0-0.8 0l-2.9 1.9c-0.2 0.1-0.4-0.1-0.3-0.3l0.6-2.4c-1.6-0.8-2.6-2.2-2.6-3.7 0-2.5 2.7-4.6 6-4.6"/>
+			<text id="로그인" style="opacity: .9;transform: matrix(1,0,0,1,18.836,629.537)" >
+				<tspan x="0" y="0" class="t7" dx="0 0 0 0" >로그인
+</tspan>
+			</text>
+		</g>
+		<g id="Medium (90px X 45px)">
+			<path id="Rounded Rectangle 5" class="s0" d="m1 661h78c3.3 0 6 2.7 6 6v33c0 3.3-2.7 6-6 6h-78c-3.3 0-6-2.7-6-6v-33c0-3.3 2.7-6 6-6z"/>
+			<path id="Shape 4" class="s1" d="m18 674.9c5 0 9 3.2 9 7 0 3.9-4 7-9 7q-0.6 0-1.1 0l-4.4 2.9c-0.3 0.2-0.7-0.1-0.6-0.4l1-3.7c-2.3-1.2-3.9-3.4-3.9-5.8 0-3.8 4-7 9-7"/>
+			<text id="로그인" style="transform: matrix(1,0,0,1,32.682,689.25)" >
+				<tspan x="0" y="0" class="t8" dx="0 0 0 0" >로그인
+</tspan>
+			</text>
+		</g>
+		<g id="Large (180px X 90px)">
+			<path id="Rounded Rectangle 6" class="s0" d="m7 726h156c6.6 0 12 5.4 12 12v66c0 6.6-5.4 12-12 12h-156c-6.6 0-12-5.4-12-12v-66c0-6.6 5.4-12 12-12z"/>
+			<path id="Shape 5" class="s3" d="m42 753.9c9.9 0 18 6.3 18 14 0 7.7-8.1 14-18 14q-1.1 0-2.3-0.1l-8.7 5.8c-0.6 0.4-1.3-0.2-1.1-0.8l2-7.3c-4.8-2.6-7.9-6.8-7.9-11.6 0-7.7 8.1-14 18-14"/>
+			<text id="로그인" style="transform: matrix(1,0,0,1,71.157,782.009)" >
+				<tspan x="0" y="0" class="t4" dx="0 0 0 0" >로그인
+</tspan>
+			</text>
+		</g>
+	</g>
+	<g id="축약_영문">
+		<g id="Small (60px X 30px)">
+			<path id="Rounded Rectangle 4" class="s0" d="m-1 936h52c2.2 0 4 1.8 4 4v22c0 2.2-1.8 4-4 4h-52c-2.2 0-4-1.8-4-4v-22c0-2.2 1.8-4 4-4z"/>
+			<path id="Shape 3" class="s3" d="m9 945c3.3 0 6 2.1 6 4.6 0 2.5-2.7 4.5-6 4.5q-0.4 0-0.8 0l-2.9 1.9c-0.2 0.1-0.4-0.1-0.3-0.3l0.6-2.4c-1.6-0.8-2.6-2.2-2.6-3.7 0-2.5 2.7-4.6 6-4.6"/>
+			<text id="Login" style="opacity: .9;transform: matrix(1,0,0,1,19.836,954.537)" >
+				<tspan x="0" y="0" class="t9">Login
+</tspan>
+			</text>
+		</g>
+		<g id="Medium (90px X 45px)">
+			<path id="Rounded Rectangle 5" class="s0" d="m1 986h78c3.3 0 6 2.7 6 6v33c0 3.3-2.7 6-6 6h-78c-3.3 0-6-2.7-6-6v-33c0-3.3 2.7-6 6-6z"/>
+			<path id="Shape 4" class="s3" d="m18 999.9c5 0 9 3.2 9 7 0 3.9-4 7-9 7q-0.6 0-1.1 0l-4.4 2.9c-0.3 0.2-0.7-0.1-0.6-0.4l1-3.7c-2.3-1.2-3.9-3.4-3.9-5.8 0-3.8 4-7 9-7"/>
+			<text id="Login" style="transform: matrix(1,0,0,1,34.682,1014.25)" >
+				<tspan x="0" y="0" class="t8" dx="0 0 0 0 0 0" >Login
+</tspan>
+			</text>
+		</g>
+		<g id="Large (180px X 90px)">
+			<path id="Rounded Rectangle 6" class="s0" d="m7 1051h156c6.6 0 12 5.4 12 12v66c0 6.6-5.4 12-12 12h-156c-6.6 0-12-5.4-12-12v-66c0-6.6 5.4-12 12-12z"/>
+			<path id="Shape 5" class="s1" d="m45 1078.9c9.9 0 18 6.3 18 14 0 7.7-8.1 14-18 14q-1.1 0-2.3-0.1l-8.7 5.8c-0.6 0.4-1.3-0.2-1.1-0.8l2-7.3c-4.8-2.6-7.9-6.8-7.9-11.6 0-7.7 8.1-14 18-14"/>
+			<text id="Login" style="transform: matrix(1,0,0,1,75.157,1107.009)" >
+				<tspan x="0" y="0" class="t4" dx="0 0 0 0 0 0" >Login
+</tspan>
+			</text>
+		</g>
+	</g>
+</svg>

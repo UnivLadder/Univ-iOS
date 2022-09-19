@@ -9,6 +9,8 @@ import UIKit
 import CoreData
 import Firebase
 import GoogleSignIn
+import KakaoSDKAuth
+import KakaoSDKCommon
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+        KakaoSDK.initSDK(appKey: "48b6d54e30616f77f66d47cc2f1a7fce")
         // 과목 리스트 초기화
         //과목 리스트
 //        APIService.shared.getSubjects()
@@ -25,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("App bundle path : \(Bundle.main)")
         return true
     }
-    
+
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         var handled: Bool
 
@@ -33,7 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if handled {
             return true
         }
-
+        
+        if (AuthApi.isKakaoTalkLoginUrl(url)) {
+            return AuthController.handleOpenUrl(url: url)
+        }
+        
         // Handle other custom URL types.
 
         // If not handled by this app, return false.
