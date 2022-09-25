@@ -15,7 +15,7 @@ class AccountsRegisterViewController: UIViewController {
     
     //이름
     @IBOutlet weak var registerName: UITextField!
-
+    
     //email
     @IBOutlet weak var registerEmailTxt: UITextField!
     @IBOutlet weak var emailAuthBtn: UIButton!
@@ -38,7 +38,7 @@ class AccountsRegisterViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     
     @IBOutlet weak var backBtn: UIButton!
- 
+    
     
     @IBAction func maleBtn(_ sender: Any) {
         maleBtn.backgroundColor = #colorLiteral(red: 0.4406229556, green: 0.350309521, blue: 0.9307079911, alpha: 1)
@@ -66,9 +66,9 @@ class AccountsRegisterViewController: UIViewController {
         super.viewDidLoad()
         self.viewComponents()
         // Do any additional setup after loading the view.
-//        emailAuthNum.isHidden = true
+        //        emailAuthNum.isHidden = true
         authView.isHidden = true
-//        registerPassword.frame.origin.y = registerPassword.frame.origin.y-80
+        //        registerPassword.frame.origin.y = registerPassword.frame.origin.y-80
     }
     
     // MARK: - View Components
@@ -101,8 +101,8 @@ class AccountsRegisterViewController: UIViewController {
                                                name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
         
-
-
+        
+        
     }
     //화면 터치 감지
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -130,15 +130,15 @@ class AccountsRegisterViewController: UIViewController {
             }
             authView.isHidden = false
             emailAuthBtn.setTitle("재전송", for: .normal)
-
+            
             var params = ["email" : email]
             // 인증번호 전송
-
+            
             APIService.shared.postEmailAuth(param: params)
         }
         // 이메일 validate - ERROR
         else {
-//            shakeTextField(textField: registerEmail)
+            //            shakeTextField(textField: registerEmail)
             emailAuthErrorLabel.text = "잘못된 형식의 이메일입니다."
             emailAuthErrorLabel.textColor = UIColor.red
             emailAuthErrorLabel.tag = 100
@@ -146,12 +146,12 @@ class AccountsRegisterViewController: UIViewController {
         }
     }
     
-
+    
     //Content-Length: 59
     @IBAction func emailAuthNumCheckAction(_ sender: Any) {
         guard let email = registerEmailTxt.text, !email.isEmpty else { return }
         if let emailToken = emailAuthNumTxt.text{
-
+            
             var params = ["email":email, "token" : emailToken]
             APIService.shared.emailAuthNumCheckAction(param: params)
         }
@@ -172,24 +172,51 @@ class AccountsRegisterViewController: UIViewController {
     @IBAction func authCheckBtn(_ sender: Any) {
         
     }
-
+    
     // 비밀번호 validate & 회원가입 완료
     @IBAction func registerCompleteAction(_ sender: Any) {
-        // 옵셔널 바인딩 & 예외 처리 : Textfield가 빈문자열이 아니고, nil이 아닐 때
+        
+        // 1. 파라미터 validate - 옵셔널 바인딩 & 예외 처리 Textfield가 빈문자열이 아니고, nil이 아닐 때
         guard let name = registerName.text, !name.isEmpty else { return }
-
         guard let password = registerPassword.text, !password.isEmpty else { return }
         guard let password2 = registerPassword2.text, !password.isEmpty else { return }
+
+        // 성공 후
+        // 2. local DB 저장
+        let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        let context = container.viewContext
+        let userEntity = UserEntity(context: context)
+
+        userEntity.name = name
+        userEntity.gender = name
+        userEntity.email = name
+        userEntity.password = name
+        userEntity.thumbnail = name
+        
+        
+        
+        
+        
+//        userEntity.name = textFie ld.text!
+//        userEntity.name = textField.text!
+        do {
+            try context.save()
+        } catch {
+            print("Error saving contet \(error)")
+        }
+        
+        
+        
         
         // 1. 비밀번호 validate 처리
         // 1-1. 비밀번호 형식 validate
         if userModel.isValidPassword(pwd: password){
-//            if let removable = self.view.viewWithTag(101) {
-//                removable.removeFromSuperview()
-//            }
+            //            if let removable = self.view.viewWithTag(101) {
+            //                removable.removeFromSuperview()
+            //            }
         }
         else {
-//            shakeTextField(textField: registerPassword)
+            //            shakeTextField(textField: registerPassword)
             passwordErrorLabel.text = "비밀번호를 다시 입력해주세요."
             passwordErrorLabel.textColor = UIColor.red
             passwordErrorLabel.tag = 101
@@ -210,12 +237,12 @@ class AccountsRegisterViewController: UIViewController {
                 passwordErrorLabel.textColor = UIColor.red
                 passwordErrorLabel.tag = 101
                 passwordErrorLabel.isHidden = false
-//                shakeTextField(textField: registerPassword)
-//                shakeTextField(textField: registerPassword2)
+                //                shakeTextField(textField: registerPassword)
+                //                shakeTextField(textField: registerPassword2)
             }
         }
         else {
-//            shakeTextField(textField: registerPassword)
+            //            shakeTextField(textField: registerPassword)
             passwordErrorLabel.text = "비밀번호를 다시 입력해주세요."
             passwordErrorLabel.textColor = UIColor.red
             passwordErrorLabel.tag = 101
@@ -240,6 +267,11 @@ class AccountsRegisterViewController: UIViewController {
             "thumbnail" : "THUMBNAIL",
             "gender" : User.gender
         ]
+        
+        
+        
+        
+        
         print(registeParam)
         APIService.shared.signup(param: registeParam)
     }
@@ -250,17 +282,17 @@ class AccountsRegisterViewController: UIViewController {
     }
     
     // TextField 흔들기 애니메이션
-//    func shakeTextField(textField: UITextField){
-//        UIView.animate(withDuration: 0.2, animations: {
-//            textField.frame.origin.x -= 10
-//        }, completion: { _ in
-//            UIView.animate(withDuration: 0.2, animations: {
-//                textField.frame.origin.x += 20
-//            }, completion: { _ in
-//                UIView.animate(withDuration: 0.2, animations: {
-//                    textField.frame.origin.x -= 20
-//                })
-//            })
-//        })
-//    }
+    //    func shakeTextField(textField: UITextField){
+    //        UIView.animate(withDuration: 0.2, animations: {
+    //            textField.frame.origin.x -= 10
+    //        }, completion: { _ in
+    //            UIView.animate(withDuration: 0.2, animations: {
+    //                textField.frame.origin.x += 20
+    //            }, completion: { _ in
+    //                UIView.animate(withDuration: 0.2, animations: {
+    //                    textField.frame.origin.x -= 20
+    //                })
+    //            })
+    //        })
+    //    }
 }

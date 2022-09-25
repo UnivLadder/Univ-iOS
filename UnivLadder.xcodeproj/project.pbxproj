@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F447DF0A9349C7A0E298F45 /* Pods_UnivLadderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B82F5F1FACD8468B1AF903A /* Pods_UnivLadderTests.framework */; };
-		34B2BF0407D9A593F42B601D /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256C1813DFD41F241F2A4B0E /* Pods_UnivLadder_UnivLadderUITests.framework */; };
+		301DC0B77D813E609EAF98D1 /* Pods_UnivLadderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6864AAC8D2CD53104ECBF2 /* Pods_UnivLadderTests.framework */; };
+		4B8A6217F7FC077C8E568A5C /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */; };
+		68019F0028E066E60079DC34 /* UserDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68019EFE28E066E60079DC34 /* UserDB.xcdatamodeld */; };
 		680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */; };
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
 		6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2EA28154B9300048E21 /* CoreDataManager.swift */; };
@@ -35,7 +36,7 @@
 		68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */; };
 		68F3AE6A280C24AC00CF53DC /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3AE69280C24AC00CF53DC /* SubjectModel.swift */; };
 		68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F6F5C628D726EA0092B477 /* Assets.xcassets */; };
-		B482380578533402A3FE29B2 /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80B38848C16DB0D07CC410E /* Pods_UnivLadder.framework */; };
+		AF54187CD725C296D73ECC3A /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
 		E546934227F9C12B007A1791 /* APIService+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546934127F9C12B007A1791 /* APIService+Ex.swift */; };
@@ -102,10 +103,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		256C1813DFD41F241F2A4B0E /* Pods_UnivLadder_UnivLadderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder_UnivLadderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		331F2834622AEBC2D932E359 /* Pods-UnivLadderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.debug.xcconfig"; sourceTree = "<group>"; };
-		373182530261F18B763182F8 /* Pods-UnivLadder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.debug.xcconfig"; sourceTree = "<group>"; };
-		3F9A8AB45E1114FC03C7AABA /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		419AB5D84CFD7F00C3CF602A /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		41D277C4299A8DFAC0969758 /* Pods-UnivLadderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4E6864AAC8D2CD53104ECBF2 /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68019EFF28E066E60079DC34 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		6836D2D82815470000048E21 /* Subject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Subject.xcdatamodel; sourceTree = "<group>"; };
@@ -133,10 +135,9 @@
 		68F06FA927782576008A9511 /* UnivLadder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnivLadder.entitlements; sourceTree = "<group>"; };
 		68F3AE69280C24AC00CF53DC /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		68F6F5C628D726EA0092B477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		784D7EA598906AD541905974 /* Pods-UnivLadderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.release.xcconfig"; sourceTree = "<group>"; };
-		7B82F5F1FACD8468B1AF903A /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D47F0E180D0C8F394BA656A8 /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D647C801AD492D8242E21F11 /* Pods-UnivLadder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.release.xcconfig"; sourceTree = "<group>"; };
+		9B84878A71CDD8EF1B04D5B7 /* Pods-UnivLadder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.release.xcconfig"; sourceTree = "<group>"; };
+		CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder_UnivLadderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0F1C83937D5AB2F8D6ED521 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5043A0126A4285E004D2870 /* AppColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorSet.swift; sourceTree = "<group>"; };
 		E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatBubbleCell.swift; sourceTree = "<group>"; };
 		E546934127F9C12B007A1791 /* APIService+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Ex.swift"; sourceTree = "<group>"; };
@@ -189,7 +190,8 @@
 		E5FDFBE5264E775F000269F9 /* esamanru OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru OTF Bold.otf"; sourceTree = "<group>"; };
 		E5FDFBE6264E775F000269F9 /* esamanru OTF Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru OTF Medium.otf"; sourceTree = "<group>"; };
 		E5FDFBE7264E775F000269F9 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
-		F80B38848C16DB0D07CC410E /* Pods_UnivLadder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE9BD3C3A12BC88D02C15271 /* Pods-UnivLadderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.release.xcconfig"; sourceTree = "<group>"; };
+		F210F1612E605E01375ABAD6 /* Pods-UnivLadder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B482380578533402A3FE29B2 /* Pods_UnivLadder.framework in Frameworks */,
+				AF54187CD725C296D73ECC3A /* Pods_UnivLadder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F447DF0A9349C7A0E298F45 /* Pods_UnivLadderTests.framework in Frameworks */,
+				301DC0B77D813E609EAF98D1 /* Pods_UnivLadderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34B2BF0407D9A593F42B601D /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */,
+				4B8A6217F7FC077C8E568A5C /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,9 +238,10 @@
 		6836D2D6281546E400048E21 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				68019EFE28E066E60079DC34 /* UserDB.xcdatamodeld */,
+				6836D2D72815470000048E21 /* Mento.xcdatamodeld */,
 				6836D2E728154A1800048E21 /* Subject+CoreDataClass.swift */,
 				6836D2E628154A1800048E21 /* Subject+CoreDataProperties.swift */,
-				6836D2D72815470000048E21 /* Mento.xcdatamodeld */,
 				6836D2EA28154B9300048E21 /* CoreDataManager.swift */,
 			);
 			path = DB;
@@ -309,22 +312,22 @@
 		6C6576DBF1AEC189ACCCF05A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				373182530261F18B763182F8 /* Pods-UnivLadder.debug.xcconfig */,
-				D647C801AD492D8242E21F11 /* Pods-UnivLadder.release.xcconfig */,
-				3F9A8AB45E1114FC03C7AABA /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */,
-				D47F0E180D0C8F394BA656A8 /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */,
-				331F2834622AEBC2D932E359 /* Pods-UnivLadderTests.debug.xcconfig */,
-				784D7EA598906AD541905974 /* Pods-UnivLadderTests.release.xcconfig */,
+				F210F1612E605E01375ABAD6 /* Pods-UnivLadder.debug.xcconfig */,
+				9B84878A71CDD8EF1B04D5B7 /* Pods-UnivLadder.release.xcconfig */,
+				E0F1C83937D5AB2F8D6ED521 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */,
+				419AB5D84CFD7F00C3CF602A /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */,
+				41D277C4299A8DFAC0969758 /* Pods-UnivLadderTests.debug.xcconfig */,
+				EE9BD3C3A12BC88D02C15271 /* Pods-UnivLadderTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		965E3DDEA30E19041BBFE7D7 /* Frameworks */ = {
+		B526C9B57E71D5C994BFE23B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F80B38848C16DB0D07CC410E /* Pods_UnivLadder.framework */,
-				256C1813DFD41F241F2A4B0E /* Pods_UnivLadder_UnivLadderUITests.framework */,
-				7B82F5F1FACD8468B1AF903A /* Pods_UnivLadderTests.framework */,
+				5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */,
+				CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */,
+				4E6864AAC8D2CD53104ECBF2 /* Pods_UnivLadderTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -413,7 +416,7 @@
 				E5B38B452615EBCC00D4EB5D /* UnivLadderUITests */,
 				E5B38B1F2615EBCC00D4EB5D /* Products */,
 				6C6576DBF1AEC189ACCCF05A /* Pods */,
-				965E3DDEA30E19041BBFE7D7 /* Frameworks */,
+				B526C9B57E71D5C994BFE23B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -430,14 +433,14 @@
 		E5B38B202615EBCC00D4EB5D /* UnivLadder */ = {
 			isa = PBXGroup;
 			children = (
-				6836D2D6281546E400048E21 /* DB */,
 				E5F3F91A2647098200763ADB /* ViewControllers */,
 				E5B6CECF269A9562005D0501 /* Cells */,
-				E57A31BA27B902DA00276D7F /* Utils */,
+				6836D2D6281546E400048E21 /* DB */,
 				68442AED27730E2F009DF75A /* Models */,
 				E5F3F9192647097800763ADB /* Storyboards */,
 				E5F3F9182647093B00763ADB /* SupportingFiles */,
 				68F06FA927782576008A9511 /* UnivLadder.entitlements */,
+				E57A31BA27B902DA00276D7F /* Utils */,
 			);
 			path = UnivLadder;
 			sourceTree = "<group>";
@@ -569,19 +572,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5B38B4B2615EBCD00D4EB5D /* Build configuration list for PBXNativeTarget "UnivLadder" */;
 			buildPhases = (
-				9720339722483F48FE47A876 /* [CP] Check Pods Manifest.lock */,
+				873408833CFAA9189BA7E1D9 /* [CP] Check Pods Manifest.lock */,
 				E5B38B1A2615EBCC00D4EB5D /* Sources */,
 				E5B38B1B2615EBCC00D4EB5D /* Frameworks */,
 				E5B38B1C2615EBCC00D4EB5D /* Resources */,
-				6AB420BE797FF958F636564F /* [CP] Embed Pods Frameworks */,
+				AA8492927AA210413625AAF5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = UnivLadder;
-			packageProductDependencies = (
-			);
 			productName = UnivLadder;
 			productReference = E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */;
 			productType = "com.apple.product-type.application";
@@ -590,7 +591,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5B38B4E2615EBCD00D4EB5D /* Build configuration list for PBXNativeTarget "UnivLadderTests" */;
 			buildPhases = (
-				9B5D5C197394FCB352EBAE84 /* [CP] Check Pods Manifest.lock */,
+				E78B519950319C70FBDFD801 /* [CP] Check Pods Manifest.lock */,
 				E5B38B332615EBCC00D4EB5D /* Sources */,
 				E5B38B342615EBCC00D4EB5D /* Frameworks */,
 				E5B38B352615EBCC00D4EB5D /* Resources */,
@@ -609,11 +610,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5B38B512615EBCD00D4EB5D /* Build configuration list for PBXNativeTarget "UnivLadderUITests" */;
 			buildPhases = (
-				D0A43FC4587BB886BE840DF7 /* [CP] Check Pods Manifest.lock */,
+				CE508FEFCC75BC2CBA44C589 /* [CP] Check Pods Manifest.lock */,
 				E5B38B3E2615EBCC00D4EB5D /* Sources */,
 				E5B38B3F2615EBCC00D4EB5D /* Frameworks */,
 				E5B38B402615EBCC00D4EB5D /* Resources */,
-				7406FC9A9694B13CD73BACEF /* [CP] Embed Pods Frameworks */,
+				787102D3A4194CAAF5CE973B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -714,24 +715,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6AB420BE797FF958F636564F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7406FC9A9694B13CD73BACEF /* [CP] Embed Pods Frameworks */ = {
+		787102D3A4194CAAF5CE973B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -748,7 +732,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9720339722483F48FE47A876 /* [CP] Check Pods Manifest.lock */ = {
+		873408833CFAA9189BA7E1D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -770,29 +754,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9B5D5C197394FCB352EBAE84 /* [CP] Check Pods Manifest.lock */ = {
+		AA8492927AA210413625AAF5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UnivLadderTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D0A43FC4587BB886BE840DF7 /* [CP] Check Pods Manifest.lock */ = {
+		CE508FEFCC75BC2CBA44C589 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -808,6 +787,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-UnivLadder-UnivLadderUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E78B519950319C70FBDFD801 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UnivLadderTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -850,6 +851,7 @@
 				68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */,
 				E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */,
 				E57A31B927B900DF00276D7F /* UIViewController+Extension.swift in Sources */,
+				68019F0028E066E60079DC34 /* UserDB.xcdatamodeld in Sources */,
 				E587B0712712F54D00FAD77D /* MyPageViewController.swift in Sources */,
 				E5F3F97A264710EE00763ADB /* ChatListViewController.swift in Sources */,
 				E546934227F9C12B007A1791 /* APIService+Ex.swift in Sources */,
@@ -1063,7 +1065,7 @@
 		};
 		E5B38B4C2615EBCD00D4EB5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 373182530261F18B763182F8 /* Pods-UnivLadder.debug.xcconfig */;
+			baseConfigurationReference = F210F1612E605E01375ABAD6 /* Pods-UnivLadder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1085,7 +1087,7 @@
 		};
 		E5B38B4D2615EBCD00D4EB5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D647C801AD492D8242E21F11 /* Pods-UnivLadder.release.xcconfig */;
+			baseConfigurationReference = 9B84878A71CDD8EF1B04D5B7 /* Pods-UnivLadder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1107,7 +1109,7 @@
 		};
 		E5B38B4F2615EBCD00D4EB5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 331F2834622AEBC2D932E359 /* Pods-UnivLadderTests.debug.xcconfig */;
+			baseConfigurationReference = 41D277C4299A8DFAC0969758 /* Pods-UnivLadderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1129,7 +1131,7 @@
 		};
 		E5B38B502615EBCD00D4EB5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 784D7EA598906AD541905974 /* Pods-UnivLadderTests.release.xcconfig */;
+			baseConfigurationReference = EE9BD3C3A12BC88D02C15271 /* Pods-UnivLadderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1151,7 +1153,7 @@
 		};
 		E5B38B522615EBCD00D4EB5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F9A8AB45E1114FC03C7AABA /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */;
+			baseConfigurationReference = E0F1C83937D5AB2F8D6ED521 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1171,7 +1173,7 @@
 		};
 		E5B38B532615EBCD00D4EB5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D47F0E180D0C8F394BA656A8 /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */;
+			baseConfigurationReference = 419AB5D84CFD7F00C3CF602A /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1266,6 +1268,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
+		68019EFE28E066E60079DC34 /* UserDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				68019EFF28E066E60079DC34 /* User.xcdatamodel */,
+			);
+			currentVersion = 68019EFF28E066E60079DC34 /* User.xcdatamodel */;
+			path = UserDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		6836D2D72815470000048E21 /* Mento.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
