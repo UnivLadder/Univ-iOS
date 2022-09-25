@@ -191,14 +191,14 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                 }
                 else {
                     print("loginWithKakaoTalk() success.")
-                    guard let accessToken = oauthToken else {
-                        print("Error : User Data Not Found"); return }
-                    //                        _ = oauthToken
-                    
-                    // kakaotalk login post
-                    APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "kakao")
-                    print("kakao accessToken : \(accessToken)")
-                    //do something
+                    if let oauthToken = oauthToken{
+                        LoginDataModel.token = oauthToken.accessToken
+                        // kakaotalk login post
+                        APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "kakao")
+                        print("kakao accessToken : \(oauthToken.accessToken)")
+                    } else {
+                        print("Error : User Data Not Found")
+                    }
                 }
             }
         }
@@ -312,8 +312,8 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         kakaoLoginBtn.layer.cornerRadius = 10
         kakaoLoginBtn.layer.borderWidth = 1
         kakaoLoginBtn.layer.borderColor = UIColor.lightGray.cgColor
-        if let image = UIImage(named: "kakao_login_original 2.png") {
-            let image2 = image.withRoundedCorners(radius: 10)!
+        if let image = UIImage(named: "KakaoTalk.png") {
+            let image2 = image.withRoundedCorners(radius: 15)!
             kakaoLoginBtn.setImage(image2, for: .normal)
         }
         

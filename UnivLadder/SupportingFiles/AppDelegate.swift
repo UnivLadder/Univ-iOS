@@ -63,6 +63,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    // Core Data 가 앱 꺼지기 전에 저장
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        self.saveContext()
+    }
+
+    
     // MARK: - Core Data stack
     //persistentContainer : Coredata 내용을 수정, 관리해주는 프로퍼티
     lazy var persistentContainer: NSPersistentContainer = {
