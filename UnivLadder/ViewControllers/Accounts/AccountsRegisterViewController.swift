@@ -187,11 +187,11 @@ class AccountsRegisterViewController: UIViewController {
         let context = container.viewContext
         let userEntity = UserEntity(context: context)
 
-        userEntity.name = name
-        userEntity.gender = name
-        userEntity.email = name
-        userEntity.password = name
-        userEntity.thumbnail = name
+//        userEntity.name = name
+//        userEntity.gender = gender
+//        userEntity.email = email
+//        userEntity.password = password
+//        userEntity.thumbnail = thumbnail
         
         
         
