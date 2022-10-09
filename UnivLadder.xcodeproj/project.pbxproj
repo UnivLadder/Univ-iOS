@@ -12,6 +12,7 @@
 		68019F0028E066E60079DC34 /* UserDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68019EFE28E066E60079DC34 /* UserDB.xcdatamodeld */; };
 		680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */; };
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
+		68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */; };
 		6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2EA28154B9300048E21 /* CoreDataManager.swift */; };
 		6836D2EC2815553000048E21 /* Mento.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2D72815470000048E21 /* Mento.xcdatamodeld */; };
 		68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AE927730E21009DF75A /* AccountsMainViewController.swift */; };
@@ -26,7 +27,7 @@
 		689C759D27AFD80E00C04978 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C759C27AFD80E00C04978 /* DummyData.swift */; };
 		68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B27C89279D610C0064D1DD /* LoginDataModel.swift */; };
 		68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */; };
-		68C42AF427D4C50400CE9E38 /* AccountModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */; };
+		68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */; };
 		68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */; };
 		68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D41CD328A9082B0098B29D /* MentoListView.swift */; };
 		68D41CD628A9086D0098B29D /* SubjectListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D41CD528A9086D0098B29D /* SubjectListCell.swift */; };
@@ -110,6 +111,7 @@
 		68019EFF28E066E60079DC34 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyViewController.swift; sourceTree = "<group>"; };
 		6836D2D82815470000048E21 /* Subject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Subject.xcdatamodel; sourceTree = "<group>"; };
 		6836D2E628154A1800048E21 /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6836D2E728154A1800048E21 /* Subject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 		689C759C27AFD80E00C04978 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		68B27C89279D610C0064D1DD /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterViewController.swift; sourceTree = "<group>"; };
-		68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyViewController.swift; sourceTree = "<group>"; };
+		68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModifyViewController.swift; sourceTree = "<group>"; };
 		68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		68D41CD328A9082B0098B29D /* MentoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListView.swift; sourceTree = "<group>"; };
 		68D41CD528A9086D0098B29D /* SubjectListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListCell.swift; sourceTree = "<group>"; };
@@ -380,10 +382,11 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				68C42AF327D4C50400CE9E38 /* AccountModifyViewController.swift */,
+				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
 				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
 				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
 				68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */,
+				68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -846,6 +849,7 @@
 				6836D2EC2815553000048E21 /* Mento.xcdatamodeld in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
 				68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */,
+				68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */,
 				68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */,
 				6880A66228719F7F00DB6D20 /* User.swift in Sources */,
 				68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */,
@@ -865,7 +869,7 @@
 				E5FA9B9827DDE4CC009C9C9E /* MainView.swift in Sources */,
 				68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
-				68C42AF427D4C50400CE9E38 /* AccountModifyViewController.swift in Sources */,
+				68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
 				6887F96828162F9100DF22E9 /* Subject+CoreDataClass.swift in Sources */,
 				680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */,

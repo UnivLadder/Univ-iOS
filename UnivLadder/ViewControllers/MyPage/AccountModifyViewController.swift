@@ -2,53 +2,99 @@
 //  AccountModifyViewController.swift
 //  UnivLadder
 //
-//  Created by leeyeon2 on 2022/03/06.
+//  Created by leeyeon2 on 2022/10/09.
 //
 
 import UIKit
 
-class AccountModifyViewController: UIViewController {
-    @IBOutlet weak var modifyTableView: UITableView!
+class AccountModifyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var Picker = UIImagePickerController()
+
+    @IBOutlet weak var accountImg: UIImageView!
+    @IBOutlet weak var accountImgModify: UIButton!
     
-    var modifyList = ["본인 인증", "수업 인증 지역", "이동 가능 거리", "연락 가능 시간 등록" ,"수업 가능 일자 등록", "수업 가격 정보 등록", "사업자등록증 등록", "자격증 등록", "졸업증명서/재학증명서 등록", "제공 서비스 분야 등록", "서비스 상세설명 등록"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-}
-
-
-extension AccountModifyViewController: UITableViewDelegate, UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modifyList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = modifyTableView.dequeueReusableCell(withIdentifier: "ModifyCell", for: indexPath) as! AccountModifyTableViewCell
-        cell.backgroundColor = .white
-        cell.titleLabel.text = modifyList[indexPath.row]
+        viewInit()
         
-        return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        modifyTableView.deselectRow(at: indexPath, animated: true)
-
-        switch indexPath.row {
-        // 서비스 과목 선택 수정 화면
-        case 9:
-            self.performSegue(withIdentifier: "toSubjectModify", sender: nil)
-
-        default:
-
-            return
-
-        }
-
+    func viewInit() {
+        accountImg.layer.cornerRadius = accountImg.frame.height/2
+        accountImgModify.layer.cornerRadius = accountImgModify.frame.height/2
     }
+    
+    /// 계정 정보 이미지 변경 버튼
+    /// - Parameter sender: sender
+    @IBAction func accountImgModifyAction(_ sender: Any) {
+        showActionSheet()
+    }
+    
+    /// 이미지 변경 버튼 클릭시 생성되는 action sheet
+    func showActionSheet() {
+        
+        // 액션 시트 초기화
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        // UIAlertAction 설정
+        // handler : 액션 발생시 호출
+        let actionCamera = UIAlertAction(title: "사진 촬영", style: .default, handler: {(alert:UIAlertAction!) -> Void in 
+            self.openCamera()
+        })
+        let actionAlbum = UIAlertAction(title: "앨범에서 가져오기", style: .default, handler: nil)
+        let actionFile = UIAlertAction(title: "파일 선택", style: .default, handler: nil)
+        let actionCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(actionCamera)
+        actionSheet.addAction(actionAlbum)
+        actionSheet.addAction(actionFile)
+        actionSheet.addAction(actionCancel)
+        
+        self.present(actionSheet, animated: true)
+        
+        //
+        //        actionSheet.addAction(UIAlertAction(title: "Camera", style: UIAlertAction.Style.default, handler: { (alert:UIAlertAction!) -> Void in
+        ////            self.camera()
+        //        }))
+        //
+        //        actionSheet.addAction(UIAlertAction(title: "Gallery", style: UIAlertActionStyle.Default, handler: { (alert:UIAlertAction!) -> Void in
+        ////            self.photoLibrary()
+        //        }))
+        //
+        //        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        //
+        //        self.presentViewController(actionSheet, animated: true, completion: nil)
+        
+    }
+    func openCamera()
+    {
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera))
+        {
+            self.Picker.sourceType = UIImagePickerController.SourceType.camera;
+            self .present(self.Picker, animated: true, completion: nil)
+            self.Picker.allowsEditing = false
+            self.Picker.delegate = self
+        }
+    }
+//    func camera()
+//    {
+//        var myPickerController = UIImagePickerController()
+//        myPickerController.delegate = self;
+//        myPickerController.sourceType = UIImagePickerControllerSourceType.Camera
+//
+//        self.presentViewController(myPickerController, animated: true, completion: nil)
+//
+//    }
+//
+//    func photoLibrary()
+//    {
+//
+//        var myPickerController = UIImagePickerController()
+//        myPickerController.delegate = self;
+//        myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+//
+//        self.presentViewController(myPickerController, animated: true, completion: nil)
+//
+//    }
 }
