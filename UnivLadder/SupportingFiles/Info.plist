@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>카메라 접근을 허용하시겠습니까?</string>
+	<string></string>
 	<key>NSCameraUsageDescription</key>
-	<string>앨범 접근을 허용하시겠습니까?</string>
+	<string></string>
 	<key>CFBundleDisplayName</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>

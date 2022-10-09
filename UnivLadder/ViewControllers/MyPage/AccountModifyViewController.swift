@@ -9,9 +9,9 @@ import UIKit
 
 class AccountModifyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var Picker = UIImagePickerController()
-
+    
     @IBOutlet weak var accountImg: UIImageView!
-    @IBOutlet weak var accountImgModify: UIButton!
+    @IBOutlet weak var accountImgModifyBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -22,7 +22,8 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
     
     func viewInit() {
         accountImg.layer.cornerRadius = accountImg.frame.height/2
-        accountImgModify.layer.cornerRadius = accountImgModify.frame.height/2
+        accountImgModifyBtn.layer.cornerRadius = accountImgModifyBtn.frame.height/2
+        accountImgModifyBtn.setTitle("", for: .normal)
     }
     
     /// 계정 정보 이미지 변경 버튼
@@ -39,10 +40,12 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
         
         // UIAlertAction 설정
         // handler : 액션 발생시 호출
-        let actionCamera = UIAlertAction(title: "사진 촬영", style: .default, handler: {(alert:UIAlertAction!) -> Void in 
+        let actionCamera = UIAlertAction(title: "사진 촬영", style: .default, handler: {(alert:UIAlertAction!) -> Void in
             self.openCamera()
         })
-        let actionAlbum = UIAlertAction(title: "앨범에서 가져오기", style: .default, handler: nil)
+        let actionAlbum = UIAlertAction(title: "앨범에서 가져오기", style: .default, handler: {(alert:UIAlertAction!) -> Void in
+            self.openGallery()
+        })
         let actionFile = UIAlertAction(title: "파일 선택", style: .default, handler: nil)
         let actionCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -52,21 +55,9 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
         actionSheet.addAction(actionCancel)
         
         self.present(actionSheet, animated: true)
-        
-        //
-        //        actionSheet.addAction(UIAlertAction(title: "Camera", style: UIAlertAction.Style.default, handler: { (alert:UIAlertAction!) -> Void in
-        ////            self.camera()
-        //        }))
-        //
-        //        actionSheet.addAction(UIAlertAction(title: "Gallery", style: UIAlertActionStyle.Default, handler: { (alert:UIAlertAction!) -> Void in
-        ////            self.photoLibrary()
-        //        }))
-        //
-        //        actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-        //
-        //        self.presentViewController(actionSheet, animated: true, completion: nil)
-        
     }
+    
+    /// actionsheet1. 카메라 촬영
     func openCamera()
     {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera))
@@ -77,24 +68,26 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
             self.Picker.delegate = self
         }
     }
-//    func camera()
-//    {
-//        var myPickerController = UIImagePickerController()
-//        myPickerController.delegate = self;
-//        myPickerController.sourceType = UIImagePickerControllerSourceType.Camera
-//
-//        self.presentViewController(myPickerController, animated: true, completion: nil)
-//
-//    }
-//
-//    func photoLibrary()
-//    {
-//
-//        var myPickerController = UIImagePickerController()
-//        myPickerController.delegate = self;
-//        myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-//
-//        self.presentViewController(myPickerController, animated: true, completion: nil)
-//
-//    }
+    
+    /// actionsheet2. 앨범에서 가져오기
+    func openGallery()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.savedPhotosAlbum){
+            self.Picker.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum;
+            self.Picker.allowsEditing = false
+            self.Picker.delegate = self
+            self.present(self.Picker, animated: true, completion: nil)
+        }
+    }
+    
+// MARK: - Image Picker Delegate methods
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        self.accountImg.image = (info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage)
+        self.dismiss(animated: true, completion: nil)
+        
+    }
 }
