@@ -18,19 +18,20 @@ class CoreDataManager {
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     private lazy var context = appDelegate?.persistentContainer.viewContext
     
-    let modelName: String = "Subject"
-    
-    func getSubjects(ascending: Bool = false) -> [Subject] {
-        var models: [Subject] = [Subject]()
+    let modelNameUser: String = "UserEntity"
+    let modelNameSubjectEntity: String = "SubjectEntity"
+
+    func getUserInfo(ascending: Bool = false) -> [UserEntity] {
+        var models: [UserEntity] = [UserEntity]()
         
         if let context = context {
             let codeSort: NSSortDescriptor = NSSortDescriptor(key: "code", ascending: ascending)
             let fetchRequest: NSFetchRequest<NSManagedObject>
-            = NSFetchRequest<NSManagedObject>(entityName: modelName)
+            = NSFetchRequest<NSManagedObject>(entityName: modelNameSubjectEntity)
             fetchRequest.sortDescriptors = [codeSort]
             
             do {
-                if let fetchResult: [Subject] = try context.fetch(fetchRequest) as? [Subject] {
+                if let fetchResult: [UserEntity] = try context.fetch(fetchRequest) as? [UserEntity] {
                     models = fetchResult
                 }
             } catch let error as NSError {
@@ -40,14 +41,36 @@ class CoreDataManager {
         return models
     }
     
-    func saveSubject(code: Int64, topic: String, value: String, onSuccess: @escaping ((Bool) -> Void)) {
+    
+    
+    func getSubjectEntitys(ascending: Bool = false) -> [SubjectEntity] {
+        var models: [SubjectEntity] = [SubjectEntity]()
+        
         if let context = context {
-            if let entity: NSEntityDescription = NSEntityDescription.entity(forEntityName: modelName as String, in: context) {
+            let codeSort: NSSortDescriptor = NSSortDescriptor(key: "code", ascending: ascending)
+            let fetchRequest: NSFetchRequest<NSManagedObject>
+            = NSFetchRequest<NSManagedObject>(entityName: modelNameSubjectEntity)
+            fetchRequest.sortDescriptors = [codeSort]
             
-                if let subject: Subject = NSManagedObject(entity: entity, insertInto: context) as? Subject {
-                    subject.code = code
-                    subject.topic = topic
-                    subject.value = value
+            do {
+                if let fetchResult: [SubjectEntity] = try context.fetch(fetchRequest) as? [SubjectEntity] {
+                    models = fetchResult
+                }
+            } catch let error as NSError {
+                print("Could not fetch🥺: \(error), \(error.userInfo)")
+            }
+        }
+        return models
+    }
+    
+    func saveSubjectEntity(code: Int64, topic: String, value: String, onSuccess: @escaping ((Bool) -> Void)) {
+        if let context = context {
+            if let entity: NSEntityDescription = NSEntityDescription.entity(forEntityName: modelNameSubjectEntity as String, in: context) {
+            
+                if let SubjectEntity: SubjectEntity = NSManagedObject(entity: entity, insertInto: context) as? SubjectEntity {
+                    SubjectEntity.code = code
+                    SubjectEntity.topic = topic
+                    SubjectEntity.value = value
                     
                     contextSave { success in
                         onSuccess(success)
@@ -61,7 +84,7 @@ class CoreDataManager {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(code: code)
         
         do {
-            if let results: [Subject] = try context?.fetch(fetchRequest) as? [Subject] {
+            if let results: [SubjectEntity] = try context?.fetch(fetchRequest) as? [SubjectEntity] {
                 if results.count != 0 {
                     context?.delete(results[0])
                 }
@@ -80,7 +103,7 @@ class CoreDataManager {
 extension CoreDataManager {
     fileprivate func filteredRequest(code: Int64) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-        = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
+        = NSFetchRequest<NSFetchRequestResult>(entityName: modelNameSubjectEntity)
         fetchRequest.predicate = NSPredicate(format: "code = %@", NSNumber(value: code))
         return fetchRequest
     }

@@ -6,18 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
 class AccountModifyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var Picker = UIImagePickerController()
+    var container: NSPersistentContainer!
     
     @IBOutlet weak var accountImg: UIImageView!
     @IBOutlet weak var accountImgModifyBtn: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewInit()
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.container = appDelegate.persistentContainer
     }
     
     func viewInit() {
@@ -40,17 +42,20 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
         
         // UIAlertAction 설정
         // handler : 액션 발생시 호출
-        let actionCamera = UIAlertAction(title: "사진 촬영", style: .default, handler: {(alert:UIAlertAction!) -> Void in
-            self.openCamera()
-        })
-        let actionAlbum = UIAlertAction(title: "앨범에서 가져오기", style: .default, handler: {(alert:UIAlertAction!) -> Void in
+        let actionAlbum = UIAlertAction(title: "사진 등록하기", style: .default, handler: {(alert:UIAlertAction!) -> Void in
             self.openGallery()
         })
-        let actionFile = UIAlertAction(title: "파일 선택", style: .default, handler: nil)
+        let actionCamera = UIAlertAction(title: "사진 찍기", style: .default, handler: {(alert:UIAlertAction!) -> Void in
+            self.openCamera()
+        })
+        let actionFile = UIAlertAction(title: "기본 이미지로 변경", style: .default, handler: {(alert:UIAlertAction!) -> Void in
+            //기존 이미지로 변경
+            self.accountImg.image = UIImage(named: "profile.png")
+        })
         let actionCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
-        actionSheet.addAction(actionCamera)
         actionSheet.addAction(actionAlbum)
+        actionSheet.addAction(actionCamera)
         actionSheet.addAction(actionFile)
         actionSheet.addAction(actionCancel)
         
@@ -81,13 +86,46 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
     }
     
 // MARK: - Image Picker Delegate methods
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    //사진 이미지 선택 취소 시 호출
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//
+//    //사진 이미지 선택시 호출
+//    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//        if let selectedImg = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage
+//        {
+//            self.accountImg.image = selectedImg
+//            //local db 저장
+//            let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+//            let context = container.viewContext
+//            let userEntity = UserEntity(context: context)
+//            userEntity.thumbnail = selectedImg.toPngString()
+//        }
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.accountImg.image = image
+            //local db 저장
+            let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+            let context = container.viewContext
+            let userEntity = UserEntity(context: context)
+            userEntity.thumbnail = image.toPngString()
+        }
         self.dismiss(animated: true, completion: nil)
     }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        self.accountImg.image = (info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage)
-        self.dismiss(animated: true, completion: nil)
-        
+}
+
+extension UIImage {
+    func toPngString() -> String? {
+        let data = self.pngData()
+        return data?.base64EncodedString(options: .endLineWithLineFeed)
+    }
+  
+    func toJpegString(compressionQuality cq: CGFloat) -> String? {
+        let data = self.jpegData(compressionQuality: cq)
+        return data?.base64EncodedString(options: .endLineWithLineFeed)
     }
 }

@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // name: Core Data 만든 파일명 지정
         // 멘토 DB
         // name: Core Data 만든 파일명 지정
-        let container = NSPersistentContainer(name: "Mento")
+        let container = NSPersistentContainer(name: "UserModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
                 fatalError("Unresolved error, \((error as NSError).userInfo)")

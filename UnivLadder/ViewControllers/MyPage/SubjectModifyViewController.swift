@@ -63,7 +63,7 @@ class SubjectModifyViewController: UIViewController {
     }
     
     fileprivate func getAllSubjects() {
-        let subjects: [Subject] = CoreDataManager.shared.getSubjects()
+        let subjects: [SubjectEntity] = CoreDataManager.shared.getSubjectEntitys()
         // 중복 topic 제거
         subjectCategoryList.append(contentsOf: removeDuplicate(subjects.map({$0.topic!})))
         

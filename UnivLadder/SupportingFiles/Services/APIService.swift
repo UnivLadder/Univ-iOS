@@ -43,7 +43,7 @@ final class APIService {
     // 새로운 유저 등록
     fileprivate func saveNewSubject(_ code: Int64, topic: String, value: String) {
         CoreDataManager.shared
-            .saveSubject(code: code, topic: topic, value: value, onSuccess:  { onSuccess in
+            .saveSubjectEntity(code: code, topic: topic, value: value, onSuccess:  { onSuccess in
                 print("saved = \(onSuccess)")
             })
     }
