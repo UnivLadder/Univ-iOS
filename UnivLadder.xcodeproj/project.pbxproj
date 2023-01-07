@@ -25,12 +25,22 @@
 		68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */; };
 		68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */; };
 		68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */; };
+		68CE951C296933DD00482764 /* Accounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68CE951B296933DD00482764 /* Accounts.storyboard */; };
+		68CE951E296933E400482764 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68CE951D296933E400482764 /* MyPage.storyboard */; };
 		68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D41CD328A9082B0098B29D /* MentoListView.swift */; };
 		68D41CD628A9086D0098B29D /* SubjectListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D41CD528A9086D0098B29D /* SubjectListCell.swift */; };
 		68D4385227942FA80082BE11 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4385127942FA80082BE11 /* Config.swift */; };
+		68D794EC293368C300C905D5 /* launchMsg.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D794EA293368C200C905D5 /* launchMsg.png */; };
+		68D794ED293368C300C905D5 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D794EB293368C200C905D5 /* logo.png */; };
+		68D794EF293368EA00C905D5 /* launchBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D794EE293368EA00C905D5 /* launchBottom.png */; };
+		68D794F1293378F800C905D5 /* MentoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D794F0293378F800C905D5 /* MentoSearchViewController.swift */; };
 		68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */; };
 		68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */; };
 		68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */; };
+		68F26FAD293C99390059D700 /* MentoSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F26FAB293C99390059D700 /* MentoSubjectTableViewCell.swift */; };
+		68F26FAE293C99390059D700 /* MentoSubjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68F26FAC293C99390059D700 /* MentoSubjectTableViewCell.xib */; };
+		68F26FB1293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F26FAF293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift */; };
+		68F26FB2293CA2930059D700 /* MetnoSubjectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68F26FB0293CA2930059D700 /* MetnoSubjectCollectionViewCell.xib */; };
 		68F3AE6A280C24AC00CF53DC /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F3AE69280C24AC00CF53DC /* SubjectModel.swift */; };
 		68F6ED1128FC0E5A003C93D3 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED0F28FC0E5A003C93D3 /* UserModel.xcdatamodeld */; };
 		68F6ED1C28FC0F58003C93D3 /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED1928FC0F58003C93D3 /* UserEntity+CoreDataClass.swift */; };
@@ -70,10 +80,8 @@
 		E5B38B472615EBCD00D4EB5D /* UnivLadderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B38B462615EBCD00D4EB5D /* UnivLadderUITests.swift */; };
 		E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6CEC9269A87AF005D0501 /* UIColor+Extension.swift */; };
 		E5B6CECC269A8808005D0501 /* UINavigationBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6CECB269A8808005D0501 /* UINavigationBar+Extension.swift */; };
-		E5F3F92626470B4800763ADB /* Accounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F92526470B4800763ADB /* Accounts.storyboard */; };
 		E5F3F95326470FFC00763ADB /* MentoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F95126470FFC00763ADB /* MentoList.storyboard */; };
 		E5F3F9642647102800763ADB /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F9622647102800763ADB /* Chat.storyboard */; };
-		E5F3F9692647103F00763ADB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F9682647103F00763ADB /* MyPage.storyboard */; };
 		E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3F9712647108100763ADB /* MainTabBarViewController.swift */; };
 		E5F3F97A264710EE00763ADB /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3F979264710EE00763ADB /* ChatListViewController.swift */; };
 		E5FA9B9827DDE4CC009C9C9E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA9B9727DDE4CC009C9C9E /* MainView.swift */; };
@@ -125,13 +133,23 @@
 		68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterViewController.swift; sourceTree = "<group>"; };
 		68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModifyViewController.swift; sourceTree = "<group>"; };
 		68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		68CE951B296933DD00482764 /* Accounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Accounts.storyboard; path = UnivLadder/ViewControllers/Storyboards/Accounts.storyboard; sourceTree = SOURCE_ROOT; };
+		68CE951D296933E400482764 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MyPage.storyboard; path = UnivLadder/MyPage/MyPage.storyboard; sourceTree = SOURCE_ROOT; };
 		68D41CD328A9082B0098B29D /* MentoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListView.swift; sourceTree = "<group>"; };
 		68D41CD528A9086D0098B29D /* SubjectListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListCell.swift; sourceTree = "<group>"; };
 		68D4385127942FA80082BE11 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		68D794EA293368C200C905D5 /* launchMsg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchMsg.png; sourceTree = "<group>"; };
+		68D794EB293368C200C905D5 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		68D794EE293368EA00C905D5 /* launchBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchBottom.png; sourceTree = "<group>"; };
+		68D794F0293378F800C905D5 /* MentoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSearchViewController.swift; sourceTree = "<group>"; };
 		68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyTableViewCell.swift; sourceTree = "<group>"; };
 		68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModifyViewController.swift; sourceTree = "<group>"; };
 		68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		68F06FA927782576008A9511 /* UnivLadder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnivLadder.entitlements; sourceTree = "<group>"; };
+		68F26FAB293C99390059D700 /* MentoSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSubjectTableViewCell.swift; sourceTree = "<group>"; };
+		68F26FAC293C99390059D700 /* MentoSubjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MentoSubjectTableViewCell.xib; sourceTree = "<group>"; };
+		68F26FAF293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetnoSubjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		68F26FB0293CA2930059D700 /* MetnoSubjectCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MetnoSubjectCollectionViewCell.xib; sourceTree = "<group>"; };
 		68F3AE69280C24AC00CF53DC /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		68F6ED1028FC0E5A003C93D3 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
 		68F6ED1828FC0F58003C93D3 /* SubjectEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SubjectEntity+CoreDataClass.swift"; path = "/Users/leeyeon2/Dev/Univ/Univ-iOS_leeyeon/UnivLadder/DB/SubjectEntity+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -179,10 +197,8 @@
 		E5B38B482615EBCD00D4EB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5B6CEC9269A87AF005D0501 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E5B6CECB269A8808005D0501 /* UINavigationBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extension.swift"; sourceTree = "<group>"; };
-		E5F3F92526470B4800763ADB /* Accounts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Accounts.storyboard; sourceTree = "<group>"; };
 		E5F3F95226470FFC00763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UnivLadder/Storyboards/Base.lproj/MentoList.storyboard; sourceTree = "<group>"; };
 		E5F3F9632647102800763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UnivLadder/Storyboards/Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
-		E5F3F9682647103F00763ADB /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		E5F3F9712647108100763ADB /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		E5F3F979264710EE00763ADB /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		E5FA9B9727DDE4CC009C9C9E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -229,6 +245,8 @@
 		16427161264D83DA003A953C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E58A9C1D27DDF68A00A4ACBB /* Fonts+Generated.swift */,
+				E58A9C1B27DDF02B00A4ACBB /* Colors+Generated.swift */,
 				E5FDFBE5264E775F000269F9 /* esamanru OTF Bold.otf */,
 				E5FDFBE4264E775F000269F9 /* esamanru OTF Light.otf */,
 				E5FDFBE6264E775F000269F9 /* esamanru OTF Medium.otf */,
@@ -287,14 +305,51 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		688AC65B294F1C650071340F /* MyPageCell */ = {
+			isa = PBXGroup;
+			children = (
+				E587B0722712F66100FAD77D /* MyPageCell.swift */,
+			);
+			path = MyPageCell;
+			sourceTree = "<group>";
+		};
 		68C42AF727D4CEF600CE9E38 /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
 				68C42AF827D4CEF600CE9E38 /* SubjectCollectionViewCell.swift */,
-				E587B0722712F66100FAD77D /* MyPageCell.swift */,
 				68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */,
 			);
 			path = Accounts;
+			sourceTree = "<group>";
+		};
+		68D794E12933670A00C905D5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				16427161264D83DA003A953C /* Fonts */,
+				68D794E22933672200C905D5 /* Img */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		68D794E22933672200C905D5 /* Img */ = {
+			isa = PBXGroup;
+			children = (
+				68F6F5C628D726EA0092B477 /* Assets.xcassets */,
+				E58A9C1F27DE0A6700A4ACBB /* Images.xcassets */,
+				E5FA9B9D27DDEA5B009C9C9E /* Colors.xcassets */,
+				68D794E32933672700C905D5 /* LaunchScreen */,
+			);
+			path = Img;
+			sourceTree = "<group>";
+		};
+		68D794E32933672700C905D5 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				68D794EE293368EA00C905D5 /* launchBottom.png */,
+				68D794EA293368C200C905D5 /* launchMsg.png */,
+				68D794EB293368C200C905D5 /* logo.png */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		68D92B9A27DE0E7E00866E0D /* MyPage */ = {
@@ -365,7 +420,6 @@
 		E57A31BA27B902DA00276D7F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E5FA9B9C27DDEA42009C9C9E /* Resources */,
 				E5F3F91B264709A600763ADB /* Managers */,
 				E5F3F91D264709B300763ADB /* Extensions */,
 				E57A31BB27B902E200276D7F /* Protocol */,
@@ -385,6 +439,7 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				688AC65B294F1C650071340F /* MyPageCell */,
 				68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */,
 				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
 				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
@@ -397,11 +452,16 @@
 		E58D4B61275DF3D2009CF08D /* MentoList */ = {
 			isa = PBXGroup;
 			children = (
-				E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */,
 				E5FA9B9727DDE4CC009C9C9E /* MainView.swift */,
-				68D41CD328A9082B0098B29D /* MentoListView.swift */,
-				68D41CD528A9086D0098B29D /* SubjectListCell.swift */,
 				6879ACB828BB73A300E758A4 /* MentoListCell.swift */,
+				68D41CD328A9082B0098B29D /* MentoListView.swift */,
+				E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */,
+				68D41CD528A9086D0098B29D /* SubjectListCell.swift */,
+				68D794F0293378F800C905D5 /* MentoSearchViewController.swift */,
+				68F26FAB293C99390059D700 /* MentoSubjectTableViewCell.swift */,
+				68F26FAC293C99390059D700 /* MentoSubjectTableViewCell.xib */,
+				68F26FAF293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift */,
+				68F26FB0293CA2930059D700 /* MetnoSubjectCollectionViewCell.xib */,
 			);
 			path = MentoList;
 			sourceTree = "<group>";
@@ -439,11 +499,11 @@
 		E5B38B202615EBCC00D4EB5D /* UnivLadder */ = {
 			isa = PBXGroup;
 			children = (
+				E5F3F9192647097800763ADB /* Storyboards */,
 				E5F3F91A2647098200763ADB /* ViewControllers */,
 				E5B6CECF269A9562005D0501 /* Cells */,
 				6836D2D6281546E400048E21 /* DB */,
 				68442AED27730E2F009DF75A /* Models */,
-				E5F3F9192647097800763ADB /* Storyboards */,
 				E5F3F9182647093B00763ADB /* SupportingFiles */,
 				68F06FA927782576008A9511 /* UnivLadder.entitlements */,
 				E57A31BA27B902DA00276D7F /* Utils */,
@@ -492,7 +552,7 @@
 		E5F3F9182647093B00763ADB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				68F6F5C628D726EA0092B477 /* Assets.xcassets */,
+				68D794E12933670A00C905D5 /* Resources */,
 				6864B286278AFE0600CE80FE /* Services */,
 				E5B38B322615EBCC00D4EB5D /* Info.plist */,
 				E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */,
@@ -507,12 +567,12 @@
 		E5F3F9192647097800763ADB /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				E5F3F9682647103F00763ADB /* MyPage.storyboard */,
+				68CE951D296933E400482764 /* MyPage.storyboard */,
+				E5B38B272615EBCC00D4EB5D /* Main.storyboard */,
+				E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */,
 				E5F3F9622647102800763ADB /* Chat.storyboard */,
 				E5F3F95126470FFC00763ADB /* MentoList.storyboard */,
-				E5B38B272615EBCC00D4EB5D /* Main.storyboard */,
-				E5F3F92526470B4800763ADB /* Accounts.storyboard */,
-				E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */,
+				68CE951B296933DD00482764 /* Accounts.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -557,18 +617,6 @@
 				E546933F27F9BDAF007A1791 /* ViewModel */,
 			);
 			path = ChatScene;
-			sourceTree = "<group>";
-		};
-		E5FA9B9C27DDEA42009C9C9E /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E58A9C1F27DE0A6700A4ACBB /* Images.xcassets */,
-				E58A9C1D27DDF68A00A4ACBB /* Fonts+Generated.swift */,
-				E58A9C1B27DDF02B00A4ACBB /* Colors+Generated.swift */,
-				16427161264D83DA003A953C /* Fonts */,
-				E5FA9B9D27DDEA5B009C9C9E /* Colors.xcassets */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -689,17 +737,22 @@
 				E58A9C2027DE0A6700A4ACBB /* Images.xcassets in Resources */,
 				E5FDFBEB264E7857000269F9 /* esamanru OTF Bold.otf in Resources */,
 				E5FDFBEC264E7857000269F9 /* esamanru OTF Light.otf in Resources */,
+				68CE951C296933DD00482764 /* Accounts.storyboard in Resources */,
+				68CE951E296933E400482764 /* MyPage.storyboard in Resources */,
 				E5FDFBED264E7857000269F9 /* esamanru OTF Medium.otf in Resources */,
 				E5FDFBEE264E7857000269F9 /* GmarketSansBold.otf in Resources */,
+				68F26FB2293CA2930059D700 /* MetnoSubjectCollectionViewCell.xib in Resources */,
 				E5FDFBEF264E7857000269F9 /* GmarketSansLight.otf in Resources */,
 				E5FDFBF0264E7857000269F9 /* GmarketSansMedium.otf in Resources */,
+				68F26FAE293C99390059D700 /* MentoSubjectTableViewCell.xib in Resources */,
+				68D794ED293368C300C905D5 /* logo.png in Resources */,
+				68D794EF293368EA00C905D5 /* launchBottom.png in Resources */,
 				E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */,
 				E5F3F95326470FFC00763ADB /* MentoList.storyboard in Resources */,
-				E5F3F9692647103F00763ADB /* MyPage.storyboard in Resources */,
-				E5F3F92626470B4800763ADB /* Accounts.storyboard in Resources */,
 				E5F3F9642647102800763ADB /* Chat.storyboard in Resources */,
 				E5B38B292615EBCC00D4EB5D /* Main.storyboard in Resources */,
 				68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */,
+				68D794EC293368C300C905D5 /* launchMsg.png in Resources */,
 				6855269E27830BF40030594A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,6 +910,7 @@
 				68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */,
 				68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */,
 				6880A66228719F7F00DB6D20 /* User.swift in Sources */,
+				68F26FAD293C99390059D700 /* MentoSubjectTableViewCell.swift in Sources */,
 				68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */,
 				E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */,
 				E57A31B927B900DF00276D7F /* UIViewController+Extension.swift in Sources */,
@@ -872,6 +926,7 @@
 				E567E33E2802E09900F83683 /* Endpoint.swift in Sources */,
 				E5FA9B9827DDE4CC009C9C9E /* MainView.swift in Sources */,
 				68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */,
+				68D794F1293378F800C905D5 /* MentoSearchViewController.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
@@ -883,6 +938,7 @@
 				E5FA9B9A27DDE55C009C9C9E /* ViewRepresentable.swift in Sources */,
 				68442AEF27730E2F009DF75A /* UserModel.swift in Sources */,
 				68F3AE6A280C24AC00CF53DC /* SubjectModel.swift in Sources */,
+				68F26FB1293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift in Sources */,
 				E58D4B63275DF3F1009CF08D /* MentoListViewController.swift in Sources */,
 				68F6ED1128FC0E5A003C93D3 /* UserModel.xcdatamodeld in Sources */,
 			);
@@ -1077,6 +1133,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W832C4SNYD;
@@ -1099,6 +1156,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W832C4SNYD;

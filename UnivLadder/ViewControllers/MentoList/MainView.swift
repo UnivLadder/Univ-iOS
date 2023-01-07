@@ -54,16 +54,27 @@ class MainView: UIView {
         $0.text = "멘토 찾기"
     }
     
-    let searchMentoSearchBar = UISearchBar().then {
-        $0.placeholder = "어떤 분야의 멘토를 찾으시나요?"
-        $0.searchBarStyle = .minimal
-//        $0.searchTextField.layer.borderColor = UIColor.black.cgColor
-        $0.searchTextField.layer.cornerRadius = 10
-//        $0.searchTextField.layer.borderWidth = 1
-        $0.searchTextField.largeContentImage?.withTintColor(.black) // 왼쪽 돋보기 모양 커스텀
-//        $0.searchTextField.borderStyle = .none // 기본으로 있는 회색배경 없애줌
-//        $0.searchTextField.leftView?.tintColor = .green
+    let img = #imageLiteral(resourceName: "find")
+    
+    let searchMentoButton = UIButton().then {
+        $0.setImage(#imageLiteral(resourceName: "find"), for: .normal)// 이미지 넣기
+        $0.setTitle("  어떤 분야의 멘토를 찾으시나요?", for: .normal)
+        $0.titleLabel?.textAlignment = .left
+        $0.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        $0.setTitleColor(.gray, for: .normal)
+        $0.layer.cornerRadius = 10
     }
+    
+//    let searchMentoSearchBar = UISearchBar().then {
+//        $0.placeholder = "어떤 분야의 멘토를 찾으시나요?"
+//        $0.searchBarStyle = .minimal
+////        $0.searchTextField.layer.borderColor = UIColor.black.cgColor
+//        $0.searchTextField.layer.cornerRadius = 10
+////        $0.searchTextField.layer.borderWidth = 1
+//        $0.searchTextField.largeContentImage?.withTintColor(.black) // 왼쪽 돋보기 모양 커스텀
+////        $0.searchTextField.borderStyle = .none // 기본으로 있는 회색배경 없애줌
+////        $0.searchTextField.leftView?.tintColor = .green
+//    }
     
 //    let searchMentoButton = UIButton().then {
 //        $0.setBackgroundColor(.lightGray, for: .normal)
@@ -129,7 +140,7 @@ extension MainView: ViewRepresentable {
         
         // 멘토찾기
         addSubview(searchMentoTitleLabel)
-        addSubview(searchMentoSearchBar)
+        addSubview(searchMentoButton)
 //        addSubview(searchMentoButton)
         addSubview(subjectCollectionView)
         
@@ -178,8 +189,9 @@ extension MainView: ViewRepresentable {
             $0.trailing.equalToSuperview().offset(-20)
         }
         
-        searchMentoSearchBar.snp.makeConstraints {
-            $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(10)
+        searchMentoButton.snp.makeConstraints {
+            $0.height.equalTo(50)
+            $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(20)
             $0.leading.equalTo(profileImageView)
             $0.trailing.equalToSuperview().offset(-20)
         }
@@ -191,7 +203,7 @@ extension MainView: ViewRepresentable {
 //        }
         
         subjectCollectionView.snp.makeConstraints {
-            $0.top.equalTo(searchMentoSearchBar.snp.bottom).offset(10)
+            $0.top.equalTo(searchMentoButton.snp.bottom).offset(20)
             $0.left.right.equalToSuperview()
 //            $0.centerY.equalToSuperview()
             $0.height.equalTo(100)

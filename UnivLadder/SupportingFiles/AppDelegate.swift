@@ -11,12 +11,12 @@ import Firebase
 import GoogleSignIn
 import KakaoSDKAuth
 import KakaoSDKCommon
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         FirebaseApp.configure()
         KakaoSDK.initSDK(appKey: "48b6d54e30616f77f66d47cc2f1a7fce")
         // 과목 리스트 초기화

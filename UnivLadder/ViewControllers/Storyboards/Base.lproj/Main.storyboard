@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P0I-FC-k9W">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Tab Bar View Controller-->
+        <scene sceneID="5Ff-vy-ePF">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="P0I-FC-k9W" customClass="MainTabBarViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S8y-M6-Zoh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ile-80-Vhq" kind="relationship" relationship="viewControllers" id="Xhc-mW-wU1"/>
+                        <segue destination="8CB-Gd-Xpe" kind="relationship" relationship="viewControllers" id="ZoF-g6-n54"/>
+                        <segue destination="QRf-l5-6KT" kind="relationship" relationship="viewControllers" id="UV9-H2-axv"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z88-pY-SJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="121.875"/>
+        </scene>
+        <!--MentoList-->
+        <scene sceneID="aFv-Ib-cyr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MentoList" id="ile-80-Vhq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="홈" image="house.fill" catalog="system" id="kBx-rn-MGv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WwC-pX-07V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1343" y="881"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="JQZ-6f-8KC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="8CB-Gd-Xpe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="과외 문의 채팅" image="ellipsis.bubble.fill" catalog="system" id="mAF-ct-j97"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VpD-7i-CTP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="79" y="976"/>
+        </scene>
+        <!--MyPage-->
+        <scene sceneID="bux-e8-e6I">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPage" id="QRf-l5-6KT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="person.fill" catalog="system" id="a8c-Ef-EtV"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ivy-4E-SPI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421" y="903"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ellipsis.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
+</document>

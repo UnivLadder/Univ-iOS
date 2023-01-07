@@ -11,7 +11,10 @@ class MentoListViewController: UIViewController {
     let mainView = MainView()
     //    let mentoListView = MontoListView()
     //    private lazy var mainView = MainView.init(frame: self.view.frame)
-    var subjectList = ["교과목", "수시/논술", "입시/경시대회", "외국어" ,"외국어 시험", "미술", "음악", "악기", "국악", "댄스", "IT/컴퓨터", "디자인", "취업 준비", "스포츠", "패션/뷰티", "사진/영상", "연기/공연/영화", "요리/커피"]
+    var categoryList = ["교과목", "수시/논술", "입시/경시대회", "외국어" ,"외국어 시험", "미술", "음악", "악기", "국악", "댄스", "IT/컴퓨터", "디자인", "취업 준비", "스포츠", "패션/뷰티", "사진/영상", "연기/공연/영화", "요리/커피"]
+
+    var arrImageName: [String] = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10"]
+    
     var imgList = ["교과목.png", "외국어.png", "미술.png"]
     
     var mentoList = ["안이연", "안이연", "안이연", "안이연", "안이연", "안이연", "안이연"]
@@ -38,7 +41,6 @@ class MentoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
 }
@@ -46,18 +48,18 @@ class MentoListViewController: UIViewController {
 extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == mainView.subjectCollectionView {
-            return subjectList.count
+            return categoryList.count
         }else{
             return mentoList.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         
         //subject list
         if collectionView == mainView.subjectCollectionView {
-            let subjectCellText = subjectList[indexPath.item]
+            let subjectCellText = categoryList[indexPath.item]
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SubjectListCell.subjectRegisterId, for: indexPath) as UICollectionViewCell
                     as? SubjectListCell else {
                 return UICollectionViewCell()
