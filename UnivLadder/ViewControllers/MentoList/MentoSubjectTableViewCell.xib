@@ -19,8 +19,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5lX-sn-MyZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <rect key="frame" x="10" y="0.0" width="300" height="153"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kwG-s9-7h0">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -30,9 +30,9 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5lX-sn-MyZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="70e-W1-DpM"/>
+                    <constraint firstItem="5lX-sn-MyZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="70e-W1-DpM"/>
                     <constraint firstItem="5lX-sn-MyZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HqK-H0-NYM"/>
-                    <constraint firstAttribute="trailing" secondItem="5lX-sn-MyZ" secondAttribute="trailing" id="eKr-bx-huu"/>
+                    <constraint firstAttribute="trailing" secondItem="5lX-sn-MyZ" secondAttribute="trailing" constant="10" id="eKr-bx-huu"/>
                     <constraint firstAttribute="bottom" secondItem="5lX-sn-MyZ" secondAttribute="bottom" id="urM-PK-Rrz"/>
                 </constraints>
             </tableViewCellContentView>
@@ -44,8 +44,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

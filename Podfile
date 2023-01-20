@@ -8,6 +8,7 @@ target 'UnivLadder' do
   # Pods for UnivLadder
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
   pod 'GoogleSignIn'
   pod 'Alamofire'
   pod 'SwiftyJSON'

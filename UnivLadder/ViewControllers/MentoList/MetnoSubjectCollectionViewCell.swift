@@ -12,16 +12,10 @@ class MetnoSubjectCollectionViewCell: UICollectionViewCell {
     static let identifier = "MetnoSubjectCollectionViewCell"
     
     @IBOutlet weak var mentoSubjectLabel: UILabel!
+    @IBOutlet weak var subjectCountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        mentoSubjectLabel.text = "test"
-        setData()
-        // Initialization code
-        
-    }
 
-    func setData() {
-        mentoSubjectLabel.text = subjectList[0]
     }
 }

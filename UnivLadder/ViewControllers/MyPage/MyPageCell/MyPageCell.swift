@@ -8,12 +8,11 @@
 import UIKit
 
 class MyPageCell: UITableViewCell {
-    
-    
-    
+
     @IBOutlet weak var iconImg: UIImageView!
-    
-//    @IBOutlet weak var userNameLabel: UILabel!{
+    @IBOutlet weak var titleLabel: UILabel!
+
+    //    @IBOutlet weak var userNameLabel: UILabel!{
 //        didSet {
 //            let userName = "이연"
 //            userNameLabel.font = Theme.esamanru16Medium
