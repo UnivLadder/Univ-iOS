@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = loginVC
         //멘토 검색화면
 //        guard let _ = (scene as? UIWindowScene) else { return }
-//        let storyboard = UIStoryboard(name: "MentoList", bundle: nil)
+//        let storyboard = UIStoryboard(name: "MentoSearch", bundle: nil)
 //        guard let loginVC = storyboard.instantiateViewController(withIdentifier: "MentoSearch") as? MentoSearchViewController else { return }
 //        window?.rootViewController = loginVC
     }

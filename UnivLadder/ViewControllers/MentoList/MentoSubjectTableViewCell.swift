@@ -17,10 +17,14 @@ class MentoSubjectTableViewCell: UITableViewCell{
         // Initialization code
         registerDelegate()
         registerXib()
-        let width = (self.contentView.frame.width-10)/5
+        collectionView.layer.cornerRadius = 10
+        
+        let width = (self.contentView.frame.width-10)/3
 //        let height = (self.contentView.frame.height-20)/2
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: width, height: 40)
+        //cell 크기
+        layout.itemSize = CGSize(width: width, height: 35)
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,6 +45,9 @@ class MentoSubjectTableViewCell: UITableViewCell{
         collectionView.register(storyNib, forCellWithReuseIdentifier: MetnoSubjectCollectionViewCell.identifier)
     }
     
+    func setData(list: [String]){
+        subjectList = list
+    }
     
 }
 
@@ -50,15 +57,31 @@ extension MentoSubjectTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 4, height: 2)
+        return CGSize(width: 10, height: 2)
     }
+    
+
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ShowMentoListView" {
+//            if let vc = segue.destination as? CategoryMentoListViewController
+//            {}
+//        }
+//    }
 }
 
 extension MentoSubjectTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MetnoSubjectCollectionViewCell.identifier, for: indexPath) as? MetnoSubjectCollectionViewCell else { return UICollectionViewCell() }
-        cell.mentoSubjectLabel.text = "test"
+        
+        //cell label 값 넣기
+        cell.mentoSubjectLabel.text = subjectList[indexPath.item]
+        cell.subjectCountLabel.text = "(000)"
         //        cell.setData(userData: subjectList[indexPath.row])
         return cell
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "ShowMentoListView", sender: indexPath.item)
+//    }
 }

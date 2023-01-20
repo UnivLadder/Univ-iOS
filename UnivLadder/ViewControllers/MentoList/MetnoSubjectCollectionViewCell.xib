@@ -21,17 +21,28 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jY-p9-DA4">
                         <rect key="frame" x="0.0" y="0.0" width="351" height="90"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJw-FV-lWU">
-                                <rect key="frame" x="154.66666666666666" y="34.666666666666664" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="R6p-ih-bdH">
+                                <rect key="frame" x="136.66666666666666" y="36" width="77.666666666666657" height="18"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJw-FV-lWU">
+                                        <rect key="frame" x="0.0" y="0.0" width="37.333333333333336" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GU3-L4-ZEe">
+                                        <rect key="frame" x="40.333333333333343" y="0.0" width="37.333333333333343" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cJw-FV-lWU" firstAttribute="centerX" secondItem="9jY-p9-DA4" secondAttribute="centerX" id="5bb-2r-hCc"/>
-                            <constraint firstItem="cJw-FV-lWU" firstAttribute="centerY" secondItem="9jY-p9-DA4" secondAttribute="centerY" id="Ojb-Gb-BlG"/>
+                            <constraint firstItem="R6p-ih-bdH" firstAttribute="centerX" secondItem="9jY-p9-DA4" secondAttribute="centerX" id="Knr-ze-5Tz"/>
+                            <constraint firstItem="R6p-ih-bdH" firstAttribute="centerY" secondItem="9jY-p9-DA4" secondAttribute="centerY" id="eUv-S7-uRL"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -46,13 +57,14 @@
             <size key="customSize" width="351" height="90"/>
             <connections>
                 <outlet property="mentoSubjectLabel" destination="cJw-FV-lWU" id="QPR-70-Mfx"/>
+                <outlet property="subjectCountLabel" destination="GU3-L4-ZEe" id="TNb-7i-vvP"/>
             </connections>
             <point key="canvasLocation" x="240.45801526717557" y="2.8169014084507045"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

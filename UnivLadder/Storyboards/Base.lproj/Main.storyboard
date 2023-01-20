@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P0I-FC-k9W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P0I-FC-k9W">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,8 +20,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="ile-80-Vhq" kind="relationship" relationship="viewControllers" id="Xhc-mW-wU1"/>
-                        <segue destination="8CB-Gd-Xpe" kind="relationship" relationship="viewControllers" id="ZoF-g6-n54"/>
-                        <segue destination="QRf-l5-6KT" kind="relationship" relationship="viewControllers" id="UV9-H2-axv"/>
+                        <segue destination="ugH-XC-QTe" kind="relationship" relationship="viewControllers" id="fDS-BK-QSt"/>
+                        <segue destination="QRf-l5-6KT" kind="relationship" relationship="viewControllers" id="so7-ey-z1A"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z88-pY-SJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -36,17 +36,18 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwC-pX-07V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1343" y="881"/>
+            <point key="canvasLocation" x="-320" y="672"/>
         </scene>
-        <!--Chat-->
-        <scene sceneID="JQZ-6f-8KC">
+        <!--Chatting-->
+        <scene sceneID="XzM-Tl-gky">
             <objects>
-                <viewControllerPlaceholder storyboardName="Chat" id="8CB-Gd-Xpe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="과외 문의 채팅" image="ellipsis.bubble.fill" catalog="system" id="mAF-ct-j97"/>
+                <viewControllerPlaceholder storyboardName="Chatting" id="ugH-XC-QTe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="채팅" image="chat" id="IkF-au-mfe"/>
+                    <navigationItem key="navigationItem" id="sGj-vO-MEd"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VpD-7i-CTP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrC-Sg-GFW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79" y="976"/>
+            <point key="canvasLocation" x="138" y="672"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="bux-e8-e6I">
@@ -56,12 +57,12 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ivy-4E-SPI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1421" y="903"/>
+            <point key="canvasLocation" x="575" y="672"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis.bubble.fill" catalog="system" width="128" height="110"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="chat" width="24" height="22"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>
 </document>

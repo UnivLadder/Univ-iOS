@@ -24,8 +24,8 @@ final class ChatListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        chatRoomListTableView.delegate = self
-//        chatRoomListTableView.dataSource = self
+//        chatRoomListTableView.delegate = nil
+//        chatRoomListTableView.dataSource = nil
         setUI()
         bindViewModel()
     }
@@ -66,18 +66,15 @@ private extension ChatListViewController {
             
             cellType: ChatRoomListCell.self)) { (index: Int, element: ChatRoom, cell: ChatRoomListCell) in
 //            cellType: ChatRoomListCell.self)) { (index: Int, element: TEST, cell: ChatRoomListCell) in
-//                cell.nameLabel.text = "이름"
-//                cell.lastMessageLabel.text = "안녕"
-//                cell.timeLabel.text = "9/12"
-                
-                cell.nameLabel.text = "\(element.id)"
-                cell.lastMessageLabel.text = element.lastChatMessage ?? ""
-                cell.timeLabel.text = element.createdDate
+                cell.nameLabel.text = "이름"
+                cell.lastMessageLabel.text = "안녕"
+                cell.timeLabel.text = "9/12"
+             
+//                cell.nameLabel.text = "\(element.id)"
+//                cell.lastMessageLabel.text = element.lastChatMessage ?? ""
+//                cell.timeLabel.text = element.createdDate
 
         }.disposed(by: disposeBag)
         
     }
 }
-
-
-
