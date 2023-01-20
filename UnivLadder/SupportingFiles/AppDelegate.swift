@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  UnivLadder
-//
-//  Created by Ahyeonway on 2021/04/01.
-//
-
 import UIKit
 import CoreData
 import Firebase
