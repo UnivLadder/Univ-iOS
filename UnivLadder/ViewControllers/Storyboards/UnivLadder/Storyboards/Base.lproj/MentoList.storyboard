@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yX9-g1-WjS">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--홈-->
+        <scene sceneID="tlW-OW-Hb2">
+            <objects>
+                <viewController storyboardIdentifier="MentoListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yX9-g1-WjS" customClass="MentoListViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="weT-7X-jCo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GpI-yD-vgq"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="홈" image="home" id="C5b-Ki-cJs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ayL-Vg-LdK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1475" y="1012"/>
+        </scene>
+        <!--Mento Search View Controller-->
+        <scene sceneID="qrf-Wx-uAA">
+            <objects>
+                <viewController storyboardIdentifier="MentoSearch" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUr-SL-9N4" customClass="MentoSearchViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pXc-Mr-qmg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="어떤 수업을 찾으시나요?" translatesAutoresizingMaskIntoConstraints="NO" id="qKa-zW-AyZ">
+                                <rect key="frame" x="20" y="58" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="zIr-JS-mtw"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CUr-SL-9N4" id="Oax-Ao-fv3"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pXN-d2-NaY">
+                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CUr-SL-9N4" id="Z0f-yk-XGJ"/>
+                                    <outlet property="delegate" destination="CUr-SL-9N4" id="tT8-9g-uvf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nZ8-Ez-rwT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nZ8-Ez-rwT" firstAttribute="trailing" secondItem="pXN-d2-NaY" secondAttribute="trailing" id="5Ue-cd-3hr"/>
+                            <constraint firstItem="nZ8-Ez-rwT" firstAttribute="bottom" secondItem="pXN-d2-NaY" secondAttribute="bottom" id="Hws-2g-uJV"/>
+                            <constraint firstItem="pXN-d2-NaY" firstAttribute="top" secondItem="qKa-zW-AyZ" secondAttribute="bottom" id="M1f-nV-eDg"/>
+                            <constraint firstItem="pXN-d2-NaY" firstAttribute="leading" secondItem="nZ8-Ez-rwT" secondAttribute="leading" id="aZ1-7u-HCv"/>
+                            <constraint firstItem="qKa-zW-AyZ" firstAttribute="leading" secondItem="nZ8-Ez-rwT" secondAttribute="leading" constant="20" id="fgm-Up-jpu"/>
+                            <constraint firstItem="nZ8-Ez-rwT" firstAttribute="trailing" secondItem="qKa-zW-AyZ" secondAttribute="trailing" constant="20" id="jhT-jT-hPl"/>
+                            <constraint firstItem="qKa-zW-AyZ" firstAttribute="top" secondItem="nZ8-Ez-rwT" secondAttribute="top" constant="10" id="wHD-tL-Cvb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="subjectListTable" destination="pXN-d2-NaY" id="L97-MO-Giv"/>
+                        <outlet property="subjectSearchBar" destination="qKa-zW-AyZ" id="CcP-zJ-WNb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oe3-gf-L6e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-597.10144927536237" y="1011.8303571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="home" width="24" height="23"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

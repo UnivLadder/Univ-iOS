@@ -16,6 +16,25 @@ final class APIService {
     var emailToken: String?
     var values: [String] = [""]
 
+    //put - FCM token
+    func putFCMToken(with token: String) {
+        let userData = ["fcmToken":token] as Dictionary
+        let url = Config.baseURL+"accounts/43/fcm-token"
+        let accessTokenTest = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzQzIiwiYXVkIjoidW5pdi1sYWRkZXIiLCJyIjoiUk9MRV9VU0VSIiwidWkiOjQzLCJpc3MiOiJ1bml2LWxhZGRlciIsImV4cCI6MTY3NjM3MzE0OCwiaWF0IjoxNjczNzgxMTQ4LCJqdGkiOiJCRFZtVDZaYXRlaTR1ODhRdXAyQTBlWTdXaGdQYVFDZVA2VnFYclVYbmhQTFo5Um0wZVd1VmszbG03cndxVDJGbzRweWN4MWkwTng4NHlaVVVKTENiSjZEWE9PaG1xdTNsN2hRZk8wcHdPaHRjczFtNG9SZ21LWTRoWm5lVlNqbyJ9.U_wOhC-0VOf0Ba4432I7vWZXR0cbAhS4iCcgzSq5oiyyafwK8vgeb2YIsCrZ44-8Tc_pvTCdhHrt4aoRFaHwFQ"
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json",
+                                    "Authentication" : "Bearer " + accessTokenTest]
+        
+        AF.request(url, method: .put, parameters: userData, headers: headers).responseData { response in
+            switch response.result {
+                case .success(let data):
+                    print("success data : \(data)")
+                case .failure(let error):
+                    print("error : \(error)")
+            }
+        }
+    }
+    
     //GET - 과목 데이터
     func getSubjects() {
         AF.request(Config.baseURL+"assets/extracurricular-subjects")
@@ -32,7 +51,6 @@ final class APIService {
                         // core 저장
                         self.saveNewSubject(Int64(code), topic: topic, value: value)
                         print("[\(index)] code: \(code) / topic: \(topic) / value: \(value)")
-                        
                     }
                 default: return
                 }
@@ -43,7 +61,7 @@ final class APIService {
     // 새로운 유저 등록
     fileprivate func saveNewSubject(_ code: Int64, topic: String, value: String) {
         CoreDataManager.shared
-            .saveSubject(code: code, topic: topic, value: value, onSuccess:  { onSuccess in
+            .saveSubjectEntity(code: code, topic: topic, value: value, onSuccess:  { onSuccess in
                 print("saved = \(onSuccess)")
             })
     }

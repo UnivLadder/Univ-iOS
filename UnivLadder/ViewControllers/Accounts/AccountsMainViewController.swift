@@ -5,6 +5,7 @@
 //  Created by leeyeon2 on 2021/12/06.
 //
 //fork test
+
 import UIKit
 import AuthenticationServices
 import GoogleSignIn
@@ -209,19 +210,22 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     @IBAction func googleLogInAction(_ sender: Any) {
         // OAuth 2.0 클라이언트 ID
         let signInConfig = GIDConfiguration.init(clientID: "895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com")
-        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-            guard error == nil else { return }
-            guard let user = user else { return }
-            
-            guard let accessToken = user.authentication.idToken, let _ = user.profile?.name else {
-                print("Error : User Data Not Found"); return }
-            
-            LoginDataModel.token = accessToken
-            // google login post
-            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "google")
-            print("Google accessToken : \(accessToken)")
-            
-        }
+        
+//        GIDSignIn.sharedInstance
+//
+//
+//        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+//            guard error == nil else { return }
+//            guard let user = user else { return }
+//
+//            guard let accessToken = user.authentication.idToken, let _ = user.profile?.name else {
+//                print("Error : User Data Not Found"); return }
+//
+//            LoginDataModel.token = accessToken
+//            // google login post
+//            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "google")
+//            print("Google accessToken : \(accessToken)")
+//        }
     }
     
     

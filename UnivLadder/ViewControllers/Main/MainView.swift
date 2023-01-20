@@ -21,7 +21,7 @@ class MainView: UIView {
     let registerMentoButton = UIButton().then {
         var state = "멘토"
         $0.setTitle(state, for: .normal)
-
+        
     }
     
     let nameLabel = UILabel().then {
@@ -39,7 +39,7 @@ class MainView: UIView {
     let mapImageView = UIImageView().then {
         let image = UIImage(named: "map.png");
         $0.image = image
-
+        
     }
     
     let addressLabel = UILabel().then {
@@ -54,27 +54,63 @@ class MainView: UIView {
         $0.text = "멘토 찾기"
     }
     
-    let searchMentoSearchBar = UISearchBar().then {
-        $0.placeholder = "어떤 분야의 멘토를 찾으시나요?"
-        $0.searchBarStyle = .minimal
-//        $0.searchTextField.layer.borderColor = UIColor.black.cgColor
-        $0.searchTextField.layer.cornerRadius = 10
-//        $0.searchTextField.layer.borderWidth = 1
-        $0.searchTextField.largeContentImage?.withTintColor(.black) // 왼쪽 돋보기 모양 커스텀
-//        $0.searchTextField.borderStyle = .none // 기본으로 있는 회색배경 없애줌
-//        $0.searchTextField.leftView?.tintColor = .green
+    let img = #imageLiteral(resourceName: "find")
+    
+    let searchMentoButton = UIButton().then {
+        $0.setImage(#imageLiteral(resourceName: "find"), for: .normal)// 이미지 넣기
+        $0.setTitle("  어떤 분야의 멘토를 찾으시나요?", for: .normal)
+        $0.titleLabel?.textAlignment = .left
+        $0.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        $0.setTitleColor(.gray, for: .normal)
+        $0.layer.cornerRadius = 10
+        
+//        $0.addTarget(self, action: #selector(setBtnTap), for: .touchUpInside)
     }
     
-//    let searchMentoButton = UIButton().then {
-//        $0.setBackgroundColor(.lightGray, for: .normal)
-//
-//        var searchMentoTitle = "어떤 분야의 멘토를 찾으시나요?"
-//        $0.setTitle(searchMentoTitle, for: .normal)
-//        $0.setTitleColor(.black, for: .normal)
-////        $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
-//        $0.titleLabel?.textAlignment = .left
-////        $0.addTarget(self, action: #selector(touchupSwitchButton(_:)), for: .touchUpInside)
-//    }
+    @objc
+    func setBtnTap() {
+        print("setBtnTap")
+        
+        //present 방식
+        
+        
+        //delegate pattern
+        var topVC = UIApplication.shared.keyWindow?.rootViewController
+        while((topVC!.presentedViewController) != nil) {
+            topVC = topVC!.presentedViewController
+        }
+        
+//        if let controller = topVC?.storyboard?.instantiateViewController(withIdentifier: "MentoSearch"){
+//            self.navigationController?.pushViewController(controller, animated: true)
+//        }
+
+//        let svc = MentoSearchViewController()
+//        topVC?.present(svc, animated: true, completion: nil)
+
+        
+    }
+    
+    //    let searchMentoSearchBar = UISearchBar().then {
+    //        $0.placeholder = "어떤 분야의 멘토를 찾으시나요?"
+    //        $0.searchBarStyle = .minimal
+    ////        $0.searchTextField.layer.borderColor = UIColor.black.cgColor
+    //        $0.searchTextField.layer.cornerRadius = 10
+    ////        $0.searchTextField.layer.borderWidth = 1
+    //        $0.searchTextField.largeContentImage?.withTintColor(.black) // 왼쪽 돋보기 모양 커스텀
+    ////        $0.searchTextField.borderStyle = .none // 기본으로 있는 회색배경 없애줌
+    ////        $0.searchTextField.leftView?.tintColor = .green
+    //    }
+    
+    //    let searchMentoButton = UIButton().then {
+    //        $0.setBackgroundColor(.lightGray, for: .normal)
+    //
+    //        var searchMentoTitle = "어떤 분야의 멘토를 찾으시나요?"
+    //        $0.setTitle(searchMentoTitle, for: .normal)
+    //        $0.setTitleColor(.black, for: .normal)
+    ////        $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+    //        $0.titleLabel?.textAlignment = .left
+    ////        $0.addTarget(self, action: #selector(touchupSwitchButton(_:)), for: .touchUpInside)
+    //    }
     
     let subjectCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         let layout = UICollectionViewFlowLayout()
@@ -85,7 +121,7 @@ class MainView: UIView {
         $0.showsHorizontalScrollIndicator = false
         $0.collectionViewLayout = layout
     }
-
+    
     
     let mentoListTitleLabel = UILabel().then {
         $0.font = Fonts.EsamanruOTF.bold.font(size: 22)
@@ -129,8 +165,8 @@ extension MainView: ViewRepresentable {
         
         // 멘토찾기
         addSubview(searchMentoTitleLabel)
-        addSubview(searchMentoSearchBar)
-//        addSubview(searchMentoButton)
+        addSubview(searchMentoButton)
+        //        addSubview(searchMentoButton)
         addSubview(subjectCollectionView)
         
         
@@ -178,22 +214,23 @@ extension MainView: ViewRepresentable {
             $0.trailing.equalToSuperview().offset(-20)
         }
         
-        searchMentoSearchBar.snp.makeConstraints {
-            $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(10)
+        searchMentoButton.snp.makeConstraints {
+            $0.height.equalTo(50)
+            $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(20)
             $0.leading.equalTo(profileImageView)
             $0.trailing.equalToSuperview().offset(-20)
         }
         
-//        searchMentoButton.snp.makeConstraints {
-//            $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(10)
-//            $0.leading.equalTo(profileImageView)
-////            $0.trailing.equalToSuperview().offset(-20)
-//        }
+        //        searchMentoButton.snp.makeConstraints {
+        //            $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(10)
+        //            $0.leading.equalTo(profileImageView)
+        ////            $0.trailing.equalToSuperview().offset(-20)
+        //        }
         
         subjectCollectionView.snp.makeConstraints {
-            $0.top.equalTo(searchMentoSearchBar.snp.bottom).offset(10)
+            $0.top.equalTo(searchMentoButton.snp.bottom).offset(20)
             $0.left.right.equalToSuperview()
-//            $0.centerY.equalToSuperview()
+            //            $0.centerY.equalToSuperview()
             $0.height.equalTo(100)
         }
         
@@ -206,7 +243,7 @@ extension MainView: ViewRepresentable {
         mentoCollectionView.snp.makeConstraints {
             $0.top.equalTo(mentoListTitleLabel.snp.bottom).offset(10)
             $0.left.right.equalToSuperview()
-//            $0.centerY.equalToSuperview()
+            //            $0.centerY.equalToSuperview()
             $0.height.equalTo(100)
         }
     }
@@ -221,7 +258,7 @@ extension UIButton {
         
         let backgroundImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-         
+        
         self.setBackgroundImage(backgroundImage, for: state)
     }
 }

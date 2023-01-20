@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  UnivLadder
-//
-//  Created by Ahyeonway on 2021/04/01.
-//
-
 import UIKit
 import CoreData
 import Firebase
@@ -13,24 +6,37 @@ import KakaoSDKAuth
 import KakaoSDKCommon
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         FirebaseApp.configure()
         KakaoSDK.initSDK(appKey: "48b6d54e30616f77f66d47cc2f1a7fce")
         // 과목 리스트 초기화
         //과목 리스트
-//        APIService.shared.getSubjects()
+        //        APIService.shared.getSubjects()
         
         //앱파일 경로 확인
         print("App bundle path : \(Bundle.main)")
+        
+        //FCM 설정
+        UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter
+            .current()
+            .requestAuthorization(
+                options: authOptions,completionHandler: { (_, _) in }
+            )
+        application.registerForRemoteNotifications()
         return true
     }
-
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         var handled: Bool
-
+        
         handled = GIDSignIn.sharedInstance.handle(url)
         if handled {
             return true
@@ -41,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Handle other custom URL types.
-
+        
         // If not handled by this app, return false.
         return false
     }
@@ -68,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         self.saveContext()
     }
-
+    
     
     // MARK: - Core Data stack
     //persistentContainer : Coredata 내용을 수정, 관리해주는 프로퍼티
@@ -82,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // name: Core Data 만든 파일명 지정
         // 멘토 DB
         // name: Core Data 만든 파일명 지정
-        let container = NSPersistentContainer(name: "Mento")
+        let container = NSPersistentContainer(name: "UserModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
                 fatalError("Unresolved error, \((error as NSError).userInfo)")
@@ -90,14 +96,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
         
-//        let container = NSPersistentContainer(name: "UnivLadder")
-//        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//            if let error = error as NSError? {
-//
-//                fatalError("Unresolved error \(error), \(error.userInfo)")
-//            }
-//        })
-//        return container
+        //        let container = NSPersistentContainer(name: "UnivLadder")
+        //        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        //            if let error = error as NSError? {
+        //
+        //                fatalError("Unresolved error \(error), \(error.userInfo)")
+        //            }
+        //        })
+        //        return container
     }()
     
     // MARK: - Core Data Saving support
@@ -117,3 +123,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+extension AppDelegate : MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        
+        // 파이버에이스 토큰 보내기 api 실행
+        // http://52.78.43.121/docs/index.html#_x_%EA%B3%84%EC%A0%95_fcm_%ED%86%A0%ED%81%B0_%EC%88%98%EC%A0%95
+        if let fcmToken = fcmToken {
+            print("파이어베이스 토큰: \(fcmToken)")
+            APIService.shared.putFCMToken(with: fcmToken)
+        }
+        
+
+    }
+    
+}
