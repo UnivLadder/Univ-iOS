@@ -7,6 +7,7 @@
 
 import Foundation
 
+// User memory data
 final class User {
     static var email: String = ""
     static var password: String = ""

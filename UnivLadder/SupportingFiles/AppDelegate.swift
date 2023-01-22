@@ -128,10 +128,10 @@ extension AppDelegate : MessagingDelegate {
         
         // 파이버에이스 토큰 보내기 api 실행
         // http://52.78.43.121/docs/index.html#_x_%EA%B3%84%EC%A0%95_fcm_%ED%86%A0%ED%81%B0_%EC%88%98%EC%A0%95
-        if let fcmToken = fcmToken {
-            print("파이어베이스 토큰: \(fcmToken)")
-            APIService.shared.putFCMToken(with: fcmToken)
-        }
+//        if let fcmToken = fcmToken {
+//            print("파이어베이스 토큰: \(fcmToken)")
+//            APIService.shared.putFCMToken(with: fcmToken)
+//        }
         
 
     }

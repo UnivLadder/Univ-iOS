@@ -63,19 +63,28 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         var params = ["username" : "leeyeon0527@gmail.com",
                       "password" : "PASSWORD"]
         
-        //        APIService.shared.signin(param: params, completion: {
-        //            //nil, 빈값 2개 다 처리
-        //            if let token = APIService.shared.accessToken{
-        //                if !token.isEmpty{
-        //                    print("로그인 성공")
-        //                    UIViewController.changeRootViewControllerToHome()
-        //                }else{
-        //                    print("빈 값")
-        //                }
-        //            }else{
-        //                print("로그인 실패")
-        //            }
-        //        })
+        APIService.shared.signin(param: params, completion: {
+            //nil, 빈값 2개 다 처리
+            if let token = APIService.shared.accessToken{
+                if !token.isEmpty{
+                    print("로그인 성공")
+                    // 인자값으로 입력된 클로저 블록 실행
+                    
+                    // 토큰 정보 추출
+                    let accessToken = token
+                    
+                    //로그인 성공시 메인화면으로 이동
+                    UIViewController.changeRootViewControllerToHome()
+//                    let keyChain = KeyChain()
+//                    print(keyChain.getItem(id: params["username"]))
+
+                }else{
+                    print("빈 값")
+                }
+            }else{
+                print("로그인 실패")
+            }
+        })
         
         
         
@@ -211,21 +220,21 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         // OAuth 2.0 클라이언트 ID
         let signInConfig = GIDConfiguration.init(clientID: "895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com")
         
-//        GIDSignIn.sharedInstance
-//
-//
-//        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-//            guard error == nil else { return }
-//            guard let user = user else { return }
-//
-//            guard let accessToken = user.authentication.idToken, let _ = user.profile?.name else {
-//                print("Error : User Data Not Found"); return }
-//
-//            LoginDataModel.token = accessToken
-//            // google login post
-//            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "google")
-//            print("Google accessToken : \(accessToken)")
-//        }
+        //        GIDSignIn.sharedInstance
+        //
+        //
+        //        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+        //            guard error == nil else { return }
+        //            guard let user = user else { return }
+        //
+        //            guard let accessToken = user.authentication.idToken, let _ = user.profile?.name else {
+        //                print("Error : User Data Not Found"); return }
+        //
+        //            LoginDataModel.token = accessToken
+        //            // google login post
+        //            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "google")
+        //            print("Google accessToken : \(accessToken)")
+        //        }
     }
     
     
