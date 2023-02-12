@@ -25,6 +25,10 @@
 		6880A66228719F7F00DB6D20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880A66128719F7F00DB6D20 /* User.swift */; };
 		6892DB16296ADA5F002DB446 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6892DB15296ADA5F002DB446 /* Chatting.storyboard */; };
 		6892DB18296ADABE002DB446 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6892DB17296ADABE002DB446 /* ChattingViewController.swift */; };
+		689357FC2998E2DD00022EFB /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689357FB2998E2DD00022EFB /* NoticeViewController.swift */; };
+		689357FE2998E32000022EFB /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689357FD2998E32000022EFB /* NoticeTableViewCell.swift */; };
+		689358002998E68100022EFB /* NoticeContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689357FF2998E68100022EFB /* NoticeContentTableViewCell.swift */; };
+		689358022998E90800022EFB /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689358012998E90800022EFB /* Notice.swift */; };
 		689C759D27AFD80E00C04978 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C759C27AFD80E00C04978 /* DummyData.swift */; };
 		68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B27C89279D610C0064D1DD /* LoginDataModel.swift */; };
 		68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */; };
@@ -53,6 +57,7 @@
 		68F6ED1E28FC0F58003C93D3 /* SubjectEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED1A28FC0F58003C93D3 /* SubjectEntity+CoreDataProperties.swift */; };
 		68F6ED1F28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */; };
 		68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F6F5C628D726EA0092B477 /* Assets.xcassets */; };
+		68FA133D298FCB8000F950A6 /* AlramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA133C298FCB8000F950A6 /* AlramViewController.swift */; };
 		AF54187CD725C296D73ECC3A /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
@@ -86,7 +91,6 @@
 		E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6CEC9269A87AF005D0501 /* UIColor+Extension.swift */; };
 		E5B6CECC269A8808005D0501 /* UINavigationBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6CECB269A8808005D0501 /* UINavigationBar+Extension.swift */; };
 		E5F3F95326470FFC00763ADB /* MentoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F95126470FFC00763ADB /* MentoList.storyboard */; };
-		E5F3F9642647102800763ADB /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F9622647102800763ADB /* Chat.storyboard */; };
 		E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3F9712647108100763ADB /* MainTabBarViewController.swift */; };
 		E5F3F97A264710EE00763ADB /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3F979264710EE00763ADB /* ChatListViewController.swift */; };
 		E5FA9B9827DDE4CC009C9C9E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA9B9727DDE4CC009C9C9E /* MainView.swift */; };
@@ -138,6 +142,10 @@
 		6880A66128719F7F00DB6D20 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6892DB15296ADA5F002DB446 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		6892DB17296ADABE002DB446 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		689357FB2998E2DD00022EFB /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		689357FD2998E32000022EFB /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		689357FF2998E68100022EFB /* NoticeContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeContentTableViewCell.swift; sourceTree = "<group>"; };
+		689358012998E90800022EFB /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		689C759C27AFD80E00C04978 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		68B27C89279D610C0064D1DD /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +175,7 @@
 		68F6ED1A28FC0F58003C93D3 /* SubjectEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SubjectEntity+CoreDataProperties.swift"; path = "/Users/leeyeon2/Dev/Univ/Univ-iOS_leeyeon/UnivLadder/DB/SubjectEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataProperties.swift"; path = "/Users/leeyeon2/Dev/Univ/Univ-iOS_leeyeon/UnivLadder/DB/UserEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		68F6F5C628D726EA0092B477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68FA133C298FCB8000F950A6 /* AlramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlramViewController.swift; sourceTree = "<group>"; };
 		9B84878A71CDD8EF1B04D5B7 /* Pods-UnivLadder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.release.xcconfig"; sourceTree = "<group>"; };
 		CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder_UnivLadderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F1C83937D5AB2F8D6ED521 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,7 +217,6 @@
 		E5B6CEC9269A87AF005D0501 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E5B6CECB269A8808005D0501 /* UINavigationBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extension.swift"; sourceTree = "<group>"; };
 		E5F3F95226470FFC00763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UnivLadder/Storyboards/Base.lproj/MentoList.storyboard; sourceTree = "<group>"; };
-		E5F3F9632647102800763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UnivLadder/Storyboards/Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		E5F3F9712647108100763ADB /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		E5F3F979264710EE00763ADB /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		E5FA9B9727DDE4CC009C9C9E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -324,6 +332,17 @@
 			path = MyPageCell;
 			sourceTree = "<group>";
 		};
+		689357FA2998E2A500022EFB /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				689357FB2998E2DD00022EFB /* NoticeViewController.swift */,
+				689357FD2998E32000022EFB /* NoticeTableViewCell.swift */,
+				689357FF2998E68100022EFB /* NoticeContentTableViewCell.swift */,
+				689358012998E90800022EFB /* Notice.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
 		68C42AF727D4CEF600CE9E38 /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +360,7 @@
 				E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */,
 				68D794F0293378F800C905D5 /* MentoSearchViewController.swift */,
 				683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */,
+				68FA133C298FCB8000F950A6 /* AlramViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -426,6 +446,7 @@
 		E546934027F9BE42007A1791 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6892DB17296ADABE002DB446 /* ChattingViewController.swift */,
 				E5F3F979264710EE00763ADB /* ChatListViewController.swift */,
 				E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */,
 			);
@@ -462,6 +483,7 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				689357FA2998E2A500022EFB /* Notice */,
 				688AC65B294F1C650071340F /* MyPageCell */,
 				68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */,
 				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
@@ -591,7 +613,6 @@
 				68CE951D296933E400482764 /* MyPage.storyboard */,
 				E5F3F95126470FFC00763ADB /* MentoList.storyboard */,
 				E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */,
-				E5F3F9622647102800763ADB /* Chat.storyboard */,
 				68CE951B296933DD00482764 /* Accounts.storyboard */,
 				6892DB15296ADA5F002DB446 /* Chatting.storyboard */,
 			);
@@ -637,7 +658,6 @@
 			children = (
 				E546934027F9BE42007A1791 /* View */,
 				E546933F27F9BDAF007A1791 /* ViewModel */,
-				6892DB17296ADABE002DB446 /* ChattingViewController.swift */,
 			);
 			path = ChatScene;
 			sourceTree = "<group>";
@@ -773,7 +793,6 @@
 				68D794EF293368EA00C905D5 /* launchBottom.png in Resources */,
 				E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */,
 				E5F3F95326470FFC00763ADB /* MentoList.storyboard in Resources */,
-				E5F3F9642647102800763ADB /* Chat.storyboard in Resources */,
 				E5B38B292615EBCC00D4EB5D /* Main.storyboard in Resources */,
 				68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */,
 				68D794EC293368C300C905D5 /* launchMsg.png in Resources */,
@@ -911,17 +930,20 @@
 				689C759D27AFD80E00C04978 /* DummyData.swift in Sources */,
 				E56ABEE82647C8A100A45786 /* ChatRoomViewController.swift in Sources */,
 				6864B288278AFE3C00CE80FE /* APIService.swift in Sources */,
+				689358022998E90800022EFB /* Notice.swift in Sources */,
 				E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */,
 				E546934727F9C749007A1791 /* ChatModel.swift in Sources */,
 				E57A31BD27B902F000276D7F /* StoryboardInitializable.swift in Sources */,
 				6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */,
 				68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */,
 				E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */,
+				689357FE2998E32000022EFB /* NoticeTableViewCell.swift in Sources */,
 				E56ABEED2647CC0D00A45786 /* YourChatBubbleCell.swift in Sources */,
 				E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */,
 				68D41CD628A9086D0098B29D /* SubjectListCell.swift in Sources */,
 				6892DB18296ADABE002DB446 /* ChattingViewController.swift in Sources */,
 				68F6ED1C28FC0F58003C93D3 /* UserEntity+CoreDataClass.swift in Sources */,
+				689357FC2998E2DD00022EFB /* NoticeViewController.swift in Sources */,
 				68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */,
 				E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */,
 				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
@@ -953,11 +975,13 @@
 				E5FA9B9827DDE4CC009C9C9E /* MainView.swift in Sources */,
 				68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */,
 				68D794F1293378F800C905D5 /* MentoSearchViewController.swift in Sources */,
+				689358002998E68100022EFB /* NoticeContentTableViewCell.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				683D5215296AACDE00F8EB88 /* MentoInfoViewController.swift in Sources */,
 				68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
 				680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */,
+				68FA133D298FCB8000F950A6 /* AlramViewController.swift in Sources */,
 				6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */,
 				E58A9C1E27DDF68A00A4ACBB /* Fonts+Generated.swift in Sources */,
 				E546934427F9C31A007A1791 /* SocketManager.swift in Sources */,
@@ -1026,14 +1050,6 @@
 				E5F3F95226470FFC00763ADB /* Base */,
 			);
 			name = MentoList.storyboard;
-			sourceTree = "<group>";
-		};
-		E5F3F9622647102800763ADB /* Chat.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5F3F9632647102800763ADB /* Base */,
-			);
-			name = Chat.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

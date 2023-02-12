@@ -21,16 +21,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        
+ 
+        //자동로그인이 설정되어 있는 경우 홈화면으로 시작
+        let vc = MainTabBarViewController.instantiate()
+        DispatchQueue.main.async {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+                return
+            }
+            windowScene.windows.first?.rootViewController = vc
+            windowScene.windows.first?.makeKeyAndVisible()
+        }
         
         //시작 화면 바꿔가면서 테스트
-        guard let _ = (scene as? UIWindowScene) else { return }
-        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-        guard let loginVC = storyboard.instantiateViewController(withIdentifier: "MyPage") as? MentoSearchViewController else { return }
-        window?.rootViewController = loginVC
+//        guard let _ = (scene as? UIWindowScene) else { return }
+//        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+//        guard let loginVC = storyboard.instantiateViewController(withIdentifier: "MyPage") as? MentoSearchViewController else { return }
+//        window?.rootViewController = loginVC
         //멘토 검색화면
 //        guard let _ = (scene as? UIWindowScene) else { return }
 //        let storyboard = UIStoryboard(name: "MentoSearch", bundle: nil)

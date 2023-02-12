@@ -166,7 +166,7 @@ class AccountsRegisterViewController: UIViewController {
         guard let email = registerEmailTxt.text, !email.isEmpty else { return }
         if let emailToken = emailAuthNumTxt.text{
             let params = ["email":email, "token" : emailToken]
-            APIService.shared.emailAuthNumCheckAction(param: params){ response in
+            APIService.shared.emailAuthNumCheckAction(param: params){ [self] response in
                 if response{
                     //이메일 인증 성공
                     //1. 경고창 내용 만들기

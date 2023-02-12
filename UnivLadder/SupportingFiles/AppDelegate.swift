@@ -18,8 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //        APIService.shared.getSubjects()
         
         //앱파일 경로 확인
-        print("App bundle path : \(Bundle.main)")
-        
+//        print("App bundle path : \(Bundle.main)")
+//        // User default 값 조회
+//        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+//          print("\(key) = \(value) \n")
+//        }
+//        print("App Directory path : \(NSHomeDirectory())")
+//
         //FCM 설정
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self
@@ -75,36 +80,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.saveContext()
     }
     
-    
+    // MARK: - Push Notification Handling
+    // push noti click한 경우
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            print("")
+            print(response.notification.request.content.userInfo["aps"])
+        
+            //채팅화면으로 오픈하기
+        
+//        Optional({
+//            alert =     {
+//                body = testest;
+//                title = test;
+//            };
+//            "mutable-content" = 1;
+//        })
+    }
+
     // MARK: - Core Data stack
     //persistentContainer : Coredata 내용을 수정, 관리해주는 프로퍼티
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
-        // name: Core Data 만든 파일명 지정
-        // 멘토 DB
-        // name: Core Data 만든 파일명 지정
-        let container = NSPersistentContainer(name: "UserModel")
+        let container = NSPersistentContainer(name: "UserModel")// Core Data 파일명 지정
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
                 fatalError("Unresolved error, \((error as NSError).userInfo)")
             }
         })
         return container
-        
-        //        let container = NSPersistentContainer(name: "UnivLadder")
-        //        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-        //            if let error = error as NSError? {
-        //
-        //                fatalError("Unresolved error \(error), \(error.userInfo)")
-        //            }
-        //        })
-        //        return container
     }()
+    
+    var container: NSPersistentContainer {
+    return persistentContainer
+    }
+    
+    private var mainContext: NSManagedObjectContext {
+      return persistentContainer.viewContext
+    }
     
     // MARK: - Core Data Saving support
     func saveContext () {

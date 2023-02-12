@@ -14,13 +14,14 @@ enum CoreDataName: String {
 
 class CoreDataManager {
     static let shared: CoreDataManager = CoreDataManager()
-
+    
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     private lazy var context = appDelegate?.persistentContainer.viewContext
     
     let modelNameUser: String = "UserEntity"
     let modelNameSubjectEntity: String = "SubjectEntity"
-
+    
+    // MARK: - User coredata 관리
     func getUserInfo(ascending: Bool = false) -> [UserEntity] {
         var models: [UserEntity] = [UserEntity]()
         
@@ -43,9 +44,28 @@ class CoreDataManager {
     
     
     
-    func getSubjectEntitys(ascending: Bool = false) -> [SubjectEntity] {
+    // MARK: - Subject coredata 관리
+    // 1. Subject 저장
+    func saveSubjectEntity(code: Int64, topic: String, value: String, onSuccess: @escaping ((Bool) -> Void)) {
+        if let context = context {
+            if let entity: NSEntityDescription = NSEntityDescription.entity(forEntityName: modelNameSubjectEntity as String, in: context) {
+                
+                if let SubjectEntity: SubjectEntity = NSManagedObject(entity: entity, insertInto: context) as? SubjectEntity {
+                    SubjectEntity.code = code
+                    SubjectEntity.topic = topic
+                    SubjectEntity.value = value
+                    
+                    contextSave { success in
+                        onSuccess(success)
+                    }
+                }
+            }
+        }
+    }
+    
+    // 2. Subject 조회
+    func getSubjectEntity(ascending: Bool = false) -> [SubjectEntity] {
         var models: [SubjectEntity] = [SubjectEntity]()
-        
         if let context = context {
             let codeSort: NSSortDescriptor = NSSortDescriptor(key: "code", ascending: ascending)
             let fetchRequest: NSFetchRequest<NSManagedObject>
@@ -63,43 +83,50 @@ class CoreDataManager {
         return models
     }
     
-    func saveSubjectEntity(code: Int64, topic: String, value: String, onSuccess: @escaping ((Bool) -> Void)) {
-        if let context = context {
-            if let entity: NSEntityDescription = NSEntityDescription.entity(forEntityName: modelNameSubjectEntity as String, in: context) {
-            
-                if let SubjectEntity: SubjectEntity = NSManagedObject(entity: entity, insertInto: context) as? SubjectEntity {
-                    SubjectEntity.code = code
-                    SubjectEntity.topic = topic
-                    SubjectEntity.value = value
-                    
-                    contextSave { success in
-                        onSuccess(success)
-                    }
-                }
-            }
-        }
-    }
-    
-    func deleteUser(code: Int64, onSuccess: @escaping ((Bool) -> Void)) {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(code: code)
+    // 3. 특정 Subject 삭제
+    func deleteSubject(code: Int64, onSuccess: @escaping ((Bool) -> Void)) {
         
+        let deleteRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(code: code)
         do {
-            if let results: [SubjectEntity] = try context?.fetch(fetchRequest) as? [SubjectEntity] {
+            if let results: [SubjectEntity] = try context?.fetch(deleteRequest) as? [SubjectEntity] {
                 if results.count != 0 {
                     context?.delete(results[0])
                 }
             }
         } catch let error as NSError {
-            print("Could not fatch🥺: \(error), \(error.userInfo)")
-            onSuccess(false)
+            print("Could not fatch: \(error), \(error.userInfo)")
         }
+        do {
+            try context?.save()
+            print("코어데이터 삭제 성공")
+            return
+        } catch {
+            context?.rollback()
+            print("실행 불가능 합니다")
+            return
+        }
+        //        default: break
         
-        contextSave { success in
-            onSuccess(success)
+    }
+    
+    // 4. 모든 Subject 삭제
+    func deleteAllSubject() {
+        let fetrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "SubjectEntity")
+        // Batch는 한꺼번에 데이터처리를 할때 사용합니다. 지금의 경우 저장된 데이터를 모두 지우는 것입니다.
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetrequest)
+        
+        do {
+            if let context = context {
+                try context.execute(batchDeleteRequest)
+                print("기존 Subject 데이터 모두 삭제 완료")
+            }
+            
+        } catch {
+            print(error)
         }
     }
+    
 }
-
 extension CoreDataManager {
     fileprivate func filteredRequest(code: Int64) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>

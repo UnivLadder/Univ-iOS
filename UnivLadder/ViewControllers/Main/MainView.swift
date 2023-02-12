@@ -10,12 +10,23 @@ import SnapKit
 import Then
 
 class MainView: UIView {
+
     
+    // MARK: - 멘토 프로필
     let profileImageView = UIImageView().then {
-        let image = UIImage(named: "profile.png");
+        let image = UIImage(named: "펭수.png");
+        
+//        let imageView = UIImageView(image: squareImg(at: image!)!)
+//        let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 160, height: 160))
+//        mainView.addSubview(imageView)
+//        $0.image = mainView.asImage()
+        
         $0.image = image
-        $0.backgroundColor = .yellow
+        $0.contentMode = .scaleAspectFill
         $0.layer.cornerRadius = 12
+        
+        //넘치는 영역 잘라내기
+        $0.clipsToBounds = true
     }
     
     let registerMentoButton = UIButton().then {
@@ -48,6 +59,7 @@ class MainView: UIView {
         $0.text = "서울특별시 동작구 양녕로 29길 22"
     }
     
+    // MARK: - 멘토 찾기
     let searchMentoTitleLabel = UILabel().then {
         $0.font = Fonts.EsamanruOTF.bold.font(size: 22)
         $0.textColor = .black
@@ -122,7 +134,7 @@ class MainView: UIView {
         $0.collectionViewLayout = layout
     }
     
-    
+    // MARK: - 지금 뜨고 있는 멘토
     let mentoListTitleLabel = UILabel().then {
         $0.font = Fonts.EsamanruOTF.bold.font(size: 22)
         $0.textColor = .black
@@ -177,8 +189,9 @@ extension MainView: ViewRepresentable {
     
     func setupConstraints() {
         profileImageView.snp.makeConstraints {
-            $0.width.height.equalTo(48)
-            $0.top.leading.equalTo(safeAreaLayoutGuide).offset(20)
+            $0.width.height.equalTo(80)
+            $0.top.equalTo(safeAreaLayoutGuide).offset(-20)
+            $0.leading.equalTo(safeAreaLayoutGuide).offset(20)
         }
         
         registerMentoButton.snp.makeConstraints {
@@ -209,13 +222,13 @@ extension MainView: ViewRepresentable {
         }
         
         searchMentoTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(mapImageView.snp.bottom).offset(80)
+            $0.top.equalTo(mapImageView.snp.bottom).offset(70)
             $0.leading.equalTo(profileImageView)
             $0.trailing.equalToSuperview().offset(-20)
         }
         
         searchMentoButton.snp.makeConstraints {
-            $0.height.equalTo(50)
+            $0.height.equalTo(45)
             $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(20)
             $0.leading.equalTo(profileImageView)
             $0.trailing.equalToSuperview().offset(-20)
@@ -235,7 +248,7 @@ extension MainView: ViewRepresentable {
         }
         
         mentoListTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(subjectCollectionView.snp.bottom).offset(80)
+            $0.top.equalTo(subjectCollectionView.snp.bottom).offset(70)
             $0.leading.equalTo(profileImageView)
             $0.trailing.equalToSuperview().offset(-20)
         }
@@ -249,6 +262,32 @@ extension MainView: ViewRepresentable {
     }
 }
 
+func squareImg(at image: UIImage, length: CGFloat = 80) -> UIImage? {
+    let originWidth: CGFloat = image.size.width
+    let originHeight: CGFloat = image.size.height
+    var resizedWidth: CGFloat = length
+    var resizedHeight: CGFloat = length
+    
+    UIGraphicsBeginImageContext(CGSize(width: length, height: length))
+    UIColor.white.set()
+    UIRectFill(CGRect(x: 0.0, y: 0.0, width: length, height: length))
+    
+    let sizeRatio = length / max(originWidth, originHeight)
+    if originWidth > originHeight{
+        resizedWidth = length
+        resizedHeight = originHeight + sizeRatio
+    }else{
+        resizedWidth = originWidth + sizeRatio
+        resizedHeight = length
+    }
+    image.draw(in: CGRect(x: length/2 - resizedWidth/2,
+                          y: length/2 - resizedHeight/2,
+                          width: resizedWidth,
+                          height: resizedHeight))
+    let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return resizedImage
+}
 extension UIButton {
     func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
         UIGraphicsBeginImageContext(CGSize(width: 1.0, height: 1.0))
@@ -260,5 +299,13 @@ extension UIButton {
         UIGraphicsEndImageContext()
         
         self.setBackgroundImage(backgroundImage, for: state)
+    }
+}
+extension UIView {
+  func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
     }
 }

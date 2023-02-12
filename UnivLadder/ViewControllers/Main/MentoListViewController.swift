@@ -9,24 +9,54 @@ import UIKit
 
 class MentoListViewController: UIViewController {
     let mainView = MainView()
-    //    let mentoListView = MontoListView()
-    //    private lazy var mainView = MainView.init(frame: self.view.frame)
-    var categoryList = ["교과목", "수시/논술", "입시/경시대회", "외국어" ,"외국어 시험", "미술", "음악", "악기", "국악", "댄스", "IT/컴퓨터", "디자인", "취업 준비", "스포츠", "패션/뷰티", "사진/영상", "연기/공연/영화", "요리/커피"]
     
-    var arrImageName: [String] = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10"]
+    // 멘토 찾기
     
-    var imgList = ["교과목.png", "외국어.png", "미술.png"]
+    // 과목 카테고리 이름
+    var categoryList: [String] = []
+    // 추후 이미지 더 추가하기
+    var imgList = ["교과목.png", "외국어.png", "미술.png","교과목.png","외국어.png","미술.png"]
     
+    // 지금 뜨고 있는 멘토
     var mentoList = ["안이연", "안이연", "안이연", "안이연", "안이연", "안이연", "안이연"]
     
     static func instance() -> MentoListViewController {
         return MentoListViewController.init(nibName: nil, bundle: nil)
     }
     
-    
+    // MARK: - UI func
     override func loadView() {
         view = mainView
+        dataParsing()
         setupCollectionView()
+    }
+    
+    //UI component 호출
+    func dataParsing(){
+        // user 프로필 데이터
+        //coredata userinfo 매칭
+
+        
+        
+        //로그인 이후 한번만 실행
+//        APIService.shared.getSubjects()
+        // 멘터 찾기 데이터
+        let subjects: [SubjectEntity] = CoreDataManager.shared.getSubjectEntity()
+        let topics: [String] = subjects.map({$0.topic!})
+        categoryList = removeDuplicate(topics)
+        
+        //지금 뜨고 있는 멘토 데이터
+    }
+    
+    // array 중복 제거
+    func removeDuplicate (_ array: [String]) -> [String] {
+        var removedArray = [String]()
+        for i in array {
+            if removedArray.contains(i) == false {
+                removedArray.append(i)
+            }
+        }
+        return removedArray
     }
     
     private func setupCollectionView() {
@@ -61,8 +91,6 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
         //subject list
         if collectionView == mainView.subjectCollectionView {
             let subjectCellText = categoryList[indexPath.item]
@@ -71,6 +99,8 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
                 return UICollectionViewCell()
             }
             cell.label.text = subjectCellText
+            cell.imageView.image = UIImage(named: imgList[indexPath.item])
+            
             return cell
             
             //mento list

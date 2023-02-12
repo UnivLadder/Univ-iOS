@@ -11,10 +11,11 @@ class SubjectListCell: UICollectionViewCell {
     
     static let subjectRegisterId = "\(SubjectListCell.self)"
     
+    
     let label = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = .white
-        $0.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        $0.font = UIFont.boldSystemFont(ofSize: 18)
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -25,11 +26,9 @@ class SubjectListCell: UICollectionViewCell {
 //        $0.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
     }
     
-    let tvImageView = UIImageView()
-//
     let imageView = UIImageView().then{
         $0.layer.cornerRadius = 10
-        $0.image = UIImage(named: "외국어.png")
+//        $0.image = UIImage(named: "미술.png")
     }
     
     override init(frame: CGRect) {

@@ -45,6 +45,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         //        UserDefaults.standard.setValue(password, forKey: "password")
     }
     
+    // MARK: - 로그인 Action
     
     //로그인 구현
     //1. 자체 로그인 2.구글 소셜 로그인 3.애플 소셜 로그인
@@ -167,11 +168,13 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             // 자동 로그인 실행
             self.isAutoLogin = true
             autoLogInCheckmark.setImage(UIImage(named: "checkBoxFilled.png"), for: .normal)
+            
             print("자동선택")
         }else{
             //자동 로그인 안함
             self.isAutoLogin = false
             autoLogInCheckmark.setImage(UIImage(named: "checkBox.png"), for: .normal)
+            
             print("자동선택안함")
         }
     }

@@ -159,6 +159,13 @@ final class APIService {
             }
         }
     }
+    // MARK: - Chatting API
+    // 다이렉트 메시지를 생성
+    // 다이렉트 메시지 리스트를 조회
+    // 보낸거 받은거 다 로컬 디비에 저장하고, 뿌려주기
+    // 최초 가입인지 아닌지 확인하는 로직 >
+    // 자체 로그인시 키체인에 값이 없으면 앱 삭제 후 재로그인이므로 리스트 호출 api
+    //HTTP://localhost/chats/13/messages
     
     // MARK: - FCM API
     //PUT - 서버에 FCM token 보내기
@@ -183,6 +190,10 @@ final class APIService {
     // MARK: - UI API
     //GET - 과목 데이터 가져오기
     func getSubjects() {
+        // 이전 데이터 삭제
+        CoreDataManager.shared.deleteAllSubject()
+
+        // 과목 데이터 가져오기 API
         AF.request(Config.baseURL+"assets/extracurricular-subjects")
             .responseJSON { response in
                 switch response.result {
@@ -194,17 +205,19 @@ final class APIService {
                               let value = subJson["value"].string else {
                             continue
                         }
-                        // core 저장
+                        // coredata 저장
                         self.saveNewSubject(Int64(code), topic: topic, value: value)
                         print("[\(index)] code: \(code) / topic: \(topic) / value: \(value)")
                     }
                 default: return
                 }
+                // coredata에 저장된 과목 데이터 가져오기
+                self.getAllSubject()
             }
     }
     
     
-    // 새로운 유저 등록
+    // coredata 저장
     fileprivate func saveNewSubject(_ code: Int64, topic: String, value: String) {
         CoreDataManager.shared
             .saveSubjectEntity(code: code, topic: topic, value: value, onSuccess:  { onSuccess in
@@ -212,7 +225,20 @@ final class APIService {
             })
     }
     
-
+    // coredata 조회
+    func getAllSubject() {
+        let subjects: [SubjectEntity] = CoreDataManager.shared.getSubjectEntity()
+        let codes: [Int64] = subjects.map({$0.code})
+        let topics: [String] = subjects.map({$0.topic!})
+        let values: [String] = subjects.map({$0.value!})
+        
+//        let userDevices: [String]? = users.filter({$0.name == "Danny"}).first?.devices
+//        let codes: [String] = users.map({$0.name!})
+        print("all Codes = \(codes)")
+        print("all topics = \(topics)")
+        print("all values = \(values)")
+    }
+    
     
     
     func requestAPI(

@@ -110,4 +110,32 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
+    
+    // 마이페이지 테이블 뷰
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        MyPageTableView.deselectRow(at: indexPath, animated: true)
+
+        switch indexPath.row {
+        // 알림 -> 환경 설정 알림 이동
+        case 0:
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        // 공지사항
+        case 1:
+            if let controller = self.storyboard?.instantiateViewController(withIdentifier: "Announcement"){
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        // [앱 이름] 안내
+        case 2:
+            self.performSegue(withIdentifier: "toSubjectModify", sender: nil)
+        // 앱 캐시 정리하기
+        default:
+            return
+        }
+    }
 }

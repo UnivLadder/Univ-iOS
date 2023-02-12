@@ -7,6 +7,7 @@
 
 import UIKit
 
+//채팅방 화면
 class ChatRoomViewController: UIViewController {
     
     static func instance() -> ChatRoomViewController {
@@ -121,6 +122,12 @@ class ChatRoomViewController: UIViewController {
             documentButton.setTitle("", for: .normal)
         }
     }
+    
+    
+    
+    @IBAction func sendMsgAction(_ sender: Any) {
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+//채티방 리스트 화면
 final class ChatListViewController: UIViewController {
 
     @IBOutlet weak var chatRoomListTableView: UITableView! {

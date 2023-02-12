@@ -55,6 +55,8 @@ class SubjectModifyViewController: UIViewController {
         //없으면 api 호출
         APIService.shared.getSubjects()
         //있으면 뿌려주기
+        
+        
         getAllSubjects()
         self.configureLayout()
         self.collectionViewLayout()
@@ -63,7 +65,7 @@ class SubjectModifyViewController: UIViewController {
     }
     
     fileprivate func getAllSubjects() {
-        let subjects: [SubjectEntity] = CoreDataManager.shared.getSubjectEntitys()
+        let subjects: [SubjectEntity] = CoreDataManager.shared.getSubjectEntity()
         // 중복 topic 제거
         subjectCategoryList.append(contentsOf: removeDuplicate(subjects.map({$0.topic!})))
         
