@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlramViewController: UIViewController {
+class AppInfoViewController: UIViewController {
 
     
     
