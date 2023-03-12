@@ -49,45 +49,57 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     //로그인 구현
     //1. 자체 로그인 2.구글 소셜 로그인 3.애플 소셜 로그인
-    
-    //1. 자체 로그인
+    //1. 자체 로그인 - 토큰 저장(키체인)
+    // + coredata 없는 경우 내 계정 조회 response 값 저장
     //    "username" : "sign-in@gmail.com",
     //    "password" : "password"
-    //텍스트에 이모티콘 넣기
-    
     @IBAction func signInAction(_ sender: Any) {
-        UIViewController.changeRootViewControllerToHome()
         
-        //        var params = ["username" : emailTextField.text!,
-        //                      "password" : passwordTextField.text!]
-        //dummy test
-        var params = ["username" : "leeyeon0527@gmail.com",
+        //dummy data
+        let params = ["username" : "lxxyeon@gmail.com",
                       "password" : "PASSWORD"]
         
-        APIService.shared.signin(param: params, completion: {
+        APIService.shared.signIn(param: params, completion: {
             //nil, 빈값 2개 다 처리
-            if let token = APIService.shared.accessToken{
+            if let token = APIService.shared.userAccessToken{
                 if !token.isEmpty{
-                    print("로그인 성공")
                     // 인자값으로 입력된 클로저 블록 실행
+                    // 로그인 성공
+                    // 1) 토큰 정보 키체인 저장
+                    if KeyChain.shared.addItem(id: "accessToken", token: token){
+                        print("⭐️accessToken 저장 성공⭐️")
+                    }else{
+                        print("👿accessToken 저장 실패👿")
+                    }
                     
-                    // 토큰 정보 추출
-                    let accessToken = token
+                    // 2)자동 로그인 설정 시 로컬 디비에 설정 값 저장
+                    if self.isAutoLogin == true {
+                        UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
+                        print("자동 로그인 설정 완료")
+                    }else{
+                        UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
+                        print("자동 로그인 설정 안함")
+                    }
                     
-                    //로그인 성공시 메인화면으로 이동
-                    UIViewController.changeRootViewControllerToHome()
-//                    let keyChain = KeyChain()
-//                    print(keyChain.getItem(id: params["username"]))
-
+                    // 3) coredata 확인(회원가입 이후 앱 삭제 시 서버 호출 필요)
+                    let userInfo = CoreDataManager.shared.getUserInfo()
+                    if userInfo.count == 0{
+                        APIService.shared.getMyAccount()
+                    }else{
+                        // 4) 메인화면으로 이동
+                        UIViewController.changeRootViewControllerToHome()
+                    }
+                    
+                    //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    //                    let pushVC = mainStoryboard.instantiateViewController(withIdentifier: "MainPage")
+                    //                    self.show(pushVC, sender: self)
                 }else{
-                    print("빈 값")
+                    print("토큰 빈 값")
                 }
             }else{
-                print("로그인 실패")
+                print("로그인 실패👿")
             }
         })
-        
-        
         
         // 옵셔널 바인딩 & 예외 처리 : Textfield가 빈문자열이 아니고, nil이 아닐 때
         //        guard let email = emailTextField.text, !email.isEmpty else { return }
@@ -168,14 +180,10 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             // 자동 로그인 실행
             self.isAutoLogin = true
             autoLogInCheckmark.setImage(UIImage(named: "checkBoxFilled.png"), for: .normal)
-            
-            print("자동선택")
         }else{
             //자동 로그인 안함
             self.isAutoLogin = false
             autoLogInCheckmark.setImage(UIImage(named: "checkBox.png"), for: .normal)
-            
-            print("자동선택안함")
         }
     }
     
@@ -378,10 +386,6 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     @objc func textFieldDidChange2(_ sender: Any?) {
         passwordTextField.clearsOnBeginEditing = false
     }
-    
-    
-    
-    
 }
 
 
@@ -445,4 +449,5 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
+    
 }

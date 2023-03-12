@@ -8,6 +8,7 @@
 import UIKit
 
 class MentoListViewController: UIViewController {
+
     let mainView = MainView()
     
     // 멘토 찾기

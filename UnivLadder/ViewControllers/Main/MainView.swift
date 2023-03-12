@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 class MainView: UIView {
-
+    
     
     // MARK: - 멘토 프로필
     let profileImageView = UIImageView().then {
@@ -20,7 +20,14 @@ class MainView: UIView {
 //        let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 160, height: 160))
 //        mainView.addSubview(imageView)
 //        $0.image = mainView.asImage()
-        
+//        let userInfo = CoreDataManager.shared.getUserInfo()
+//        // 없는 경우 기본 이미지
+//        var image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
+        // 있는 경우
+//        if userInfo[0].thumbnail != nil {
+//            image = UIImage(named: self.userInfo[0].thumbnail)
+//        }
+
         $0.image = image
         $0.contentMode = .scaleAspectFill
         $0.layer.cornerRadius = 12
@@ -37,7 +44,8 @@ class MainView: UIView {
     
     let nameLabel = UILabel().then {
         $0.font = Fonts.EsamanruOTF.bold.font(size: 22)
-        $0.text = "안이연"
+        let userInfo = CoreDataManager.shared.getUserInfo()
+        $0.text = userInfo[0].name
         $0.textColor = .black
     }
     
@@ -189,7 +197,7 @@ extension MainView: ViewRepresentable {
     
     func setupConstraints() {
         profileImageView.snp.makeConstraints {
-            $0.width.height.equalTo(80)
+            $0.width.height.equalTo(100)
             $0.top.equalTo(safeAreaLayoutGuide).offset(-20)
             $0.leading.equalTo(safeAreaLayoutGuide).offset(20)
         }

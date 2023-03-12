@@ -83,11 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // MARK: - Push Notification Handling
     // push noti click한 경우
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-            print("")
-            print(response.notification.request.content.userInfo["aps"])
-        
+
             //채팅화면으로 오픈하기
-        
 //        Optional({
 //            alert =     {
 //                body = testest;

@@ -8,7 +8,9 @@
 import UIKit
 
 class AppInfoTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var appInfoLabel: UILabel!
+    @IBOutlet weak var appVersionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

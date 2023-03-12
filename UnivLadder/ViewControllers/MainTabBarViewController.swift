@@ -26,7 +26,7 @@ enum TabBarItem: Int {
 
 class MainTabBarViewController: UITabBarController, StoryboardInitializable {
 
-    static var storyboardID: String = "MainTabBarViewController"
+    static var storyboardID: String = "MainPage"
     static var storyboardName: String = "Main"
     
     override func viewDidLoad() {

@@ -44,28 +44,35 @@ class MyPageViewController: UIViewController {
         self.myProfileViewSetting()
     }
     
+    // 프로필 뷰
     func myProfileViewSetting() {
-        self.myPageName.text = "안이연"
-        self.myPageEmail.text = "test1234@gmail.com"
+        // core data에서 user 정보 가져옴
+        let userInfo = CoreDataManager.shared.getUserInfo()
+        self.myPageName.text = userInfo[0].name
+        self.myPageEmail.text = userInfo[0].email
+        self.myPageImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
+        // 없는 경우 기본 이미지
+//        if userInfo[0].thumbnail != nil {
+//            self.myPageImg.image = UIImage(named: userInfo[0].thumbnail)
+//        }
+//
         self.userStatusToggleBtn.setTitleColor(UIColor.black, for: .normal)
         self.userStatusToggleBtn.layer.borderWidth = 1
         self.userStatusToggleBtn.layer.borderColor = UIColor.black.cgColor
         self.userStatusToggleBtn.layer.cornerRadius = 5
-        self.userStatusToggleBtn.translatesAutoresizingMaskIntoConstraints = false
       
         if userStatusBool{
-            // 유저 상태가 true 면 멘토 등록
-            self.userStatusToggleBtn.setTitle("멘티 전환", for: .normal)
-            
+            // 유저 상태가 true 면 멘티로 등록
+            self.userStatusToggleBtn.setTitle("멘티로 전환하기", for: .normal)
             self.mentoView.isHidden = false
             self.userStatusViewSetting()
         }else{
-            // 유저 상태가 false 면 멘토 등록
-            self.userStatusToggleBtn.setTitle("멘토 등록", for: .normal)
+            // 유저 상태가 false 면 멘토로 등록
+            self.userStatusToggleBtn.setTitle("멘토로 전환하기", for: .normal)
             self.mentoView.isHidden = true
         }
-
     }
+    
     func userStatusViewSetting() {
         self.profileModifyBtn.layer.cornerRadius = 10
         self.mentoScoreLabel.text = "4.5"
@@ -132,7 +139,9 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             }
         // [앱 이름] 안내
         case 2:
-            self.performSegue(withIdentifier: "toSubjectModify", sender: nil)
+            if let controller = self.storyboard?.instantiateViewController(withIdentifier: "AppInfo"){
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
         // 앱 캐시 정리하기
         default:
             return

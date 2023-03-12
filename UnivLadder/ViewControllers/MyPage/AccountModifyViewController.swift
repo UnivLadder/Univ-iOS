@@ -50,7 +50,7 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
         })
         let actionFile = UIAlertAction(title: "기본 이미지로 변경", style: .default, handler: {(alert:UIAlertAction!) -> Void in
             //기존 이미지로 변경
-            self.accountImg.image = UIImage(named: "profile.png")
+            self.accountImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
         })
         let actionCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -108,7 +108,11 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.accountImg.image = image
-            //local db 저장
+            
+            // coredata 저장
+//            CoreDataManager.shared.updateUserInfo(UserEntity, img: image, onSuccess: { onSuccess in
+//                print("update = \(onSuccess)")
+//            })
             let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
             let context = container.viewContext
             let userEntity = UserEntity(context: context)

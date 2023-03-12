@@ -29,6 +29,8 @@
 		689357FE2998E32000022EFB /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689357FD2998E32000022EFB /* NoticeTableViewCell.swift */; };
 		689358002998E68100022EFB /* NoticeContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689357FF2998E68100022EFB /* NoticeContentTableViewCell.swift */; };
 		689358022998E90800022EFB /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689358012998E90800022EFB /* Notice.swift */; };
+		689358042998F26C00022EFB /* AppInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689358032998F26C00022EFB /* AppInfoTableViewCell.swift */; };
+		689358062998F8F500022EFB /* ReusableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689358052998F8F500022EFB /* ReusableViewController.swift */; };
 		689C759D27AFD80E00C04978 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C759C27AFD80E00C04978 /* DummyData.swift */; };
 		68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B27C89279D610C0064D1DD /* LoginDataModel.swift */; };
 		68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */; };
@@ -57,7 +59,7 @@
 		68F6ED1E28FC0F58003C93D3 /* SubjectEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED1A28FC0F58003C93D3 /* SubjectEntity+CoreDataProperties.swift */; };
 		68F6ED1F28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */; };
 		68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F6F5C628D726EA0092B477 /* Assets.xcassets */; };
-		68FA133D298FCB8000F950A6 /* AlramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA133C298FCB8000F950A6 /* AlramViewController.swift */; };
+		68FA133D298FCB8000F950A6 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */; };
 		AF54187CD725C296D73ECC3A /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
@@ -146,6 +148,8 @@
 		689357FD2998E32000022EFB /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 		689357FF2998E68100022EFB /* NoticeContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeContentTableViewCell.swift; sourceTree = "<group>"; };
 		689358012998E90800022EFB /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		689358032998F26C00022EFB /* AppInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoTableViewCell.swift; sourceTree = "<group>"; };
+		689358052998F8F500022EFB /* ReusableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewController.swift; sourceTree = "<group>"; };
 		689C759C27AFD80E00C04978 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		68B27C89279D610C0064D1DD /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterViewController.swift; sourceTree = "<group>"; };
@@ -175,7 +179,7 @@
 		68F6ED1A28FC0F58003C93D3 /* SubjectEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SubjectEntity+CoreDataProperties.swift"; path = "/Users/leeyeon2/Dev/Univ/Univ-iOS_leeyeon/UnivLadder/DB/SubjectEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataProperties.swift"; path = "/Users/leeyeon2/Dev/Univ/Univ-iOS_leeyeon/UnivLadder/DB/UserEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		68F6F5C628D726EA0092B477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		68FA133C298FCB8000F950A6 /* AlramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlramViewController.swift; sourceTree = "<group>"; };
+		68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		9B84878A71CDD8EF1B04D5B7 /* Pods-UnivLadder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.release.xcconfig"; sourceTree = "<group>"; };
 		CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder_UnivLadderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F1C83937D5AB2F8D6ED521 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -360,7 +364,6 @@
 				E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */,
 				68D794F0293378F800C905D5 /* MentoSearchViewController.swift */,
 				683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */,
-				68FA133C298FCB8000F950A6 /* AlramViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -483,6 +486,8 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				689358032998F26C00022EFB /* AppInfoTableViewCell.swift */,
+				68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */,
 				689357FA2998E2A500022EFB /* Notice */,
 				688AC65B294F1C650071340F /* MyPageCell */,
 				68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */,
@@ -490,6 +495,7 @@
 				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
 				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
 				68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */,
+				689358052998F8F500022EFB /* ReusableViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -942,6 +948,7 @@
 				E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */,
 				68D41CD628A9086D0098B29D /* SubjectListCell.swift in Sources */,
 				6892DB18296ADABE002DB446 /* ChattingViewController.swift in Sources */,
+				689358062998F8F500022EFB /* ReusableViewController.swift in Sources */,
 				68F6ED1C28FC0F58003C93D3 /* UserEntity+CoreDataClass.swift in Sources */,
 				689357FC2998E2DD00022EFB /* NoticeViewController.swift in Sources */,
 				68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */,
@@ -981,8 +988,9 @@
 				68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
 				680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */,
-				68FA133D298FCB8000F950A6 /* AlramViewController.swift in Sources */,
+				68FA133D298FCB8000F950A6 /* AppInfoViewController.swift in Sources */,
 				6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */,
+				689358042998F26C00022EFB /* AppInfoTableViewCell.swift in Sources */,
 				E58A9C1E27DDF68A00A4ACBB /* Fonts+Generated.swift in Sources */,
 				E546934427F9C31A007A1791 /* SocketManager.swift in Sources */,
 				68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */,

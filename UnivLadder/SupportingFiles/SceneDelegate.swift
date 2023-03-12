@@ -21,16 +21,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
- 
+        
+    
+        
+        //isAutoLogin
         //자동로그인이 설정되어 있는 경우 홈화면으로 시작
-        let vc = MainTabBarViewController.instantiate()
-        DispatchQueue.main.async {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
-                return
+        if UserDefaults.standard.bool(forKey:"isAutoLogin") == true{
+            let vc = MainTabBarViewController.instantiate()
+            DispatchQueue.main.async {
+                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+                    return
+                }
+                windowScene.windows.first?.rootViewController = vc
+                windowScene.windows.first?.makeKeyAndVisible()
             }
-            windowScene.windows.first?.rootViewController = vc
-            windowScene.windows.first?.makeKeyAndVisible()
         }
+
         
         //시작 화면 바꿔가면서 테스트
 //        guard let _ = (scene as? UIWindowScene) else { return }

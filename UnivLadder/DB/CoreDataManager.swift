@@ -22,27 +22,70 @@ class CoreDataManager {
     let modelNameSubjectEntity: String = "SubjectEntity"
     
     // MARK: - User coredata 관리
-    func getUserInfo(ascending: Bool = false) -> [UserEntity] {
-        var models: [UserEntity] = [UserEntity]()
-        
+    // 1. User 저장
+    func saveUserEntity(accountId: Int64, email: String, gender: String, name: String, password: String?, thumbnail: String?, onSuccess: @escaping ((Bool) -> Void)) {
         if let context = context {
-            let codeSort: NSSortDescriptor = NSSortDescriptor(key: "code", ascending: ascending)
-            let fetchRequest: NSFetchRequest<NSManagedObject>
-            = NSFetchRequest<NSManagedObject>(entityName: modelNameSubjectEntity)
-            fetchRequest.sortDescriptors = [codeSort]
-            
-            do {
-                if let fetchResult: [UserEntity] = try context.fetch(fetchRequest) as? [UserEntity] {
-                    models = fetchResult
+            //1) entity 생성
+            if let entity: NSEntityDescription = NSEntityDescription.entity(forEntityName: modelNameUser as String, in: context) {
+                //2) 객체 생성
+                if let UserEntity: UserEntity = NSManagedObject(entity: entity, insertInto: context) as? UserEntity {
+                    UserEntity.accountId = Int(accountId)
+                    UserEntity.email = email
+                    UserEntity.gender = gender
+                    UserEntity.name = name
+                    UserEntity.password = password
+                    UserEntity.thumbnail = thumbnail
+                    
+                    // coredata 저장
+                    contextSave { success in
+                        onSuccess(success)
+                    }
                 }
-            } catch let error as NSError {
+            }
+        }
+    }
+    
+    // 2. User 조회
+    func getUserInfo(ascending: Bool = false) -> [UserEntity] {
+        var models = [UserEntity]()
+        if let context = context {
+            do {
+                models = try context.fetch(UserEntity.fetchRequest())
+                
+            }
+            catch let error as NSError {
                 print("Could not fetch🥺: \(error), \(error.userInfo)")
             }
         }
         return models
     }
     
+    // 3. User 이미지 변경사항 반영 수정
+    func updateUserInfo(_ user: UserEntity, img: String, onSuccess: @escaping ((Bool) -> Void)) {
+        let fetchResults = getUserInfo()
+        for result in fetchResults {
+            result.thumbnail = img
+        }
+        contextSave { success in
+            onSuccess(success)
+        }
+    }
     
+    // 4. 모든 User 삭제
+    func deleteAllUsers() {
+        let fetrequest = NSFetchRequest<NSFetchRequestResult>(entityName: modelNameUser)
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetrequest)
+        
+        do {
+            if let context = context {
+                try context.execute(batchDeleteRequest)
+                print("기존 Users 데이터 모두 삭제 완료")
+            }
+            
+        } catch {
+            print(error)
+        }
+    }
     
     // MARK: - Subject coredata 관리
     // 1. Subject 저장

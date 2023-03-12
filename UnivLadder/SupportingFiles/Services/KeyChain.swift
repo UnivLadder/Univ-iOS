@@ -17,6 +17,7 @@ class KeyChain {
     
     //생성
     //SecItemAdd(_:_:) 함수를 사용해 키체인 아이템을 생성하고 성공했을 때 true를 반환.
+    //id : , token : 사용자의 accessToken 값
     func addItem(id: String, token: String) -> Bool {
         let addQuery: [CFString: Any] = [kSecClass: kSecClassGenericPassword,
                                    kSecAttrAccount: id,
@@ -39,7 +40,7 @@ class KeyChain {
     
     //조회
     //SecItemCopyMatching(_:_:)함수를 사용해 키체인 아이템을 조회하여 성공했을 때 User를 반환
-    func getItem(id: Any) -> Any? {
+    func getItem(id: Any) -> String? {
         let query: [CFString: Any] = [kSecClass: kSecClassGenericPassword,
                                 kSecAttrAccount: id,
                            kSecReturnAttributes: true,
