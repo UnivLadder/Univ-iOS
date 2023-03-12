@@ -854,7 +854,19 @@
                             <constraint firstItem="kgq-DC-cvf" firstAttribute="top" secondItem="xVF-Lt-UDG" secondAttribute="bottom" constant="50" id="xw6-tn-ceE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="계정 정보 수정" id="ymE-OM-eEg"/>
+                    <navigationItem key="navigationItem" title="계정 정보 수정" id="ymE-OM-eEg">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="LTg-4N-2mE">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="cX1-iK-2A5">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveModifiedUserInfoAction:" destination="Nni-Qm-Jwc" eventType="touchUpInside" id="F0o-9j-83e"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="accountImg" destination="qdl-Io-OQt" id="aNi-KQ-VM6"/>
                         <outlet property="accountImgModifyBtn" destination="NIG-zp-SfY" id="OMY-nY-ZRR"/>

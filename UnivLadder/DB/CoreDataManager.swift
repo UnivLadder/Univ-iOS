@@ -61,7 +61,7 @@ class CoreDataManager {
     }
     
     // 3. User 이미지 변경사항 반영 수정
-    func updateUserInfo(_ user: UserEntity, img: String, onSuccess: @escaping ((Bool) -> Void)) {
+    func updateUserInfo(img: String, onSuccess: @escaping ((Bool) -> Void)) {
         let fetchResults = getUserInfo()
         for result in fetchResults {
             result.thumbnail = img

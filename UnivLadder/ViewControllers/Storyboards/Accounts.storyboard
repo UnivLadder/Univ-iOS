@@ -512,10 +512,10 @@
     </scenes>
     <designables>
         <designable name="BLi-G2-zE3">
-            <size key="intrinsicContentSize" width="93" height="34"/>
+            <size key="intrinsicContentSize" width="67" height="34"/>
         </designable>
         <designable name="MyI-2Y-6aw">
-            <size key="intrinsicContentSize" width="102" height="34"/>
+            <size key="intrinsicContentSize" width="80" height="34"/>
         </designable>
     </designables>
     <resources>
