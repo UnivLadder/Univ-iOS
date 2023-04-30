@@ -15,10 +15,9 @@ class ChattingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-     
 //        APIService.shared.getSubjects()
         APIService.shared.getDirectListMessage()
-//        APIService.shared.getDirectMessage()
+
 //        bindViewModel()
         // Do any additional setup after loading the view.
     }

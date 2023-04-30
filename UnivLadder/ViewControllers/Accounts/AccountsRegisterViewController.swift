@@ -40,6 +40,8 @@ class AccountsRegisterViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var backBtn: UIButton!
 
+    @IBOutlet weak var saveBtn: UIButton!
+    
     @IBAction func maleBtn(_ sender: Any) {
         maleBtn.backgroundColor = #colorLiteral(red: 0.4406229556, green: 0.350309521, blue: 0.9307079911, alpha: 1)
         maleBtn.tintColor = UIColor.white
@@ -56,6 +58,11 @@ class AccountsRegisterViewController: UIViewController {
         User.gender = "WOMAN"
     }
     
+    @IBAction func saveBtnAction(_ sender: Any) {
+        
+    }
+    
+  
     
     //회원가입
     //1. 자체 회원가입
@@ -285,24 +292,18 @@ class AccountsRegisterViewController: UIViewController {
                                 // 2) User 데이터 추가
                                 // 인자값으로 입력된 클로저 블록 실행
                                 //dummy 저장
-                                self.saveNewUser(accountId,
-                                                 email: registerUserParam["email"] as! String,
-                                                 gender: registerUserParam["gender"] as! String,
-                                                 name: registerUserParam["name"] as! String,
-                                                 password: registerUserParam["password"] as! String
-                                                 , thumbnail: registerUserParam["thumbnail"] as? String)
-                                
+
                                 
                                 // 3) User 데이터 조회
                                 let array: [UserEntity] = CoreDataManager.shared.getUserInfo()
                                 print(array)
                                 print("⭐️accountId 저장 성공⭐️")
                                 
-                                // 회원 가입 성공 시 2. FCMTOKEN 전송
-                                let parameter: Parameters = [
-                                    "fcmToken" : UserDefaults.standard.string(forKey: "fcmToken") ?? ""
-                                ]
-                                APIService.shared.putFCMToken(param: parameter)
+                                // 회원 가입 성공 시 2. FCMTOKEN 전송 >추후 로직 수정 필요
+//                                let parameter: Parameters = [
+//                                    "fcmToken" : UserDefaults.standard.string(forKey: "fcmToken") ?? ""
+//                                ]
+//                                APIService.shared.putFCMToken(param: parameter)
                                 
                                 //회원가입 성공 알림 화면 출력
                                 let alert = UIAlertController(title: "💙 회원가입 성공 💙", message: "로그인 하세요.", preferredStyle: .alert)

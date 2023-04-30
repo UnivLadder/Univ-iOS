@@ -124,8 +124,19 @@ class ChatRoomViewController: UIViewController {
     }
     
     
-    
+    //메시지 전송
+    //    {
+    //      "accountId" : 4,
+    //      "message" : "안녕하세요!!",
+    //      "type" : "TEXT"
+    //    }
     @IBAction func sendMsgAction(_ sender: Any) {
+        let msg = ["accountId" : 9,
+                   "message" : textView.text,
+                   "type" : "TEXT"] as [String : Any]
+        APIService.shared.getDirectListMessage()
+//        APIService.shared.sendDirectMessage(param: msg)
+        
     }
     
     

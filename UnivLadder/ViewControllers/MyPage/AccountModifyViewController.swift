@@ -15,6 +15,8 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var accountImg: UIImageView!
     @IBOutlet weak var accountImgModifyBtn: UIButton!
     
+    @IBOutlet weak var saveModifiedUserInfoBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewInit()
@@ -22,8 +24,53 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
         self.container = appDelegate.persistentContainer
     }
     
+    @IBAction func deleteUserBtnAction(_ sender: Any) {
+        let alert = UIAlertController(title:"회원 탈퇴 하시겠습니까?",
+                                      message: " ",
+                                      preferredStyle: UIAlertController.Style.alert)
+        //2. 확인 버튼 만들기
+        let okLabel = UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
+            // 회원 탈퇴 API 수행
+            APIService.shared.deleteUser(accountId: 6)
+            
+            // 밑에 두개 언제?
+//            let alert = UIAlertController(title:"👿회원 탈퇴 완료👿",
+//                                          message: "",
+//                                          preferredStyle: UIAlertController.Style.alert)
+//
+//            let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
+//            alert.addAction(buttonLabel)
+//            present(alert,animated: true,completion: nil)
+
+            //2. 로그인 화면(맨처음) 이동
+            UIViewController.changeRootViewControllerToLogin()
+        })
+        let cancleLabel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+
+        alert.addAction(okLabel)
+        alert.addAction(cancleLabel)
+        
+        //4. 경고창 보이기
+        present(alert,animated: true,completion: nil)
+    }
+    
+    @IBAction func saveModifiedUserInfoBtnAction(_ sender: Any) {
+    }
+    
     func viewInit() {
         accountImg.layer.cornerRadius = accountImg.frame.height/2
+        
+        var userInfo = CoreDataManager.shared.getUserInfo()
+        //https://hanulyun.medium.com/swift-device-%EB%82%B4%EB%B6%80-document%EC%97%90-image-%EC%A0%80%EC%9E%A5-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0-45fcef6b2765
+        
+//        if let thumbnail = userInfo[0].thumbnail{
+//            let data = Data(base64Encoded: thumbnail, options: .ignoreUnknownCharacters)
+//            accountImg.image = UIImage(data: data!)
+//
+//        }else{
+//            accountImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
+//        }
+        
         accountImgModifyBtn.layer.cornerRadius = accountImgModifyBtn.frame.height/2
         accountImgModifyBtn.setTitle("", for: .normal)
     }
@@ -46,17 +93,22 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
 //        //4. 경고창 보이기
 //        present(alert,animated: true,completion: nil)
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let user = NSEntityDescription.insertNewObject(forEntityName: "UserEntity", into: context) as! UserEntity
-//        let png = accountImg.image?.pngData()
-        user.thumbnail = self.accountImgURL
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        let user = NSEntityDescription.insertNewObject(forEntityName: "UserEntity", into: context) as! UserEntity
+////        let png = accountImg.image?.pngData()
+//        user.thumbnail = self.accountImgURL
         
-        do {
-            try context.save()
-        } catch let error {
-            print(error.localizedDescription)
-        }
+        CoreDataManager.shared.updateUserInfo(img: self.accountImgURL, onSuccess: {_ in
+            
+        })
         
+        
+//        do {
+//            try context.save()
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//
     }
     
     

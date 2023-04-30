@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U9G-j6-eev">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U9G-j6-eev">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -571,11 +571,11 @@
             <objects>
                 <viewController title="Subject" id="ncy-G3-hT2" customClass="SubjectModifyViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OvO-Ph-kDA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xEE-77-bhx">
-                                <rect key="frame" x="0.0" y="48" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="dZ0-qf-FWM"/>
@@ -623,7 +623,7 @@
                                 <color key="backgroundColor" red="0.60412872969999998" green="0.91266634410000003" blue="0.92812597429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="drh-ph-rFR">
-                                <rect key="frame" x="0.0" y="168" width="414" height="670"/>
+                                <rect key="frame" x="0.0" y="168" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T4A-dc-7mv">
                                     <size key="itemSize" width="128" height="128"/>
@@ -732,7 +732,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kgq-DC-cvf">
-                                <rect key="frame" x="30" y="262" width="354" height="427.5"/>
+                                <rect key="frame" x="30" y="252" width="354" height="339"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="301-IC-r00">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="73.5"/>
@@ -794,28 +794,8 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3eF-ez-Zfo">
-                                        <rect key="frame" x="0.0" y="265.5" width="354" height="73.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동네 인증" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6y-AF-KTh">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="guN-b5-Reb">
-                                                <rect key="frame" x="0.0" y="28.5" width="354" height="45"/>
-                                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="ZDU-km-muN"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hn5-EH-8m6">
-                                        <rect key="frame" x="0.0" y="354" width="354" height="73.5"/>
+                                        <rect key="frame" x="0.0" y="265.5" width="354" height="73.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2e5-1V-98j">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
@@ -837,32 +817,50 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Hn5-EH-8m6" secondAttribute="trailing" id="PBf-Pb-cPG"/>
-                                    <constraint firstAttribute="trailing" secondItem="3eF-ez-Zfo" secondAttribute="trailing" id="RvC-Nl-Y2x"/>
                                     <constraint firstAttribute="trailing" secondItem="301-IC-r00" secondAttribute="trailing" id="TCa-00-3bh"/>
                                     <constraint firstAttribute="trailing" secondItem="N8O-Sf-fkY" secondAttribute="trailing" id="guu-I6-nop"/>
                                     <constraint firstAttribute="trailing" secondItem="EZ2-7H-zhu" secondAttribute="trailing" id="jyI-Nm-zv2"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEj-Sf-hFO">
+                                <rect key="frame" x="30" y="631" width="354" height="50"/>
+                                <color key="backgroundColor" red="0.42745098040000001" green="0.35294117650000001" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Day-45-eO6"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="저장">
+                                    <fontDescription key="titleFontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveModifiedUserInfoBtnAction:" destination="Nni-Qm-Jwc" eventType="touchUpInside" id="BWh-2Z-f8X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J3i-on-TUN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xEj-Sf-hFO" firstAttribute="centerX" secondItem="J3i-on-TUN" secondAttribute="centerX" id="2jb-SP-a0z"/>
                             <constraint firstItem="J3i-on-TUN" firstAttribute="trailing" secondItem="kgq-DC-cvf" secondAttribute="trailing" constant="30" id="440-Gt-jyL"/>
+                            <constraint firstItem="xEj-Sf-hFO" firstAttribute="top" secondItem="kgq-DC-cvf" secondAttribute="bottom" constant="40" id="9ng-4n-Die"/>
+                            <constraint firstItem="xEj-Sf-hFO" firstAttribute="leading" secondItem="J3i-on-TUN" secondAttribute="leading" constant="30" id="CSh-Hp-5AU"/>
                             <constraint firstItem="kgq-DC-cvf" firstAttribute="leading" secondItem="J3i-on-TUN" secondAttribute="leading" constant="30" id="Uef-Ai-u7X"/>
                             <constraint firstItem="xVF-Lt-UDG" firstAttribute="top" secondItem="J3i-on-TUN" secondAttribute="top" constant="30" id="dDc-Yp-cwk"/>
+                            <constraint firstItem="J3i-on-TUN" firstAttribute="trailing" secondItem="xEj-Sf-hFO" secondAttribute="trailing" constant="30" id="fLr-Ee-TzM"/>
                             <constraint firstItem="xVF-Lt-UDG" firstAttribute="centerX" secondItem="J3i-on-TUN" secondAttribute="centerX" id="hav-lT-uxj"/>
-                            <constraint firstItem="kgq-DC-cvf" firstAttribute="top" secondItem="xVF-Lt-UDG" secondAttribute="bottom" constant="50" id="xw6-tn-ceE"/>
+                            <constraint firstItem="kgq-DC-cvf" firstAttribute="top" secondItem="xVF-Lt-UDG" secondAttribute="bottom" constant="40" id="xw6-tn-ceE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="계정 정보 수정" id="ymE-OM-eEg">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="LTg-4N-2mE">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="cX1-iK-2A5">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="lN2-QA-yuK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="yme-8k-asg">
                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <buttonConfiguration key="configuration" style="plain" title="회원 탈퇴"/>
                                 <connections>
-                                    <action selector="saveModifiedUserInfoAction:" destination="Nni-Qm-Jwc" eventType="touchUpInside" id="F0o-9j-83e"/>
+                                    <action selector="deleteUserBtnAction:" destination="Nni-Qm-Jwc" eventType="touchUpInside" id="gdT-Fc-dOU"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -870,6 +868,7 @@
                     <connections>
                         <outlet property="accountImg" destination="qdl-Io-OQt" id="aNi-KQ-VM6"/>
                         <outlet property="accountImgModifyBtn" destination="NIG-zp-SfY" id="OMY-nY-ZRR"/>
+                        <outlet property="saveModifiedUserInfoBtn" destination="xEj-Sf-hFO" id="KMs-fh-P9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81A-Q8-ngn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

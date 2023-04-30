@@ -20,37 +20,35 @@ final class APIService {
     var emailToken: String?
     var values: [String] = [""]
     
+    let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzYiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6NiwiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2ODQyMjcyMTAsImlhdCI6MTY4MTYzNTIxMCwianRpIjoiY2Y2eWdvaGU0a0xCdFlVRUxIVFRRWDJNcE5IZkRFOVA1UHZqSnZnbTJURU5TaXlkV3NXRElPcnRKdG5ZbFBabmNzRERpenVLOHViZTVTMERSbEl4VEFpU2VUUlNrU25VTjJrbTA5T3NhRUZYRmJ6Mll1QUZkSDJSanVRdWhHQU4ifQ.xm3fZUjAuwZeqsKUpuDYDki7jY48wF2x6i8YUrd7FH8kjEdB71pD_N9lNmbEWu7e6rcGSXzc8rj2jh4vJUiMOQ"
+    
+    
     // MARK: - 계정 API
     // 내 계정 조회 및 coredata 저장
     func getMyAccount(){
         let url = Config.baseURL+"accounts/me"
-        let accessToken = KeyChain.shared.getItem(id: "accessToken")!
+        //        let accessToken = KeyChain.shared.getItem(id: "accessToken")!
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json",
-                                    "Authentication" : "Bearer " + accessToken]
+                                    "Authentication" : "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzkiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6OSwiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2ODI0MTE2MzUsImlhdCI6MTY3OTgxOTYzNSwianRpIjoiT1BKSVBzbHVpaEk1dVZxTnc2YlB2OWVxQnpuMm1jeVBDc3U2bFNGaHdOWmQyR1RBZXRGNzJIbWlEb0dlWkxMVHBiZ0d0Y0NHUEZBOTh1V2tXTzlJRmNPZDZpeFoyWEk4VmNySGpoM0dweVIwdkFqdDhVajllUDhzeEpTWjVHNFoifQ._ml0fUMo6a09RqJhXpuuqNTmj_NBvApeuy7k_BjWu5qB_5_qMRTvw2spIae94_xSpcxk4wESJ_NfaGguVVkxow"]
+        var jsonDict : Dictionary<String, Any> = [String : Any]()
         AF.request(url, method: .get,  headers: headers).responseString { response in
             switch response.result{
                 //200인 경우 성공
             case .success(_):
-                var jsonDict : Dictionary<String, Any> = [String : Any]()
+                
                 do {
                     //한글 깨짐 문제 해결을 위한 string 화
                     let dataString = String(data: response.data!, encoding: .utf8)
                     
                     // 딕셔너리에 데이터 저장 실시
                     jsonDict = try JSONSerialization.jsonObject(with: (dataString?.data(using: .utf8))!, options: []) as! [String:Any]
-                    
-                    // Get the values from the JSON object
-                    let accountId = jsonDict["id"] as! Int64
-                    let thumbnail = jsonDict["thumbnail"] as! String
-                    let email = jsonDict["email"] as! String
-                    let name = jsonDict["name"] as! String
-                    let gender = jsonDict["gender"] as! String
-                    
+                    CoreDataManager.shared.deleteAllUsers()
                     CoreDataManager.shared
-                        .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: nil, thumbnail: thumbnail, onSuccess: { onSuccess in
+                        .saveUserEntity(accountId: jsonDict["id"] as! Int64, email: jsonDict["email"] as! String, gender: jsonDict["gender"] as! String, name: jsonDict["name"] as! String, password: nil, thumbnail: jsonDict["thumbnail"] as! String, onSuccess: { onSuccess in
+                            print("⭐️내 계정 coredata 저장 성공⭐️")
+                            UIViewController.changeRootViewControllerToHome()
                         })
-                    UIViewController.changeRootViewControllerToHome()
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -59,7 +57,39 @@ final class APIService {
                 print("👿내 계정 조회 실패👿")
             }
         }
+        
+        
     }
+    
+    fileprivate func saveNewUser(_ accountId: Int64, email: String, gender: String, name: String, password: String, thumbnail: String?) {
+        CoreDataManager.shared
+            .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, onSuccess: { onSuccess in
+                print("saved = \(onSuccess)")
+            })
+        User.name = name
+    }
+    
+    // 회원탈퇴
+    //HTTP://localhost/accounts/49
+    func deleteUser(accountId: Int){
+        let url = Config.baseURL+"accounts/"+String(accountId)
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json",
+                                    "Authentication" : "Bearer " + accessToken]
+        AF.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).responseString { response in
+            if let response = response.response{
+                switch response.statusCode{
+                    //200인 경우 전송 성공
+                case 200:
+                    print("⭐️회원가입 탈퇴 성공⭐️")
+                default:
+                    print("👿회원가입 탈퇴 실패👿")
+                }
+            }
+        }
+    }
+    
+    
     
     // MARK: - 회원가입 API
     // 회원가입 - 회원가입 이메일 인증 요청 API
@@ -148,7 +178,7 @@ final class APIService {
     //request
     //    {
     //         "username" : "lxxyeon@gmail.com",
-    //         "password" : "PASSWORD"
+    //         "password" : "c"
     //    }
     //response
     //    {
@@ -166,6 +196,14 @@ final class APIService {
                             // Get the values from the JSON object
                             self.userAccessToken = jsonDict["accessToken"] as? String
                         }
+                        
+                        self.saveNewUser(6,
+                                         email: "lxxyeon@gmail.com",
+                                         gender: "WOMAN",
+                                         name: "여니",
+                                         password: "PASSWORD"
+                                         , thumbnail: "THUMBNAIL")
+                        
                     } catch {
                         // Handle error
                         print("Error: \(error.localizedDescription)")
@@ -205,8 +243,42 @@ final class APIService {
             }
         }
     }
+    // MARK: - 멘토 API
+    //멘토 조회
     
-    // MARK: - Chatting API
+    
+    
+    // MARK: - 채팅(Chatting) API
+    // FCM으로 전달되는 메시지 정보
+//    {
+//      "eventType" : "NEW",
+//      "senderAccountId" : 1,
+//      "message" : "안녕하세요~",
+//      "type" : "TEXT",
+//      "createdDate" : "2023-03-26T19:17:41.711",
+//      "lastModifiedDate" : "2023-03-26T19:17:41.711"
+//    }
+    // 채팅 생성
+//HTTP://localhost/chats'
+//    {
+//      "id" : 6,//채팅방 Id
+//      "accountId" : 70, //채팅방 생성한 사람
+//      "createdDate" : "2023-03-26T19:36:37.384",
+//      "lastChatMessage" : null
+//    }
+//
+    
+    // 채팅 메시지 생성
+//HTTP://localhost/chats/13/messages
+//    {
+//      "message" : "안녕하세요!!",
+//      "type" : "TEXT"
+//    }
+    
+    
+    
+    
+    // MARK: - 다이렉트 (Chatting) API
     // 다이렉트 메시지를 생성
     // 다이렉트 메시지 리스트를 조회
     // 보낸거 받은거 다 로컬 디비에 저장하고, 뿌려주기
@@ -214,46 +286,52 @@ final class APIService {
     // 자체 로그인시 키체인에 값이 없으면 앱 삭제 후 재로그인이므로 리스트 호출 api
     //HTTP://localhost/chats/13/messages
     
-    // MARK: - FCM API
-    //PUT - 서버에 FCM token 보내기
-    //request
+    // 다이렉트 메시지 생성
+    // HTTP://localhost/direct-messages
     //    {
-    //      "fcmToken" : "FCM_TOKEN"
+    //      "accountId" : 4, // 메세지 받을 Id
+    //      "message" : "안녕하세요!!",
+    //      "type" : "TEXT"
     //    }
-    func putFCMToken(param: Parameters){
-        if let accessToken = KeyChain.shared.getItem(id: "accessToken"){
-            let headers: HTTPHeaders = ["Accept" : "application/json",
-                                        "Content-Type" : "application/json",
-                                        "Authentication" : "Bearer " + accessToken]
-            AF.request(Config.baseURL+"accounts/9/fcm-token", method: .put, parameters: param, encoding: JSONEncoding.default, headers: headers).responseString { response in
-                if let response = response.response{
-                    switch response.statusCode{
-                        //200인 경우 전송 성공
-                    case 200:
-                        print("⭐️FCM Token 전송 성공⭐️")
-                    default:
-                        print("👿FCM Token 전송 실패👿")
-                    }
-                }
-            }
-        }else{
-            print("👿FCM Token 전송 실패👿")
-        }
-    }
-    
-    //다이렉트 메시지 리스트 조회
-    func getDirectListMessage() {
-        let url = Config.baseURL+"direct-messages/list"
-        let accessToken = KeyChain.shared.getItem(id: "accessToken")!
+    func sendDirectMessage(param: Parameters){
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json",
                                     "Authentication" : "Bearer " + accessToken]
-        AF.request(url, method: .get,  headers: headers).responseJSON { response in
-            switch response.result {
-            case .success(let data):
-                print("success data : \(data)")
-            case .failure(let error):
-                print("error : \(error)")
+        AF.request(Config.baseURL+"direct-messages", method: .post, parameters: param,
+                   encoding: JSONEncoding.default, headers: headers).responseString { response in
+            if let response = response.response{
+                switch response.statusCode{
+                    //200인 경우 전송 성공
+                case 200:
+                    print("⭐️다이렉트 메시지 전송 성공⭐️")
+                default:
+                    print("👿다이렉트 메시지 전송 실패👿")
+                }
+            }
+        }
+    }
+    
+    // GET : 다이렉트 메시지 리스트 조회
+    func getDirectListMessage() {
+        let url = Config.baseURL+"direct-messages/list"
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json",
+                                    "Authentication" : "Bearer " + accessToken]
+        AF.request(url, method: .get,  headers: headers).responseString { response in
+            switch response.result{
+            case .success(_):
+                do {
+                    let dataString = String(data: response.data!, encoding: .utf8)
+                    let data = dataString!.data(using: .utf8)!
+                    if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]{
+                        print(jsonArray)
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+                print("⭐️메시지 리스트 조회 성공⭐️")
+            default:
+                print("👿메시지 리스트 조회 실패👿")
             }
         }
     }
@@ -261,7 +339,7 @@ final class APIService {
     //다이렉트 메시지 조회
     func getDirectMessage() {
         let url = Config.baseURL+"direct-messages/7"
-        let accessToken = KeyChain.shared.getItem(id: "accessToken")!
+//        let accessToken = KeyChain.shared.getItem(id: "accessToken")!
         let headers: HTTPHeaders = ["Content-Type" : "application/json",
                                     "Authentication" : "Bearer " + accessToken]
         // 과목 데이터 가져오기 API
@@ -289,6 +367,33 @@ final class APIService {
                 // coredata에 저장된 과목 데이터 가져오기
                 self.getAllSubject()
             }
+    }
+    
+    // MARK: - FCM API
+    //PUT - 서버에 FCM token 보내기
+    //request
+    //    {
+    //      "fcmToken" : "FCM_TOKEN"
+    //    }
+    func putFCMToken(param: Parameters){
+        if KeyChain.shared.getItem(id: "accessToken") != nil{
+            let headers: HTTPHeaders = ["Accept" : "application/json",
+                                        "Content-Type" : "application/json",
+                                        "Authentication" : "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzYiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6NiwiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2ODQyMjcyMTAsImlhdCI6MTY4MTYzNTIxMCwianRpIjoiY2Y2eWdvaGU0a0xCdFlVRUxIVFRRWDJNcE5IZkRFOVA1UHZqSnZnbTJURU5TaXlkV3NXRElPcnRKdG5ZbFBabmNzRERpenVLOHViZTVTMERSbEl4VEFpU2VUUlNrU25VTjJrbTA5T3NhRUZYRmJ6Mll1QUZkSDJSanVRdWhHQU4ifQ.xm3fZUjAuwZeqsKUpuDYDki7jY48wF2x6i8YUrd7FH8kjEdB71pD_N9lNmbEWu7e6rcGSXzc8rj2jh4vJUiMOQ"]
+            AF.request(Config.baseURL+"accounts/6/fcm-token", method: .put, parameters: param, encoding: JSONEncoding.default, headers: headers).responseString { response in
+                if let response = response.response{
+                    switch response.statusCode{
+                        //200인 경우 전송 성공
+                    case 200:
+                        print("⭐️FCM Token 전송 성공⭐️")
+                    default:
+                        print("👿FCM Token 전송 실패👿")
+                    }
+                }
+            }
+        }else{
+            print("👿FCM Token 전송 실패👿")
+        }
     }
     
     // MARK: - UI API

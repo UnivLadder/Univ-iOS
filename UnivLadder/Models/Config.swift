@@ -8,8 +8,5 @@
 import Foundation
 
 struct Config {
-    static let baseURL = "http://52.78.43.121/"
-//    static let baseURL = "http://13.124.108.37:80/"
-    
-
+    static let baseURL = "http://3.39.17.117:80/"
 }

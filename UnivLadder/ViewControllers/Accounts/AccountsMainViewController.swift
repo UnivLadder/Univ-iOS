@@ -14,7 +14,12 @@ import GoogleSignIn
 import KakaoSDKUser
 
 
-class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate {
+class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate, StoryboardInitializable {
+    
+    static var storyboardName: String = "Accounts"
+    
+    static var storyboardID: String = "Accounts"
+    
     
     var userModel = UserModel() // 인스턴스 생성
     
@@ -39,11 +44,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         self.viewComponents()
     }
     
-    
-    func saveUserInfoInUserDefaults(){
-        //        UserDefaults.standard.setValue(id, forKey: "id")
-        //        UserDefaults.standard.setValue(password, forKey: "password")
-    }
+ 
     
     // MARK: - 로그인 Action
     
@@ -82,13 +83,14 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                     }
                     
                     // 3) coredata 확인(회원가입 이후 앱 삭제 시 서버 호출 필요)
-                    let userInfo = CoreDataManager.shared.getUserInfo()
-                    if userInfo.count == 0{
-                        APIService.shared.getMyAccount()
-                    }else{
+//                    let userInfo = CoreDataManager.shared.getUserInfo()
+////                    CoreDataManager.shared.deleteAllUsers()
+//                    if userInfo.count == 0{
+//                        APIService.shared.getMyAccount()
+//                    }else{
                         // 4) 메인화면으로 이동
                         UIViewController.changeRootViewControllerToHome()
-                    }
+//                    }
                     
                     //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     //                    let pushVC = mainStoryboard.instantiateViewController(withIdentifier: "MainPage")
@@ -97,7 +99,15 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                     print("토큰 빈 값")
                 }
             }else{
-                print("로그인 실패👿")
+                let alert = UIAlertController(title:"👿로그인 실패👿",
+                                              message: "",
+                                              preferredStyle: UIAlertController.Style.alert)
+                //2. 확인 버튼 만들기
+                let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
+                //3. 확인 버튼을 경고창에 추가하기
+                alert.addAction(buttonLabel)
+                //4. 경고창 보이기
+                self.present(alert,animated: true,completion: nil)
             }
         })
         

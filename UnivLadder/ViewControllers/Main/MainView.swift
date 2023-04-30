@@ -6,6 +6,7 @@
 //
 
 import UIKit
+// SnapKit : 스토리 보드 없이 오토 레이아웃 할 수 있는 라이브러리
 import SnapKit
 import Then
 
