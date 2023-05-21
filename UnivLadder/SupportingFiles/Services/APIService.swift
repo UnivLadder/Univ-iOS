@@ -168,7 +168,7 @@ final class APIService {
                 print("⭐️회원가입 성공⭐️")
                 completion()
             default:
-                print("👿회원가입 실패👿")
+                print("👿 회원가입 실패 👿")
             }
         }
     }

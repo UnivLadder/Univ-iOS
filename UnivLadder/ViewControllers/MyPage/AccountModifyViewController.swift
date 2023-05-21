@@ -34,12 +34,12 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
             APIService.shared.deleteUser(accountId: 6)
             
             // 밑에 두개 언제?
-//            let alert = UIAlertController(title:"👿회원 탈퇴 완료👿",
-//                                          message: "",
-//                                          preferredStyle: UIAlertController.Style.alert)
-//
-//            let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
-//            alert.addAction(buttonLabel)
+            let alert = UIAlertController(title:"👿회원 탈퇴 완료👿",
+                                          message: "",
+                                          preferredStyle: UIAlertController.Style.alert)
+
+            let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(buttonLabel)
 //            present(alert,animated: true,completion: nil)
 
             //2. 로그인 화면(맨처음) 이동

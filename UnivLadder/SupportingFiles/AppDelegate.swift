@@ -39,11 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // APNs
 //        registerForRemoteNotifications()
         
         // FCM
-        // Firebase 초기화 세팅.
+        // Firebase 초기화 세팅. (구글 로그인, FCM 사용용)
         FirebaseApp.configure()
         // 메시지 대리자 설정
         Messaging.messaging().delegate = self
@@ -196,12 +197,12 @@ extension AppDelegate : MessagingDelegate {
         
         // 파이버에이스 토큰 보내기 api 실행
         // http://52.78.43.121/docs/index.html#_x_%EA%B3%84%EC%A0%95_fcm_%ED%86%A0%ED%81%B0_%EC%88%98%EC%A0%95
-        if let fcmToken = fcmToken {
-            print("파이어베이스 토큰: \(fcmToken)")
-            let fcmParameter: Parameters = [
-                "fcmToken" : fcmToken
-            ]
-            APIService.shared.putFCMToken(param: fcmParameter)
-        }
+//        if let fcmToken = fcmToken {
+//            print("파이어베이스 토큰: \(fcmToken)")
+//            let fcmParameter: Parameters = [
+//                "fcmToken" : fcmToken
+//            ]
+//            APIService.shared.putFCMToken(param: fcmParameter)
+//        }
     }
 }
