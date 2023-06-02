@@ -23,6 +23,7 @@
 		6864B288278AFE3C00CE80FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864B287278AFE3C00CE80FE /* APIService.swift */; };
 		6879ACB928BB73A300E758A4 /* MentoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6879ACB828BB73A300E758A4 /* MentoListCell.swift */; };
 		6880A66228719F7F00DB6D20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880A66128719F7F00DB6D20 /* User.swift */; };
+		688E6C902A2392E500E21E81 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688E6C8F2A2392E500E21E81 /* CategoryCell.swift */; };
 		6892DB16296ADA5F002DB446 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6892DB15296ADA5F002DB446 /* Chatting.storyboard */; };
 		6892DB18296ADABE002DB446 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6892DB17296ADABE002DB446 /* ChattingViewController.swift */; };
 		689357FC2998E2DD00022EFB /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689357FB2998E2DD00022EFB /* NoticeViewController.swift */; };
@@ -39,7 +40,6 @@
 		68CE951C296933DD00482764 /* Accounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68CE951B296933DD00482764 /* Accounts.storyboard */; };
 		68CE951E296933E400482764 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68CE951D296933E400482764 /* MyPage.storyboard */; };
 		68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D41CD328A9082B0098B29D /* MentoListView.swift */; };
-		68D41CD628A9086D0098B29D /* SubjectListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D41CD528A9086D0098B29D /* SubjectListCell.swift */; };
 		68D4385227942FA80082BE11 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4385127942FA80082BE11 /* Config.swift */; };
 		68D794EC293368C300C905D5 /* launchMsg.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D794EA293368C200C905D5 /* launchMsg.png */; };
 		68D794ED293368C300C905D5 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D794EB293368C200C905D5 /* logo.png */; };
@@ -48,6 +48,9 @@
 		68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */; };
 		68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */; };
 		68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */; };
+		68E53B4A2A1A0B1200DD6F26 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E53B492A1A0B1200DD6F26 /* Category.swift */; };
+		68E53B4C2A1A12AA00DD6F26 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E53B4B2A1A12AA00DD6F26 /* Const.swift */; };
+		68EBBE712A288AF4005F674A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EBBE702A288AF4005F674A /* UserDefaultsManager.swift */; };
 		68F26FAD293C99390059D700 /* MentoSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F26FAB293C99390059D700 /* MentoSubjectTableViewCell.swift */; };
 		68F26FAE293C99390059D700 /* MentoSubjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68F26FAC293C99390059D700 /* MentoSubjectTableViewCell.xib */; };
 		68F26FB1293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F26FAF293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift */; };
@@ -142,6 +145,7 @@
 		6864B287278AFE3C00CE80FE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		6879ACB828BB73A300E758A4 /* MentoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListCell.swift; sourceTree = "<group>"; };
 		6880A66128719F7F00DB6D20 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		688E6C8F2A2392E500E21E81 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		6892DB15296ADA5F002DB446 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		6892DB17296ADABE002DB446 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		689357FB2998E2DD00022EFB /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +162,6 @@
 		68CE951B296933DD00482764 /* Accounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Accounts.storyboard; path = UnivLadder/ViewControllers/Storyboards/Accounts.storyboard; sourceTree = SOURCE_ROOT; };
 		68CE951D296933E400482764 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MyPage.storyboard; path = UnivLadder/MyPage/MyPage.storyboard; sourceTree = SOURCE_ROOT; };
 		68D41CD328A9082B0098B29D /* MentoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListView.swift; sourceTree = "<group>"; };
-		68D41CD528A9086D0098B29D /* SubjectListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListCell.swift; sourceTree = "<group>"; };
 		68D4385127942FA80082BE11 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		68D794EA293368C200C905D5 /* launchMsg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchMsg.png; sourceTree = "<group>"; };
 		68D794EB293368C200C905D5 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -167,6 +170,9 @@
 		68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyTableViewCell.swift; sourceTree = "<group>"; };
 		68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModifyViewController.swift; sourceTree = "<group>"; };
 		68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		68E53B492A1A0B1200DD6F26 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		68E53B4B2A1A12AA00DD6F26 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		68EBBE702A288AF4005F674A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		68F06FA927782576008A9511 /* UnivLadder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnivLadder.entitlements; sourceTree = "<group>"; };
 		68F26FAB293C99390059D700 /* MentoSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		68F26FAC293C99390059D700 /* MentoSubjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MentoSubjectTableViewCell.xib; sourceTree = "<group>"; };
@@ -205,7 +211,7 @@
 		E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListViewController.swift; sourceTree = "<group>"; };
 		E5AF9A37280C2A1B00601AE2 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		E5AF9A41280C2D1000601AE2 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
-		E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnivLadder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B38B1E2615EBCC00D4EB5D /* Real Tutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Real Tutor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E5B38B282615EBCC00D4EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -328,12 +334,24 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		688AC65B294F1C650071340F /* MyPageCell */ = {
+		688A8B502A2A327F00D0B811 /* MyPageTableMenu */ = {
 			isa = PBXGroup;
 			children = (
+				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
 				E587B0722712F66100FAD77D /* MyPageCell.swift */,
+				689358032998F26C00022EFB /* AppInfoTableViewCell.swift */,
+				689357FA2998E2A500022EFB /* Notice */,
+				68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */,
 			);
-			path = MyPageCell;
+			path = MyPageTableMenu;
+			sourceTree = "<group>";
+		};
+		688A8B512A2A32B400D0B811 /* MyPageModify */ = {
+			isa = PBXGroup;
+			children = (
+				68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */,
+			);
+			path = MyPageModify;
 			sourceTree = "<group>";
 		};
 		689357FA2998E2A500022EFB /* Notice */ = {
@@ -411,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				68F3AE69280C24AC00CF53DC /* SubjectModel.swift */,
+				68E53B492A1A0B1200DD6F26 /* Category.swift */,
 			);
 			path = Subject;
 			sourceTree = "<group>";
@@ -486,13 +505,9 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				689358032998F26C00022EFB /* AppInfoTableViewCell.swift */,
-				68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */,
-				689357FA2998E2A500022EFB /* Notice */,
-				688AC65B294F1C650071340F /* MyPageCell */,
-				68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */,
+				688A8B512A2A32B400D0B811 /* MyPageModify */,
+				688A8B502A2A327F00D0B811 /* MyPageTableMenu */,
 				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
-				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
 				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
 				68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */,
 				689358052998F8F500022EFB /* ReusableViewController.swift */,
@@ -507,9 +522,9 @@
 				68F26FAC293C99390059D700 /* MentoSubjectTableViewCell.xib */,
 				68F26FAF293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift */,
 				68F26FB0293CA2930059D700 /* MetnoSubjectCollectionViewCell.xib */,
-				6879ACB828BB73A300E758A4 /* MentoListCell.swift */,
 				68D41CD328A9082B0098B29D /* MentoListView.swift */,
-				68D41CD528A9086D0098B29D /* SubjectListCell.swift */,
+				6879ACB828BB73A300E758A4 /* MentoListCell.swift */,
+				688E6C8F2A2392E500E21E81 /* CategoryCell.swift */,
 			);
 			path = MentoList;
 			sourceTree = "<group>";
@@ -537,7 +552,7 @@
 		E5B38B1F2615EBCC00D4EB5D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */,
+				E5B38B1E2615EBCC00D4EB5D /* Real Tutor.app */,
 				E5B38B372615EBCC00D4EB5D /* UnivLadderTests.xctest */,
 				E5B38B422615EBCC00D4EB5D /* UnivLadderUITests.xctest */,
 			);
@@ -552,9 +567,9 @@
 				E5B6CECF269A9562005D0501 /* Cells */,
 				6836D2D6281546E400048E21 /* DB */,
 				68442AED27730E2F009DF75A /* Models */,
+				E57A31BA27B902DA00276D7F /* Utils */,
 				E5F3F9182647093B00763ADB /* SupportingFiles */,
 				68F06FA927782576008A9511 /* UnivLadder.entitlements */,
-				E57A31BA27B902DA00276D7F /* Utils */,
 			);
 			path = UnivLadder;
 			sourceTree = "<group>";
@@ -602,12 +617,13 @@
 			children = (
 				68D794E12933670A00C905D5 /* Resources */,
 				6864B286278AFE0600CE80FE /* Services */,
+				6855269D27830BF40030594A /* GoogleService-Info.plist */,
 				E5B38B322615EBCC00D4EB5D /* Info.plist */,
+				E5043A0126A4285E004D2870 /* AppColorSet.swift */,
 				E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */,
+				68E53B4B2A1A12AA00DD6F26 /* Const.swift */,
 				E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */,
 				E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */,
-				E5043A0126A4285E004D2870 /* AppColorSet.swift */,
-				6855269D27830BF40030594A /* GoogleService-Info.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -644,6 +660,7 @@
 			children = (
 				E58D4B5F275DF339009CF08D /* ThemeManager.swift */,
 				E5576B04275E27DC002BF041 /* ConstantManager.swift */,
+				68EBBE702A288AF4005F674A /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -687,7 +704,7 @@
 			);
 			name = UnivLadder;
 			productName = UnivLadder;
-			productReference = E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */;
+			productReference = E5B38B1E2615EBCC00D4EB5D /* Real Tutor.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E5B38B362615EBCC00D4EB5D /* UnivLadderTests */ = {
@@ -941,18 +958,19 @@
 				E546934727F9C749007A1791 /* ChatModel.swift in Sources */,
 				E57A31BD27B902F000276D7F /* StoryboardInitializable.swift in Sources */,
 				6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */,
+				68EBBE712A288AF4005F674A /* UserDefaultsManager.swift in Sources */,
 				68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */,
 				E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */,
 				689357FE2998E32000022EFB /* NoticeTableViewCell.swift in Sources */,
 				E56ABEED2647CC0D00A45786 /* YourChatBubbleCell.swift in Sources */,
 				E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */,
-				68D41CD628A9086D0098B29D /* SubjectListCell.swift in Sources */,
 				6892DB18296ADABE002DB446 /* ChattingViewController.swift in Sources */,
 				689358062998F8F500022EFB /* ReusableViewController.swift in Sources */,
 				68F6ED1C28FC0F58003C93D3 /* UserEntity+CoreDataClass.swift in Sources */,
 				689357FC2998E2DD00022EFB /* NoticeViewController.swift in Sources */,
 				68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */,
 				E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */,
+				68E53B4A2A1A0B1200DD6F26 /* Category.swift in Sources */,
 				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
 				68F6ED1D28FC0F58003C93D3 /* SubjectEntity+CoreDataClass.swift in Sources */,
 				68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */,
@@ -968,6 +986,7 @@
 				68F26FAD293C99390059D700 /* MentoSubjectTableViewCell.swift in Sources */,
 				68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */,
 				E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */,
+				688E6C902A2392E500E21E81 /* CategoryCell.swift in Sources */,
 				E57A31B927B900DF00276D7F /* UIViewController+Extension.swift in Sources */,
 				E587B0712712F54D00FAD77D /* MyPageViewController.swift in Sources */,
 				E5F3F97A264710EE00763ADB /* ChatListViewController.swift in Sources */,
@@ -996,6 +1015,7 @@
 				68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */,
 				E58A9C1C27DDF02B00A4ACBB /* Colors+Generated.swift in Sources */,
 				E5FA9B9A27DDE55C009C9C9E /* ViewRepresentable.swift in Sources */,
+				68E53B4C2A1A12AA00DD6F26 /* Const.swift in Sources */,
 				68442AEF27730E2F009DF75A /* UserModel.swift in Sources */,
 				68F3AE6A280C24AC00CF53DC /* SubjectModel.swift in Sources */,
 				68F26FB1293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift in Sources */,
@@ -1114,6 +1134,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1169,6 +1190,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1188,14 +1210,18 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = W832C4SNYD;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Real Tutor";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = YES;
@@ -1211,14 +1237,18 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = W832C4SNYD;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Real Tutor";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = YES;

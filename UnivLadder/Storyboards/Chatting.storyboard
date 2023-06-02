@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fEq-xs-ZdV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fEq-xs-ZdV">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,7 @@
         <!--Chatting View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="Chatting" id="Y6W-OH-hqX" customClass="ChattingViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Chatting" id="Y6W-OH-hqX" customClass="ChattingViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatRoomCell" rowHeight="158" id="Xsu-N1-k7m" customClass="ChatRoomListCell" customModule="UnivLadder" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatRoomCell" rowHeight="158" id="Xsu-N1-k7m" customClass="ChatRoomListCell" customModule="Real_Tutor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xsu-N1-k7m" id="GD5-aw-BHx">
@@ -138,7 +138,7 @@
         <scene sceneID="Eta-iB-fx4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fEq-xs-ZdV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="채팅" image="chat" id="sUw-n2-PTC"/>
+                    <tabBarItem key="tabBarItem" title="채팅" image="ellipsis.bubble.fill" catalog="system" id="sUw-n2-PTC"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2uk-Ou-ujb">
@@ -157,7 +157,7 @@
         <!--Title-->
         <scene sceneID="xJZ-xP-5FO">
             <objects>
-                <viewController storyboardIdentifier="ChatRoomViewController" id="9Qz-T0-zJY" customClass="ChatRoomViewController" customModule="UnivLadder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatRoomViewController" id="9Qz-T0-zJY" customClass="ChatRoomViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K39-NK-6Tg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,7 +166,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="548"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="YourChatBubbleCell" rowHeight="200" id="l4q-i2-xo3" customClass="YourChatBubbleCell" customModule="UnivLadder" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="YourChatBubbleCell" rowHeight="200" id="l4q-i2-xo3" customClass="YourChatBubbleCell" customModule="Real_Tutor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l4q-i2-xo3" id="Tds-ZA-O4B">
@@ -223,7 +223,7 @@
                                             <outlet property="timeLabel" destination="i1H-b4-jdZ" id="cKX-dy-z8W"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyChatBubbleCell" rowHeight="253" id="SLb-ME-Siw" customClass="MyChatBubbleCell" customModule="UnivLadder" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyChatBubbleCell" rowHeight="253" id="SLb-ME-Siw" customClass="MyChatBubbleCell" customModule="Real_Tutor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="250" width="393" height="253"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SLb-ME-Siw" id="59T-Yf-BSh">
@@ -555,8 +555,8 @@
     </scenes>
     <resources>
         <image name="camera" width="18" height="16"/>
-        <image name="chat" width="24" height="22"/>
         <image name="document" width="14" height="17"/>
+        <image name="ellipsis.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="galleryIcon" width="17" height="15"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

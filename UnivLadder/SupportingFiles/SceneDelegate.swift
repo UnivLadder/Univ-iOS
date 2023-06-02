@@ -35,16 +35,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
 
-        
         //시작 화면 바꿔가면서 테스트
 //        guard let _ = (scene as? UIWindowScene) else { return }
 //        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
 //        guard let loginVC = storyboard.instantiateViewController(withIdentifier: "MyPage") as? MentoSearchViewController else { return }
 //        window?.rootViewController = loginVC
+        
         //멘토 검색화면
 //        guard let _ = (scene as? UIWindowScene) else { return }
-//        let storyboard = UIStoryboard(name: "MentoSearch", bundle: nil)
-//        guard let loginVC = storyboard.instantiateViewController(withIdentifier: "MentoSearch") as? MentoSearchViewController else { return }
+//        let storyboard = UIStoryboard(name: "MentoCategory", bundle: nil)
+//        guard let loginVC = storyboard.instantiateViewController(withIdentifier: "MentoCategory") as? MentoSearchViewController else { return }
 //        window?.rootViewController = loginVC
     }
 

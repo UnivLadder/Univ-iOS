@@ -286,15 +286,21 @@ class AccountsRegisterViewController: UIViewController {
                         if let accountId = APIService.shared.accountId{
                             if (accountId != 0){
                                 // 회원 가입 성공 시 1. Core data - User Entity 저장
-                                // 1) 기존 User 데이터 삭제
+                                // 1) 기존 로그인한 User 데이터 삭제
                                 CoreDataManager.shared.deleteAllUsers()
                                 
                                 // 2) User 데이터 추가
                                 // 인자값으로 입력된 클로저 블록 실행
-                                //dummy 저장
-
+                                // dummy 저장
+//                                self.saveNewUser(accountId,
+//                                                 email: registerUserParam.obj,
+//                                                 gender: "WOMAN",
+//                                                 name: "여니",
+//                                                 password: "PASSWORD"
+//                                                 , thumbnail: "THUMBNAIL")
+//                                
                                 
-                                // 3) User 데이터 조회
+                                // 3) 테스트 용 User 데이터 조회
                                 let array: [UserEntity] = CoreDataManager.shared.getUserInfo()
                                 print(array)
                                 print("⭐️accountId 저장 성공⭐️")

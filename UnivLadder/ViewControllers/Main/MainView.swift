@@ -10,11 +10,13 @@ import UIKit
 import SnapKit
 import Then
 
+
+
 class MainView: UIView {
-    
-    
+
     // MARK: - 멘토 프로필
     let profileImageView = UIImageView().then {
+        //이미지 try catch 처리
         let image = UIImage(named: "펭수.png");
         
 //        let imageView = UIImageView(image: squareImg(at: image!)!)
@@ -31,7 +33,7 @@ class MainView: UIView {
 
         $0.image = image
         $0.contentMode = .scaleAspectFill
-        $0.layer.cornerRadius = 12
+        $0.layer.cornerRadius = Constant.profileImgSize/2
         
         //넘치는 영역 잘라내기
         $0.clipsToBounds = true
@@ -46,7 +48,14 @@ class MainView: UIView {
     let nameLabel = UILabel().then {
         $0.font = Fonts.EsamanruOTF.bold.font(size: 22)
         let userInfo = CoreDataManager.shared.getUserInfo()
-        $0.text = userInfo[0].name
+        
+        //exception 처리
+        if userInfo.count > 0{
+            $0.text = userInfo[0].name
+        }else{
+            $0.text = "이용"
+        }
+        
         $0.textColor = .black
     }
     
@@ -70,7 +79,7 @@ class MainView: UIView {
     
     // MARK: - 멘토 찾기
     let searchMentoTitleLabel = UILabel().then {
-        $0.font = Fonts.EsamanruOTF.bold.font(size: 22)
+        $0.font = Fonts.EsamanruOTF.medium.font(size: 22)
         $0.textColor = .black
         $0.text = "멘토 찾기"
     }
@@ -133,7 +142,14 @@ class MainView: UIView {
     ////        $0.addTarget(self, action: #selector(touchupSwitchButton(_:)), for: .touchUpInside)
     //    }
     
-    let subjectCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+    //카테고리
+    let categoryCollectionLabel = UILabel().then {
+        $0.font = Fonts.EsamanruOTF.medium.font(size: 22)
+        $0.textColor = .black
+        $0.text = "카테고리"
+    }
+    
+    let categoryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
@@ -145,7 +161,7 @@ class MainView: UIView {
     
     // MARK: - 지금 뜨고 있는 멘토
     let mentoListTitleLabel = UILabel().then {
-        $0.font = Fonts.EsamanruOTF.bold.font(size: 22)
+        $0.font = Fonts.EsamanruOTF.medium.font(size: 22)
         $0.textColor = .black
         $0.text = "지금 뜨고 있는 멘토"
     }
@@ -181,15 +197,16 @@ extension MainView: ViewRepresentable {
         addSubview(registerMentoButton)
         addSubview(nameLabel)
         addSubview(name2Label)
-        addSubview(mapImageView)
-        addSubview(addressLabel)
+//        addSubview(mapImageView)
+//        addSubview(addressLabel)
         
         // 멘토찾기
         addSubview(searchMentoTitleLabel)
         addSubview(searchMentoButton)
-        //        addSubview(searchMentoButton)
-        addSubview(subjectCollectionView)
         
+        //카테고리
+        addSubview(categoryCollectionLabel)
+        addSubview(categoryCollectionView)
         
         // 지금 뜨고 있는 멘토
         addSubview(mentoListTitleLabel)
@@ -198,7 +215,7 @@ extension MainView: ViewRepresentable {
     
     func setupConstraints() {
         profileImageView.snp.makeConstraints {
-            $0.width.height.equalTo(100)
+            $0.width.height.equalTo(Constant.profileImgSize)
             $0.top.equalTo(safeAreaLayoutGuide).offset(-20)
             $0.leading.equalTo(safeAreaLayoutGuide).offset(20)
         }
@@ -210,68 +227,66 @@ extension MainView: ViewRepresentable {
         
         nameLabel.snp.makeConstraints {
             $0.leading.equalTo(profileImageView)
-            $0.top.equalTo(profileImageView.snp.bottom).offset(20)
+            $0.top.equalTo(profileImageView.snp.bottom).offset(10)
         }
-        
+        //님 label
         name2Label.snp.makeConstraints {
             $0.leading.equalTo(nameLabel.snp.trailing)
             $0.bottom.firstBaseline.equalTo(nameLabel)
         }
         
-        mapImageView.snp.makeConstraints {
-            $0.leading.equalTo(profileImageView)
-            $0.width.height.equalTo(14)
-            $0.top.equalTo(nameLabel.snp.bottom).offset(10)
-        }
+//        mapImageView.snp.makeConstraints {
+//            $0.leading.equalTo(profileImageView)
+//            $0.width.height.equalTo(15)
+//            $0.top.equalTo(nameLabel.snp.bottom).offset(10)
+//        }
         
-        addressLabel.snp.makeConstraints {
-            $0.leading.equalTo(mapImageView.snp.trailing).offset(10)
-            $0.centerY.equalTo(mapImageView)
-            $0.trailing.equalToSuperview().offset(-20)
-        }
+//        addressLabel.snp.makeConstraints {
+//            $0.leading.equalTo(mapImageView.snp.trailing).offset(10)
+//            $0.centerY.equalTo(mapImageView)
+//            $0.trailing.equalToSuperview().offset(-20)
+//        }
         
         searchMentoTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(mapImageView.snp.bottom).offset(70)
+            $0.top.equalTo(nameLabel.snp.bottom).offset(Constant.menuIntervalHeight)
             $0.leading.equalTo(profileImageView)
             $0.trailing.equalToSuperview().offset(-20)
         }
         
         searchMentoButton.snp.makeConstraints {
             $0.height.equalTo(45)
-            $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(20)
+            $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(Constant.menuContentIntervalHeight)
             $0.leading.equalTo(profileImageView)
             $0.trailing.equalToSuperview().offset(-20)
         }
         
-        //        searchMentoButton.snp.makeConstraints {
-        //            $0.top.equalTo(searchMentoTitleLabel.snp.bottom).offset(10)
-        //            $0.leading.equalTo(profileImageView)
-        ////            $0.trailing.equalToSuperview().offset(-20)
-        //        }
+        categoryCollectionLabel.snp.makeConstraints {
+            $0.top.equalTo(searchMentoButton.snp.bottom).offset(Constant.menuIntervalHeight)
+            $0.leading.equalTo(profileImageView)
+            $0.trailing.equalToSuperview().offset(-20)
+        }
         
-        subjectCollectionView.snp.makeConstraints {
-            $0.top.equalTo(searchMentoButton.snp.bottom).offset(20)
+        categoryCollectionView.snp.makeConstraints {
+            $0.top.equalTo(categoryCollectionLabel.snp.bottom).offset(Constant.menuContentIntervalHeight)
             $0.left.right.equalToSuperview()
-            //            $0.centerY.equalToSuperview()
-            $0.height.equalTo(100)
+            $0.height.equalTo(Constant.categoryImgSize)
         }
         
         mentoListTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(subjectCollectionView.snp.bottom).offset(70)
+            $0.top.equalTo(categoryCollectionView.snp.bottom).offset(Constant.menuIntervalHeight)
             $0.leading.equalTo(profileImageView)
             $0.trailing.equalToSuperview().offset(-20)
         }
-        
+
         mentoCollectionView.snp.makeConstraints {
-            $0.top.equalTo(mentoListTitleLabel.snp.bottom).offset(10)
+            $0.top.equalTo(mentoListTitleLabel.snp.bottom).offset(Constant.menuContentIntervalHeight)
             $0.left.right.equalToSuperview()
-            //            $0.centerY.equalToSuperview()
-            $0.height.equalTo(100)
+            $0.height.equalTo(Constant.profileImgSize+40)
         }
     }
 }
 
-func squareImg(at image: UIImage, length: CGFloat = 80) -> UIImage? {
+func squareImg(at image: UIImage, length: CGFloat = Constant.profileImgSize) -> UIImage? {
     let originWidth: CGFloat = image.size.width
     let originHeight: CGFloat = image.size.height
     var resizedWidth: CGFloat = length

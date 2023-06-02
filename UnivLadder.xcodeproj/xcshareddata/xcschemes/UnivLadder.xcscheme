@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E5B38B1D2615EBCC00D4EB5D"
-               BuildableName = "UnivLadder.app"
+               BuildableName = "Real Tutor.app"
                BlueprintName = "UnivLadder"
                ReferencedContainer = "container:UnivLadder.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E5B38B1D2615EBCC00D4EB5D"
-            BuildableName = "UnivLadder.app"
+            BuildableName = "Real Tutor.app"
             BlueprintName = "UnivLadder"
             ReferencedContainer = "container:UnivLadder.xcodeproj">
          </BuildableReference>
@@ -92,7 +92,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E5B38B1D2615EBCC00D4EB5D"
-            BuildableName = "UnivLadder.app"
+            BuildableName = "Real Tutor.app"
             BlueprintName = "UnivLadder"
             ReferencedContainer = "container:UnivLadder.xcodeproj">
          </BuildableReference>

@@ -28,8 +28,8 @@ class MyPageViewController: UIViewController {
     
     //마이페이지 목록
     @IBOutlet weak var MyPageTableView: UITableView!
-    var cellTitle = ["알림", "공지사항", "[앱 이름]안내", "앱 캐시 정리하기"]
-    var cellIcon = ["bell", "mic", "questionmark.circle", "trash"]
+    var cellTitle = ["알림", "공지사항", "[Real Tutor] 안내"]
+    var cellIcon = ["bell", "mic", "questionmark.circle"]
     
     @IBAction func MoveToRegister(_ sender: Any) {
         if let controller = self.storyboard?.instantiateViewController(withIdentifier: "MentoRegister"){
@@ -48,8 +48,10 @@ class MyPageViewController: UIViewController {
     func myProfileViewSetting() {
         // core data에서 user 정보 가져옴
         let userInfo = CoreDataManager.shared.getUserInfo()
-        self.myPageName.text = userInfo[0].name
-        self.myPageEmail.text = userInfo[0].email
+        self.myPageName.text = "이용"
+        self.myPageEmail.text = "lxxyeon@gmail.com"
+//        self.myPageName.text = userInfo[0].name
+//        self.myPageEmail.text = userInfo[0].email
         self.myPageImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
         // 없는 경우 기본 이미지
 //        if userInfo[0].thumbnail != nil {
@@ -79,21 +81,34 @@ class MyPageViewController: UIViewController {
         self.reviewLabel.text = "121"
         self.employeeLabel.text = "3"
     }
-    
+
+    /// 멘토 등록
+    /// - Parameter sender: 상태 변경
     @IBAction func userStatusChangeBtn(_ sender: Any) {
             //멘토인 경우
         if userStatusBool{
             userStatusBool = false
             myProfileViewSetting()
         }else{
-            //멘티인 경우
+            // 멘티인 경우 - 멘토로 등록 API 수행
             userStatusBool = true
             myProfileViewSetting()
-            let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterMento")
+            let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoRegister")
             self.navigationController?.pushViewController(pushVC!, animated: true)
         }
     }
     
+    
+    /// 계정 정보 수정
+    /// - Parameter sender: 상태 변경
+    
+    
+    
+    
+    
+    
+    /// 멘토 계정 정보 수정
+    /// - Parameter sender:상태 변경
     @IBAction func mentoProfileModifyBtn(_ sender: Any) {
         let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileModifyViewController")
         self.navigationController?.pushViewController(pushVC!, animated: true)
@@ -103,7 +118,7 @@ class MyPageViewController: UIViewController {
 
 extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return cellTitle.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

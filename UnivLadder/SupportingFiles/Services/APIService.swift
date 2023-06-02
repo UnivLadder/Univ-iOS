@@ -14,6 +14,8 @@ final class APIService {
     static let shared = APIService()
     private init() {}
     
+    var categories = [Category]()
+
     var userAccessToken: String?
     var accountId: Int64?
     
@@ -161,6 +163,8 @@ final class APIService {
                     jsonDict = try JSONSerialization.jsonObject(with: Data(data.utf8), options: []) as! [String:Any]
                     // Get the values from the JSON object
                     self.accountId = jsonDict["accountId"] as? Int64
+
+                    
                     UserDefaults.standard.set(jsonDict["accountId"], forKey: "accountId")
                 } catch {
                     print(error.localizedDescription)
@@ -196,21 +200,13 @@ final class APIService {
                             // Get the values from the JSON object
                             self.userAccessToken = jsonDict["accessToken"] as? String
                         }
-                        
-                        self.saveNewUser(6,
-                                         email: "lxxyeon@gmail.com",
-                                         gender: "WOMAN",
-                                         name: "여니",
-                                         password: "PASSWORD"
-                                         , thumbnail: "THUMBNAIL")
-                        
+                        print("⭐️로그인 성공⭐️")
+                        completion()
                     } catch {
                         // Handle error
                         print("Error: \(error.localizedDescription)")
                     }
                 }
-                print("⭐️로그인 성공⭐️")
-                completion()
             default:
                 print("👿로그인 실패👿")
             }
@@ -398,33 +394,59 @@ final class APIService {
     
     // MARK: - UI API
     //GET - 과목 데이터 가져오기
+    //Userdefault 에 저장하기
     func getSubjects() {
-        // 이전 데이터 삭제
-        CoreDataManager.shared.deleteAllSubject()
-        
-        // 과목 데이터 가져오기 API
-        AF.request(Config.baseURL+"assets/extracurricular-subjects")
-            .responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let responseJson = JSON(value)
-                    for (index, subJson) : (String, JSON) in responseJson {
-                        guard let code = subJson["code"].int,
-                              let topic = subJson["topic"].string,
-                              let value = subJson["value"].string else {
-                            continue
+        let url = Config.baseURL+"assets/extracurricular-subjects"
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json"]
+        AF.request(url, method: .get,  headers: headers).responseString { response in
+            switch response.result{
+            case .success(_):
+                do {
+                    let dataString = String(data: response.data!, encoding: .utf8)
+                    let data = dataString!.data(using: .utf8)!
+                    if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]{
+                        UserDefaultsManager.subjectList = []
+                        for subject in jsonArray{
+                            let subjectData = SubjectModel(code: subject["code"] as! Int,
+                                                           value: subject["value"] as! String,
+                                                           topic: subject["topic"] as! String)
+                            UserDefaultsManager.subjectList!.insert(subjectData, at: 0)
                         }
-                        // coredata 저장
-                        self.saveNewSubject(Int64(code), topic: topic, value: value)
-                        print("[\(index)] code: \(code) / topic: \(topic) / value: \(value)")
                     }
-                default: return
+//                    print(UserDefaultsManager.subjectList)
+
+                    
+                } catch {
+                    print(error.localizedDescription)
                 }
-                // coredata에 저장된 과목 데이터 가져오기
-                self.getAllSubject()
+                print("⭐️과목 데이터 조회 성공⭐️")
+            default:
+                print("👿과목 데이터 조회 실패👿")
             }
+        }
     }
-    
+    //subject 카테고리별 저장
+    func saveSubjectInCategory() {
+//        Category.topic
+        
+//        switch topic{
+//        case Const.category.foreign:
+//            // 과목 저장 SubjectModel
+//            SubjectModel.init(code: code, value: value, topic: topic)
+//
+//
+//            break
+//        case Const.category.competition:
+//            break
+//        case Const.category.enunciation:
+//            break
+//        case Const.category.subject:
+//            break
+//        default:
+//            break
+//        }
+    }
     
     // coredata 저장
     fileprivate func saveNewSubject(_ code: Int64, topic: String, value: String) {

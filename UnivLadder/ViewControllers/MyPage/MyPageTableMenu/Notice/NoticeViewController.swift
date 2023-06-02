@@ -7,6 +7,7 @@
 
 import UIKit
 
+//공지사항 화면
 class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     

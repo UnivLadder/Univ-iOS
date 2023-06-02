@@ -51,7 +51,6 @@ class CoreDataManager {
         if let context = context {
             do {
                 models = try context.fetch(UserEntity.fetchRequest())
-                
             }
             catch let error as NSError {
                 print("Could not fetch🥺: \(error), \(error.userInfo)")

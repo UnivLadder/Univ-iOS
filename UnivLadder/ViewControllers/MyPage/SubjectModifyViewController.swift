@@ -9,7 +9,6 @@ import UIKit
 import CoreData
 
 
-
 //다음에 할거
 // cell width 유동적으로
 // paging cell custom
@@ -53,7 +52,7 @@ class SubjectModifyViewController: UIViewController {
         // local 데이터 확인 로직 추가
         
         //없으면 api 호출
-        APIService.shared.getSubjects()
+//        APIService.shared.getSubjects()
         //있으면 뿌려주기
         
         

@@ -44,8 +44,6 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         self.viewComponents()
     }
     
-    
-    
     // MARK: - 로그인 Action
     //1. 자체 로그인 2.구글 소셜 로그인 3.애플 소셜 로그인
     
@@ -61,16 +59,16 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         guard let email = emailTextField.text, !email.isEmpty else { return }
         guard let password = passwordTextField.text, !password.isEmpty else { return }
         
-        if self.checkLogInInfo(email: email, password: password) {
+//        if self.checkLogInInfo(email: email, password: password) {
             self.serverLogIn(email: email, password: password)
-        }
+//        }
     }
     
     /// 로그인 입력 데이터 형식 체크 메소드
     /// - Parameters:
     ///   - email: 로그인 이메일
     ///   - password: 로그인 비밀번호
-    /// - Returns: bool type
+    /// - Returns: bool type, true 인 경우 서버 통신 수행
     func checkLogInInfo(email: String, password: String) -> Bool {
         var res = false
         
@@ -113,8 +111,8 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     func serverLogIn(email: String, password: String) {
         //dummy data
-        let params = ["username" : "lxxyeon@gmail.com",
-                      "password" : "PASSWORD"]
+        let params = ["username" : "leeyeon0527@naver.com",
+                      "password" : "password"]
         
         APIService.shared.signIn(param: params, completion: {
             //nil, 빈값 2개 다 처리
@@ -125,6 +123,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                     // 1) 토큰 정보 키체인 저장
                     if KeyChain.shared.addItem(id: "accessToken", token: token){
                         print("⭐️accessToken 저장 성공⭐️")
+                        print("accessToken: \(token)")
                     }else{
                         print("👿accessToken 저장 실패👿")
                     }
@@ -144,8 +143,18 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                     //                    if userInfo.count == 0{
                     //                        APIService.shared.getMyAccount()
                     //                    }else{
-                    // 4) 메인화면으로 이동
-                    UIViewController.changeRootViewControllerToHome()
+                    
+                    // 화면에 필요한 data들 한번만 부름
+                    // api 통신 성공 후 ㅕ 저장 + 메인화면 이동
+
+//                    APIService.shared.getSubjects(completion: {
+//                        var categories = [Category]()
+//
+//                        print("category list : \(categories)")
+//                        // 4) 메인화면으로 이동
+                        UIViewController.changeRootViewControllerToHome()
+//                    })
+
                     //                    }
                     
                     //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
