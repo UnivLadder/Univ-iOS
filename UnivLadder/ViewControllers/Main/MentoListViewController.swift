@@ -27,16 +27,30 @@ class MentoListViewController: UIViewController {
         setupCollectionView()
     }
     
-    // UI component 호출
     func dataParsing(){
         let subjects = UserDefaultsManager.subjectList
-        var categorySet = Set<String>()
+        var tmpArr: [String] = []
+//        var categorySet = Set<String>()
         for i in 0..<subjects!.count{
-            categorySet.insert(subjects.map{$0[i].topic}!
-            )
+//            categorySet.insert(subjects.map{$0[i].topic}!)
+            tmpArr.append(subjects.map{$0[i].topic}!)
         }
-        categoryArr = Array(categorySet)
+        categoryArr = NSOrderedSet(array: tmpArr).map({ $0 as! String })
+        UserDefaultsManager.categoryList = categoryArr
     }
+
+    // UI component 호출
+//    func dataParsing(){
+//        let subjects = UserDefaultsManager.subjectList
+//        var categorySet = Set<String>()
+//        for i in 0..<subjects!.count{
+//            categorySet.insert(subjects.map{$0[i].topic}!)
+//        }
+//
+//        categoryArr = Array(categorySet)
+//        UserDefaultsManager.categoryList = Array(categorySet)
+//
+//    }
     
     // array 중복 제거
     func removeDuplicate (_ array: [String]) -> [String] {

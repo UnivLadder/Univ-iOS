@@ -10,7 +10,7 @@ import UIKit
 class MentoSubjectTableViewCell: UITableViewCell{
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var subjectList = ["국어", "수학", "영어", "과학", "사회", "사회"]
+    var subjectList = [""]
     static let identifier = "MentoSubjectTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,8 +29,6 @@ class MentoSubjectTableViewCell: UITableViewCell{
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     private func registerDelegate(){
         collectionView.delegate = self
@@ -38,9 +36,6 @@ class MentoSubjectTableViewCell: UITableViewCell{
     }
     
     private func registerXib(){
-//        let layout = UICollectionViewLayout()
-//        collectionView.collectionViewLayout = layout
-//
         let storyNib = UINib(nibName: MetnoSubjectCollectionViewCell.identifier, bundle: nil)
         collectionView.register(storyNib, forCellWithReuseIdentifier: MetnoSubjectCollectionViewCell.identifier)
     }

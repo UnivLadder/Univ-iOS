@@ -10,6 +10,9 @@ import Foundation
 struct UserDefaultsManager {
     @UserDefaultWrapper(key: "subjectList", defaultValue: nil)
     static var subjectList: [SubjectModel]?
+    
+    @UserDefaultWrapper(key: "categoryList", defaultValue: nil)
+    static var categoryList: [String]?
 }
 
 @propertyWrapper

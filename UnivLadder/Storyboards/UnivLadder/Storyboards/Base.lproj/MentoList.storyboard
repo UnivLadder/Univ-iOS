@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u9E-wT-VBD">
-                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nOr-lR-gtG">
@@ -51,32 +51,18 @@
                                     <outlet property="delegate" destination="tYk-R1-fmG" id="lOS-tF-wyJ"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-zO-J0g">
-                                <rect key="frame" x="0.0" y="48" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="TZ7-6E-mPc"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="tYk-R1-fmG" id="G5D-Yw-m5o"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wpz-SK-sgx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="f0d-zO-J0g" firstAttribute="leading" secondItem="wpz-SK-sgx" secondAttribute="leading" id="J88-tQ-WKV"/>
                             <constraint firstItem="wpz-SK-sgx" firstAttribute="trailing" secondItem="u9E-wT-VBD" secondAttribute="trailing" id="U4W-ej-auL"/>
-                            <constraint firstItem="f0d-zO-J0g" firstAttribute="trailing" secondItem="wpz-SK-sgx" secondAttribute="trailing" id="hwv-Ey-Avx"/>
+                            <constraint firstItem="u9E-wT-VBD" firstAttribute="top" secondItem="wpz-SK-sgx" secondAttribute="top" id="nRp-oH-cJ2"/>
                             <constraint firstItem="u9E-wT-VBD" firstAttribute="leading" secondItem="wpz-SK-sgx" secondAttribute="leading" id="o36-MK-Dil"/>
                             <constraint firstItem="wpz-SK-sgx" firstAttribute="bottom" secondItem="u9E-wT-VBD" secondAttribute="bottom" id="oSt-5H-ZCc"/>
-                            <constraint firstItem="u9E-wT-VBD" firstAttribute="top" secondItem="f0d-zO-J0g" secondAttribute="bottom" id="qcB-7G-o7Q"/>
-                            <constraint firstItem="f0d-zO-J0g" firstAttribute="top" secondItem="wpz-SK-sgx" secondAttribute="top" id="zuH-5O-xLb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="subjectListTable" destination="u9E-wT-VBD" id="upf-ve-hOX"/>
-                        <outlet property="subjectSearchBar" destination="f0d-zO-J0g" id="888-Qt-weC"/>
                         <segue destination="UzV-t8-Cud" kind="show" identifier="ShowMentoListView" id="MY2-lZ-Oe4"/>
                     </connections>
                 </viewController>

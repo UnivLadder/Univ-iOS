@@ -9,8 +9,9 @@ import UIKit
 
 class MentoSearchViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var subjectListTable: UITableView!
-    @IBOutlet weak var subjectSearchBar: UISearchBar!
-    var categoryList = ["교과목", "수시/논술", "입시/경시대회", "외국어" ,"외국어 시험", "미술", "음악", "악기", "국악", "댄스", "IT/컴퓨터", "디자인", "취업 준비", "스포츠", "패션/뷰티", "사진/영상", "연기/공연/영화", "요리/커피"]
+
+    let categoryList = UserDefaultsManager.categoryList
+    var subjectDictionary : [String:[String]] = [:]
     
     //section 별 접기 펴기
     //    var isOpen = [Bool]()
@@ -18,25 +19,32 @@ class MentoSearchViewController: UIViewController, UISearchBarDelegate {
     //    for i in 0..<11 {
     //        isOpen.append(false)
     //    }
-    var isOpen = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    //    var isOpen = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
     
     override func viewDidLoad() {
         self.navigationItem.title = "카테고리"
         super.viewDidLoad()
-        
+        dataParsing()
         registerXib()
-        self.subjectListTable.rowHeight  = UITableView.automaticDimension
-        self.subjectListTable.estimatedRowHeight = 80
-        
         self.subjectListTable.dataSource = self
         self.subjectListTable.delegate = self
-        //        let searchController = UISearchController(searchResultsController: nil)
+        setupSearchController()
+    }
+    
+    func dataParsing(){
+        let subjects = UserDefaultsManager.subjectList
         
-        //        subjectSearchBar.delegate = self
-        //        self.navigationItem.searchController = searchController
-        
-        //        setupSearchController()
-        
+        if let categoryList = categoryList {
+            for i in 0..<categoryList.count{
+                var tmpArr = [""]
+                for j in 0..<subjects!.count{
+                    if subjects.map({$0[j].topic})! == categoryList[i]{
+                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
+                    }
+                }
+                subjectDictionary.updateValue(tmpArr, forKey: categoryList[i])
+            }
+        }
     }
     
     // tableviewcell xid 등록
@@ -59,81 +67,79 @@ class MentoSearchViewController: UIViewController, UISearchBarDelegate {
     }
 }
 
-extension MentoSearchViewController: UISearchResultsUpdating{
-    func updateSearchResults(for searchController: UISearchController) {
-        dump(subjectSearchBar.text)
-    }
-}
+//extension MentoSearchViewController: UISearchResultsUpdating{
+//    func updateSearchResults(for searchController: UISearchController) {
+//        dump(subjectSearchBar.text)
+//    }
+//}
 
 extension MentoSearchViewController : UITableViewDelegate, UITableViewDataSource {
-    //section
+    //category로 section 분류
     func numberOfSections(in tableView: UITableView) -> Int {
-        return categoryList.count
+        if let categoryList = categoryList{
+            return categoryList.count
+        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40.0
+        return 30.0
     }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categoryList[section]
-    }
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
-        header.textLabel?.font = UIFont.systemFont(ofSize: 17)
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50))
+        
+        let imageView = UIImageView()
+        let image = UIImage(systemName: "checkmark.circle")
+        imageView.image = image
+        imageView.tintColor = .systemPink
+        
+        let label = UILabel()
+        if let categoryList = categoryList{
+            label.text = categoryList[section]
+        }else{
+            label.text = "기타"
+        }
+        label.textColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
+        label.font = UIFont.systemFont(ofSize: 18)
+        
+        let stackView = UIStackView(arrangedSubviews: [imageView, label])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.spacing = 5
+        
+        let customView = UIView(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width, height: 30))
+        customView.addSubview(stackView)
+        
+        headerView.backgroundColor = .white
+        headerView.addSubview(customView)
+        
+        return headerView
     }
     
     //tableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //높이 유동적
-        switch indexPath.section{
-        case 0:
-            return 130
-        case 1:
-            return 170
-        case 2:
-            return 40
-        case 3:
-            return 50
-        default:
-            return 50
-        }
+        //높이 셀의 개수에 따라 유동적으로
+
+        let cellCount = subjectDictionary[categoryList![indexPath.section]]!.count
+        print(cellCount)
+        let totalHeight = tableView.bounds.height - (tableView.contentInset.top + tableView.contentInset.bottom)
+        let cellHeight = totalHeight / CGFloat(cellCount)
+        print(cellHeight)
+        return CGFloat(cellCount)*10
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        //        if isOpen[section] == true {
-        //            return 1
-        //        } else {
-        //            return 0
-        //        }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section{
-
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoSubjectTableViewCell", for: indexPath) as? MentoSubjectTableViewCell else { return UITableViewCell() }
-            cell.setData(list: ["국어", "수학", "영어", "과학", "사회", "한국사", "한문"])
-            return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoSubjectTableViewCell", for: indexPath) as? MentoSubjectTableViewCell else { return UITableViewCell() }
-            cell.setData(list: ["논술", "인문논술", "수리논술", "과학논술", "국어논술", "소논문", "자소서", "면접", "적성검사", "입시 컨설팅"])
-            return cell
-        case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoSubjectTableViewCell", for: indexPath) as? MentoSubjectTableViewCell else { return UITableViewCell() }
-            cell.setData(list: ["국어", "수학", "영어", "과학", "사회", "경제"])
-            return cell
-        case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoSubjectTableViewCell", for: indexPath) as? MentoSubjectTableViewCell else { return UITableViewCell() }
-            cell.setData(list: ["국어", "수학", "영어", "과학", "사회", "경제"])
-            return cell
-            
-        default:
-            return UITableViewCell()
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoSubjectTableViewCell", for: indexPath) as? MentoSubjectTableViewCell else { return UITableViewCell() }
         
+        cell.setData(list: subjectDictionary[categoryList![indexPath.section]]!)
+        return cell
     }
-    
 }
