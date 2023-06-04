@@ -15,14 +15,14 @@ final class APIService {
     private init() {}
     
     var categories = [Category]()
-
+    
     var userAccessToken: String?
     var accountId: Int64?
     
     var emailToken: String?
     var values: [String] = [""]
     
-    let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzYiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6NiwiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2ODQyMjcyMTAsImlhdCI6MTY4MTYzNTIxMCwianRpIjoiY2Y2eWdvaGU0a0xCdFlVRUxIVFRRWDJNcE5IZkRFOVA1UHZqSnZnbTJURU5TaXlkV3NXRElPcnRKdG5ZbFBabmNzRERpenVLOHViZTVTMERSbEl4VEFpU2VUUlNrU25VTjJrbTA5T3NhRUZYRmJ6Mll1QUZkSDJSanVRdWhHQU4ifQ.xm3fZUjAuwZeqsKUpuDYDki7jY48wF2x6i8YUrd7FH8kjEdB71pD_N9lNmbEWu7e6rcGSXzc8rj2jh4vJUiMOQ"
+    let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzMiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6MywiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2ODg0NTIyNzAsImlhdCI6MTY4NTg2MDI3MCwianRpIjoiVEpNYnNrQ0ZyMzdJcmdRVWxvNTR0aDJidll6NnF6b3JDSjcwbHdLMU01Mk9uT2U5SUplYTJURzVaNWhkc2lLdFo4NHZLQnpMRHE5MVlNcnNJMVdqRnRrWnNCVXBoYjhaNkdCdFA2ZzJRMjNWcWVFaWk5SDdvUDFwbzhDVkY5VHEifQ.IEPDHpSZ04viFB5aFarVN0d31wQ52FnpsmxezPcns2-VL_uvZ4Mlp8BIoIT2jBEoUE0pLx0DeCHY9sCmIsiknw"
     
     
     // MARK: - 계정 API
@@ -163,7 +163,7 @@ final class APIService {
                     jsonDict = try JSONSerialization.jsonObject(with: Data(data.utf8), options: []) as! [String:Any]
                     // Get the values from the JSON object
                     self.accountId = jsonDict["accountId"] as? Int64
-
+                    
                     
                     UserDefaults.standard.set(jsonDict["accountId"], forKey: "accountId")
                 } catch {
@@ -246,30 +246,30 @@ final class APIService {
     
     // MARK: - 채팅(Chatting) API
     // FCM으로 전달되는 메시지 정보
-//    {
-//      "eventType" : "NEW",
-//      "senderAccountId" : 1,
-//      "message" : "안녕하세요~",
-//      "type" : "TEXT",
-//      "createdDate" : "2023-03-26T19:17:41.711",
-//      "lastModifiedDate" : "2023-03-26T19:17:41.711"
-//    }
+    //    {
+    //      "eventType" : "NEW",
+    //      "senderAccountId" : 1,
+    //      "message" : "안녕하세요~",
+    //      "type" : "TEXT",
+    //      "createdDate" : "2023-03-26T19:17:41.711",
+    //      "lastModifiedDate" : "2023-03-26T19:17:41.711"
+    //    }
     // 채팅 생성
-//HTTP://localhost/chats'
-//    {
-//      "id" : 6,//채팅방 Id
-//      "accountId" : 70, //채팅방 생성한 사람
-//      "createdDate" : "2023-03-26T19:36:37.384",
-//      "lastChatMessage" : null
-//    }
-//
+    //HTTP://localhost/chats'
+    //    {
+    //      "id" : 6,//채팅방 Id
+    //      "accountId" : 70, //채팅방 생성한 사람
+    //      "createdDate" : "2023-03-26T19:36:37.384",
+    //      "lastChatMessage" : null
+    //    }
+    //
     
     // 채팅 메시지 생성
-//HTTP://localhost/chats/13/messages
-//    {
-//      "message" : "안녕하세요!!",
-//      "type" : "TEXT"
-//    }
+    //HTTP://localhost/chats/13/messages
+    //    {
+    //      "message" : "안녕하세요!!",
+    //      "type" : "TEXT"
+    //    }
     
     
     
@@ -335,10 +335,9 @@ final class APIService {
     //다이렉트 메시지 조회
     func getDirectMessage() {
         let url = Config.baseURL+"direct-messages/7"
-//        let accessToken = KeyChain.shared.getItem(id: "accessToken")!
+        //        let accessToken = KeyChain.shared.getItem(id: "accessToken")!
         let headers: HTTPHeaders = ["Content-Type" : "application/json",
                                     "Authentication" : "Bearer " + accessToken]
-        // 과목 데이터 가져오기 API
         AF.request(url, method: .get, headers: headers)
             .responseJSON { response in
                 switch response.result {
@@ -394,7 +393,7 @@ final class APIService {
     
     // MARK: - UI API
     //GET - 과목 데이터 가져오기
-    //Userdefault 에 저장하기
+    // Userdefault 저장
     func getSubjects() {
         let url = Config.baseURL+"assets/extracurricular-subjects"
         let headers: HTTPHeaders = ["Accept" : "application/json",
@@ -414,9 +413,6 @@ final class APIService {
                             UserDefaultsManager.subjectList!.insert(subjectData, at: 0)
                         }
                     }
-//                    print(UserDefaultsManager.subjectList)
-
-                    
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -426,26 +422,59 @@ final class APIService {
             }
         }
     }
-    //subject 카테고리별 저장
-    func saveSubjectInCategory() {
-//        Category.topic
+    
+    //GET - 추천멘토 데이터 가져오기
+    // Userdefault 저장
+    func getRecommendMentors() {
+        let url = Config.baseURL+"mentors/recommend"
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json",
+                                    "Authentication" : "Bearer " + accessToken]
+        AF.request(url, method: .get,  headers: headers).responseString { response in
+            switch response.result{
+            case .success(_):
+                do {
+                    let dataString = String(data: response.data!, encoding: .utf8)
+                    let data = dataString!.data(using: .utf8)!
+                    if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]{
+                        UserDefaultsManager.recommendMentorList = []
+                        for mentor in jsonArray{
+                            if let dictionary = self.optionalAnyToDictionary(mentor["account"]) {
+                                print(dictionary)
+                                let mentoData = RecommendMentor(id: dictionary["id"] as! Int,
+                                                                thumbnail: dictionary["thumbnail"] as? String,
+                                                                name: dictionary["name"] as! String)
+                                UserDefaultsManager.recommendMentorList!.insert(mentoData, at: 0)
+                            } else {
+                                print("Value is nil or cannot be converted to a dictionary.")
+                            }
+                        }
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+                print("⭐️추천 멘토 데이터 조회 성공⭐️")
+            default:
+                print("👿추천 멘토 조회 실패👿")
+            }
+        }
+    }
+    
+    func optionalAnyToDictionary(_ value: Any?) -> [String: Any]? {
+        guard let value = value else {
+            return nil // Optional value is nil, return nil dictionary
+        }
         
-//        switch topic{
-//        case Const.category.foreign:
-//            // 과목 저장 SubjectModel
-//            SubjectModel.init(code: code, value: value, topic: topic)
-//
-//
-//            break
-//        case Const.category.competition:
-//            break
-//        case Const.category.enunciation:
-//            break
-//        case Const.category.subject:
-//            break
-//        default:
-//            break
-//        }
+        if let dictionary = value as? [String: Any] {
+            return dictionary // Value is already a dictionary, return as is
+        }
+        
+        if let data = try? JSONSerialization.data(withJSONObject: value, options: []),
+           let dictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+            return dictionary // Value can be serialized to a dictionary, return the serialized dictionary
+        }
+        
+        return nil // Value cannot be converted to a dictionary, return nil
     }
     
     // coredata 저장

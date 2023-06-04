@@ -13,6 +13,7 @@
 		6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6815DB36297A735D00E6B356 /* KeyChain.swift */; };
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
 		68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */; };
+		683461122A2C6A0900A31EDB /* RecommendMentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683461112A2C6A0900A31EDB /* RecommendMentor.swift */; };
 		6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2EA28154B9300048E21 /* CoreDataManager.swift */; };
 		683D5213296AACC800F8EB88 /* CategoryMentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */; };
 		683D5215296AACDE00F8EB88 /* MentoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D5214296AACDE00F8EB88 /* MentoInfoViewController.swift */; };
@@ -135,6 +136,7 @@
 		6815DB36297A735D00E6B356 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyViewController.swift; sourceTree = "<group>"; };
+		683461112A2C6A0900A31EDB /* RecommendMentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendMentor.swift; sourceTree = "<group>"; };
 		6836D2EA28154B9300048E21 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMentoListViewController.swift; sourceTree = "<group>"; };
 		683D5214296AACDE00F8EB88 /* MentoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoInfoViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 		68442AED27730E2F009DF75A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				683461112A2C6A0900A31EDB /* RecommendMentor.swift */,
 				68F3AE68280C249200CF53DC /* Subject */,
 				E546934527F9C73A007A1791 /* Chat */,
 				68442AEE27730E2F009DF75A /* UserModel.swift */,
@@ -975,6 +978,7 @@
 				68F6ED1D28FC0F58003C93D3 /* SubjectEntity+CoreDataClass.swift in Sources */,
 				68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */,
 				6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */,
+				683461122A2C6A0900A31EDB /* RecommendMentor.swift in Sources */,
 				6879ACB928BB73A300E758A4 /* MentoListCell.swift in Sources */,
 				68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,

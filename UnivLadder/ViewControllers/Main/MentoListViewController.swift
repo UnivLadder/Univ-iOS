@@ -12,6 +12,8 @@ class MentoListViewController: UIViewController {
     
     let mainView = MainView()
     var categoryArr = [String]()
+    // 지금 뜨고 있는 멘토
+    var recommendMentoArr = [RecommendMentor]()
 
     // 지금 뜨고 있는 멘토 data
     var mentoList = [["안이연","person.png"], ["박강현","펭수.png"],["충주","person.png"],["오스틴","펭수.png"],["림팍","펭수.png"]]
@@ -21,48 +23,27 @@ class MentoListViewController: UIViewController {
     
     // MARK: - UI func
     override func loadView() {
-//        APIService.shared.getSubjects()
         view = mainView
         dataParsing()
         setupCollectionView()
     }
     
+    /// 카테고리, 추천 멘토 데이터 파싱
     func dataParsing(){
+        //카테고리
         let subjects = UserDefaultsManager.subjectList
         var tmpArr: [String] = []
-//        var categorySet = Set<String>()
         for i in 0..<subjects!.count{
-//            categorySet.insert(subjects.map{$0[i].topic}!)
             tmpArr.append(subjects.map{$0[i].topic}!)
         }
         categoryArr = NSOrderedSet(array: tmpArr).map({ $0 as! String })
         UserDefaultsManager.categoryList = categoryArr
-    }
+        
+        // 추천 멘토
+        recommendMentoArr = UserDefaultsManager.recommendMentorList!
 
-    // UI component 호출
-//    func dataParsing(){
-//        let subjects = UserDefaultsManager.subjectList
-//        var categorySet = Set<String>()
-//        for i in 0..<subjects!.count{
-//            categorySet.insert(subjects.map{$0[i].topic}!)
-//        }
-//
-//        categoryArr = Array(categorySet)
-//        UserDefaultsManager.categoryList = Array(categorySet)
-//
-//    }
-    
-    // array 중복 제거
-    func removeDuplicate (_ array: [String]) -> [String] {
-        var removedArray = [String]()
-        for i in array {
-            if removedArray.contains(i) == false {
-                removedArray.append(i)
-            }
-        }
-        return removedArray
     }
-    
+  
     private func setupCollectionView() {
         mainView.mentoCollectionView.delegate = self
         mainView.mentoCollectionView.dataSource = self
@@ -110,7 +91,8 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
         if collectionView == mainView.categoryCollectionView {
             return categoryArr.count
         }else{
-            return mentoList.count
+//            return mentoList.count
+            return recommendMentoArr.count
         }
     }
     
@@ -135,14 +117,13 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
             cell.imageView.clipsToBounds = true
             
             return cell
-            
         }else{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MentoListCell.mentoRegisterId, for: indexPath) as? MentoListCell else {
                 return UICollectionViewCell()
             }
-            cell.label.text = mentoList[indexPath.row][0]
-            
-            let customImage = UIImage(named: mentoList[indexPath.row][1])
+            cell.label.text = recommendMentoArr[indexPath.row].name
+
+            let customImage = (recommendMentoArr[indexPath.row].thumbnail == nil) ? UIImage(named: "person.png") : UIImage(named: mentoList[indexPath.row][1])
             let newImageRect = CGRect(x: 0, y: 0, width: Constant.profileImgSize, height: Constant.profileImgSize)
             UIGraphicsBeginImageContext(CGSize(width: Constant.profileImgSize, height: Constant.profileImgSize))
             customImage?.draw(in: newImageRect)
@@ -155,7 +136,6 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
             
             return cell
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

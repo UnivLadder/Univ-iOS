@@ -39,9 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //과목정보 불러옴
-        APIService.shared.getSubjects()
-        
+        //과목 정보 불러옴
+//        APIService.shared.getSubjects()
+        APIService.shared.getRecommendMentors()
         // APNs
 //        registerForRemoteNotifications()
         

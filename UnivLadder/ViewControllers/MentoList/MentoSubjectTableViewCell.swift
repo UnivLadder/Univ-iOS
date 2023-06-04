@@ -71,12 +71,9 @@ extension MentoSubjectTableViewCell: UICollectionViewDelegate {
         
         //cell label 값 넣기
         cell.mentoSubjectLabel.text = subjectList[indexPath.item]
-        cell.subjectCountLabel.text = "(000)"
+        //추후 과목별 멘토 수 label 추가
+//        cell.subjectCountLabel.text = "(000)"
         //        cell.setData(userData: subjectList[indexPath.row])
         return cell
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "ShowMentoListView", sender: indexPath.item)
-//    }
 }

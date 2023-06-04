@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// 멘토 서치바 클릭시 나오는 화면
 class MentoSearchViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var subjectListTable: UITableView!
 
@@ -36,7 +37,7 @@ class MentoSearchViewController: UIViewController, UISearchBarDelegate {
         
         if let categoryList = categoryList {
             for i in 0..<categoryList.count{
-                var tmpArr = [""]
+                var tmpArr: [String] = []
                 for j in 0..<subjects!.count{
                     if subjects.map({$0[j].topic})! == categoryList[i]{
                         tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
@@ -62,7 +63,7 @@ class MentoSearchViewController: UIViewController, UISearchBarDelegate {
         searchController.hidesNavigationBarDuringPresentation = false
         
         self.navigationItem.searchController = searchController
-        self.navigationItem.title = "Search"
+        self.navigationItem.title = "카테고리"
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
 }
@@ -122,13 +123,9 @@ extension MentoSearchViewController : UITableViewDelegate, UITableViewDataSource
     //tableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //높이 셀의 개수에 따라 유동적으로
-
         let cellCount = subjectDictionary[categoryList![indexPath.section]]!.count
-        print(cellCount)
-        let totalHeight = tableView.bounds.height - (tableView.contentInset.top + tableView.contentInset.bottom)
-        let cellHeight = totalHeight / CGFloat(cellCount)
-        print(cellHeight)
-        return CGFloat(cellCount)*10
+        let cellHeight = (cellCount%3 == 0) ? (cellCount/3)*45 : ((cellCount/3)+1)*45
+        return CGFloat(cellHeight)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int

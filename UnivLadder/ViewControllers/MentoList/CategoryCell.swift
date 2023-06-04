@@ -1,35 +1,28 @@
 //
-//  MontoListCell.swift
+//  CategoryCell.swift
 //  UnivLadder
 //
-//  Created by leeyeon2 on 2022/08/14.
+//  Created by leeyeon2 on 2023/05/28.
 //
 
 import UIKit
 
-class SubjectListCell: UICollectionViewCell {
-    
-    static let subjectRegisterId = "\(SubjectListCell.self)"
-    
+class CategoryCell: UICollectionViewCell {
+    static let categoryRegisterId = "\(MentoListCell.self)"
     
     let label = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = .white
-        $0.font = UIFont.boldSystemFont(ofSize: 18)
+        $0.font = Fonts.EsamanruOTF.medium.font(size: 20)
+        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
-    
-//    private let imageView = UIImageView()
 
     let main = UIView().then {
         $0.layer.cornerRadius = 10
-//        $0.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
     }
     
-    let imageView = UIImageView().then{
-        $0.layer.cornerRadius = 10
-//        $0.image = UIImage(named: "미술.png")
-    }
+    let imageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,10 +37,6 @@ class SubjectListCell: UICollectionViewCell {
     private func setup() {
         addSubview(main)
         addSubview(imageView)
-        imageView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-//        imageView.backgroundColor = .tertiaryLabel
         addSubview(label)
     }
     
@@ -56,10 +45,15 @@ class SubjectListCell: UICollectionViewCell {
             make.edges.equalTo(0)
         }
         
+        imageView.snp.makeConstraints {
+            $0.top.equalTo(main.snp.top)
+            $0.leading.equalTo(main.snp.leading)
+            $0.trailing.equalTo(main.snp.trailing)
+        }
+        
         label.snp.makeConstraints {
-            $0.top.equalTo(main.snp.top).offset(40)
-//            $0.top.equalTo(main.snp.leading)
-//            $0.leading.equalTo(main.snp.leading)
+            $0.centerY.equalTo(imageView)
+//            $0.top.equalTo(imageView.snp.top).offset(40)
             $0.leading.equalTo(main.snp.leading)
             $0.trailing.equalTo(main.snp.trailing)
         }
