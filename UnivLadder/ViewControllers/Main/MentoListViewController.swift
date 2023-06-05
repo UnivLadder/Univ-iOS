@@ -16,7 +16,7 @@ class MentoListViewController: UIViewController {
     var recommendMentoArr = [RecommendMentor]()
 
     // 지금 뜨고 있는 멘토 data
-    var mentoList = [["안이연","person.png"], ["박강현","펭수.png"],["충주","person.png"],["오스틴","펭수.png"],["림팍","펭수.png"]]
+    var mentoList = [["이정은","w4.jpg"], ["박강현",""],["혜리","w1.jpg"],["Tom","w3.jpg"],["Daisy","person.png"]]
     static func instance() -> MentoListViewController {
         return MentoListViewController.init(nibName: nil, bundle: nil)
     }
@@ -77,7 +77,7 @@ class MentoListViewController: UIViewController {
         case "입시/경시대회", "취업준비":
             return "취업준비_3x.png"
         case "교과목", "패션":
-            return "패션_뷰티_3x.png"
+            return "미술_3x.png"
         case "수시/논술", "시험":
             return "시험_자격증_3x.png"
         default:
@@ -91,8 +91,8 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
         if collectionView == mainView.categoryCollectionView {
             return categoryArr.count
         }else{
-//            return mentoList.count
-            return recommendMentoArr.count
+            return mentoList.count
+//            return recommendMentoArr.count
         }
     }
     
@@ -121,9 +121,13 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MentoListCell.mentoRegisterId, for: indexPath) as? MentoListCell else {
                 return UICollectionViewCell()
             }
-            cell.label.text = recommendMentoArr[indexPath.row].name
+            //UI용
+            cell.label.text = mentoList[indexPath.row][0]
+            let customImage = (mentoList[indexPath.row][1] != "") ? UIImage(named: mentoList[indexPath.row][1]) : UIImage(systemName: "person.crop.circle.fill")
 
-            let customImage = (recommendMentoArr[indexPath.row].thumbnail == nil) ? UIImage(named: "person.png") : UIImage(named: mentoList[indexPath.row][1])
+            //실데이터
+            //cell.label.text = recommendMentoArr[indexPath.row].name
+//            let customImage = (recommendMentoArr[indexPath.row].thumbnail == nil) ? UIImage(systemName: "person.crop.circle.fill") : UIImage(named: mentoList[indexPath.row][1])
             let newImageRect = CGRect(x: 0, y: 0, width: Constant.profileImgSize, height: Constant.profileImgSize)
             UIGraphicsBeginImageContext(CGSize(width: Constant.profileImgSize, height: Constant.profileImgSize))
             customImage?.draw(in: newImageRect)

@@ -2,15 +2,13 @@
 //  MentoListView.swift
 //  UnivLadder
 //
-//  Created by Ahyeonway on 2022/03/13.
+//  Created by leeyeon2 on 2022/09/13.
 //
 
 import UIKit
 // SnapKit : 스토리 보드 없이 오토 레이아웃 할 수 있는 라이브러리
 import SnapKit
 import Then
-
-
 
 class MainView: UIView {
 
@@ -46,21 +44,21 @@ class MainView: UIView {
     }
     
     let nameLabel = UILabel().then {
-        $0.font = Fonts.EsamanruOTF.bold.font(size: 22)
+        $0.font = Fonts.EsamanruOTF.bold.font(size: Constant.menuFontSizeXS)
         let userInfo = CoreDataManager.shared.getUserInfo()
         
         //exception 처리
         if userInfo.count > 0{
             $0.text = userInfo[0].name
         }else{
-            $0.text = "이용"
+            $0.text = "홍길동"
         }
         
         $0.textColor = .black
     }
     
     let name2Label = UILabel().then {
-        $0.font = Fonts.EsamanruOTF.medium.font(size: 20)
+        $0.font = Fonts.EsamanruOTF.medium.font(size: Constant.menuFontSizeXS-2)
         $0.text = "님"
         $0.textColor = .black
     }
@@ -79,7 +77,7 @@ class MainView: UIView {
     
     // MARK: - 멘토 찾기
     let searchMentoTitleLabel = UILabel().then {
-        $0.font = Fonts.EsamanruOTF.medium.font(size: 22)
+        $0.font = Fonts.EsamanruOTF.medium.font(size: Constant.menuFontSizeXS)
         $0.textColor = .black
         $0.text = "멘토 찾기"
     }
@@ -144,7 +142,7 @@ class MainView: UIView {
     
     //카테고리
     let categoryCollectionLabel = UILabel().then {
-        $0.font = Fonts.EsamanruOTF.medium.font(size: 22)
+        $0.font = Fonts.EsamanruOTF.medium.font(size: Constant.menuFontSizeXS)
         $0.textColor = .black
         $0.text = "카테고리"
     }
@@ -161,7 +159,7 @@ class MainView: UIView {
     
     // MARK: - 지금 뜨고 있는 멘토
     let mentoListTitleLabel = UILabel().then {
-        $0.font = Fonts.EsamanruOTF.medium.font(size: 22)
+        $0.font = Fonts.EsamanruOTF.medium.font(size: Constant.menuFontSizeXS)
         $0.textColor = .black
         $0.text = "지금 뜨고 있는 멘토"
     }

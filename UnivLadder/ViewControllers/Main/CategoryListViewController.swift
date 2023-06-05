@@ -8,9 +8,11 @@
 import UIKit
 
 /// 멘토 서치바 클릭시 나오는 화면
-class MentoSearchViewController: UIViewController, UISearchBarDelegate {
+class CategoryListViewController: UIViewController, UISearchBarDelegate {
+    
+    //카테고리별 과몰 테이블 뷰
     @IBOutlet weak var subjectListTable: UITableView!
-
+    
     let categoryList = UserDefaultsManager.categoryList
     var subjectDictionary : [String:[String]] = [:]
     
@@ -30,6 +32,7 @@ class MentoSearchViewController: UIViewController, UISearchBarDelegate {
         self.subjectListTable.dataSource = self
         self.subjectListTable.delegate = self
         setupSearchController()
+        self.subjectListTable.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
     func dataParsing(){
@@ -74,7 +77,8 @@ class MentoSearchViewController: UIViewController, UISearchBarDelegate {
 //    }
 //}
 
-extension MentoSearchViewController : UITableViewDelegate, UITableViewDataSource {
+extension CategoryListViewController : UITableViewDelegate, UITableViewDataSource {
+    
     //category로 section 분류
     func numberOfSections(in tableView: UITableView) -> Int {
         if let categoryList = categoryList{
@@ -137,6 +141,11 @@ extension MentoSearchViewController : UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoSubjectTableViewCell", for: indexPath) as? MentoSubjectTableViewCell else { return UITableViewCell() }
         
         cell.setData(list: subjectDictionary[categoryList![indexPath.section]]!)
+        cell.didSelectItemAction = { [weak self] indexPath in
+            self?.performSegue(withIdentifier: "CategoryMentoSegue", sender: self)
+        }
+
         return cell
     }
+    
 }
