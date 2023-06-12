@@ -12,10 +12,14 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
     var Picker = UIImagePickerController()
     var container: NSPersistentContainer!
     var accountImgURL = ""
+    
     @IBOutlet weak var accountImg: UIImageView!
     @IBOutlet weak var accountImgModifyBtn: UIButton!
-    
-    @IBOutlet weak var saveModifiedUserInfoBtn: UIButton!
+    @IBOutlet weak var saveModifiedUserInfoBtn: UIButton!{
+        didSet{
+            saveModifiedUserInfoBtn.layer.cornerRadius = 10
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +72,7 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
 //            accountImg.image = UIImage(data: data!)
 //
 //        }else{
-//            accountImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
+            accountImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
 //        }
         
         accountImgModifyBtn.layer.cornerRadius = accountImgModifyBtn.frame.height/2

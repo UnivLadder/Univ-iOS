@@ -2,7 +2,7 @@
 //  ViewRepresentable.swift
 //  UnivLadder
 //
-//  Created by Ahyeonway on 2022/03/13.
+//  Created by leeyeon2 on 2022/09/13.
 //
 
 import Foundation

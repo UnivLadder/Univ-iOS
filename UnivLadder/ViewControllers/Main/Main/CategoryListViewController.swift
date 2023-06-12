@@ -39,15 +39,16 @@ class CategoryListViewController: UIViewController, UISearchBarDelegate {
         let subjects = UserDefaultsManager.subjectList
         
         if let categoryList = categoryList {
-            for i in 0..<categoryList.count{
+            categoryList.enumerated().forEach({
                 var tmpArr: [String] = []
                 for j in 0..<subjects!.count{
-                    if subjects.map({$0[j].topic})! == categoryList[i]{
+                    if subjects.map({$0[j].topic})! == categoryList[$0.offset]{
                         tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
                     }
                 }
-                subjectDictionary.updateValue(tmpArr, forKey: categoryList[i])
-            }
+                subjectDictionary.updateValue(tmpArr, forKey: $0.element)
+            })
+            UserDefaultsManager.subjectDictionary = subjectDictionary
         }
     }
     
@@ -142,10 +143,25 @@ extension CategoryListViewController : UITableViewDelegate, UITableViewDataSourc
         
         cell.setData(list: subjectDictionary[categoryList![indexPath.section]]!)
         cell.didSelectItemAction = { [weak self] indexPath in
-            self?.performSegue(withIdentifier: "CategoryMentoSegue", sender: self)
+            self?.performSegue(withIdentifier: "CategoryMentoSegue", sender: 1)
+//            self?.performSegue(withIdentifier: "CategoryMentoSegue", sender: indexPath.row)
         }
 
         return cell
+    }
+    
+    //segue 실행시 전달될 data parsing
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CategoryMentoSegue"{
+            if let destination = segue.destination as? CategoryMentoListViewController {
+                //선택한 카테고리 정보 전달
+                if let index = sender as? Int{
+                    
+                    destination.category = categoryList![index]
+                }
+
+            }
+        }
     }
     
 }

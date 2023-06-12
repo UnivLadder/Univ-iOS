@@ -53,7 +53,7 @@ class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if indexPath.row == 0 {
             return 100
         }else {
-            return 50
+            return UITableView.automaticDimension
         }
     }
     

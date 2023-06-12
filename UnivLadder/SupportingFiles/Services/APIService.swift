@@ -365,7 +365,7 @@ final class APIService {
     }
     
     // MARK: - FCM API
-    //PUT - 서버에 FCM token 보내기
+    // PUT - 서버에 FCM token 보내기
     //request
     //    {
     //      "fcmToken" : "FCM_TOKEN"
@@ -392,7 +392,7 @@ final class APIService {
     }
     
     // MARK: - UI API
-    //GET - 과목 데이터 가져오기
+    // GET - 과목 데이터 가져오기(완료)
     // Userdefault 저장
     func getSubjects() {
         let url = Config.baseURL+"assets/extracurricular-subjects"
@@ -423,7 +423,7 @@ final class APIService {
         }
     }
     
-    //GET - 추천멘토 데이터 가져오기
+    //GET - 추천멘토 데이터 가져오기(완료)
     // Userdefault 저장
     func getRecommendMentors() {
         let url = Config.baseURL+"mentors/recommend"
@@ -459,6 +459,56 @@ final class APIService {
             }
         }
     }
+    
+    //공지사항 API
+//    [ {
+//    "code" : 1,
+//    "title" : "안드로이드 지원 중단 안내",
+//    "contents" : "안녕하세요~",
+//    "createdDate" : "2023-05-15T01:29:20.818"
+//  } ]
+    
+    //    [ {
+    //    "code" : 1,
+    //    "title" : "iOS & iPadOS 17 Beta Release Notes",
+    //    "contents" : "Devices with a large number of installed apps will display an Apple logo with progress bar for an extended period while the file system format is updated. This is a one-time migration when upgrading to iOS 17 beta for the first time. (109431767)",
+    //    "createdDate" : "2023-06-06T06:30:00.000"
+    //  } ]
+    func getNotices() {
+        let url = Config.baseURL+"assets/notices"
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json"]
+        AF.request(url, method: .get,  headers: headers).responseString { response in
+            switch response.result{
+            case .success(_):
+                do {
+                    let dataString = String(data: response.data!, encoding: .utf8)
+                    let data = dataString!.data(using: .utf8)!
+                    if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]{
+                        UserDefaultsManager.recommendMentorList = []
+                        for mentor in jsonArray{
+                            if let dictionary = self.optionalAnyToDictionary(mentor["account"]) {
+                                print(dictionary)
+                                let mentoData = RecommendMentor(id: dictionary["id"] as! Int,
+                                                                thumbnail: dictionary["thumbnail"] as? String,
+                                                                name: dictionary["name"] as! String)
+                                UserDefaultsManager.recommendMentorList!.insert(mentoData, at: 0)
+                            } else {
+                                print("Value is nil or cannot be converted to a dictionary.")
+                            }
+                        }
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+                print("⭐️추천 멘토 데이터 조회 성공⭐️")
+            default:
+                print("👿추천 멘토 조회 실패👿")
+            }
+        }
+    }
+    
+    
     
     func optionalAnyToDictionary(_ value: Any?) -> [String: Any]? {
         guard let value = value else {

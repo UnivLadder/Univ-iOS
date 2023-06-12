@@ -11,8 +11,8 @@ import UIKit
 class AppInfoViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
     var cellTitle = ["서비스 이용약간", "개인정보 처리방침", "오픈소스 라이선스", "앱 버전"]
-    var appVersion = "1.1.0"
-    
+    var appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+
     override func viewDidLoad() {
         self.navigationItem.title = "[앱] 안내"
     }

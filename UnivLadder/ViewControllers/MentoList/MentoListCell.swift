@@ -67,7 +67,8 @@ class MentoListCell: UICollectionViewCell {
         }
         
         label.snp.makeConstraints {
-            $0.top.equalTo(main.snp.top).offset(80)
+            $0.top.equalTo(main.snp.top).offset(85)
+//            $0.top.equalTo(main.snp.top).offset(80)
             $0.leading.equalTo(main.snp.leading)
             $0.trailing.equalTo(main.snp.trailing)
         }

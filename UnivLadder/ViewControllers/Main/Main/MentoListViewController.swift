@@ -7,7 +7,6 @@
 
 import UIKit
 
-//
 class MentoListViewController: UIViewController {
     
     let mainView = MainView()

@@ -48,7 +48,7 @@ class MyPageViewController: UIViewController {
     func myProfileViewSetting() {
         // core data에서 user 정보 가져옴
         let userInfo = CoreDataManager.shared.getUserInfo()
-        self.myPageName.text = "이용"
+        self.myPageName.text = "홍길동"
         self.myPageEmail.text = "lxxyeon@gmail.com"
 //        self.myPageName.text = userInfo[0].name
 //        self.myPageEmail.text = userInfo[0].email
@@ -65,12 +65,12 @@ class MyPageViewController: UIViewController {
       
         if userStatusBool{
             // 유저 상태가 true 면 멘티로 등록
-            self.userStatusToggleBtn.setTitle("멘티로 전환하기", for: .normal)
+            self.userStatusToggleBtn.setTitle("멘티로 전환", for: .normal)
             self.mentoView.isHidden = false
             self.userStatusViewSetting()
         }else{
             // 유저 상태가 false 면 멘토로 등록
-            self.userStatusToggleBtn.setTitle("멘토로 전환하기", for: .normal)
+            self.userStatusToggleBtn.setTitle("멘토로 전환", for: .normal)
             self.mentoView.isHidden = true
         }
     }

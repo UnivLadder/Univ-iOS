@@ -37,6 +37,9 @@ class SubjectModifyViewController: UIViewController {
     //      "value" : "영어"
     //    } ]
     
+    let categoryList = UserDefaultsManager.categoryList
+    let subjectDictionary = UserDefaultsManager.subjectDictionary
+
     //topic 값들
     private var subjectCategoryList = ["전체"]
     
@@ -56,7 +59,7 @@ class SubjectModifyViewController: UIViewController {
         //있으면 뿌려주기
         
         
-        getAllSubjects()
+//        getAllSubjects()
         self.configureLayout()
         self.collectionViewLayout()
 
@@ -64,17 +67,18 @@ class SubjectModifyViewController: UIViewController {
     }
     
     fileprivate func getAllSubjects() {
-        let subjects: [SubjectEntity] = CoreDataManager.shared.getSubjectEntity()
-        // 중복 topic 제거
-        subjectCategoryList.append(contentsOf: removeDuplicate(subjects.map({$0.topic!})))
-        
-        for index in 0..<subjectCategoryList.count{
-            print("\(index) : \(subjectCategoryList[index])")
-            var key = subjectCategoryList[index]
-            subjectList[key] = subjects.map({$0.value!})[index]
-        }
-        
-        print(subjectList)
+
+//        let subjects: [SubjectEntity] = CoreDataManager.shared.getSubjectEntity()
+//        // 중복 topic 제거
+//        subjectCategoryList.append(contentsOf: removeDuplicate(subjects.map({$0.topic!})))
+//
+//        for index in 0..<subjectCategoryList.count{
+//            print("\(index) : \(subjectCategoryList[index])")
+//            var key = subjectCategoryList[index]
+//            subjectList[key] = subjects.map({$0.value!})[index]
+//        }
+//
+//        print(subjectList)
         
         //        dict["key"] = "value"
         

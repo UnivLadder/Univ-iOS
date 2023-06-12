@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -360,7 +360,7 @@
                     <navigationItem key="navigationItem" title="프로필 수정" id="XKS-Et-MTQ"/>
                     <connections>
                         <outlet property="modifyTableView" destination="o5J-mA-iOf" id="E76-P5-HHk"/>
-                        <segue destination="ncy-G3-hT2" kind="show" identifier="toSubjectModify" id="0db-pH-GXk"/>
+                        <segue destination="eu3-ai-69y" kind="show" identifier="toSubjectModify" id="80p-Ip-29x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERq-Ln-IE0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -535,7 +535,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmI-am-zRG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3714" y="2035"/>
+            <point key="canvasLocation" x="3716" y="2069"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tb0-t1-yQY">
@@ -564,18 +564,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSb-RY-1yr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4605" y="2044"/>
+            <point key="canvasLocation" x="4558" y="2069"/>
         </scene>
         <!--Subject-->
         <scene sceneID="vE7-57-GF3">
             <objects>
                 <viewController storyboardIdentifier="SubjectModifyViewController" title="Subject" id="ncy-G3-hT2" customClass="SubjectModifyViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OvO-Ph-kDA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xEE-77-bhx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="70"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="dZ0-qf-FWM"/>
@@ -623,7 +623,7 @@
                                 <color key="backgroundColor" red="0.60412872969999998" green="0.91266634410000003" blue="0.92812597429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="drh-ph-rFR">
-                                <rect key="frame" x="0.0" y="168" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="168" width="414" height="694"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T4A-dc-7mv">
                                     <size key="itemSize" width="128" height="128"/>
@@ -686,7 +686,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVh-G6-m1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4590" y="1357"/>
+            <point key="canvasLocation" x="4558" y="623"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jtv-By-c2b">
+            <objects>
+                <viewController id="ViD-It-XZ9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Shk-Og-vAR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dFx-Cf-VmA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="55c-JA-hph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5332" y="1357"/>
         </scene>
         <!--계정 정보 수정-->
         <scene sceneID="o7v-Ww-hxs">
@@ -854,15 +869,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="계정 정보 수정" id="ymE-OM-eEg">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="lN2-QA-yuK">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="yme-8k-asg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="yme-8k-asg">
                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="회원 탈퇴"/>
                                 <connections>
                                     <action selector="deleteUserBtnAction:" destination="Nni-Qm-Jwc" eventType="touchUpInside" id="gdT-Fc-dOU"/>
                                 </connections>
                             </button>
+                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -880,11 +897,11 @@
             <objects>
                 <viewController storyboardIdentifier="MentoRegister" id="eu3-ai-69y" customClass="MentoRegisterViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kWq-u2-sSd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="어떤 분야의 과외를 진행하실 수 있나요? " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zaX-pb-jWm">
-                                <rect key="frame" x="10" y="53" width="394" height="77"/>
+                                <rect key="frame" x="10" y="5" width="394" height="77"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="77" id="6Cj-a7-Ip5"/>
@@ -894,13 +911,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세부적인 과목은 마이페이지에서 설정해주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghf-51-EHC">
-                                <rect key="frame" x="15" y="135" width="285" height="14.5"/>
+                                <rect key="frame" x="15" y="87" width="285" height="14.5"/>
                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DMi-Dy-cfg">
-                                <rect key="frame" x="10" y="189.5" width="394" height="592.5"/>
+                                <rect key="frame" x="10" y="141.5" width="394" height="664.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7gL-Mf-Hyb">
                                     <size key="itemSize" width="128" height="128"/>
@@ -940,7 +957,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pd5-hQ-WD5">
-                                <rect key="frame" x="20" y="792" width="374" height="50"/>
+                                <rect key="frame" x="20" y="816" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.42745098040000001" green="0.35294117650000001" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vLT-YZ-doT"/>
@@ -979,7 +996,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="di8-Xp-Nng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3713" y="-80"/>
+            <point key="canvasLocation" x="4558" y="1357"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="Hvr-N8-taf">
@@ -1001,6 +1018,7 @@
             <point key="canvasLocation" x="1795.6521739130437" y="956.91964285714278"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="modify" width="18" height="18"/>

@@ -14,7 +14,8 @@ class NoticeContentTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        noticeContentCellLabel.text = "BLAH BLAH BLAH BLAH BLAH"
+        noticeContentCellLabel.text = "Devices with a large number of installed apps will display an Apple logo with progress bar for an extended period while the file system format is updated. This is a one-time migration when upgrading to iOS 17 beta for the first time. (109431767)"
+        noticeContentCellLabel.numberOfLines = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -15,7 +15,7 @@ class ChatRoomViewController: UIViewController {
         return vc
     }
     
-    let data: [String] = Array(repeating: "test", count: 10)
+    let data: [String] = Array(repeating: "test", count: 5)
 
     var isExpanded: Bool = false {
         didSet {
@@ -35,7 +35,6 @@ class ChatRoomViewController: UIViewController {
         didSet {
             inputBackgroundView.layer.cornerRadius = Constant.cornerRadius
             inputBackgroundView.backgroundColor = Colors.Light.light500.color
-            
         }
     }
     @IBOutlet weak var expandButton: UIButton! {
@@ -170,15 +169,40 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row % 2 == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChatBubbleCell.identifier, for: indexPath) as? MyChatBubbleCell else {
+                
+  
+                
                 return UITableViewCell()
             }
+            //보내는 사람
+            var bubble = ["안녕하세요 :)"," ",
+                          "네 안녕하세요~ OPIC 관련해서 멘토링 받고 싶어서 연락드립니다."," ",
+                          "OPIC을 처음 준비하는 학생입니다. IH를 목표로 하고 있는데 단기간에 성적을 받을 수 있는 방법이 있을까요~?"," ",
+                          "안녕하세요 :)","안녕하세요 :)",
+                          "안녕하세요 :)"]
+            var time = ["12:00","12:00","12:07","12:00","12:15",
+                        "12:00","12:00","12:00","12:00","12:00"]
+            
+            cell.bubbleLabel.text = bubble[indexPath.row]
+            cell.timeLabel.text = time[indexPath.row]
+            
             cell.selectionStyle = .none
             return cell
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: YourChatBubbleCell.identifier, for: indexPath) as? YourChatBubbleCell else {
             return UITableViewCell()
         }
+        //받는 사람
+        var bubble2 = ["","네 안녕하세요. 영어 및 영어 관련 자격증 멘토 홍길동입니다!😊",
+                       "","아하 그러시군요 반갑습니다! 어떤 부분에서 멘토링이 필요하실까요!? ",
+                       "안녕하세요"," ",
+                       "안녕하세요"," ",
+                       "안녕하세요"," "]
+        var time2 = ["","12:03","12:09","12:09","12:00",
+                     "12:00","12:00","12:00","12:00","12:00"]
         
+        cell.bubbleLabel.text = bubble2[indexPath.row]
+        cell.timeLabel.text = time2[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }

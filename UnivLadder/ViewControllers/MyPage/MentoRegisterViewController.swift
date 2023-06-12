@@ -11,6 +11,7 @@ class MentoRegisterViewController: UIViewController {
     
     @IBOutlet weak var subjectCollectionView: UICollectionView!
     
+    //카테고리 리스트
     var subjectList = ["교과목", "수시/논술", "입시/경시대회", "외국어" ,"외국어 시험", "미술", "음악", "악기", "국악", "댄스", "IT/컴퓨터", "디자인", "취업 준비", "스포츠", "패션/뷰티", "사진/영상", "연기/공연/영화", "요리/커피"]
     
     // 선택한 과목들

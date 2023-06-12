@@ -14,6 +14,9 @@ struct UserDefaultsManager {
     @UserDefaultWrapper(key: "categoryList", defaultValue: nil)
     static var categoryList: [String]?
     
+    @UserDefaultWrapper(key: "subjectDictionary", defaultValue: nil)
+    static var subjectDictionary: [String:[String]]?
+    
     @UserDefaultWrapper(key: "recommendMentor", defaultValue: nil)
     static var recommendMentorList: [RecommendMentor]?
 }

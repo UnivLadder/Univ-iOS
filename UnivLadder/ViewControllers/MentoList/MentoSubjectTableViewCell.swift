@@ -81,10 +81,6 @@ extension MentoSubjectTableViewCell: UICollectionViewDelegate {
         
         // 과목
         print(subjectList[indexPath.item])
-        
         didSelectItemAction?(indexPath)
-        
     }
-    
-
 }

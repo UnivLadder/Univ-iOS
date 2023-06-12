@@ -12,9 +12,10 @@ class CategoryCell: UICollectionViewCell {
     
     let label = UILabel().then {
         $0.textAlignment = .center
+        $0.numberOfLines = 2
+//        $0.lineBreakMode = .byCharWrapping
         $0.textColor = .white
         $0.font = Fonts.EsamanruOTF.medium.font(size: 20)
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
