@@ -21,8 +21,13 @@ class CategoryMentoListViewController: UIViewController {
     //클릭한 카테고리에 해당하는 과목들
     public var category: String?
     
+    private var subjectCategoryList:[String] = []
+//    UserDefaultsManager.subjectDictionary!["교과목"]
     
-    private var subjectCategoryList = UserDefaultsManager.subjectDictionary!["교과목"]
+    let categoryList = UserDefaultsManager.categoryList
+    var subjectDictionary: [String:[String]] = [:]
+    
+
 //    subjectDictionary[categoryList![indexPath.section]]!
     
     //과목별 멘토리스트
@@ -32,30 +37,13 @@ class CategoryMentoListViewController: UIViewController {
     
     var constraints: [NSLayoutConstraint] = []
     override func viewDidLoad() {
+        if let category = category{
+            subjectCategoryList = UserDefaultsManager.subjectDictionary![category]!
+        }
         super.viewDidLoad()
-        self.getAllSubjects()
         self.configureLayout()
         self.collectionViewLayout()
-        //수정 필요
         self.navigationItem.title = category
-    }
-    
-    fileprivate func getAllSubjects() {
-        
-
-        
-//        let subjects: [SubjectEntity] = CoreDataManager.shared.getSubjectEntity()
-//        // 중복 topic 제거
-//        subjectCategoryList.append(contentsOf: removeDuplicate(subjects.map({$0.topic!})))
-//
-//        for index in 0..<subjectCategoryList.count{
-//            print("\(index) : \(subjectCategoryList[index])")
-//            var key = subjectCategoryList[index]
-//            subjectList[key] = subjects.map({$0.value!})[index]
-//        }
-//
-//        print(subjectList)
-
     }
 
     private func collectionViewLayout() {
@@ -134,7 +122,7 @@ extension CategoryMentoListViewController: UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // 대주제(topic) cell view
         if collectionView == subjecInCategoryCollectionView{
-            return subjectCategoryList!.count
+            return subjectCategoryList.count
             // 교과목(value) cell view
         }else{
             return 1
@@ -154,7 +142,7 @@ extension CategoryMentoListViewController: UICollectionViewDelegate, UICollectio
             }
       
             cell.subjectTitleLabel.textColor = .lightGray
-            cell.subjectTitleLabel.text = subjectCategoryList![indexPath.row]
+            cell.subjectTitleLabel.text = subjectCategoryList[indexPath.row]
 
             return cell
             

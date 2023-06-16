@@ -15,15 +15,7 @@ class CategoryListViewController: UIViewController, UISearchBarDelegate {
     
     let categoryList = UserDefaultsManager.categoryList
     var subjectDictionary : [String:[String]] = [:]
-    
-    //section 별 접기 펴기
-    //    var isOpen = [Bool]()
-    //    var sectionCount = categoryList.count
-    //    for i in 0..<11 {
-    //        isOpen.append(false)
-    //    }
-    //    var isOpen = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-    
+
     override func viewDidLoad() {
         self.navigationItem.title = "카테고리"
         super.viewDidLoad()
@@ -141,12 +133,11 @@ extension CategoryListViewController : UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoSubjectTableViewCell", for: indexPath) as? MentoSubjectTableViewCell else { return UITableViewCell() }
         
-        cell.setData(list: subjectDictionary[categoryList![indexPath.section]]!)
-        cell.didSelectItemAction = { [weak self] indexPath in
-            self?.performSegue(withIdentifier: "CategoryMentoSegue", sender: 1)
-//            self?.performSegue(withIdentifier: "CategoryMentoSegue", sender: indexPath.row)
-        }
+        cell.setData(list: subjectDictionary[categoryList![indexPath.section]]!, index: indexPath.section)
 
+        cell.didSelectItemAction = { [weak self] indexPath in
+            self?.performSegue(withIdentifier: "CategoryMentoSegue", sender: cell.categoryIndex)
+        }
         return cell
     }
     
@@ -156,12 +147,9 @@ extension CategoryListViewController : UITableViewDelegate, UITableViewDataSourc
             if let destination = segue.destination as? CategoryMentoListViewController {
                 //선택한 카테고리 정보 전달
                 if let index = sender as? Int{
-                    
-                    destination.category = categoryList![index]
+                    destination.category = categoryList![sender as! Int]
                 }
-
             }
         }
     }
-    
 }

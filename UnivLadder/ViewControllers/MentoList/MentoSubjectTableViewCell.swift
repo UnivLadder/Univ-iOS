@@ -12,6 +12,7 @@ class MentoSubjectTableViewCell: UITableViewCell{
     
     @IBOutlet weak var collectionView: UICollectionView!
     var subjectList = [""]
+    var categoryIndex = 0
     
     static let identifier = "MentoSubjectTableViewCell"
     var didSelectItemAction: ((IndexPath) -> Void)?
@@ -44,8 +45,9 @@ class MentoSubjectTableViewCell: UITableViewCell{
         collectionView.register(storyNib, forCellWithReuseIdentifier: MetnoSubjectCollectionViewCell.identifier)
     }
     
-    func setData(list: [String]){
+    func setData(list: [String], index: Int){
         subjectList = list
+        categoryIndex = index
     }
 }
 
