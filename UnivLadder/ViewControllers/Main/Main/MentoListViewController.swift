@@ -13,9 +13,11 @@ class MentoListViewController: UIViewController {
     var categoryArr = [String]()
     // 지금 뜨고 있는 멘토
     var recommendMentoArr = [RecommendMentor]()
-
+    let categoryList = UserDefaultsManager.categoryList
     // 지금 뜨고 있는 멘토 data
-    var mentoList = [["이정은","w4.jpg"], ["박강현",""],["혜리","w1.jpg"],["Tom","w3.jpg"],["Daisy","person.png"]]
+    //id, thumbnail, name
+    var mentoList = [[100, 10, "w4.jpg", "이정은"], [200, 11, nil, "박강현"]]
+    var customImage: UIImage?
     static func instance() -> MentoListViewController {
         return MentoListViewController.init(nibName: nil, bundle: nil)
     }
@@ -39,8 +41,13 @@ class MentoListViewController: UIViewController {
         UserDefaultsManager.categoryList = categoryArr
         
         // 추천 멘토
-        recommendMentoArr = UserDefaultsManager.recommendMentorList!
+        if let serverrecommnedMentorList = UserDefaultsManager.recommendMentorList{
+            recommendMentoArr = serverrecommnedMentorList
+        }
 
+        recommendMentoArr.enumerated().forEach({
+            mentoList.append([$0.element.mentoId, $0.element.id, $0.element.thumbnail, $0.element.name])
+        })
     }
   
     private func setupCollectionView() {
@@ -121,8 +128,15 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
                 return UICollectionViewCell()
             }
             //UI용
-            cell.label.text = mentoList[indexPath.row][0]
-            let customImage = (mentoList[indexPath.row][1] != "") ? UIImage(named: mentoList[indexPath.row][1]) : UIImage(systemName: "person.crop.circle.fill")
+            //[100, 10, "w4.jpg", "이정은"]
+            cell.label.text = mentoList[indexPath.row][3] as? String
+            
+            if let mentoImg = mentoList[indexPath.row][2] {
+                customImage =  UIImage(named: (mentoImg as? String)!)
+            }else{
+                customImage = UIImage(systemName: "person.crop.circle.fill")
+            }
+
 
             //실데이터
             //cell.label.text = recommendMentoArr[indexPath.row].name
@@ -159,10 +173,14 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == mainView.categoryCollectionView {
-            let CategoryMentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController")
+            let CategoryMentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "CategoryMentoList") as? CategoryMentoListViewController
             self.navigationController?.pushViewController(CategoryMentoListVC!, animated: true)
+            CategoryMentoListVC!.category = categoryList![indexPath.row]
         }else{
+            // 추천 아이디 "id" : 1,
+//            해당 멘토 페이지 이동
             print("멘토 선택")
+            let MentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController")
         }
     }
 }

@@ -22,17 +22,108 @@ final class APIService {
     var emailToken: String?
     var values: [String] = [""]
     
-    let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzMiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6MywiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2ODg0NTIyNzAsImlhdCI6MTY4NTg2MDI3MCwianRpIjoiVEpNYnNrQ0ZyMzdJcmdRVWxvNTR0aDJidll6NnF6b3JDSjcwbHdLMU01Mk9uT2U5SUplYTJURzVaNWhkc2lLdFo4NHZLQnpMRHE5MVlNcnNJMVdqRnRrWnNCVXBoYjhaNkdCdFA2ZzJRMjNWcWVFaWk5SDdvUDFwbzhDVkY5VHEifQ.IEPDHpSZ04viFB5aFarVN0d31wQ52FnpsmxezPcns2-VL_uvZ4Mlp8BIoIT2jBEoUE0pLx0DeCHY9sCmIsiknw"
+    let accessToken = UserDefaults.standard.string(forKey: "accessToken") ?? ""
+    
+    // MARK: - 비밀번호 재설정 API
+//    [x] 비밀번호 분실 요청
+    func reportLostPassword(param: Parameters, completion: @escaping (Bool) -> Void){
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json"]
+        AF.request(Config.baseURL+"/accounts/report-lost-password",
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: headers).responseString { response in
+            switch response.result{
+            case .success(_):
+                print("⭐️메일로 토큰 전송 성공⭐️")
+
+            default:
+                print("👿메일로 토큰 전송 실패👿")
+                completion(false)
+            }
+        }
+    }
+//    [x] 비밀번호 초기화 검증
+    func resetPassword(param: Parameters, completion: @escaping (Bool) -> Void){
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json"]
+        AF.request(Config.baseURL+"/accounts/reset-password/verify",
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: headers).responseString { response in
+            switch response.result{
+            case .success(_):
+                print("⭐️토큰 전송 성공⭐️")
+
+            default:
+                print("👿토큰 전송 실패👿")
+                completion(false)
+            }
+        }
+    }
+//    [x] 비밀번호 초기화
+    func resetPasswordConfirm(param: Parameters, completion: @escaping (Bool) -> Void){
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json"]
+        AF.request(Config.baseURL+"/accounts/reset-password/confirm",
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: headers).responseString { response in
+            switch response.result{
+            case .success(_):
+                print("⭐️토큰 전송 성공⭐️")
+
+            default:
+                print("👿토큰 전송 실패👿")
+                completion(false)
+            }
+        }
+    }
+    
+    
+    // MARK: - 멘토 API
+    // 멘토 등록
+//    {
+//      "minPrice" : 100000,
+//      "maxPrice" : 200000,
+//      "description" : "멘토 수업 상세 설명",
+//      "extracurricularSubjectCodes" : [ ]
+//    }
+    func registerMento(param: Parameters, completion: @escaping (Bool) -> Void){
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json",
+                                    "Authentication" : "Bearer " + accessToken]
+        AF.request(Config.baseURL+"/mentors",
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: headers).responseString { response in
+            switch response.result{
+            case .success(_):
+                print("⭐️멘토 등록 성공⭐️")
+                let dataString = String(data: response.data!, encoding: .utf8)
+                
+                completion(true)
+            default:
+                print("👿멘토 등록 실패👿")
+                completion(false)
+            }
+        }
+    }
+    
     
     
     // MARK: - 계정 API
     // 내 계정 조회 및 coredata 저장
     func getMyAccount(){
-        let url = Config.baseURL+"accounts/me"
+        let url = Config.baseURL+"/accounts/me"
         //        let accessToken = KeyChain.shared.getItem(id: "accessToken")!
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json",
-                                    "Authentication" : "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzkiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6OSwiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2ODI0MTE2MzUsImlhdCI6MTY3OTgxOTYzNSwianRpIjoiT1BKSVBzbHVpaEk1dVZxTnc2YlB2OWVxQnpuMm1jeVBDc3U2bFNGaHdOWmQyR1RBZXRGNzJIbWlEb0dlWkxMVHBiZ0d0Y0NHUEZBOTh1V2tXTzlJRmNPZDZpeFoyWEk4VmNySGpoM0dweVIwdkFqdDhVajllUDhzeEpTWjVHNFoifQ._ml0fUMo6a09RqJhXpuuqNTmj_NBvApeuy7k_BjWu5qB_5_qMRTvw2spIae94_xSpcxk4wESJ_NfaGguVVkxow"]
+                                    "Authentication" : "Bearer " + accessToken]
         var jsonDict : Dictionary<String, Any> = [String : Any]()
         AF.request(url, method: .get,  headers: headers).responseString { response in
             switch response.result{
@@ -59,11 +150,9 @@ final class APIService {
                 print("👿내 계정 조회 실패👿")
             }
         }
-        
-        
     }
     
-    fileprivate func saveNewUser(_ accountId: Int64, email: String, gender: String, name: String, password: String, thumbnail: String?) {
+    fileprivate func saveNewUser(accountId: Int64, email: String, gender: String, name: String, password: String, thumbnail: String?) {
         CoreDataManager.shared
             .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, onSuccess: { onSuccess in
                 print("saved = \(onSuccess)")
@@ -74,7 +163,7 @@ final class APIService {
     // 회원탈퇴
     //HTTP://localhost/accounts/49
     func deleteUser(accountId: Int){
-        let url = Config.baseURL+"accounts/"+String(accountId)
+        let url = Config.baseURL+"/accounts/"+String(accountId)
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json",
                                     "Authentication" : "Bearer " + accessToken]
@@ -91,8 +180,6 @@ final class APIService {
         }
     }
     
-    
-    
     // MARK: - 회원가입 API
     // 회원가입 - 회원가입 이메일 인증 요청 API
     //request
@@ -100,7 +187,7 @@ final class APIService {
     //      "email" : "lxxyeon@gmail.com"
     //    }
     func postEmailAuth(param: Parameters){
-        AF.request(Config.baseURL+"sign-up/verify-email", method: .post, parameters: param, encoding: JSONEncoding.default).responseString { response in
+        AF.request(Config.baseURL+"/sign-up/verify-email", method: .post, parameters: param, encoding: JSONEncoding.default).responseString { response in
             if let response = response.response{
                 switch response.statusCode{
                     //200인 경우 전송 성공
@@ -120,7 +207,7 @@ final class APIService {
     //      "token" : "ms5Bmt"
     //    }
     func emailAuthNumCheckAction(param: Parameters, completion: @escaping (Bool) -> Void){
-        AF.request(Config.baseURL+"sign-up/verify-confirm-email",
+        AF.request(Config.baseURL+"/sign-up/verify-confirm-email",
                    method: .post,
                    parameters: param,
                    encoding: JSONEncoding.default).responseData { response in
@@ -153,7 +240,7 @@ final class APIService {
     //    }
     func signUp(param: Parameters,
                 completion: @escaping () -> Void){
-        AF.request(Config.baseURL+"sign-up", method: .post, parameters: param, encoding: JSONEncoding.default).responseString { response in
+        AF.request(Config.baseURL+"/sign-up", method: .post, parameters: param, encoding: JSONEncoding.default).responseString { response in
             switch response.result{
                 //200인 경우 성공
             case .success(let data):
@@ -162,10 +249,16 @@ final class APIService {
                     // 딕셔너리에 데이터 저장 실시
                     jsonDict = try JSONSerialization.jsonObject(with: Data(data.utf8), options: []) as! [String:Any]
                     // Get the values from the JSON object
+                    UserDefaults.standard.setValue(jsonDict["accountId"] as? Int64, forKey: "isAutoLogin")
                     self.accountId = jsonDict["accountId"] as? Int64
-                    
-                    
                     UserDefaults.standard.set(jsonDict["accountId"], forKey: "accountId")
+                    CoreDataManager.shared.deleteAllUsers()
+                    self.saveNewUser(accountId: (jsonDict["accountId"] as! Int64),
+                                     email: param["email"] as! String,
+                                     gender: param["gender"] as! String,
+                                     name: param["name"] as! String,
+                                     password: param["password"] as! String,
+                                     thumbnail: param["email"] as? String)
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -190,7 +283,7 @@ final class APIService {
     //    }
     func signIn(param: Parameters,
                 completion: @escaping () -> Void){
-        AF.request(Config.baseURL+"sign-in", method: .post, parameters: param, encoding: JSONEncoding.default).responseString { response in
+        AF.request(Config.baseURL+"/sign-in", method: .post, parameters: param, encoding: JSONEncoding.default).responseString { response in
             switch response.result{
                 //200인 경우 성공
             case .success(let data):
@@ -199,6 +292,7 @@ final class APIService {
                         if let jsonDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
                             // Get the values from the JSON object
                             self.userAccessToken = jsonDict["accessToken"] as? String
+                            UserDefaults.standard.setValue(jsonDict["accessToken"] as? String, forKey: "accessToken")
                         }
                         print("⭐️로그인 성공⭐️")
                         completion()
@@ -226,7 +320,7 @@ final class APIService {
     //        "accessToken": "~~~~"
     //    }
     func signinSocial(param: Parameters, domain: String) {
-        AF.request(Config.baseURL+"social/sign-in/"+domain, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
+        AF.request(Config.baseURL+"/social/sign-in/"+domain, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
             switch response.result {
             case .success:
                 if let data = try! response.result.get() as? [String: Any] {
@@ -293,7 +387,7 @@ final class APIService {
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json",
                                     "Authentication" : "Bearer " + accessToken]
-        AF.request(Config.baseURL+"direct-messages", method: .post, parameters: param,
+        AF.request(Config.baseURL+"/direct-messages", method: .post, parameters: param,
                    encoding: JSONEncoding.default, headers: headers).responseString { response in
             if let response = response.response{
                 switch response.statusCode{
@@ -309,7 +403,7 @@ final class APIService {
     
     // GET : 다이렉트 메시지 리스트 조회
     func getDirectListMessage() {
-        let url = Config.baseURL+"direct-messages/list"
+        let url = Config.baseURL+"/direct-messages/list"
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json",
                                     "Authentication" : "Bearer " + accessToken]
@@ -334,7 +428,7 @@ final class APIService {
     
     //다이렉트 메시지 조회
     func getDirectMessage() {
-        let url = Config.baseURL+"direct-messages/7"
+        let url = Config.baseURL+"/direct-messages/7"
         //        let accessToken = KeyChain.shared.getItem(id: "accessToken")!
         let headers: HTTPHeaders = ["Content-Type" : "application/json",
                                     "Authentication" : "Bearer " + accessToken]
@@ -375,7 +469,7 @@ final class APIService {
             let headers: HTTPHeaders = ["Accept" : "application/json",
                                         "Content-Type" : "application/json",
                                         "Authentication" : "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyIzYiLCJhdWQiOiJ1bml2LWxhZGRlciIsInIiOiJST0xFX1VTRVIiLCJ1aSI6NiwiaXNzIjoidW5pdi1sYWRkZXIiLCJleHAiOjE2ODQyMjcyMTAsImlhdCI6MTY4MTYzNTIxMCwianRpIjoiY2Y2eWdvaGU0a0xCdFlVRUxIVFRRWDJNcE5IZkRFOVA1UHZqSnZnbTJURU5TaXlkV3NXRElPcnRKdG5ZbFBabmNzRERpenVLOHViZTVTMERSbEl4VEFpU2VUUlNrU25VTjJrbTA5T3NhRUZYRmJ6Mll1QUZkSDJSanVRdWhHQU4ifQ.xm3fZUjAuwZeqsKUpuDYDki7jY48wF2x6i8YUrd7FH8kjEdB71pD_N9lNmbEWu7e6rcGSXzc8rj2jh4vJUiMOQ"]
-            AF.request(Config.baseURL+"accounts/6/fcm-token", method: .put, parameters: param, encoding: JSONEncoding.default, headers: headers).responseString { response in
+            AF.request(Config.baseURL+"/accounts/6/fcm-token", method: .put, parameters: param, encoding: JSONEncoding.default, headers: headers).responseString { response in
                 if let response = response.response{
                     switch response.statusCode{
                         //200인 경우 전송 성공
@@ -395,7 +489,7 @@ final class APIService {
     // GET - 과목 데이터 가져오기(완료)
     // Userdefault 저장
     func getSubjects() {
-        let url = Config.baseURL+"assets/extracurricular-subjects"
+        let url = Config.baseURL+"/assets/extracurricular-subjects"
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json"]
         AF.request(url, method: .get,  headers: headers).responseString { response in
@@ -426,7 +520,7 @@ final class APIService {
     //GET - 추천멘토 데이터 가져오기(완료)
     // Userdefault 저장
     func getRecommendMentors() {
-        let url = Config.baseURL+"mentors/recommend"
+        let url = Config.baseURL+"/mentors/recommend"
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json",
                                     "Authentication" : "Bearer " + accessToken]
@@ -441,7 +535,8 @@ final class APIService {
                         for mentor in jsonArray{
                             if let dictionary = self.optionalAnyToDictionary(mentor["account"]) {
                                 print(dictionary)
-                                let mentoData = RecommendMentor(id: dictionary["id"] as! Int,
+                                let mentoData = RecommendMentor(mentoId: mentor["id"] as! Int,
+                                                                id: dictionary["id"] as! Int,
                                                                 thumbnail: dictionary["thumbnail"] as? String,
                                                                 name: dictionary["name"] as! String)
                                 UserDefaultsManager.recommendMentorList!.insert(mentoData, at: 0)
@@ -461,12 +556,12 @@ final class APIService {
     }
     
     //공지사항 API
-//    [ {
-//    "code" : 1,
-//    "title" : "안드로이드 지원 중단 안내",
-//    "contents" : "안녕하세요~",
-//    "createdDate" : "2023-05-15T01:29:20.818"
-//  } ]
+    //    [ {
+    //    "code" : 1,
+    //    "title" : "안드로이드 지원 중단 안내",
+    //    "contents" : "안녕하세요~",
+    //    "createdDate" : "2023-05-15T01:29:20.818"
+    //  } ]
     
     //    [ {
     //    "code" : 1,
@@ -475,7 +570,7 @@ final class APIService {
     //    "createdDate" : "2023-06-06T06:30:00.000"
     //  } ]
     func getNotices() {
-        let url = Config.baseURL+"assets/notices"
+        let url = Config.baseURL+"/assets/notices"
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json"]
         AF.request(url, method: .get,  headers: headers).responseString { response in
@@ -489,7 +584,8 @@ final class APIService {
                         for mentor in jsonArray{
                             if let dictionary = self.optionalAnyToDictionary(mentor["account"]) {
                                 print(dictionary)
-                                let mentoData = RecommendMentor(id: dictionary["id"] as! Int,
+                                let mentoData = RecommendMentor(mentoId: mentor["id"] as! Int,
+                                                                id: dictionary["id"] as! Int,
                                                                 thumbnail: dictionary["thumbnail"] as? String,
                                                                 name: dictionary["name"] as! String)
                                 UserDefaultsManager.recommendMentorList!.insert(mentoData, at: 0)
@@ -555,7 +651,7 @@ final class APIService {
         _ query: String,
         _ page: Int
     ) {
-        let url = Config.baseURL + "search/" + "\(query)/\(page)"
+        let url = Config.baseURL + "/search/" + "\(query)/\(page)"
         print(url)
         //        let url = Config.baseURL + "search/" + "\("Swift")/\(1)"
         //encoding
@@ -664,7 +760,7 @@ final class APIService {
     //계정 이메일 수정 인증 이메일 보내기
     func putEmailModifyAuth(with email: String) {
         let userData = ["email":email] as Dictionary
-        //        let url = Config.baseURL+"/accounts/accountId/email"
+        //        let url = Config.baseURL+"//accounts/accountId/email"
         let url = Config.baseURL+"/accounts/3/email"
         let accessToken = KeyChain.shared.getItem(id: "accessToken")!
         let headers: HTTPHeaders = ["Content-Type" : "application/json",

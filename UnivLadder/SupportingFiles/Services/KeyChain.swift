@@ -10,6 +10,7 @@ import UIKit
 class KeyChain {
     // MARK: Shared instance
     static let shared = KeyChain()
+    private init() {}
     
     // MARK: Keychain
     static let serviceName = "서비스이름"

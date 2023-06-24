@@ -51,7 +51,7 @@ class MainView: UIView {
         if userInfo.count > 0{
             $0.text = userInfo[0].name
         }else{
-            $0.text = "홍길동"
+            $0.text = ""
         }
         
         $0.textColor = .black

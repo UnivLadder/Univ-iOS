@@ -19,6 +19,9 @@ struct UserDefaultsManager {
     
     @UserDefaultWrapper(key: "recommendMentor", defaultValue: nil)
     static var recommendMentorList: [RecommendMentor]?
+    
+    @UserDefaultWrapper(key: "mentorSubjectList", defaultValue: nil)
+    static var mentorSubjectList: [String]?
 }
 
 @propertyWrapper
