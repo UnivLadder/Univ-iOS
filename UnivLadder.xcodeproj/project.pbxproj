@@ -12,7 +12,10 @@
 		680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */; };
 		6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6815DB36297A735D00E6B356 /* KeyChain.swift */; };
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
+		681EDDBC2A3F038000380B1F /* MentoRegisterSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */; };
 		68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */; };
+		68301B982A45DBF5009CB1D0 /* SendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68301B972A45DBF5009CB1D0 /* SendData.swift */; };
+		68301B9A2A470DD1009CB1D0 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68301B992A470DD1009CB1D0 /* ResetPasswordVC.swift */; };
 		683461122A2C6A0900A31EDB /* RecommendMentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683461112A2C6A0900A31EDB /* RecommendMentor.swift */; };
 		6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2EA28154B9300048E21 /* CoreDataManager.swift */; };
 		683D5213296AACC800F8EB88 /* CategoryMentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */; };
@@ -138,7 +141,10 @@
 		680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6815DB36297A735D00E6B356 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterSubjectViewController.swift; sourceTree = "<group>"; };
 		68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyViewController.swift; sourceTree = "<group>"; };
+		68301B972A45DBF5009CB1D0 /* SendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendData.swift; sourceTree = "<group>"; };
+		68301B992A470DD1009CB1D0 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		683461112A2C6A0900A31EDB /* RecommendMentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendMentor.swift; sourceTree = "<group>"; };
 		6836D2EA28154B9300048E21 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMentoListViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +299,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		681EDDBA2A3F035200380B1F /* MentoRegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
+				681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */,
+			);
+			path = MentoRegisterView;
+			sourceTree = "<group>";
+		};
 		6836D2D6281546E400048E21 /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +326,7 @@
 			children = (
 				68442AE927730E21009DF75A /* AccountsMainViewController.swift */,
 				68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */,
+				68301B992A470DD1009CB1D0 /* ResetPasswordVC.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -534,6 +550,7 @@
 			children = (
 				E57A31BC27B902F000276D7F /* StoryboardInitializable.swift */,
 				E5FA9B9927DDE55C009C9C9E /* ViewRepresentable.swift */,
+				68301B972A45DBF5009CB1D0 /* SendData.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -541,9 +558,9 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				681EDDBA2A3F035200380B1F /* MentoRegisterView */,
 				688A8B512A2A32B400D0B811 /* MyPageModify */,
 				688A8B502A2A327F00D0B811 /* MyPageTableMenu */,
-				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
 				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
 				68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */,
 				689358052998F8F500022EFB /* ReusableViewController.swift */,
@@ -994,6 +1011,7 @@
 				E546934727F9C749007A1791 /* ChatModel.swift in Sources */,
 				E57A31BD27B902F000276D7F /* StoryboardInitializable.swift in Sources */,
 				6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */,
+				681EDDBC2A3F038000380B1F /* MentoRegisterSubjectViewController.swift in Sources */,
 				68EBBE712A288AF4005F674A /* UserDefaultsManager.swift in Sources */,
 				68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */,
 				E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */,
@@ -1011,8 +1029,10 @@
 				68F6ED1D28FC0F58003C93D3 /* SubjectEntity+CoreDataClass.swift in Sources */,
 				68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */,
 				6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */,
+				68301B982A45DBF5009CB1D0 /* SendData.swift in Sources */,
 				683461122A2C6A0900A31EDB /* RecommendMentor.swift in Sources */,
 				6879ACB928BB73A300E758A4 /* MentoListCell.swift in Sources */,
+				68301B9A2A470DD1009CB1D0 /* ResetPasswordVC.swift in Sources */,
 				68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
 				68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */,

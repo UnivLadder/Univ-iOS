@@ -35,6 +35,8 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     @IBOutlet weak var registerBtn: UIButton!
     
+    
+    @IBOutlet weak var serverLoginBtn: UIButton!
     @IBOutlet weak var googleLogInBtn: UIButton!
     @IBOutlet weak var appleLogInBtn: UIButton!
     @IBOutlet weak var kakaoLoginBtn: UIButton!
@@ -110,9 +112,13 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     
     func serverLogIn(email: String, password: String) {
+        //실 data
+        let params = ["username" : email,
+                      "password" : password]
+        
         //dummy data
-        let params = ["username" : "leeyeon0527@naver.com",
-                      "password" : "password"]
+//        let params = ["username" : "leeyeon0527@naver.com",
+//                      "password" : "password"]
         
         APIService.shared.signIn(param: params, completion: {
             //nil, 빈값 2개 다 처리
@@ -321,6 +327,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     // MARK: - View Components
     func viewComponents(){
+        serverLoginBtn.layer.cornerRadius = 10
         let imageView = UIImageView();
         let image = UIImage(named: "emailIcon.png");
         imageView.image = image;

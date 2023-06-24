@@ -48,12 +48,18 @@ class MyPageViewController: UIViewController {
     func myProfileViewSetting() {
         // core data에서 user 정보 가져옴
         let userInfo = CoreDataManager.shared.getUserInfo()
-        self.myPageName.text = "홍길동"
-        self.myPageEmail.text = "lxxyeon@gmail.com"
-//        self.myPageName.text = userInfo[0].name
-//        self.myPageEmail.text = userInfo[0].email
-        self.myPageImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
+        
+        if userInfo.count > 0{
+            self.myPageName.text = userInfo[0].name
+            self.myPageEmail.text = userInfo[0].email
+        }else{
+            self.myPageName.text = "홍길동"
+            self.myPageEmail.text = "lxxyeon@gmail.com"
+        }
+        
         // 없는 경우 기본 이미지
+        self.myPageImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
+        
 //        if userInfo[0].thumbnail != nil {
 //            self.myPageImg.image = UIImage(named: userInfo[0].thumbnail)
 //        }

@@ -35,7 +35,7 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
         //2. 확인 버튼 만들기
         let okLabel = UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
             // 회원 탈퇴 API 수행
-            APIService.shared.deleteUser(accountId: 6)
+            APIService.shared.deleteUser(accountId: UserDefaults.standard.integer(forKey: "accountId"))
             
             // 밑에 두개 언제?
             let alert = UIAlertController(title:"👿회원 탈퇴 완료👿",

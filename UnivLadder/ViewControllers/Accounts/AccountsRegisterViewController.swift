@@ -37,10 +37,14 @@ class AccountsRegisterViewController: UIViewController {
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
     
-    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!{
+        didSet{
+            nextBtn.layer.cornerRadius = 10
+        }
+    }
     @IBOutlet weak var backBtn: UIButton!
 
-    @IBOutlet weak var saveBtn: UIButton!
+
     
     @IBAction func maleBtn(_ sender: Any) {
         maleBtn.backgroundColor = #colorLiteral(red: 0.4406229556, green: 0.350309521, blue: 0.9307079911, alpha: 1)
@@ -287,7 +291,7 @@ class AccountsRegisterViewController: UIViewController {
                             if (accountId != 0){
                                 // 회원 가입 성공 시 1. Core data - User Entity 저장
                                 // 1) 기존 로그인한 User 데이터 삭제
-                                CoreDataManager.shared.deleteAllUsers()
+//                                CoreDataManager.shared.deleteAllUsers()
                                 
                                 // 2) User 데이터 추가
                                 // 인자값으로 입력된 클로저 블록 실행

@@ -34,4 +34,9 @@ struct Storyboard {
     struct Name {
         static let SubjectModifyViewController = "SubjectModifyViewController"
     }
+    
+    struct Msg {
+        static let registerMentoConfirmMsg = "멘토로 등록되었습니다.\n프로필을 수정해주세요"
+   
+    }
 }
