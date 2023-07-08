@@ -24,6 +24,8 @@
 		68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */; };
 		68442AEF27730E2F009DF75A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEE27730E2F009DF75A /* UserModel.swift */; };
 		6855269E27830BF40030594A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6855269D27830BF40030594A /* GoogleService-Info.plist */; };
+		6856B5092A48315300BE135E /* MentoSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856B5082A48315300BE135E /* MentoSubject.swift */; };
+		6856B50C2A48461500BE135E /* MentoDetailModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856B50B2A48461500BE135E /* MentoDetailModifyViewController.swift */; };
 		6864B288278AFE3C00CE80FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864B287278AFE3C00CE80FE /* APIService.swift */; };
 		6879ACB928BB73A300E758A4 /* MentoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6879ACB828BB73A300E758A4 /* MentoListCell.swift */; };
 		6880A66228719F7F00DB6D20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880A66128719F7F00DB6D20 /* User.swift */; };
@@ -40,6 +42,7 @@
 		689358062998F8F500022EFB /* ReusableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689358052998F8F500022EFB /* ReusableViewController.swift */; };
 		689478422A35B49700243D47 /* MentoSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689478412A35B49700243D47 /* MentoSubjectCollectionViewCell.swift */; };
 		689C759D27AFD80E00C04978 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C759C27AFD80E00C04978 /* DummyData.swift */; };
+		689E0D2A2A4C07E400968DB4 /* ChattingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689E0D292A4C07E400968DB4 /* ChattingRoom.swift */; };
 		68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B27C89279D610C0064D1DD /* LoginDataModel.swift */; };
 		68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */; };
 		68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */; };
@@ -153,6 +156,8 @@
 		68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsRegisterViewController.swift; sourceTree = "<group>"; };
 		68442AEE27730E2F009DF75A /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		6855269D27830BF40030594A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6856B5082A48315300BE135E /* MentoSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSubject.swift; sourceTree = "<group>"; };
+		6856B50B2A48461500BE135E /* MentoDetailModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoDetailModifyViewController.swift; sourceTree = "<group>"; };
 		6864B287278AFE3C00CE80FE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		6879ACB828BB73A300E758A4 /* MentoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListCell.swift; sourceTree = "<group>"; };
 		6880A66128719F7F00DB6D20 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -169,6 +174,7 @@
 		689358052998F8F500022EFB /* ReusableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewController.swift; sourceTree = "<group>"; };
 		689478412A35B49700243D47 /* MentoSubjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSubjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		689C759C27AFD80E00C04978 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		689E0D292A4C07E400968DB4 /* ChattingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoom.swift; sourceTree = "<group>"; };
 		68B27C89279D610C0064D1DD /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterViewController.swift; sourceTree = "<group>"; };
 		68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModifyViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				683461112A2C6A0900A31EDB /* RecommendMentor.swift */,
+				6856B5082A48315300BE135E /* MentoSubject.swift */,
 				68F3AE68280C249200CF53DC /* Subject */,
 				E546934527F9C73A007A1791 /* Chat */,
 				68442AEE27730E2F009DF75A /* UserModel.swift */,
@@ -344,6 +351,15 @@
 				6880A66128719F7F00DB6D20 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6856B50A2A4845D500BE135E /* MentoModify */ = {
+			isa = PBXGroup;
+			children = (
+				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
+				6856B50B2A48461500BE135E /* MentoDetailModifyViewController.swift */,
+			);
+			path = MentoModify;
 			sourceTree = "<group>";
 		};
 		6864B286278AFE0600CE80FE /* Services */ = {
@@ -531,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				E546934627F9C749007A1791 /* ChatModel.swift */,
+				689E0D292A4C07E400968DB4 /* ChattingRoom.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -558,10 +575,10 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				6856B50A2A4845D500BE135E /* MentoModify */,
 				681EDDBA2A3F035200380B1F /* MentoRegisterView */,
 				688A8B512A2A32B400D0B811 /* MyPageModify */,
 				688A8B502A2A327F00D0B811 /* MyPageTableMenu */,
-				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
 				68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */,
 				689358052998F8F500022EFB /* ReusableViewController.swift */,
 			);
@@ -1020,6 +1037,7 @@
 				E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */,
 				6892DB18296ADABE002DB446 /* ChattingViewController.swift in Sources */,
 				689358062998F8F500022EFB /* ReusableViewController.swift in Sources */,
+				689E0D2A2A4C07E400968DB4 /* ChattingRoom.swift in Sources */,
 				68F6ED1C28FC0F58003C93D3 /* UserEntity+CoreDataClass.swift in Sources */,
 				689357FC2998E2DD00022EFB /* NoticeViewController.swift in Sources */,
 				68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */,
@@ -1038,6 +1056,7 @@
 				68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */,
 				68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */,
 				68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */,
+				6856B5092A48315300BE135E /* MentoSubject.swift in Sources */,
 				6880A66228719F7F00DB6D20 /* User.swift in Sources */,
 				683D5213296AACC800F8EB88 /* CategoryMentoListViewController.swift in Sources */,
 				68F26FAD293C99390059D700 /* MentoSubjectTableViewCell.swift in Sources */,
@@ -1064,6 +1083,7 @@
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				683D5215296AACDE00F8EB88 /* MentoInfoViewController.swift in Sources */,
 				68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */,
+				6856B50C2A48461500BE135E /* MentoDetailModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
 				680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */,
 				68FA133D298FCB8000F950A6 /* AppInfoViewController.swift in Sources */,

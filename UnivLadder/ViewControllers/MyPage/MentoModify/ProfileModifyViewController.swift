@@ -44,6 +44,10 @@ extension ProfileModifyViewController: UITableViewDelegate, UITableViewDataSourc
         // 서비스 과목 선택 수정 화면
         case 0:
             self.performSegue(withIdentifier: "toSubjectModify", sender: nil)
+        // 서비스 상세설명 등록
+        case 1:
+            let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfo") as? MentoDetailModifyViewController
+            self.navigationController?.pushViewController(pushVC!, animated: true)
         default:
             return
         }

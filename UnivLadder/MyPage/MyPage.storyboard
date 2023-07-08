@@ -537,34 +537,81 @@
             </objects>
             <point key="canvasLocation" x="3716" y="2069"/>
         </scene>
-        <!--View Controller-->
+        <!--Mento Detail Modify View Controller-->
         <scene sceneID="tb0-t1-yQY">
             <objects>
-                <viewController id="Y7m-TO-PWl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MentoInfo" id="Y7m-TO-PWl" customClass="MentoDetailModifyViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c2b-zZ-yiz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOJ-fh-ba9">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-sn-ciC">
+                                <rect key="frame" x="20" y="88" width="374" height="638"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="99" translatesAutoresizingMaskIntoConstraints="NO" id="bX2-Br-D50">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="61"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="멘트를 어떻게 할까요?!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjc-Zf-Fqr">
+                                                <rect key="frame" x="0.0" y="0.0" width="234" height="28"/>
+                                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최소 50자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saJ-WL-DJa">
+                                                <rect key="frame" x="333" y="0.0" width="41" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="서비스에 대해 상세하게 설명해주세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xJG-Ht-9xl">
+                                        <rect key="frame" x="0.0" y="81" width="374" height="557"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xJG-Ht-9xl" firstAttribute="trailing" secondItem="bX2-Br-D50" secondAttribute="trailing" id="lkR-sK-jjK"/>
+                                    <constraint firstItem="xJG-Ht-9xl" firstAttribute="top" secondItem="bX2-Br-D50" secondAttribute="bottom" constant="20" id="udE-R8-1ug"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-L4-qgF">
+                                <rect key="frame" x="20" y="746" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.41429898139999999" green="0.35561686749999999" blue="0.87063390019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="u3G-fT-kfW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="저장"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JUq-cb-4Hw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pOJ-fh-ba9" firstAttribute="leading" secondItem="JUq-cb-4Hw" secondAttribute="leading" id="DGn-GM-cLd"/>
-                            <constraint firstItem="JUq-cb-4Hw" firstAttribute="bottom" secondItem="pOJ-fh-ba9" secondAttribute="bottom" id="Phn-kX-sWy"/>
-                            <constraint firstItem="pOJ-fh-ba9" firstAttribute="top" secondItem="JUq-cb-4Hw" secondAttribute="top" id="UEF-lK-c9W"/>
-                            <constraint firstItem="JUq-cb-4Hw" firstAttribute="trailing" secondItem="pOJ-fh-ba9" secondAttribute="trailing" id="YKq-hB-Lgz"/>
+                            <constraint firstAttribute="bottom" secondItem="MSM-L4-qgF" secondAttribute="bottom" constant="100" id="2GU-aP-2am"/>
+                            <constraint firstItem="pgm-sn-ciC" firstAttribute="top" secondItem="JUq-cb-4Hw" secondAttribute="top" constant="40" id="Hpr-DI-rWX"/>
+                            <constraint firstItem="JUq-cb-4Hw" firstAttribute="trailing" secondItem="pgm-sn-ciC" secondAttribute="trailing" constant="20" id="SF5-ge-Hqh"/>
+                            <constraint firstItem="MSM-L4-qgF" firstAttribute="leading" secondItem="JUq-cb-4Hw" secondAttribute="leading" constant="20" id="VSM-nN-iSA"/>
+                            <constraint firstItem="pgm-sn-ciC" firstAttribute="leading" secondItem="JUq-cb-4Hw" secondAttribute="leading" constant="20" id="e2l-oU-Seu"/>
+                            <constraint firstItem="JUq-cb-4Hw" firstAttribute="trailing" secondItem="MSM-L4-qgF" secondAttribute="trailing" constant="20" id="lB7-xU-Hbq"/>
+                            <constraint firstItem="MSM-L4-qgF" firstAttribute="top" secondItem="pgm-sn-ciC" secondAttribute="bottom" constant="20" id="taH-6p-EtR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailTextView" destination="xJG-Ht-9xl" id="vLR-mM-Xtf"/>
+                        <outlet property="detailTitleLabel" destination="Yjc-Zf-Fqr" id="jdO-SS-tWt"/>
+                        <outlet property="saveBtn" destination="MSM-L4-qgF" id="fDO-fj-VHJ"/>
+                        <outlet property="textMinimumLabel" destination="saJ-WL-DJa" id="czw-cu-cTF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSb-RY-1yr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4558" y="2069"/>
+            <point key="canvasLocation" x="6096" y="1357"/>
         </scene>
         <!--Subject-->
         <scene sceneID="vE7-57-GF3">
@@ -1117,6 +1164,9 @@
         <namedColor name="text500">
             <color red="0.36899998784065247" green="0.36500000953674316" blue="0.39599999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

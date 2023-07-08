@@ -121,7 +121,7 @@ extension CategoryListViewController : UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //높이 셀의 개수에 따라 유동적으로
         let cellCount = subjectDictionary[categoryList![indexPath.section]]!.count
-        let cellHeight = (cellCount%3 == 0) ? (cellCount/3)*45 : ((cellCount/3)+1)*45
+        let cellHeight = (cellCount%3 == 0) ? (cellCount/3)*55 : ((cellCount/3)+1)*55
         return CGFloat(cellHeight)
     }
     
@@ -134,7 +134,7 @@ extension CategoryListViewController : UITableViewDelegate, UITableViewDataSourc
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoSubjectTableViewCell", for: indexPath) as? MentoSubjectTableViewCell else { return UITableViewCell() }
         
         cell.setData(list: subjectDictionary[categoryList![indexPath.section]]!, index: indexPath.section)
-
+//        cell.setData(list: subjectDictionary[categoryList![indexPath.section]]!, index: indexPath.section)
         cell.didSelectItemAction = { [weak self] indexPath in
             self?.performSegue(withIdentifier: "CategoryMentoSegue", sender: cell.categoryIndex)
         }

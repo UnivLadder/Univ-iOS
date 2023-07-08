@@ -53,8 +53,8 @@ class MentoRegisterViewController: UIViewController {
         //dummy data
         let params = ["minPrice" : nil,
                       "maxPrice" : nil,
-                      "description" : nil,
-                      "extracurricularSubjectCodes" : [1,3,12]]
+                      "description" : " ",
+                      "extracurricularSubjectCodes" : [1,3,12]] as [String : Any?]
         
         APIService.shared.registerMento(param: params, completion: {_ in
             //alert

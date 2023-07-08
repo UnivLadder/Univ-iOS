@@ -154,7 +154,7 @@
             </objects>
             <point key="canvasLocation" x="0.76335877862595414" y="-28.169014084507044"/>
         </scene>
-        <!--홍길동-->
+        <!--Chat Room View Controller-->
         <scene sceneID="xJZ-xP-5FO">
             <objects>
                 <viewController storyboardIdentifier="ChatRoomViewController" id="9Qz-T0-zJY" customClass="ChatRoomViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
@@ -529,7 +529,7 @@
                             <constraint firstItem="5SZ-Rs-54t" firstAttribute="bottom" secondItem="KUQ-X2-BbO" secondAttribute="bottom" id="tgG-WC-ejb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="홍길동" id="UBm-vZ-Vqn"/>
+                    <navigationItem key="navigationItem" id="UBm-vZ-Vqn"/>
                     <connections>
                         <outlet property="buttonStackView" destination="EcP-Ug-Owr" id="Hlb-bY-H5F"/>
                         <outlet property="cameraButton" destination="Bnn-oO-c7I" id="hsN-Rd-vee"/>

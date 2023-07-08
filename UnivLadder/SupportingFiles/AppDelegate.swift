@@ -40,11 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //과목 정보 불러옴
-        APIService.shared.getSubjects()
+        
         APIService.shared.getRecommendMentors()
         
-        // APNs
-//        registerForRemoteNotifications()
+        // APNs - 원격 알림 등록
+        registerForRemoteNotifications()
         
         // FCM
         // Firebase 초기화 세팅. (구글 로그인, FCM 사용용)
@@ -71,7 +71,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // 과목 리스트 초기화
         //과목 리스트
-        //        APIService.shared.getSubjects()
+        APIService.shared.getSubjects()
+        // 채팅 리스트
+        APIService.shared.getDirectListMessage()
         
         //앱파일 경로 확인
         //        print("App bundle path : \(Bundle.main)")
@@ -127,7 +129,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // device 토큰 등록 성공 시 실행되는 메소드
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 //        Messaging.messaging().setAPNSToken(deviceToken, type: .unknown)
-//        Messaging.messaging().apnsToken = deviceToken
+        //APN 토큰과 등록 토큰 매핑
+        Messaging.messaging().apnsToken = deviceToken
         
 //        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
 //        NSLog("didRegisterForRemoteNotificationsWithDeviceToken: %@", token);
@@ -199,13 +202,15 @@ extension AppDelegate : MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         
         // 파이버에이스 토큰 보내기 api 실행
-        // http://52.78.43.121/docs/index.html#_x_%EA%B3%84%EC%A0%95_fcm_%ED%86%A0%ED%81%B0_%EC%88%98%EC%A0%95
-//        if let fcmToken = fcmToken {
-//            print("파이어베이스 토큰: \(fcmToken)")
-//            let fcmParameter: Parameters = [
-//                "fcmToken" : fcmToken
-//            ]
-//            APIService.shared.putFCMToken(param: fcmParameter)
-//        }
+    
+        if let fcmToken = fcmToken {
+            print("파이어베이스 토큰: \(fcmToken)")
+            
+            let fcmParameter: Parameters = [
+                "fcmToken" : fcmToken
+            ]
+            UserDefaults.standard.setValue(fcmToken, forKey: "fcmToken")
+
+        }
     }
 }

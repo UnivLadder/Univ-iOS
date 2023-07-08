@@ -28,8 +28,8 @@ class MyPageViewController: UIViewController {
     
     //마이페이지 목록
     @IBOutlet weak var MyPageTableView: UITableView!
-    var cellTitle = ["알림", "공지사항", "[Real Tutor] 안내"]
-    var cellIcon = ["bell", "mic", "questionmark.circle"]
+    var cellTitle = ["알림", "공지사항", "[Real Tutor] 안내", "로그아웃"]
+    var cellIcon = ["bell", "mic", "questionmark.circle", "rectangle.portrait.and.arrow.right"]
     
     @IBAction func MoveToRegister(_ sender: Any) {
         if let controller = self.storyboard?.instantiateViewController(withIdentifier: "MentoRegister"){
@@ -83,9 +83,9 @@ class MyPageViewController: UIViewController {
     
     func userStatusViewSetting() {
         self.profileModifyBtn.layer.cornerRadius = 10
-        self.mentoScoreLabel.text = "4.5"
-        self.reviewLabel.text = "121"
-        self.employeeLabel.text = "3"
+        self.mentoScoreLabel.text = "0"
+        self.reviewLabel.text = "0"
+        self.employeeLabel.text = "0"
     }
 
     /// 멘토 등록
@@ -163,9 +163,23 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             if let controller = self.storyboard?.instantiateViewController(withIdentifier: "AppInfo"){
                 self.navigationController?.pushViewController(controller, animated: true)
             }
-        // 앱 캐시 정리하기
+        // 로그 아웃
         default:
+            var alert = UIAlertController()
+            alert = UIAlertController(title:"로그아웃 하시겠습니까?",
+                                      message: "",
+                                      preferredStyle: UIAlertController.Style.alert)
+            let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: { action in
+                self.signOut()
+            })
+            alert.addAction(buttonLabel)
+            self.present(alert,animated: true,completion: nil)
             return
         }
+    }
+    
+    func signOut() {
+        UIViewController.changeRootViewControllerToLogin()
+        CoreDataManager.shared.deleteAllUsers()
     }
 }

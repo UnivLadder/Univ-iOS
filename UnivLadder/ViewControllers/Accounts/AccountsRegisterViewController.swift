@@ -314,7 +314,7 @@ class AccountsRegisterViewController: UIViewController {
 //                                    "fcmToken" : UserDefaults.standard.string(forKey: "fcmToken") ?? ""
 //                                ]
 //                                APIService.shared.putFCMToken(param: parameter)
-                                
+//
                                 //회원가입 성공 알림 화면 출력
                                 let alert = UIAlertController(title: "💙 회원가입 성공 💙", message: "로그인 하세요.", preferredStyle: .alert)
                                 //2. 확인 버튼 만들기

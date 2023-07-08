@@ -7,12 +7,18 @@
 
 import UIKit
 
+// 카테고리 별 과목 셀
 class MetnoSubjectCollectionViewCell: UICollectionViewCell {
-    var subjectList = ["국어", "수학", "영어", "과학", "사회"]
+    
     static let identifier = "MetnoSubjectCollectionViewCell"
     
-    @IBOutlet weak var mentoSubjectLabel: UILabel!
-    @IBOutlet weak var subjectCountLabel: UILabel!
+    @IBOutlet weak var mentoSubjectLabel: UILabel!{
+        didSet{
+            mentoSubjectLabel.numberOfLines = 2
+        }
+    }
+
+//    @IBOutlet weak var subjectCountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

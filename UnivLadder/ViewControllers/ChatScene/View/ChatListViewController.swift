@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-//채티방 리스트 화면
+//채xld방 리스트 화면
 final class ChatListViewController: UIViewController {
 
     @IBOutlet weak var chatRoomListTableView: UITableView! {
@@ -31,7 +31,7 @@ final class ChatListViewController: UIViewController {
 //        chatRoomListTableView.dataSource = nil
         setUI()
         bindViewModel()
-        APIService.shared.getDirectMessage()
+//        APIService.shared.getDirectMessage()
     }
     
     override func viewWillAppear(_ animated: Bool) {

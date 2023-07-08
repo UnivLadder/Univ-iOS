@@ -15,6 +15,10 @@ class MentoInfoViewController: UIViewController {
     let unFillStar = UIImage(systemName: "star")?.withTintColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), renderingMode: .alwaysOriginal)
     
     let mentoSubjectList = ["고등수학", "미적분", "공업수학"]
+    
+    //멘토 정보
+
+    
     //Mento Info
     @IBOutlet weak var mentoNameLabel: UILabel!{
         didSet{

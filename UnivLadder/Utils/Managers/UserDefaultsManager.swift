@@ -20,6 +20,15 @@ struct UserDefaultsManager {
     @UserDefaultWrapper(key: "recommendMentor", defaultValue: nil)
     static var recommendMentorList: [RecommendMentor]?
     
+    @UserDefaultWrapper(key: "chattingRoom", defaultValue: nil)
+    static var chattingRoom: [ChattingRoom]?
+
+    @UserDefaultWrapper(key: "chatting", defaultValue: nil)
+    static var chatting: [ChattingRoom]?
+    
+    @UserDefaultWrapper(key: "mentoSubject", defaultValue: nil)
+    static var mentoSubject: [MentoSubject]?
+    
     @UserDefaultWrapper(key: "mentorSubjectList", defaultValue: nil)
     static var mentorSubjectList: [String]?
 }

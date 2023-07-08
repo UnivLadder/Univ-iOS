@@ -9,15 +9,19 @@ import UIKit
 //import RxSwift
 //import RxCocoa
 
+// 채팅 리스트 화면
 class ChattingViewController: UIViewController {
 
     @IBOutlet weak var chatTableView: UITableView!
+    var chattingList = [ChattingRoom]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-//        APIService.shared.getSubjects()
-        APIService.shared.getDirectListMessage()
 
+
+        if let chattingListUserdefault = UserDefaultsManager.chattingRoom{
+            chattingList = chattingListUserdefault
+        }
 //        bindViewModel()
         // Do any additional setup after loading the view.
     }
@@ -66,16 +70,25 @@ class ChattingViewController: UIViewController {
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        // senderid > 내 계정 아이디가 아닌 accountid로
+        var accountId = (chattingList[indexPath.row].senderAccountId == UserDefaults.standard.integer(forKey: "accountId")) ? chattingList[indexPath.row].receiver.id : chattingList[indexPath.row].senderAccountId
+        APIService.shared.getDirectMessages(senderAccountId: accountId)
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return chattingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatRoomCell", for: indexPath) as? ChatRoomListCell else {
             return UITableViewCell()
         }
+        
+        cell.nameLabel.text = chattingList[indexPath.row].receiver.name
+        cell.lastMessageLabel.text = chattingList[indexPath.row].message
+        cell.timeLabel.text = chattingList[indexPath.row].lastModifiedDate
+        cell.messageCountLabel.text = "1"
+        
         return cell
     }
 }

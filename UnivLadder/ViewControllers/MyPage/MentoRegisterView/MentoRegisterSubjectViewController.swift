@@ -10,11 +10,12 @@ import UIKit
 class MentoRegisterSubjectViewController: UIViewController {
     
     //과목 리스트
+    let categoryList = UserDefaultsManager.categoryList
     var subjectList: [String] = []
     var selectedSubjectList: [String] = []
     var categoryName = ""
     var delegate: SendData?
-
+    var subjectDictionary : [String:[String]] = [:]
     @IBOutlet weak var subjectCollectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!{
         didSet{
@@ -30,11 +31,29 @@ class MentoRegisterSubjectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataParsing()
         subjectCollectionView.allowsMultipleSelection = true
-        subjectList = UserDefaultsManager.subjectDictionary![categoryName]!
+        if let subjectDictionary = UserDefaultsManager.subjectDictionary{
+            subjectList = subjectDictionary[categoryName]!
+        }
     }
     
-
+    func dataParsing(){
+        let subjects = UserDefaultsManager.subjectList
+        
+        if let categoryList = categoryList {
+            categoryList.enumerated().forEach({
+                var tmpArr: [String] = []
+                for j in 0..<subjects!.count{
+                    if subjects.map({$0[j].topic})! == categoryList[$0.offset]{
+                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
+                    }
+                }
+                subjectDictionary.updateValue(tmpArr, forKey: $0.element)
+            })
+            UserDefaultsManager.subjectDictionary = subjectDictionary
+        }
+    }
     @IBAction func sendMentoCategorySubjects(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "MentoRegister") as! MentoRegisterViewController
         self.delegate?.sendData(subjects: selectedSubjectList)
