@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+//채xld방 리스트 화면
 final class ChatListViewController: UIViewController {
 
     @IBOutlet weak var chatRoomListTableView: UITableView! {
@@ -24,15 +25,19 @@ final class ChatListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("뷰 나타마?")
+        self.navigationItem.title = "과외 문의"
 //        chatRoomListTableView.delegate = nil
 //        chatRoomListTableView.dataSource = nil
         setUI()
         bindViewModel()
+//        APIService.shared.getDirectMessage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("뷰 나타마?")
+        
     }
     
     struct TEST: Codable {

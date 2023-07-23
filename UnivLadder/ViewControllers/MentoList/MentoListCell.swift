@@ -17,16 +17,13 @@ class MentoListCell: UICollectionViewCell {
         $0.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
-    
-//    private let imageView = UIImageView()
 
     let main = UIView().then {
         $0.layer.cornerRadius = 50
-//        $0.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
     }
     
     let tvImageView = UIImageView()
-//
+
     let imageView = UIImageView().then{
         let customImage = UIImage(named: "person.png")
         let newWidth = 80
@@ -36,7 +33,10 @@ class MentoListCell: UICollectionViewCell {
         customImage?.draw(in: newImageRect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()?.withRenderingMode(.alwaysOriginal)
         UIGraphicsEndImageContext()
+        
         $0.image = newImage
+        $0.layer.cornerRadius = CGFloat(newHeight/2)
+        $0.clipsToBounds = true
     }
     
     override init(frame: CGRect) {
@@ -51,11 +51,7 @@ class MentoListCell: UICollectionViewCell {
     
     private func setup() {
         addSubview(main)
-        addSubview(imageView)
-//        imageView.snp.makeConstraints {
-//            $0.edges.equalToSuperview()
-//        }
-//        imageView.backgroundColor = .tertiaryLabel
+        addSubview(tvImageView)
         addSubview(label)
     }
     
@@ -64,15 +60,15 @@ class MentoListCell: UICollectionViewCell {
             make.edges.equalTo(0)
         }
         
-        imageView.snp.makeConstraints {
+        tvImageView.snp.makeConstraints {
             $0.top.equalTo(main.snp.top)
             $0.leading.equalTo(main.snp.leading)
             $0.trailing.equalTo(main.snp.trailing)
         }
         
         label.snp.makeConstraints {
-//            $0.trailing.equalTo(main.snp.trailing)
-            $0.top.equalTo(main.snp.top).offset(80)
+            $0.top.equalTo(main.snp.top).offset(85)
+//            $0.top.equalTo(main.snp.top).offset(80)
             $0.leading.equalTo(main.snp.leading)
             $0.trailing.equalTo(main.snp.trailing)
         }

@@ -6,10 +6,10 @@
 //
 
 import Foundation
+import Alamofire
 
 struct Config {
-    static let baseURL = "http://52.78.43.121:80/"
-//    static let baseURL = "http://13.124.108.37:80/"
-    
-
+    static let baseURL = "http://3.39.17.117:80"
+    static let headers: HTTPHeaders = ["Accept" : "application/json, application/javascript, text/javascript, text/json",
+                                "Content-Type" : "application/json; charset=UTF-8"]
 }

@@ -10,8 +10,13 @@
 		301DC0B77D813E609EAF98D1 /* Pods_UnivLadderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6864AAC8D2CD53104ECBF2 /* Pods_UnivLadderTests.framework */; };
 		4B8A6217F7FC077C8E568A5C /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */; };
 		680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */; };
+		6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6815DB36297A735D00E6B356 /* KeyChain.swift */; };
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
+		681EDDBC2A3F038000380B1F /* MentoRegisterSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */; };
 		68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */; };
+		68301B982A45DBF5009CB1D0 /* SendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68301B972A45DBF5009CB1D0 /* SendData.swift */; };
+		68301B9A2A470DD1009CB1D0 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68301B992A470DD1009CB1D0 /* ResetPasswordVC.swift */; };
+		683461122A2C6A0900A31EDB /* RecommendMentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683461112A2C6A0900A31EDB /* RecommendMentor.swift */; };
 		6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836D2EA28154B9300048E21 /* CoreDataManager.swift */; };
 		683D5213296AACC800F8EB88 /* CategoryMentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */; };
 		683D5215296AACDE00F8EB88 /* MentoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D5214296AACDE00F8EB88 /* MentoInfoViewController.swift */; };
@@ -19,12 +24,25 @@
 		68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */; };
 		68442AEF27730E2F009DF75A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68442AEE27730E2F009DF75A /* UserModel.swift */; };
 		6855269E27830BF40030594A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6855269D27830BF40030594A /* GoogleService-Info.plist */; };
+		6856B5092A48315300BE135E /* MentoSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856B5082A48315300BE135E /* MentoSubject.swift */; };
+		6856B50C2A48461500BE135E /* MentoDetailModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856B50B2A48461500BE135E /* MentoDetailModifyViewController.swift */; };
 		6864B288278AFE3C00CE80FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864B287278AFE3C00CE80FE /* APIService.swift */; };
 		6879ACB928BB73A300E758A4 /* MentoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6879ACB828BB73A300E758A4 /* MentoListCell.swift */; };
 		6880A66228719F7F00DB6D20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880A66128719F7F00DB6D20 /* User.swift */; };
+		688518FB2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688518FA2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift */; };
+		688518FD2A2DCB3C00878D8A /* MentoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688518FC2A2DCB3C00878D8A /* MentoTableViewCell.swift */; };
+		688E6C902A2392E500E21E81 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688E6C8F2A2392E500E21E81 /* CategoryCell.swift */; };
 		6892DB16296ADA5F002DB446 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6892DB15296ADA5F002DB446 /* Chatting.storyboard */; };
 		6892DB18296ADABE002DB446 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6892DB17296ADABE002DB446 /* ChattingViewController.swift */; };
+		689357FC2998E2DD00022EFB /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689357FB2998E2DD00022EFB /* NoticeViewController.swift */; };
+		689357FE2998E32000022EFB /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689357FD2998E32000022EFB /* NoticeTableViewCell.swift */; };
+		689358002998E68100022EFB /* NoticeContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689357FF2998E68100022EFB /* NoticeContentTableViewCell.swift */; };
+		689358022998E90800022EFB /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689358012998E90800022EFB /* Notice.swift */; };
+		689358042998F26C00022EFB /* AppInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689358032998F26C00022EFB /* AppInfoTableViewCell.swift */; };
+		689358062998F8F500022EFB /* ReusableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689358052998F8F500022EFB /* ReusableViewController.swift */; };
+		689478422A35B49700243D47 /* MentoSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689478412A35B49700243D47 /* MentoSubjectCollectionViewCell.swift */; };
 		689C759D27AFD80E00C04978 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C759C27AFD80E00C04978 /* DummyData.swift */; };
+		689E0D2A2A4C07E400968DB4 /* ChattingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689E0D292A4C07E400968DB4 /* ChattingRoom.swift */; };
 		68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B27C89279D610C0064D1DD /* LoginDataModel.swift */; };
 		68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */; };
 		68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */; };
@@ -32,15 +50,17 @@
 		68CE951C296933DD00482764 /* Accounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68CE951B296933DD00482764 /* Accounts.storyboard */; };
 		68CE951E296933E400482764 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68CE951D296933E400482764 /* MyPage.storyboard */; };
 		68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D41CD328A9082B0098B29D /* MentoListView.swift */; };
-		68D41CD628A9086D0098B29D /* SubjectListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D41CD528A9086D0098B29D /* SubjectListCell.swift */; };
 		68D4385227942FA80082BE11 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4385127942FA80082BE11 /* Config.swift */; };
 		68D794EC293368C300C905D5 /* launchMsg.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D794EA293368C200C905D5 /* launchMsg.png */; };
 		68D794ED293368C300C905D5 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D794EB293368C200C905D5 /* logo.png */; };
 		68D794EF293368EA00C905D5 /* launchBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D794EE293368EA00C905D5 /* launchBottom.png */; };
-		68D794F1293378F800C905D5 /* MentoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D794F0293378F800C905D5 /* MentoSearchViewController.swift */; };
+		68D794F1293378F800C905D5 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D794F0293378F800C905D5 /* CategoryListViewController.swift */; };
 		68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */; };
 		68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */; };
 		68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */; };
+		68E53B4A2A1A0B1200DD6F26 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E53B492A1A0B1200DD6F26 /* Category.swift */; };
+		68E53B4C2A1A12AA00DD6F26 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E53B4B2A1A12AA00DD6F26 /* Const.swift */; };
+		68EBBE712A288AF4005F674A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EBBE702A288AF4005F674A /* UserDefaultsManager.swift */; };
 		68F26FAD293C99390059D700 /* MentoSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F26FAB293C99390059D700 /* MentoSubjectTableViewCell.swift */; };
 		68F26FAE293C99390059D700 /* MentoSubjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68F26FAC293C99390059D700 /* MentoSubjectTableViewCell.xib */; };
 		68F26FB1293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F26FAF293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift */; };
@@ -52,6 +72,7 @@
 		68F6ED1E28FC0F58003C93D3 /* SubjectEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED1A28FC0F58003C93D3 /* SubjectEntity+CoreDataProperties.swift */; };
 		68F6ED1F28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */; };
 		68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F6F5C628D726EA0092B477 /* Assets.xcassets */; };
+		68FA133D298FCB8000F950A6 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */; };
 		AF54187CD725C296D73ECC3A /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
@@ -85,7 +106,6 @@
 		E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6CEC9269A87AF005D0501 /* UIColor+Extension.swift */; };
 		E5B6CECC269A8808005D0501 /* UINavigationBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6CECB269A8808005D0501 /* UINavigationBar+Extension.swift */; };
 		E5F3F95326470FFC00763ADB /* MentoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F95126470FFC00763ADB /* MentoList.storyboard */; };
-		E5F3F9642647102800763ADB /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3F9622647102800763ADB /* Chat.storyboard */; };
 		E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3F9712647108100763ADB /* MainTabBarViewController.swift */; };
 		E5F3F97A264710EE00763ADB /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3F979264710EE00763ADB /* ChatListViewController.swift */; };
 		E5FA9B9827DDE4CC009C9C9E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA9B9727DDE4CC009C9C9E /* MainView.swift */; };
@@ -122,8 +142,13 @@
 		4E6864AAC8D2CD53104ECBF2 /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
+		6815DB36297A735D00E6B356 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterSubjectViewController.swift; sourceTree = "<group>"; };
 		68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyViewController.swift; sourceTree = "<group>"; };
+		68301B972A45DBF5009CB1D0 /* SendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendData.swift; sourceTree = "<group>"; };
+		68301B992A470DD1009CB1D0 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		683461112A2C6A0900A31EDB /* RecommendMentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendMentor.swift; sourceTree = "<group>"; };
 		6836D2EA28154B9300048E21 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMentoListViewController.swift; sourceTree = "<group>"; };
 		683D5214296AACDE00F8EB88 /* MentoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoInfoViewController.swift; sourceTree = "<group>"; };
@@ -131,12 +156,25 @@
 		68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsRegisterViewController.swift; sourceTree = "<group>"; };
 		68442AEE27730E2F009DF75A /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		6855269D27830BF40030594A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6856B5082A48315300BE135E /* MentoSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSubject.swift; sourceTree = "<group>"; };
+		6856B50B2A48461500BE135E /* MentoDetailModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoDetailModifyViewController.swift; sourceTree = "<group>"; };
 		6864B287278AFE3C00CE80FE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		6879ACB828BB73A300E758A4 /* MentoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListCell.swift; sourceTree = "<group>"; };
 		6880A66128719F7F00DB6D20 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		688518FA2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		688518FC2A2DCB3C00878D8A /* MentoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoTableViewCell.swift; sourceTree = "<group>"; };
+		688E6C8F2A2392E500E21E81 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		6892DB15296ADA5F002DB446 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		6892DB17296ADABE002DB446 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		689357FB2998E2DD00022EFB /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		689357FD2998E32000022EFB /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		689357FF2998E68100022EFB /* NoticeContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeContentTableViewCell.swift; sourceTree = "<group>"; };
+		689358012998E90800022EFB /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		689358032998F26C00022EFB /* AppInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoTableViewCell.swift; sourceTree = "<group>"; };
+		689358052998F8F500022EFB /* ReusableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewController.swift; sourceTree = "<group>"; };
+		689478412A35B49700243D47 /* MentoSubjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSubjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		689C759C27AFD80E00C04978 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		689E0D292A4C07E400968DB4 /* ChattingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoom.swift; sourceTree = "<group>"; };
 		68B27C89279D610C0064D1DD /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterViewController.swift; sourceTree = "<group>"; };
 		68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModifyViewController.swift; sourceTree = "<group>"; };
@@ -144,15 +182,17 @@
 		68CE951B296933DD00482764 /* Accounts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Accounts.storyboard; path = UnivLadder/ViewControllers/Storyboards/Accounts.storyboard; sourceTree = SOURCE_ROOT; };
 		68CE951D296933E400482764 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MyPage.storyboard; path = UnivLadder/MyPage/MyPage.storyboard; sourceTree = SOURCE_ROOT; };
 		68D41CD328A9082B0098B29D /* MentoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListView.swift; sourceTree = "<group>"; };
-		68D41CD528A9086D0098B29D /* SubjectListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListCell.swift; sourceTree = "<group>"; };
 		68D4385127942FA80082BE11 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		68D794EA293368C200C905D5 /* launchMsg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchMsg.png; sourceTree = "<group>"; };
 		68D794EB293368C200C905D5 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		68D794EE293368EA00C905D5 /* launchBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchBottom.png; sourceTree = "<group>"; };
-		68D794F0293378F800C905D5 /* MentoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSearchViewController.swift; sourceTree = "<group>"; };
+		68D794F0293378F800C905D5 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		68D92B9627DDF55600866E0D /* AccountModifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyTableViewCell.swift; sourceTree = "<group>"; };
 		68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModifyViewController.swift; sourceTree = "<group>"; };
 		68D92B9B27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		68E53B492A1A0B1200DD6F26 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		68E53B4B2A1A12AA00DD6F26 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		68EBBE702A288AF4005F674A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		68F06FA927782576008A9511 /* UnivLadder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UnivLadder.entitlements; sourceTree = "<group>"; };
 		68F26FAB293C99390059D700 /* MentoSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		68F26FAC293C99390059D700 /* MentoSubjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MentoSubjectTableViewCell.xib; sourceTree = "<group>"; };
@@ -165,6 +205,7 @@
 		68F6ED1A28FC0F58003C93D3 /* SubjectEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SubjectEntity+CoreDataProperties.swift"; path = "/Users/leeyeon2/Dev/Univ/Univ-iOS_leeyeon/UnivLadder/DB/SubjectEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataProperties.swift"; path = "/Users/leeyeon2/Dev/Univ/Univ-iOS_leeyeon/UnivLadder/DB/UserEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		68F6F5C628D726EA0092B477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		9B84878A71CDD8EF1B04D5B7 /* Pods-UnivLadder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.release.xcconfig"; sourceTree = "<group>"; };
 		CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder_UnivLadderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F1C83937D5AB2F8D6ED521 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,7 +231,7 @@
 		E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListViewController.swift; sourceTree = "<group>"; };
 		E5AF9A37280C2A1B00601AE2 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		E5AF9A41280C2D1000601AE2 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
-		E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnivLadder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B38B1E2615EBCC00D4EB5D /* Real Tutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Real Tutor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E5B38B282615EBCC00D4EB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -206,7 +247,6 @@
 		E5B6CEC9269A87AF005D0501 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E5B6CECB269A8808005D0501 /* UINavigationBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extension.swift"; sourceTree = "<group>"; };
 		E5F3F95226470FFC00763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UnivLadder/Storyboards/Base.lproj/MentoList.storyboard; sourceTree = "<group>"; };
-		E5F3F9632647102800763ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UnivLadder/Storyboards/Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		E5F3F9712647108100763ADB /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		E5F3F979264710EE00763ADB /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		E5FA9B9727DDE4CC009C9C9E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -265,6 +305,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		681EDDBA2A3F035200380B1F /* MentoRegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
+				681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */,
+			);
+			path = MentoRegisterView;
+			sourceTree = "<group>";
+		};
 		6836D2D6281546E400048E21 /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +332,7 @@
 			children = (
 				68442AE927730E21009DF75A /* AccountsMainViewController.swift */,
 				68442AEA27730E21009DF75A /* AccountsRegisterViewController.swift */,
+				68301B992A470DD1009CB1D0 /* ResetPasswordVC.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -290,6 +340,8 @@
 		68442AED27730E2F009DF75A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				683461112A2C6A0900A31EDB /* RecommendMentor.swift */,
+				6856B5082A48315300BE135E /* MentoSubject.swift */,
 				68F3AE68280C249200CF53DC /* Subject */,
 				E546934527F9C73A007A1791 /* Chat */,
 				68442AEE27730E2F009DF75A /* UserModel.swift */,
@@ -301,6 +353,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		6856B50A2A4845D500BE135E /* MentoModify */ = {
+			isa = PBXGroup;
+			children = (
+				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
+				6856B50B2A48461500BE135E /* MentoDetailModifyViewController.swift */,
+			);
+			path = MentoModify;
+			sourceTree = "<group>";
+		};
 		6864B286278AFE0600CE80FE /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,16 +370,69 @@
 				E546934327F9C31A007A1791 /* SocketManager.swift */,
 				E567E33D2802E09900F83683 /* Endpoint.swift */,
 				6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */,
+				6815DB36297A735D00E6B356 /* KeyChain.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		688AC65B294F1C650071340F /* MyPageCell */ = {
+		688518FE2A2DCB4B00878D8A /* SubjectList */ = {
 			isa = PBXGroup;
 			children = (
-				E587B0722712F66100FAD77D /* MyPageCell.swift */,
+				688518FA2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift */,
+				683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */,
 			);
-			path = MyPageCell;
+			path = SubjectList;
+			sourceTree = "<group>";
+		};
+		688518FF2A2DCB5C00878D8A /* MentoList */ = {
+			isa = PBXGroup;
+			children = (
+				688518FC2A2DCB3C00878D8A /* MentoTableViewCell.swift */,
+				683D5214296AACDE00F8EB88 /* MentoInfoViewController.swift */,
+				689478412A35B49700243D47 /* MentoSubjectCollectionViewCell.swift */,
+			);
+			path = MentoList;
+			sourceTree = "<group>";
+		};
+		688519002A2DCB7800878D8A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E5FA9B9727DDE4CC009C9C9E /* MainView.swift */,
+				68D794F0293378F800C905D5 /* CategoryListViewController.swift */,
+				E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		688A8B502A2A327F00D0B811 /* MyPageTableMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
+				E587B0722712F66100FAD77D /* MyPageCell.swift */,
+				689358032998F26C00022EFB /* AppInfoTableViewCell.swift */,
+				689357FA2998E2A500022EFB /* Notice */,
+				68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */,
+			);
+			path = MyPageTableMenu;
+			sourceTree = "<group>";
+		};
+		688A8B512A2A32B400D0B811 /* MyPageModify */ = {
+			isa = PBXGroup;
+			children = (
+				68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */,
+			);
+			path = MyPageModify;
+			sourceTree = "<group>";
+		};
+		689357FA2998E2A500022EFB /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				689357FB2998E2DD00022EFB /* NoticeViewController.swift */,
+				689357FD2998E32000022EFB /* NoticeTableViewCell.swift */,
+				689357FF2998E68100022EFB /* NoticeContentTableViewCell.swift */,
+				689358012998E90800022EFB /* Notice.swift */,
+			);
+			path = Notice;
 			sourceTree = "<group>";
 		};
 		68C42AF727D4CEF600CE9E38 /* Accounts */ = {
@@ -333,11 +447,9 @@
 		68CE952329693B6900482764 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E5FA9B9727DDE4CC009C9C9E /* MainView.swift */,
-				683D5214296AACDE00F8EB88 /* MentoInfoViewController.swift */,
-				E58D4B62275DF3F1009CF08D /* MentoListViewController.swift */,
-				68D794F0293378F800C905D5 /* MentoSearchViewController.swift */,
-				683D5212296AACC800F8EB88 /* CategoryMentoListViewController.swift */,
+				688519002A2DCB7800878D8A /* Main */,
+				688518FF2A2DCB5C00878D8A /* MentoList */,
+				688518FE2A2DCB4B00878D8A /* SubjectList */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -385,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				68F3AE69280C24AC00CF53DC /* SubjectModel.swift */,
+				68E53B492A1A0B1200DD6F26 /* Category.swift */,
 			);
 			path = Subject;
 			sourceTree = "<group>";
@@ -423,6 +536,7 @@
 		E546934027F9BE42007A1791 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6892DB17296ADABE002DB446 /* ChattingViewController.swift */,
 				E5F3F979264710EE00763ADB /* ChatListViewController.swift */,
 				E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */,
 			);
@@ -433,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				E546934627F9C749007A1791 /* ChatModel.swift */,
+				689E0D292A4C07E400968DB4 /* ChattingRoom.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -452,6 +567,7 @@
 			children = (
 				E57A31BC27B902F000276D7F /* StoryboardInitializable.swift */,
 				E5FA9B9927DDE55C009C9C9E /* ViewRepresentable.swift */,
+				68301B972A45DBF5009CB1D0 /* SendData.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -459,12 +575,12 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				688AC65B294F1C650071340F /* MyPageCell */,
-				68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */,
-				68C42AF127D4C4C300CE9E38 /* MentoRegisterViewController.swift */,
-				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
-				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
+				6856B50A2A4845D500BE135E /* MentoModify */,
+				681EDDBA2A3F035200380B1F /* MentoRegisterView */,
+				688A8B512A2A32B400D0B811 /* MyPageModify */,
+				688A8B502A2A327F00D0B811 /* MyPageTableMenu */,
 				68D92B9827DDF9F900866E0D /* SubjectModifyViewController.swift */,
+				689358052998F8F500022EFB /* ReusableViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -476,9 +592,9 @@
 				68F26FAC293C99390059D700 /* MentoSubjectTableViewCell.xib */,
 				68F26FAF293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift */,
 				68F26FB0293CA2930059D700 /* MetnoSubjectCollectionViewCell.xib */,
-				6879ACB828BB73A300E758A4 /* MentoListCell.swift */,
 				68D41CD328A9082B0098B29D /* MentoListView.swift */,
-				68D41CD528A9086D0098B29D /* SubjectListCell.swift */,
+				6879ACB828BB73A300E758A4 /* MentoListCell.swift */,
+				688E6C8F2A2392E500E21E81 /* CategoryCell.swift */,
 			);
 			path = MentoList;
 			sourceTree = "<group>";
@@ -506,7 +622,7 @@
 		E5B38B1F2615EBCC00D4EB5D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */,
+				E5B38B1E2615EBCC00D4EB5D /* Real Tutor.app */,
 				E5B38B372615EBCC00D4EB5D /* UnivLadderTests.xctest */,
 				E5B38B422615EBCC00D4EB5D /* UnivLadderUITests.xctest */,
 			);
@@ -521,9 +637,9 @@
 				E5B6CECF269A9562005D0501 /* Cells */,
 				6836D2D6281546E400048E21 /* DB */,
 				68442AED27730E2F009DF75A /* Models */,
+				E57A31BA27B902DA00276D7F /* Utils */,
 				E5F3F9182647093B00763ADB /* SupportingFiles */,
 				68F06FA927782576008A9511 /* UnivLadder.entitlements */,
-				E57A31BA27B902DA00276D7F /* Utils */,
 			);
 			path = UnivLadder;
 			sourceTree = "<group>";
@@ -571,12 +687,13 @@
 			children = (
 				68D794E12933670A00C905D5 /* Resources */,
 				6864B286278AFE0600CE80FE /* Services */,
+				6855269D27830BF40030594A /* GoogleService-Info.plist */,
 				E5B38B322615EBCC00D4EB5D /* Info.plist */,
+				E5043A0126A4285E004D2870 /* AppColorSet.swift */,
 				E5B38B212615EBCC00D4EB5D /* AppDelegate.swift */,
+				68E53B4B2A1A12AA00DD6F26 /* Const.swift */,
 				E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */,
 				E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */,
-				E5043A0126A4285E004D2870 /* AppColorSet.swift */,
-				6855269D27830BF40030594A /* GoogleService-Info.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -588,7 +705,6 @@
 				68CE951D296933E400482764 /* MyPage.storyboard */,
 				E5F3F95126470FFC00763ADB /* MentoList.storyboard */,
 				E5B38B2F2615EBCC00D4EB5D /* LaunchScreen.storyboard */,
-				E5F3F9622647102800763ADB /* Chat.storyboard */,
 				68CE951B296933DD00482764 /* Accounts.storyboard */,
 				6892DB15296ADA5F002DB446 /* Chatting.storyboard */,
 			);
@@ -614,6 +730,7 @@
 			children = (
 				E58D4B5F275DF339009CF08D /* ThemeManager.swift */,
 				E5576B04275E27DC002BF041 /* ConstantManager.swift */,
+				68EBBE702A288AF4005F674A /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -634,7 +751,6 @@
 			children = (
 				E546934027F9BE42007A1791 /* View */,
 				E546933F27F9BDAF007A1791 /* ViewModel */,
-				6892DB17296ADABE002DB446 /* ChattingViewController.swift */,
 			);
 			path = ChatScene;
 			sourceTree = "<group>";
@@ -658,7 +774,7 @@
 			);
 			name = UnivLadder;
 			productName = UnivLadder;
-			productReference = E5B38B1E2615EBCC00D4EB5D /* UnivLadder.app */;
+			productReference = E5B38B1E2615EBCC00D4EB5D /* Real Tutor.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E5B38B362615EBCC00D4EB5D /* UnivLadderTests */ = {
@@ -770,7 +886,6 @@
 				68D794EF293368EA00C905D5 /* launchBottom.png in Resources */,
 				E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */,
 				E5F3F95326470FFC00763ADB /* MentoList.storyboard in Resources */,
-				E5F3F9642647102800763ADB /* Chat.storyboard in Resources */,
 				E5B38B292615EBCC00D4EB5D /* Main.storyboard in Resources */,
 				68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */,
 				68D794EC293368C300C905D5 /* launchMsg.png in Resources */,
@@ -908,34 +1023,47 @@
 				689C759D27AFD80E00C04978 /* DummyData.swift in Sources */,
 				E56ABEE82647C8A100A45786 /* ChatRoomViewController.swift in Sources */,
 				6864B288278AFE3C00CE80FE /* APIService.swift in Sources */,
+				689358022998E90800022EFB /* Notice.swift in Sources */,
 				E56ABEE32647C4B800A45786 /* ChatRoomListCell.swift in Sources */,
 				E546934727F9C749007A1791 /* ChatModel.swift in Sources */,
 				E57A31BD27B902F000276D7F /* StoryboardInitializable.swift in Sources */,
 				6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */,
+				681EDDBC2A3F038000380B1F /* MentoRegisterSubjectViewController.swift in Sources */,
+				68EBBE712A288AF4005F674A /* UserDefaultsManager.swift in Sources */,
 				68442AEC27730E21009DF75A /* AccountsRegisterViewController.swift in Sources */,
 				E5F3F9722647108100763ADB /* MainTabBarViewController.swift in Sources */,
+				689357FE2998E32000022EFB /* NoticeTableViewCell.swift in Sources */,
 				E56ABEED2647CC0D00A45786 /* YourChatBubbleCell.swift in Sources */,
 				E5B6CECA269A87AF005D0501 /* UIColor+Extension.swift in Sources */,
-				68D41CD628A9086D0098B29D /* SubjectListCell.swift in Sources */,
 				6892DB18296ADABE002DB446 /* ChattingViewController.swift in Sources */,
+				689358062998F8F500022EFB /* ReusableViewController.swift in Sources */,
+				689E0D2A2A4C07E400968DB4 /* ChattingRoom.swift in Sources */,
 				68F6ED1C28FC0F58003C93D3 /* UserEntity+CoreDataClass.swift in Sources */,
+				689357FC2998E2DD00022EFB /* NoticeViewController.swift in Sources */,
 				68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */,
 				E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */,
+				68E53B4A2A1A0B1200DD6F26 /* Category.swift in Sources */,
 				E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */,
 				68F6ED1D28FC0F58003C93D3 /* SubjectEntity+CoreDataClass.swift in Sources */,
 				68C42AF227D4C4C300CE9E38 /* MentoRegisterViewController.swift in Sources */,
 				6836D2EB28154B9300048E21 /* CoreDataManager.swift in Sources */,
+				68301B982A45DBF5009CB1D0 /* SendData.swift in Sources */,
+				683461122A2C6A0900A31EDB /* RecommendMentor.swift in Sources */,
 				6879ACB928BB73A300E758A4 /* MentoListCell.swift in Sources */,
+				68301B9A2A470DD1009CB1D0 /* ResetPasswordVC.swift in Sources */,
 				68D92B9C27DE0EB800866E0D /* SubjectCategoryCollectionViewCell.swift in Sources */,
 				E5B38B2C2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld in Sources */,
 				68D92B9927DDF9F900866E0D /* SubjectModifyViewController.swift in Sources */,
 				68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */,
 				68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */,
+				6856B5092A48315300BE135E /* MentoSubject.swift in Sources */,
 				6880A66228719F7F00DB6D20 /* User.swift in Sources */,
 				683D5213296AACC800F8EB88 /* CategoryMentoListViewController.swift in Sources */,
 				68F26FAD293C99390059D700 /* MentoSubjectTableViewCell.swift in Sources */,
 				68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */,
+				689478422A35B49700243D47 /* MentoSubjectCollectionViewCell.swift in Sources */,
 				E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */,
+				688E6C902A2392E500E21E81 /* CategoryCell.swift in Sources */,
 				E57A31B927B900DF00276D7F /* UIViewController+Extension.swift in Sources */,
 				E587B0712712F54D00FAD77D /* MyPageViewController.swift in Sources */,
 				E5F3F97A264710EE00763ADB /* ChatListViewController.swift in Sources */,
@@ -947,19 +1075,27 @@
 				E58A9C1A27DDEF1000A4ACBB /* UIButton+Extension.swift in Sources */,
 				E5B6CECC269A8808005D0501 /* UINavigationBar+Extension.swift in Sources */,
 				E567E33E2802E09900F83683 /* Endpoint.swift in Sources */,
+				688518FB2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift in Sources */,
 				E5FA9B9827DDE4CC009C9C9E /* MainView.swift in Sources */,
 				68442AEB27730E21009DF75A /* AccountsMainViewController.swift in Sources */,
-				68D794F1293378F800C905D5 /* MentoSearchViewController.swift in Sources */,
+				68D794F1293378F800C905D5 /* CategoryListViewController.swift in Sources */,
+				689358002998E68100022EFB /* NoticeContentTableViewCell.swift in Sources */,
 				E5B38B242615EBCC00D4EB5D /* SceneDelegate.swift in Sources */,
 				683D5215296AACDE00F8EB88 /* MentoInfoViewController.swift in Sources */,
 				68C42AF427D4C50400CE9E38 /* ProfileModifyViewController.swift in Sources */,
+				6856B50C2A48461500BE135E /* MentoDetailModifyViewController.swift in Sources */,
 				E58D4B60275DF339009CF08D /* ThemeManager.swift in Sources */,
 				680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */,
+				68FA133D298FCB8000F950A6 /* AppInfoViewController.swift in Sources */,
+				6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */,
+				689358042998F26C00022EFB /* AppInfoTableViewCell.swift in Sources */,
+				688518FD2A2DCB3C00878D8A /* MentoTableViewCell.swift in Sources */,
 				E58A9C1E27DDF68A00A4ACBB /* Fonts+Generated.swift in Sources */,
 				E546934427F9C31A007A1791 /* SocketManager.swift in Sources */,
 				68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */,
 				E58A9C1C27DDF02B00A4ACBB /* Colors+Generated.swift in Sources */,
 				E5FA9B9A27DDE55C009C9C9E /* ViewRepresentable.swift in Sources */,
+				68E53B4C2A1A12AA00DD6F26 /* Const.swift in Sources */,
 				68442AEF27730E2F009DF75A /* UserModel.swift in Sources */,
 				68F3AE6A280C24AC00CF53DC /* SubjectModel.swift in Sources */,
 				68F26FB1293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift in Sources */,
@@ -1024,14 +1160,6 @@
 			name = MentoList.storyboard;
 			sourceTree = "<group>";
 		};
-		E5F3F9622647102800763ADB /* Chat.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5F3F9632647102800763ADB /* Base */,
-			);
-			name = Chat.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1086,6 +1214,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1141,6 +1270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1160,14 +1290,19 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = W832C4SNYD;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Real Tutor";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = YES;
@@ -1183,14 +1318,19 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = W832C4SNYD;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Real Tutor";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = YES;

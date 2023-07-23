@@ -27,7 +27,8 @@ class YourChatBubbleCell: UITableViewCell {
         didSet {
             bubbleLabel.textColor = Theme.labelColor
             bubbleLabel.font = Fonts.EsamanruOTF.light.font(size: 14)
-            bubbleLabel.text = "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트"
+            bubbleLabel.numberOfLines = 3
+//            bubbleLabel.text = time[0]
             
         }
     }
@@ -36,7 +37,7 @@ class YourChatBubbleCell: UITableViewCell {
         didSet {
             timeLabel.textColor = Colors.Text.text1000.color
             timeLabel.font = Fonts.GmarketSans.medium.font(size: 12)
-            timeLabel.text = "12:30"
+//            timeLabel.text = "12:30"
         }
     }
     

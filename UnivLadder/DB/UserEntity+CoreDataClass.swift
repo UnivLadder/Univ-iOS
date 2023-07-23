@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 @objc(UserEntity)
+//NSManagedObject coredata의 단일 객체
 public class UserEntity: NSManagedObject {
 
 }

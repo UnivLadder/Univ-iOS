@@ -18,4 +18,15 @@ extension UIViewController {
             windowScene.windows.first?.makeKeyAndVisible()
         }
     }
+    
+    static func changeRootViewControllerToLogin() {
+        let vc = AccountsMainViewController.instantiate()
+        DispatchQueue.main.async {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+                return
+            }
+            windowScene.windows.first?.rootViewController = vc
+            windowScene.windows.first?.makeKeyAndVisible()
+        }
+    }
 }

@@ -57,6 +57,10 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
+	<key>FirebaseScreenReportingEnabled</key>
+	<true/>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -116,6 +120,11 @@
 	</dict>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen.storyboard</string>
 	<key>UIMainStoryboardFile</key>

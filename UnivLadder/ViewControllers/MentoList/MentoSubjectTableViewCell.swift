@@ -7,11 +7,17 @@
 
 import UIKit
 
+// 과목 테이블 뷰 셀
 class MentoSubjectTableViewCell: UITableViewCell{
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var subjectList = ["국어", "수학", "영어", "과학", "사회", "사회"]
+    var subjectList = [""]
+    var categoryIndex = 0
+    
     static let identifier = "MentoSubjectTableViewCell"
+    var didSelectItemAction: ((IndexPath) -> Void)?
+//    var subjectList: [String] = []
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,18 +25,16 @@ class MentoSubjectTableViewCell: UITableViewCell{
         registerXib()
         collectionView.layer.cornerRadius = 10
         
-        let width = (self.contentView.frame.width-10)/3
-//        let height = (self.contentView.frame.height-20)/2
+        let width = (collectionView.frame.width)/3 + 15
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumLineSpacing = 0.5
+        layout.minimumInteritemSpacing = 0.5
         //cell 크기
-        layout.itemSize = CGSize(width: width, height: 35)
-        
+        layout.itemSize = CGSize(width: width, height: 50)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     private func registerDelegate(){
         collectionView.delegate = self
@@ -38,17 +42,14 @@ class MentoSubjectTableViewCell: UITableViewCell{
     }
     
     private func registerXib(){
-//        let layout = UICollectionViewLayout()
-//        collectionView.collectionViewLayout = layout
-//
         let storyNib = UINib(nibName: MetnoSubjectCollectionViewCell.identifier, bundle: nil)
         collectionView.register(storyNib, forCellWithReuseIdentifier: MetnoSubjectCollectionViewCell.identifier)
     }
     
-    func setData(list: [String]){
+    func setData(list: [String], index: Int){
         subjectList = list
+        categoryIndex = index
     }
-    
 }
 
 extension MentoSubjectTableViewCell: UICollectionViewDataSource {
@@ -56,32 +57,36 @@ extension MentoSubjectTableViewCell: UICollectionViewDataSource {
         return subjectList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 10, height: 2)
-    }
-    
-
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ShowMentoListView" {
-//            if let vc = segue.destination as? CategoryMentoListViewController
-//            {}
-//        }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 10, height: 2)
 //    }
+
 }
 
 extension MentoSubjectTableViewCell: UICollectionViewDelegate {
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MetnoSubjectCollectionViewCell.identifier, for: indexPath) as? MetnoSubjectCollectionViewCell else { return UICollectionViewCell() }
         
         //cell label 값 넣기
         cell.mentoSubjectLabel.text = subjectList[indexPath.item]
-        cell.subjectCountLabel.text = "(000)"
+        cell.mentoSubjectLabel.numberOfLines = 0
+        cell.mentoSubjectLabel.lineBreakMode = .byWordWrapping
+
+        //추후 과목별 멘토 수 label 추가
+        //        cell.subjectCountLabel.text = "(000)"
         //        cell.setData(userData: subjectList[indexPath.row])
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "ShowMentoListView", sender: indexPath.item)
-//    }
+    //과목 선택시 해당 카테고리별 과목 테이블뷰로 이동
+    // storyboard id : CategoryMentoList
+    // VC : CategoryMentoListViewController
+    //segue로 이동 : CategoryMentoSegue
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // 과목
+        print(subjectList[indexPath.item])
+        didSelectItemAction?(indexPath)
+    }
 }

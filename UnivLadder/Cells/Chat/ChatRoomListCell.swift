@@ -13,21 +13,21 @@ class ChatRoomListCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
             nameLabel.font = Fonts.EsamanruOTF.medium.font(size: 16)
-            nameLabel.text = "이름"
+//            nameLabel.text = "이름"
         }
     }
     @IBOutlet weak var lastMessageLabel: UILabel! {
         didSet {
             lastMessageLabel.font = Fonts.EsamanruOTF.light.font(size: 13)
             lastMessageLabel.textColor = Colors.Text.text300.color
-            lastMessageLabel.text = "마지막 메세지"
+//            lastMessageLabel.text = "마지막 메세지"
         }
     }
     @IBOutlet weak var timeLabel: UILabel! {
         didSet {
             timeLabel.font = Theme.numberFont
             timeLabel.textColor = Colors.Text.text300.color
-            timeLabel.text = "10:32"
+//            timeLabel.text = "10:32"
         }
     }
     @IBOutlet weak var messageCountView: UIView! {

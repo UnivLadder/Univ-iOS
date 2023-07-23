@@ -26,7 +26,7 @@ enum TabBarItem: Int {
 
 class MainTabBarViewController: UITabBarController, StoryboardInitializable {
 
-    static var storyboardID: String = "MainTabBarViewController"
+    static var storyboardID: String = "MainPage"
     static var storyboardName: String = "Main"
     
     override func viewDidLoad() {
@@ -34,6 +34,10 @@ class MainTabBarViewController: UITabBarController, StoryboardInitializable {
 
         // Do any additional setup after loading the view.
 
+        // 카테고리 이미지 보여주기 위한 데이터 로드
+        var subjectData: [SubjectModel]?
+        
+//        var categories = [Category]()
         
     }
 

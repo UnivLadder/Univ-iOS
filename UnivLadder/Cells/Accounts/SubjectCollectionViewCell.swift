@@ -23,7 +23,7 @@ class SubjectCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
            didSet{
                if isSelected {
-                   self.subjectContentView.layer.borderColor = UIColor.red.cgColor
+                   self.subjectContentView.layer.borderColor = #colorLiteral(red: 0.4261336327, green: 0.352904737, blue: 0.9019818306, alpha: 1)
                }
                else {
                    self.subjectContentView.layer.borderColor = UIColor.lightGray.cgColor

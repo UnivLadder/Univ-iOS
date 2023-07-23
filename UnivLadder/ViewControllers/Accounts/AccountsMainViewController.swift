@@ -14,7 +14,12 @@ import GoogleSignIn
 import KakaoSDKUser
 
 
-class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate {
+class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate, StoryboardInitializable {
+    
+    static var storyboardName: String = "Accounts"
+    
+    static var storyboardID: String = "Accounts"
+    
     
     var userModel = UserModel() // 인스턴스 생성
     
@@ -30,6 +35,8 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     @IBOutlet weak var registerBtn: UIButton!
     
+    
+    @IBOutlet weak var serverLoginBtn: UIButton!
     @IBOutlet weak var googleLogInBtn: UIButton!
     @IBOutlet weak var appleLogInBtn: UIButton!
     @IBOutlet weak var kakaoLoginBtn: UIButton!
@@ -39,114 +46,141 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         self.viewComponents()
     }
     
+    // MARK: - 로그인 Action
+    //1. 자체 로그인 2.구글 소셜 로그인 3.애플 소셜 로그인
     
-    func saveUserInfoInUserDefaults(){
-        //        UserDefaults.standard.setValue(id, forKey: "id")
-        //        UserDefaults.standard.setValue(password, forKey: "password")
+    //1. 자체 로그인 - 토큰 저장(키체인)
+    // + coredata 없는 경우 내 계정 조회 response 값 저장
+    //    "username" : "sign-in@gmail.com",
+    //    "password" : "password"
+    
+    /// 로그인 수행 action 메소드
+    /// - Parameter sender: sender
+    @IBAction func logInAction(_ sender: Any) {
+        // 옵셔널 바인딩 & 예외 처리 : Textfield가 빈문자열이 아니고, nil이 아닐 때
+        guard let email = emailTextField.text, !email.isEmpty else { return }
+        guard let password = passwordTextField.text, !password.isEmpty else { return }
+        
+//        if self.checkLogInInfo(email: email, password: password) {
+            self.serverLogIn(email: email, password: password)
+//        }
+    }
+    
+    /// 로그인 입력 데이터 형식 체크 메소드
+    /// - Parameters:
+    ///   - email: 로그인 이메일
+    ///   - password: 로그인 비밀번호
+    /// - Returns: bool type, true 인 경우 서버 통신 수행
+    func checkLogInInfo(email: String, password: String) -> Bool {
+        var res = false
+        
+        // 이메일 형식 오류
+        if userModel.isValidEmail(id: email){
+            //nil 처리 추가
+            //emailErrorLabel.text = " "
+            if let removable = self.view.viewWithTag(100) {
+                removable.removeFromSuperview()
+                res = true
+            }
+        }
+        else {
+            shakeTextField(textField: emailTextField)
+            emailErrorLabel.text = "잘못된 형식의 이메일입니다."
+            emailErrorLabel.textColor = UIColor.red
+            emailErrorLabel.tag = 100
+            emailErrorLabel.isHidden = false
+            res = false
+        }
+        
+        // 비밀번호 형식 오류
+        if userModel.isValidPassword(pwd: password){
+            if let removable = self.view.viewWithTag(101) {
+                removable.removeFromSuperview()
+                res = true
+            }
+        }
+        else{
+            shakeTextField(textField: passwordTextField)
+            passwordErrorLabel.text = "비밀번호를 다시 입력해주세요."
+            passwordErrorLabel.textColor = UIColor.red
+            passwordErrorLabel.tag = 101
+            passwordErrorLabel.isHidden = false
+            res = false
+        }
+        return res
     }
     
     
-    //로그인 구현
-    //1. 자체 로그인 2.구글 소셜 로그인 3.애플 소셜 로그인
-    
-    //1. 자체 로그인
-    //    "username" : "sign-in@gmail.com",
-    //    "password" : "password"
-    //텍스트에 이모티콘 넣기
-    
-    @IBAction func signInAction(_ sender: Any) {
-        UIViewController.changeRootViewControllerToHome()
+    func serverLogIn(email: String, password: String) {
+        //실 data
+        let params = ["username" : email,
+                      "password" : password]
         
-        //        var params = ["username" : emailTextField.text!,
-        //                      "password" : passwordTextField.text!]
-        //dummy test
-        var params = ["username" : "leeyeon0527@gmail.com",
-                      "password" : "PASSWORD"]
+        //dummy data
+//        let params = ["username" : "leeyeon0527@naver.com",
+//                      "password" : "password"]
         
-        //        APIService.shared.signin(param: params, completion: {
-        //            //nil, 빈값 2개 다 처리
-        //            if let token = APIService.shared.accessToken{
-        //                if !token.isEmpty{
-        //                    print("로그인 성공")
-        //                    UIViewController.changeRootViewControllerToHome()
-        //                }else{
-        //                    print("빈 값")
-        //                }
-        //            }else{
-        //                print("로그인 실패")
-        //            }
-        //        })
-        
-        
-        
-        // 옵셔널 바인딩 & 예외 처리 : Textfield가 빈문자열이 아니고, nil이 아닐 때
-        //        guard let email = emailTextField.text, !email.isEmpty else { return }
-        //        guard let password = passwordTextField.text, !password.isEmpty else { return }
-        //
-        //        // 이메일 형식 오류
-        //        if userModel.isValidEmail(id: email){
-        //            //nil 처리 추가
-        //            //emailErrorLabel.text = " "
-        //            if let removable = self.view.viewWithTag(100) {
-        //                removable.removeFromSuperview()
-        //            }
-        //        }
-        //        else {
-        //            shakeTextField(textField: emailTextField)
-        //            emailErrorLabel.text = "잘못된 형식의 이메일입니다."
-        //            emailErrorLabel.textColor = UIColor.red
-        //            emailErrorLabel.tag = 100
-        //            emailErrorLabel.isHidden = false        }
-        //
-        //        // 비밀번호 형식 오류
-        //        if userModel.isValidPassword(pwd: password){
-        //            if let removable = self.view.viewWithTag(101) {
-        //                removable.removeFromSuperview()
-        //            }
-        //        }
-        //        else{
-        //            shakeTextField(textField: passwordTextField)
-        //            passwordErrorLabel.text = "비밀번호를 다시 입력해주세요."
-        //            passwordErrorLabel.textColor = UIColor.red
-        //            passwordErrorLabel.tag = 101
-        //            passwordErrorLabel.isHidden = false
-        //
-        //        }
-        //
-        //        if userModel.isValidEmail(id: email) && userModel.isValidPassword(pwd: password) {
-        ////            let logInSuccess: Bool = logInCheck(id: email, pwd: password)
-        //
-        //            //자체로그인 - post
-        //
-        //            let logInSuccess = true
-        //            APIService.shared.signin(param: DummyData.singInDummy)
-        //
-        //            if logInSuccess {
-        //                //자체 로그인 api
-        //                print("로그인 성공")
-        //                if let removable = self.view.viewWithTag(102) {
-        //                    removable.removeFromSuperview()
-        //                }
-        //                if self.isAutoLogin {
-        //                    UserDefaults.standard.set(email, forKey: "id")
-        //                    UserDefaults.standard.set(password, forKey: "pwd")
-        //                }
-        //                self.performSegue(withIdentifier: "showMain", sender: self)
-        //            }
-        //            else {
-        //                print("로그인 실패")
-        //                shakeTextField(textField: emailTextField)
-        //                shakeTextField(textField: passwordTextField)
-        //                let logInFailLabel = UILabel(frame: CGRect(x: 68, y: 510, width: 279, height: 45))
-        //                logInFailLabel.text = "비밀번호를 다시 입력해주세요."
-        //                logInFailLabel.textColor = UIColor.red
-        //                logInFailLabel.tag = 102
-        //
-        //                self.view.addSubview(logInFailLabel)
-        //            }
-        //        }
-        //
-        
+        APIService.shared.signIn(param: params, completion: {
+            //nil, 빈값 2개 다 처리
+            if let token = APIService.shared.userAccessToken{
+                if !token.isEmpty{
+                    // 인자값으로 입력된 클로저 블록 실행
+                    // 로그인 성공
+                    // 1) 토큰 정보 키체인 저장
+                    if KeyChain.shared.addItem(id: "accessToken", token: token){
+                        print("⭐️accessToken 저장 성공⭐️")
+                        print("accessToken: \(token)")
+                    }else{
+                        print("👿accessToken 저장 실패👿")
+                    }
+                    
+                    // 2)자동 로그인 설정 시 로컬 디비에 설정 값 저장
+                    if self.isAutoLogin == true {
+                        UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
+                        print("자동 로그인 설정 완료")
+                    }else{
+                        UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
+                        print("자동 로그인 설정 안함")
+                    }
+                    
+                    // 3) coredata 확인(회원가입 이후 앱 삭제 시 서버 호출 필요)
+                    //                    let userInfo = CoreDataManager.shared.getUserInfo()
+                    ////                    CoreDataManager.shared.deleteAllUsers()
+                    //                    if userInfo.count == 0{
+                    //                        APIService.shared.getMyAccount()
+                    //                    }else{
+                    
+                    // 화면에 필요한 data들 한번만 부름
+                    // api 통신 성공 후 ㅕ 저장 + 메인화면 이동
+
+//                    APIService.shared.getSubjects(completion: {
+//                        var categories = [Category]()
+//
+//                        print("category list : \(categories)")
+//                        // 4) 메인화면으로 이동
+                        UIViewController.changeRootViewControllerToHome()
+//                    })
+
+                    //                    }
+                    
+                    //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    //                    let pushVC = mainStoryboard.instantiateViewController(withIdentifier: "MainPage")
+                    //                    self.show(pushVC, sender: self)
+                }else{
+                    print("토큰 빈 값")
+                }
+            }else{
+                let alert = UIAlertController(title:"👿로그인 실패👿",
+                                              message: "",
+                                              preferredStyle: UIAlertController.Style.alert)
+                //2. 확인 버튼 만들기
+                let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
+                //3. 확인 버튼을 경고창에 추가하기
+                alert.addAction(buttonLabel)
+                //4. 경고창 보이기
+                self.present(alert,animated: true,completion: nil)
+            }
+        })
         
     }
     
@@ -158,12 +192,10 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             // 자동 로그인 실행
             self.isAutoLogin = true
             autoLogInCheckmark.setImage(UIImage(named: "checkBoxFilled.png"), for: .normal)
-            print("자동선택")
         }else{
             //자동 로그인 안함
             self.isAutoLogin = false
             autoLogInCheckmark.setImage(UIImage(named: "checkBox.png"), for: .normal)
-            print("자동선택안함")
         }
     }
     
@@ -208,24 +240,22 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     //소셜 로그인 - 2. 구글
     @IBAction func googleLogInAction(_ sender: Any) {
-        // OAuth 2.0 클라이언트 ID
-        let signInConfig = GIDConfiguration.init(clientID: "895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com")
+        // OAuth 2.0 클라이언트 ID - Info URL Types에 입력한 clientID
+        let id = "895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com"
+        let signInConfig = GIDConfiguration(clientID: id)
         
-//        GIDSignIn.sharedInstance
-//
-//
-//        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-//            guard error == nil else { return }
-//            guard let user = user else { return }
-//
-//            guard let accessToken = user.authentication.idToken, let _ = user.profile?.name else {
-//                print("Error : User Data Not Found"); return }
-//
-//            LoginDataModel.token = accessToken
-//            // google login post
-//            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "google")
-//            print("Google accessToken : \(accessToken)")
-//        }
+        //        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+        //            guard error == nil else { return }
+        //            guard let user = user else { return }
+        //
+        //            guard let accessToken = user.authentication.idToken, let _ = user.profile?.name else {
+        //                print("Error : User Data Not Found"); return }
+        //
+        //            LoginDataModel.token = accessToken
+        //            // google login post
+        //            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "google")
+        //            print("Google accessToken : \(accessToken)")
+        //        }
     }
     
     
@@ -297,6 +327,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     // MARK: - View Components
     func viewComponents(){
+        serverLoginBtn.layer.cornerRadius = 10
         let imageView = UIImageView();
         let image = UIImage(named: "emailIcon.png");
         imageView.image = image;
@@ -366,10 +397,6 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     @objc func textFieldDidChange2(_ sender: Any?) {
         passwordTextField.clearsOnBeginEditing = false
     }
-    
-    
-    
-    
 }
 
 
@@ -433,4 +460,5 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
+    
 }

@@ -7,14 +7,19 @@
 
 import UIKit
 
+//채팅방 화면
 class ChatRoomViewController: UIViewController {
+
+    var allChatting = [ChattingRoom]()
+    var myChatting = [ChattingRoom]()
+    var yourChatting = [ChattingRoom]()
     
     static func instance() -> ChatRoomViewController {
         let vc = UIStoryboard.init(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
         return vc
     }
     
-    let data: [String] = Array(repeating: "test", count: 10)
+    
 
     var isExpanded: Bool = false {
         didSet {
@@ -34,7 +39,6 @@ class ChatRoomViewController: UIViewController {
         didSet {
             inputBackgroundView.layer.cornerRadius = Constant.cornerRadius
             inputBackgroundView.backgroundColor = Colors.Light.light500.color
-            
         }
     }
     @IBOutlet weak var expandButton: UIButton! {
@@ -122,15 +126,42 @@ class ChatRoomViewController: UIViewController {
         }
     }
     
+    
+    //메시지 전송
+    //    {
+    //      "accountId" : 4,
+    //      "message" : "안녕하세요!!",
+    //      "type" : "TEXT"
+    //    }
+    @IBAction func sendMsgAction(_ sender: Any) {
+        let msg = ["accountId" : 9,
+                   "message" : textView.text,
+                   "type" : "TEXT"] as [String : Any]
+        APIService.shared.getDirectListMessage()
+//        APIService.shared.sendDirectMessage(param: msg)
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         chatBubbleTableView.delegate = self
         chatBubbleTableView.dataSource = self
-        
         chatBubbleTableView.separatorStyle = .none
 
+        if let chattingListUserdefault = UserDefaultsManager.chatting{
+            allChatting = chattingListUserdefault
+            chattingListUserdefault.enumerated().forEach({
+                if $0.element.senderAccountId == UserDefaults.standard.integer(forKey: "accountId"){
+                    myChatting.append(chattingListUserdefault[$0.offset])
+                    self.navigationItem.title = myChatting[0].receiver.name
+                }else{
+                    yourChatting.append(chattingListUserdefault[$0.offset])
+                }
+            })
+        }
     }
 }
 
@@ -141,26 +172,40 @@ extension ChatRoomViewController {
 
 extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if data.count == 0 {
+        if allChatting.count == 0 {
             setEmptyMessage()
         } else {
             restore()
         }
-        return data.count
+        return allChatting.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0 {
+        
+        if allChatting[indexPath.row].senderAccountId == UserDefaults.standard.integer(forKey: "accountId"){
+            //내 셀
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChatBubbleCell.identifier, for: indexPath) as? MyChatBubbleCell else {
                 return UITableViewCell()
             }
+            var bubble = allChatting[indexPath.row].message
+            var time = allChatting[indexPath.row].lastModifiedDate
+
+            cell.bubbleLabel.text = bubble
+            cell.timeLabel.text = time
+            
             cell.selectionStyle = .none
             return cell
         }
+        //대화 상대 셀
         guard let cell = tableView.dequeueReusableCell(withIdentifier: YourChatBubbleCell.identifier, for: indexPath) as? YourChatBubbleCell else {
             return UITableViewCell()
         }
         
+        var bubble2 = allChatting[indexPath.row].message
+        var time2 = allChatting[indexPath.row].lastModifiedDate
+
+        cell.bubbleLabel.text = allChatting[indexPath.row].message
+        cell.timeLabel.text = allChatting[indexPath.row].lastModifiedDate
         cell.selectionStyle = .none
         return cell
     }
