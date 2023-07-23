@@ -71,7 +71,13 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // senderid > 내 계정 아이디가 아닌 accountid로
-        var accountId = (chattingList[indexPath.row].senderAccountId == UserDefaults.standard.integer(forKey: "accountId")) ? chattingList[indexPath.row].receiver.id : chattingList[indexPath.row].senderAccountId
+        let accountId = (chattingList[indexPath.row].senderAccountId == UserDefaults.standard.integer(forKey: "accountId")) ? chattingList[indexPath.row].receiver.id : chattingList[indexPath.row].senderAccountId
+        
+        guard let ChatRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController
+        else { return }
+        self.navigationController?.pushViewController(ChatRoomVC, animated: true)
+        ChatRoomVC.accountId = accountId
+
         APIService.shared.getDirectMessages(senderAccountId: accountId)
     }
     
@@ -84,9 +90,11 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         
-        cell.nameLabel.text = chattingList[indexPath.row].receiver.name
-        cell.lastMessageLabel.text = chattingList[indexPath.row].message
-        cell.timeLabel.text = chattingList[indexPath.row].lastModifiedDate
+        var accountId = (chattingList[indexPath.row].senderAccountId == UserDefaults.standard.integer(forKey: "accountId")) ? chattingList[indexPath.row].receiver.id : chattingList[indexPath.row].senderAccountId
+        
+        cell.nameLabel.text = self.chattingList[indexPath.row].receiver.name
+        cell.lastMessageLabel.text = self.chattingList[indexPath.row].message
+        cell.timeLabel.text = self.chattingList[indexPath.row].lastModifiedDate
         cell.messageCountLabel.text = "1"
         
         return cell

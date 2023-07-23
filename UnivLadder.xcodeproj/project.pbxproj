@@ -13,6 +13,7 @@
 		6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6815DB36297A735D00E6B356 /* KeyChain.swift */; };
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
 		681EDDBC2A3F038000380B1F /* MentoRegisterSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */; };
+		6827107E2A6D5E82004E85CD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6827107D2A6D5E82004E85CD /* Localizable.strings */; };
 		68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */; };
 		68301B982A45DBF5009CB1D0 /* SendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68301B972A45DBF5009CB1D0 /* SendData.swift */; };
 		68301B9A2A470DD1009CB1D0 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68301B992A470DD1009CB1D0 /* ResetPasswordVC.swift */; };
@@ -145,6 +146,7 @@
 		6815DB36297A735D00E6B356 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterSubjectViewController.swift; sourceTree = "<group>"; };
+		6827107D2A6D5E82004E85CD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyViewController.swift; sourceTree = "<group>"; };
 		68301B972A45DBF5009CB1D0 /* SendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendData.swift; sourceTree = "<group>"; };
 		68301B992A470DD1009CB1D0 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
@@ -536,9 +538,9 @@
 		E546934027F9BE42007A1791 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6892DB17296ADABE002DB446 /* ChattingViewController.swift */,
 				E5F3F979264710EE00763ADB /* ChatListViewController.swift */,
 				E56ABEE72647C8A100A45786 /* ChatRoomViewController.swift */,
+				6892DB17296ADABE002DB446 /* ChattingViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -694,6 +696,7 @@
 				68E53B4B2A1A12AA00DD6F26 /* Const.swift */,
 				E5B38B232615EBCC00D4EB5D /* SceneDelegate.swift */,
 				E5B38B2A2615EBCC00D4EB5D /* UnivLadder.xcdatamodeld */,
+				6827107D2A6D5E82004E85CD /* Localizable.strings */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				E5FDFBEF264E7857000269F9 /* GmarketSansLight.otf in Resources */,
 				E5FDFBF0264E7857000269F9 /* GmarketSansMedium.otf in Resources */,
 				68F26FAE293C99390059D700 /* MentoSubjectTableViewCell.xib in Resources */,
+				6827107E2A6D5E82004E85CD /* Localizable.strings in Resources */,
 				68D794ED293368C300C905D5 /* logo.png in Resources */,
 				68D794EF293368EA00C905D5 /* launchBottom.png in Resources */,
 				E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */,
@@ -1301,7 +1305,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RealTutor.leeyeon;
 				PRODUCT_NAME = "Real Tutor";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1329,7 +1333,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.univladder.UnivLadder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RealTutor.leeyeon;
 				PRODUCT_NAME = "Real Tutor";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

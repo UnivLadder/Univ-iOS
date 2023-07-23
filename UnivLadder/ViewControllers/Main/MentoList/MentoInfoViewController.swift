@@ -17,7 +17,7 @@ class MentoInfoViewController: UIViewController {
     let mentoSubjectList = ["고등수학", "미적분", "공업수학"]
     
     //멘토 정보
-
+    var mentoInfo: RecommendMentor? = nil
     
     //Mento Info
     @IBOutlet weak var mentoNameLabel: UILabel!{
@@ -131,8 +131,12 @@ class MentoInfoViewController: UIViewController {
     var score = "3"
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
-    
+    func setUpUI() {
+        guard let mentoInfo = mentoInfo else { return }
+        
+    }
 }
 
 extension MentoInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource{

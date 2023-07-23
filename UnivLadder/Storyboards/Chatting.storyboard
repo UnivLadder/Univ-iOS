@@ -106,7 +106,6 @@
                                             <outlet property="nameLabel" destination="GUQ-K5-I9s" id="LuW-5b-63f"/>
                                             <outlet property="profileImageView" destination="1o4-rT-4Jl" id="cQw-N2-PRs"/>
                                             <outlet property="timeLabel" destination="YLh-zl-Iat" id="ZnU-gA-hul"/>
-                                            <segue destination="9Qz-T0-zJY" kind="show" id="3Uz-hc-bAj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -163,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7A3-qA-Dc9">
-                                <rect key="frame" x="0.0" y="103" width="393" height="548"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="YourChatBubbleCell" rowHeight="200" id="l4q-i2-xo3" customClass="YourChatBubbleCell" customModule="Real_Tutor" customModuleProvider="target">
@@ -274,7 +273,7 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="5SZ-Rs-54t">
-                                <rect key="frame" x="0.0" y="651" width="393" height="118"/>
+                                <rect key="frame" x="0.0" y="700" width="393" height="118"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-3g-lly">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="59"/>

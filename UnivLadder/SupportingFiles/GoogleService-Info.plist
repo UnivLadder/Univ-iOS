@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com</string>
+	<string>886287792794-gs6o07ch6trcgd28i3imsj46kdid44lr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn</string>
+	<string>com.googleusercontent.apps.886287792794-gs6o07ch6trcgd28i3imsj46kdid44lr</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDPrHFwl1puuwA0_avfLQIU0m1rwJ5IKFo</string>
+	<string>AIzaSyCOt_6oG9dbEx4tCKA7ZE7RbCncLHTnLvI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>895762202310</string>
+	<string>886287792794</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.univladder.UnivLadder</string>
+	<string>com.RealTutor.leeyeon</string>
 	<key>PROJECT_ID</key>
-	<string>univladder-1856b</string>
+	<string>univ-ladder</string>
 	<key>STORAGE_BUCKET</key>
-	<string>univladder-1856b.appspot.com</string>
+	<string>univ-ladder.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:895762202310:ios:632e7075fafbcb9ddde1c7</string>
+	<string>1:886287792794:ios:fd0ea6241d977e66ecbd23</string>
 </dict>
 </plist>

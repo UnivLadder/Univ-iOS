@@ -35,7 +35,7 @@ class MentoListViewController: UIViewController {
         let parameter: Parameters = [
             "fcmToken" : UserDefaults.standard.string(forKey: "fcmToken") ?? ""
         ]
-        APIService.shared.putFCMToken(param: parameter)
+        
         //카테고리
         let subjects = UserDefaultsManager.subjectList
         var tmpArr: [String] = []
@@ -85,7 +85,7 @@ class MentoListViewController: UIViewController {
     /// - Returns: 카테고리 이미지 파일명
     func categoryImgSetting(categoryName: String) -> String {
         var findCategry = categoryName
-
+        
         if let findIdx: String.Index = categoryName.firstIndex(of: "/"){
             findCategry = String(categoryName[..<findIdx])
         }
@@ -208,26 +208,15 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
                 CategoryMentoListVC!.category = categoryList
             }
         }else{
-            let params = ["accountId" : 2,
-                          "message" : "민지차",
-                          "type" : "TEXT"] as [String : Any]
-            
-            APIService.shared.sendDirectMessage(param: params)
-            // 추천 아이디 "id" : 1,
-            // 해당 멘토 페이지 이동
-            // 추천멘토 클릭
-            //            var mentoId = mentoList[indexPath.row][0]
-            //            APIService.shared.getMentorInfo(mentoId: mentoId as! Int, completion:{ _ in
-            //                
-            //            })
-            //            
-            //            APIService.shared.getMentorSubjects(mentoId: mentoId as! Int, completion: { _ in
-            //                
-            //                let MentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController")
-            //                
-            //                self.navigationController?.pushViewController(MentoListVC!, animated: true)
-            //            })
-            
+            // 추천멘토 아이디를 통한 해당 멘토 페이지 이동
+            var mentoId = mentoList[indexPath.row][0]
+
+            APIService.shared.getMentorInfo(mentoId: mentoId as! Int, completion:{ mentoInfo in
+                guard let MentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController") as?  MentoInfoViewController else { return }
+                self.navigationController?.pushViewController(MentoListVC, animated: true)
+                MentoListVC.mentoInfo = mentoInfo
+
+            })
         }
     }
 }

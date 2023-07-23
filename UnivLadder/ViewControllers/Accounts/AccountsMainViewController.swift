@@ -10,16 +10,12 @@ import UIKit
 import AuthenticationServices
 import GoogleSignIn
 
-
 import KakaoSDKUser
-
 
 class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate, StoryboardInitializable {
     
     static var storyboardName: String = "Accounts"
-    
     static var storyboardID: String = "Accounts"
-    
     
     var userModel = UserModel() // 인스턴스 생성
     
@@ -115,73 +111,45 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         //실 data
         let params = ["username" : email,
                       "password" : password]
-        
-        //dummy data
-//        let params = ["username" : "leeyeon0527@naver.com",
-//                      "password" : "password"]
-        
+
         APIService.shared.signIn(param: params, completion: {
-            //nil, 빈값 2개 다 처리
-            if let token = APIService.shared.userAccessToken{
-                if !token.isEmpty{
-                    // 인자값으로 입력된 클로저 블록 실행
-                    // 로그인 성공
-                    // 1) 토큰 정보 키체인 저장
-                    if KeyChain.shared.addItem(id: "accessToken", token: token){
-                        print("⭐️accessToken 저장 성공⭐️")
-                        print("accessToken: \(token)")
-                    }else{
-                        print("👿accessToken 저장 실패👿")
-                    }
-                    
-                    // 2)자동 로그인 설정 시 로컬 디비에 설정 값 저장
-                    if self.isAutoLogin == true {
-                        UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
-                        print("자동 로그인 설정 완료")
-                    }else{
-                        UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
-                        print("자동 로그인 설정 안함")
-                    }
-                    
-                    // 3) coredata 확인(회원가입 이후 앱 삭제 시 서버 호출 필요)
-                    //                    let userInfo = CoreDataManager.shared.getUserInfo()
-                    ////                    CoreDataManager.shared.deleteAllUsers()
-                    //                    if userInfo.count == 0{
-                    //                        APIService.shared.getMyAccount()
-                    //                    }else{
-                    
-                    // 화면에 필요한 data들 한번만 부름
-                    // api 통신 성공 후 ㅕ 저장 + 메인화면 이동
-
-//                    APIService.shared.getSubjects(completion: {
-//                        var categories = [Category]()
-//
-//                        print("category list : \(categories)")
-//                        // 4) 메인화면으로 이동
-                        UIViewController.changeRootViewControllerToHome()
-//                    })
-
-                    //                    }
-                    
-                    //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                    //                    let pushVC = mainStoryboard.instantiateViewController(withIdentifier: "MainPage")
-                    //                    self.show(pushVC, sender: self)
+            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+                
+                // 자동 로그인 설정 값 저장
+                if self.isAutoLogin == true {
+                    UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
                 }else{
-                    print("토큰 빈 값")
+                    UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
                 }
+                
+                // 추천 멘토 정보 불러옴
+                APIService.shared.getRecommendMentors(accessToken: accessToken)
+                
+                // 키체인 저장
+                if KeyChain.shared.addItem(id: "accessToken", token: accessToken){
+                }else{
+                    print("👿키체인 저장 실패👿")
+                }
+                
+                // 내 계정 조회
+                APIService.shared.getMyAccount(accessToken: accessToken, completion: { accountId in
+                    // FCM 토큰 저장
+                    if let fcmToken = UserDefaults.standard.string(forKey: "fcmToken") {
+                        APIService.shared.putFCMToken(fcmToken: fcmToken, accessToken: accessToken, accountId: accountId)
+                    }
+                })
+
+                // 메인화면 이동
+                UIViewController.changeRootViewControllerToHome()
             }else{
                 let alert = UIAlertController(title:"👿로그인 실패👿",
-                                              message: "",
+                                              message: "로그인 정보를 확인하세요.",
                                               preferredStyle: UIAlertController.Style.alert)
-                //2. 확인 버튼 만들기
                 let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
-                //3. 확인 버튼을 경고창에 추가하기
                 alert.addAction(buttonLabel)
-                //4. 경고창 보이기
                 self.present(alert,animated: true,completion: nil)
             }
         })
-        
     }
     
     // 자동 로그인 액션

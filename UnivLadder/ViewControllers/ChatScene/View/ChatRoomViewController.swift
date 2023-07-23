@@ -8,19 +8,19 @@
 import UIKit
 
 //채팅방 화면
-class ChatRoomViewController: UIViewController {
+class ChatRoomViewController: UIViewController, UITextViewDelegate {
 
     var allChatting = [ChattingRoom]()
     var myChatting = [ChattingRoom]()
     var yourChatting = [ChattingRoom]()
+    
+    var accountId: Int = 0
     
     static func instance() -> ChatRoomViewController {
         let vc = UIStoryboard.init(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
         return vc
     }
     
-    
-
     var isExpanded: Bool = false {
         didSet {
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
@@ -48,13 +48,18 @@ class ChatRoomViewController: UIViewController {
             expandButton.addTarget(self, action: #selector(expandButtonClicked(_:)), for: .touchUpInside)
         }
     }
+    
+    let textViewPlaceHolder = "메시지를 입력해주세요."
     @IBOutlet weak var textView: UITextView! {
         didSet {
             textView.backgroundColor = .clear
-            textView.text = "메시지를 입력해주세요"
+            textView.text = textViewPlaceHolder
             textView.textColor = Colors.Text.text1000.color
+            textView.delegate = self
+            textView.autocorrectionType = .no
         }
     }
+    
     @IBOutlet weak var sendButton: UIButton! {
         didSet {
             sendButton.setTitle("", for: .normal)
@@ -134,19 +139,32 @@ class ChatRoomViewController: UIViewController {
     //      "type" : "TEXT"
     //    }
     @IBAction func sendMsgAction(_ sender: Any) {
-        let msg = ["accountId" : 9,
+        let msg = ["accountId" : self.accountId,
                    "message" : textView.text,
                    "type" : "TEXT"] as [String : Any]
-        APIService.shared.getDirectListMessage()
-//        APIService.shared.sendDirectMessage(param: msg)
-        
+//        APIService.shared.getDirectListMessage()
+        APIService.shared.sendDirectMessage(param: msg)
+        textView.text = ""
+        chatBubbleTableView.reloadData()
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == textViewPlaceHolder {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = textViewPlaceHolder
+            textView.textColor = .lightGray
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         chatBubbleTableView.delegate = self
         chatBubbleTableView.dataSource = self
         chatBubbleTableView.separatorStyle = .none
@@ -164,11 +182,6 @@ class ChatRoomViewController: UIViewController {
         }
     }
 }
-
-extension ChatRoomViewController {
-    
-}
-
 
 extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

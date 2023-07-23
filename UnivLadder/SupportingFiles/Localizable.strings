@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  UnivLadder
+
+  Created by leeyeon2 on 2023/07/23.
+  
+*/
+
+"recentSearchTableViewHeaderInSection" = "최근 검색어";
+"searchAppMenueTitle" = "검색";

@@ -15,7 +15,9 @@ class CategoryListViewController: UIViewController, UISearchBarDelegate {
     
     let categoryList = UserDefaultsManager.categoryList
     var subjectDictionary : [String:[String]] = [:]
-
+    // 필터링된 검색어 list
+    var filteredSearchList = [String]()
+    
     override func viewDidLoad() {
         self.navigationItem.title = "카테고리"
         super.viewDidLoad()
