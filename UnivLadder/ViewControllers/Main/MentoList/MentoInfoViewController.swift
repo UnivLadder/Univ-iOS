@@ -22,7 +22,7 @@ class MentoInfoViewController: UIViewController {
     //Mento Info
     @IBOutlet weak var mentoNameLabel: UILabel!{
         didSet{
-            mentoNameLabel.text = "홍길동"
+            mentoNameLabel.text = mentoInfo?.account.name
             mentoNameLabel.font = UIFont.boldSystemFont(ofSize: 25)
         }
     }

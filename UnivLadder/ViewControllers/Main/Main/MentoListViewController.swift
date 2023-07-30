@@ -11,14 +11,11 @@ class MentoListViewController: UIViewController {
     
     let mainView = MainView()
     var categoryArr = [String]()
-    // 지금 뜨고 있는 멘토
-    var recommendMentoArr = [RecommendMentor]()
-    
     let categoryList = UserDefaultsManager.categoryList
-    // 지금 뜨고 있는 멘토 data
-    //id, thumbnail, name
-    var mentoList = [[100, 10, "w4.jpg", "이정은"], [200, 11, nil, "박강현"]]
+    // 지금 뜨고 있는 멘토
+    var mentoList = [RecommendMentor]()
     var customImage: UIImage?
+    
     static func instance() -> MentoListViewController {
         return MentoListViewController.init(nibName: nil, bundle: nil)
     }
@@ -47,12 +44,8 @@ class MentoListViewController: UIViewController {
         
         // 추천 멘토
         if let serverrecommnedMentorList = UserDefaultsManager.recommendMentorList{
-            recommendMentoArr = serverrecommnedMentorList
+            mentoList = serverrecommnedMentorList
         }
-        
-        recommendMentoArr.enumerated().forEach({
-            mentoList.append([$0.element.mentoId, $0.element.id, $0.element.thumbnail, $0.element.name])
-        })
     }
     
     private func setupCollectionView() {
@@ -158,9 +151,9 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
             }
             //UI용
             //[100, 10, "w4.jpg", "이정은"]
-            cell.label.text = mentoList[indexPath.row][3] as? String
+            cell.label.text = mentoList[indexPath.row].account.name
             
-            if let mentoImg = mentoList[indexPath.row][2] {
+            if let mentoImg = mentoList[indexPath.row].account.thumbnail {
                 customImage =  UIImage(named: (mentoImg as? String)!)
             }else{
                 customImage = UIImage(systemName: "person.crop.circle.fill")
@@ -209,13 +202,12 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
             }
         }else{
             // 추천멘토 아이디를 통한 해당 멘토 페이지 이동
-            var mentoId = mentoList[indexPath.row][0]
-
-            APIService.shared.getMentorInfo(mentoId: mentoId as! Int, completion:{ mentoInfo in
+            let mentoId = mentoList[indexPath.row].mentoId
+            
+            APIService.shared.getMentorInfo(mentoId: mentoId , completion:{ mentoInfo in
                 guard let MentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController") as?  MentoInfoViewController else { return }
                 self.navigationController?.pushViewController(MentoListVC, animated: true)
-                MentoListVC.mentoInfo = mentoInfo
-
+                MentoListVC.mentoInfo = self.mentoList[indexPath.row]
             })
         }
     }

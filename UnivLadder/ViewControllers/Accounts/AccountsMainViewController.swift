@@ -289,6 +289,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         
         
     }
+    
     @IBAction func moveToRegist(_ sender: Any) {
         performSegue(withIdentifier: "toRegist", sender: nil)
     }

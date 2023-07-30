@@ -216,10 +216,6 @@ final class APIService {
     
     // MARK: - 회원가입 API
     // 회원가입 - 회원가입 이메일 인증 요청 API
-    //request
-    //    {
-    //      "email" : "lxxyeon@gmail.com"
-    //    }
     func postEmailAuth(param: Parameters){
         AF.request(Config.baseURL+"/sign-up/verify-email", method: .post, parameters: param, encoding: JSONEncoding.default).responseString { response in
             if let response = response.response{
@@ -235,11 +231,6 @@ final class APIService {
     }
     
     // 회원가입 - 회원가입 이메일 인증 검증 요청 API
-    //request
-    //    {
-    //      "email" : "lxxyeon@gmail.com",
-    //      "token" : "ms5Bmt"
-    //    }
     func emailAuthNumCheckAction(param: Parameters, completion: @escaping (Bool) -> Void){
         AF.request(Config.baseURL+"/sign-up/verify-confirm-email",
                    method: .post,
@@ -259,19 +250,7 @@ final class APIService {
         }
     }
     
-    // 서버 자체 회원가입 요청 API
-    //request
-    //    {
-    //         "email" : "lxxyeon@gmail.com",
-    //         "password" : "PASSWORD",
-    //         "name" : "여니",
-    //         "thumbnail" : "THUMBNAIL",
-    //         "gender" : "WOMAN"
-    //    }
-    //response
-    //    {
-    //        "accountId": 9
-    //    }
+    // 회원가입 - 서버 자체 회원가입 요청 API
     func signUp(param: Parameters,
                 completion: @escaping () -> Void){
         AF.request(Config.baseURL+"/sign-up", method: .post, parameters: param, encoding: JSONEncoding.default).responseString { response in
@@ -280,13 +259,9 @@ final class APIService {
             case .success(let data):
                 var jsonDict : Dictionary<String, Any> = [String : Any]()
                 do {
-                    // 딕셔너리에 데이터 저장 실시
                     jsonDict = try JSONSerialization.jsonObject(with: Data(data.utf8), options: []) as! [String:Any]
-                    // Get the values from the JSON object
-                    
-                    UserDefaults.standard.setValue(jsonDict["accountId"] as? Int64, forKey: "isAutoLogin")
                     self.accountId = jsonDict["accountId"] as? Int
-                    UserDefaults.standard.set(jsonDict["accountId"], forKey: "accountId")
+
                     CoreDataManager.shared.deleteAllUsers()
                     self.saveNewUser(accountId: (jsonDict["accountId"] as! Int64),
                                      email: param["email"] as! String,
@@ -381,10 +356,12 @@ final class APIService {
                     
                     if let jsonData = dataString!.data(using: .utf8) {
                         if let jsonDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                            
                             let mentoData = RecommendMentor(mentoId: jsonDict["id"] as! Int,
+                                                            account: jsonDict["account"] as! [String : Any],
                                                             id: jsonDict["id"] as! Int,
                                                             thumbnail: jsonDict["thumbnail"] as? String,
-                                                            name: jsonDict["name"] as! String,
+                                                            name: (jsonDict["name"] as? String)!,
                                                             mentoringCount: jsonDict["mentoringCount"] as? Int,
                                                             minPrice: jsonDict["minPrice"] as? Int,
                                                             maxPrice: jsonDict["maxPrice"] as? Int,
@@ -687,19 +664,19 @@ final class APIService {
                         for mentor in jsonArray{
                             if let dictionary = self.optionalAnyToDictionary(mentor["account"]) {
                                 print(dictionary)
-                                let mentoData = RecommendMentor(mentoId: mentor["id"] as! Int,
-                                                                id: dictionary["id"] as! Int,
-                                                                thumbnail: dictionary["thumbnail"] as? String,
-                                                                name: dictionary["name"] as! String,
-                                                                mentoringCount: dictionary["mentoringCount"] as? Int,
-                                                                minPrice: dictionary["minPrice"] as? Int,
-                                                                maxPrice: dictionary["maxPrice"] as? Int,
-                                                                description: dictionary["description"] as? String,
-                                                                reviewCount: dictionary["reviewCount"] as? Int,
-                                                                totalReviewScore: dictionary["totalReviewScore"] as? Int,
-                                                                averageReviewScore: dictionary["averageReviewScore"] as? Double)
-                                
-                                UserDefaultsManager.recommendMentorList!.insert(mentoData, at: 0)
+//                                let mentoData = RecommendMentor(mentoId: mentor["id"] as! Int,
+//                                                                id: dictionary["id"] as! Int,
+//                                                                thumbnail: dictionary["thumbnail"] as? String,
+//                                                                name: dictionary["name"] as! String,
+//                                                                mentoringCount: dictionary["mentoringCount"] as? Int,
+//                                                                minPrice: dictionary["minPrice"] as? Int,
+//                                                                maxPrice: dictionary["maxPrice"] as? Int,
+//                                                                description: dictionary["description"] as? String,
+//                                                                reviewCount: dictionary["reviewCount"] as? Int,
+//                                                                totalReviewScore: dictionary["totalReviewScore"] as? Int,
+//                                                                averageReviewScore: dictionary["averageReviewScore"] as? Double)
+//
+//                                UserDefaultsManager.recommendMentorList!.insert(mentoData, at: 0)
                             } else {
                                 print("Value is nil or cannot be converted to a dictionary.")
                             }
@@ -744,18 +721,6 @@ final class APIService {
                         for mentor in jsonArray{
                             if let dictionary = self.optionalAnyToDictionary(mentor["account"]) {
                                 print(dictionary)
-                                let mentoData = RecommendMentor(mentoId: mentor["id"] as! Int,
-                                                                id: dictionary["id"] as! Int,
-                                                                thumbnail: dictionary["thumbnail"] as? String,
-                                                                name: dictionary["name"] as! String,
-                                                                mentoringCount: dictionary["mentoringCount"] as? Int,
-                                                                minPrice: dictionary["minPrice"] as? Int,
-                                                                maxPrice: dictionary["maxPrice"] as? Int,
-                                                                description: dictionary["description"] as? String,
-                                                                reviewCount: dictionary["reviewCount"] as? Int,
-                                                                totalReviewScore: dictionary["totalReviewScore"] as? Int,
-                                                                averageReviewScore: dictionary["averageReviewScore"] as? Double)
-                                UserDefaultsManager.recommendMentorList!.insert(mentoData, at: 0)
                             } else {
                                 print("Value is nil or cannot be converted to a dictionary.")
                             }

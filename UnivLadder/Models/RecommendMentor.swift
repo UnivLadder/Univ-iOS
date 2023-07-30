@@ -8,22 +8,23 @@
 import Foundation
 
 //Struct를 Userdefault에 저장하기 위해 Codable 형태로 저장
-struct RecommendMentor: Codable {
-    let mentoId: Int
-    //account
-    let id: Int
-    let thumbnail: String?
-    let name: String
+struct RecommendMentor: Hashable, Codable {
     
-    let mentoringCount: Int?
-    let minPrice: Int?
-    let maxPrice: Int?
-    let description: String?
-    let reviewCount: Int?
-    let totalReviewScore: Int?
-    let averageReviewScore: Double?
+    var mentoId: Int
+    var account: Account
+    var mentoringCount: Int?
+    var minPrice: Int?
+    var maxPrice: Int?
+    var description: String?
+    var reviewCount: Int?
+    var totalReviewScore: Int?
+    var averageReviewScore: Double?
     
-    
+    struct Account: Hashable, Codable{
+        var id: Int
+        var thumbnail: String?
+        var name: String
+    }
 }
 //{
 //  "id" : 18,
