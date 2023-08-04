@@ -170,6 +170,8 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
                                       message: "",
                                       preferredStyle: UIAlertController.Style.alert)
             let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: { action in
+                // 자동로그인 해제
+                UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
                 self.signOut()
             })
             alert.addAction(buttonLabel)

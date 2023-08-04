@@ -14,7 +14,7 @@ final class APIService {
     private init() {}
     
     var categories = [Category]()
-
+    
     var accountId: Int?
     
     var emailToken: String?
@@ -92,7 +92,7 @@ final class APIService {
             print("👿멘토 토큰 조회 실패👿")
             return
         }
-            
+        
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json",
                                     "Authentication" : "Bearer " + mentoAccessToken]
@@ -152,7 +152,7 @@ final class APIService {
                       completion: @escaping (Int) -> Void){
         let url = Config.baseURL+"/accounts/me"
         headers.add(name: "Authentication", value: "Bearer " + accessToken)
-
+        
         var jsonDict : Dictionary<String, Any> = [String : Any]()
         AF.request(url, method: .get,  headers: headers).validate(statusCode: 200..<300).responseString { response in
             switch response.result{
@@ -200,7 +200,7 @@ final class APIService {
             return
         }
         headers.add(name: "Authentication", value: "Bearer " + mentoAccessToken)
-
+        
         AF.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).responseString { response in
             if let response = response.response{
                 switch response.statusCode{
@@ -261,7 +261,7 @@ final class APIService {
                 do {
                     jsonDict = try JSONSerialization.jsonObject(with: Data(data.utf8), options: []) as! [String:Any]
                     self.accountId = jsonDict["accountId"] as? Int
-
+                    
                     CoreDataManager.shared.deleteAllUsers()
                     self.saveNewUser(accountId: (jsonDict["accountId"] as! Int64),
                                      email: param["email"] as! String,
@@ -337,7 +337,7 @@ final class APIService {
         }
     }
     // MARK: - 멘토 API
-    // 멘토 조회
+    // 각 멘토 조회
     func getMentorInfo(mentoId: Int, completion: @escaping (RecommendMentor?) -> Void) {
         let url = Config.baseURL+"/mentors/\(mentoId)"
         guard let mentoAccessToken = accessToken else {
@@ -345,7 +345,7 @@ final class APIService {
             return
         }
         headers.add(name: "Authentication", value: "Bearer " + mentoAccessToken)
-
+        
         AF.request(url,
                    method: .get,
                    headers: headers).responseString { response in
@@ -353,30 +353,21 @@ final class APIService {
             case .success(_):
                 do{
                     let dataString = String(data: response.data!, encoding: .utf8)
-                    
                     if let jsonData = dataString!.data(using: .utf8) {
                         if let jsonDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
-                            
-                            let mentoData = RecommendMentor(mentoId: jsonDict["id"] as! Int,
-                                                            account: jsonDict["account"] as! [String : Any],
-                                                            id: jsonDict["id"] as! Int,
-                                                            thumbnail: jsonDict["thumbnail"] as? String,
-                                                            name: (jsonDict["name"] as? String)!,
-                                                            mentoringCount: jsonDict["mentoringCount"] as? Int,
-                                                            minPrice: jsonDict["minPrice"] as? Int,
-                                                            maxPrice: jsonDict["maxPrice"] as? Int,
-                                                            description: jsonDict["description"] as? String,
-                                                            reviewCount: jsonDict["reviewCount"] as? Int,
-                                                            totalReviewScore: jsonDict["totalReviewScore"] as? Int,
-                                                            averageReviewScore: jsonDict["averageReviewScore"] as? Double)
-
-                            completion(mentoData)
+                            if let mentoDict = self.optionalAnyToDictionary(jsonDict["account"]){
+                                let mentoAccount = RecommendMentor.Account(id: mentoDict["id"] as! Int,
+                                                                           name: mentoDict["name"] as! String)
+                                let mentoData = RecommendMentor(mentoId: jsonDict["id"] as! Int,
+                                                                account: mentoAccount)
+                                completion(mentoData)
+                            }
                         }
                     }
                 }catch {
                     print(error.localizedDescription)
                 }
-               
+                
             default:
                 print("👿멘토 조회 실패👿")
                 completion(nil)
@@ -392,7 +383,7 @@ final class APIService {
             return
         }
         headers.add(name: "Authentication", value: "Bearer " + mentoAccessToken)
-
+        
         AF.request(url, method: .get,  headers: headers).responseString { response in
             switch response.result{
             case .success(_):
@@ -451,7 +442,7 @@ final class APIService {
             return
         }
         headers.add(name: "Authentication", value: "Bearer " + mentoAccessToken)
-
+        
         AF.request(Config.baseURL+"/direct-messages",
                    method: .post,
                    parameters: param,
@@ -502,7 +493,7 @@ final class APIService {
             return
         }
         headers.add(name: "Authentication", value: "Bearer " + mentoAccessToken)
-
+        
         AF.request(url,
                    method: .get,
                    headers: headers).responseString { response in
@@ -546,7 +537,7 @@ final class APIService {
             return
         }
         headers.add(name: "Authentication", value: "Bearer " + mentoAccessToken)
-
+        
         AF.request(url,
                    method: .get,
                    headers: headers).responseString { response in
@@ -650,10 +641,12 @@ final class APIService {
     // Userdefault 저장
     func getRecommendMentors(accessToken: String) {
         let url = Config.baseURL+"/mentors/recommend"
-
+        
         headers.add(name: "Authentication", value: "Bearer " + accessToken)
-
-        AF.request(url, method: .get,  headers: headers).responseString { response in
+        
+        AF.request(url,
+                   method: .get,
+                   headers: headers).responseString { response in
             switch response.result{
             case .success(_):
                 do {
@@ -662,27 +655,24 @@ final class APIService {
                     if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]{
                         UserDefaultsManager.recommendMentorList = []
                         for mentor in jsonArray{
-                            if let dictionary = self.optionalAnyToDictionary(mentor["account"]) {
-                                print(dictionary)
-//                                let mentoData = RecommendMentor(mentoId: mentor["id"] as! Int,
-//                                                                id: dictionary["id"] as! Int,
-//                                                                thumbnail: dictionary["thumbnail"] as? String,
-//                                                                name: dictionary["name"] as! String,
-//                                                                mentoringCount: dictionary["mentoringCount"] as? Int,
-//                                                                minPrice: dictionary["minPrice"] as? Int,
-//                                                                maxPrice: dictionary["maxPrice"] as? Int,
-//                                                                description: dictionary["description"] as? String,
-//                                                                reviewCount: dictionary["reviewCount"] as? Int,
-//                                                                totalReviewScore: dictionary["totalReviewScore"] as? Int,
-//                                                                averageReviewScore: dictionary["averageReviewScore"] as? Double)
-//
-//                                UserDefaultsManager.recommendMentorList!.insert(mentoData, at: 0)
-                            } else {
-                                print("Value is nil or cannot be converted to a dictionary.")
-                            }
+                            let mentoDict = mentor["account"] as! Dictionary<String, Any>
+                            let mentoAccount = RecommendMentor.Account(id: mentoDict["id"] as! Int,
+                                                                       name: mentoDict["name"] as! String)
+                            let mentoData = RecommendMentor(mentoId: mentor["id"] as! Int,
+                                                            account: mentoAccount,
+                                                            mentoringCount: mentor["mentoringCount"] as? Int,
+                                                            minPrice: mentor["minPrice"] as? Int,
+                                                            maxPrice: mentor["maxPrice"] as? Int,
+                                                            description: mentor["description"] as? String,
+                                                            reviewCount: mentor["reviewCount"] as? Int,
+                                                            totalReviewScore: mentor["totalReviewScore"] as? Double,
+                                                            averageReviewScore: mentor["averageReviewScore"] as? Double,
+                                                            listOfExtracurricularSubjectData: mentor["listOfExtracurricularSubjectData"] as? [RecommendMentor.Subject])
+                            UserDefaultsManager.recommendMentorList?.append(mentoData)
                         }
                     }
-                } catch {
+                }
+                catch {
                     print(error.localizedDescription)
                 }
                 print("⭐️추천 멘토 데이터 조회 성공⭐️")

@@ -203,12 +203,10 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
         }else{
             // 추천멘토 아이디를 통한 해당 멘토 페이지 이동
             let mentoId = mentoList[indexPath.row].mentoId
-            
-            APIService.shared.getMentorInfo(mentoId: mentoId , completion:{ mentoInfo in
-                guard let MentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController") as?  MentoInfoViewController else { return }
-                self.navigationController?.pushViewController(MentoListVC, animated: true)
-                MentoListVC.mentoInfo = self.mentoList[indexPath.row]
-            })
+            guard let MentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController") as?  MentoInfoViewController else { return }
+            self.navigationController?.pushViewController(MentoListVC, animated: true)
+            MentoListVC.mentoInfo = self.mentoList[indexPath.row]
+
         }
     }
 }

@@ -14,10 +14,32 @@ class MentoInfoViewController: UIViewController {
     let fillStar = UIImage(systemName: "star.fill")?.withTintColor(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), renderingMode: .alwaysOriginal)
     let unFillStar = UIImage(systemName: "star")?.withTintColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), renderingMode: .alwaysOriginal)
     
-    let mentoSubjectList = ["고등수학", "미적분", "공업수학"]
+    var mentoSubjectList = [RecommendMentor.Subject]()
     
     //멘토 정보
-    var mentoInfo: RecommendMentor? = nil
+    var mentoInfo: RecommendMentor?
+    
+    @IBOutlet weak var verifyStackView: UIStackView!{
+        didSet{
+            verifyStackView.isHidden = true
+        }
+    }
+    
+    @IBOutlet weak var emailStackView: UIStackView!{
+        didSet{
+            emailStackView.isHidden = true
+        }
+    }
+    
+    @IBOutlet weak var educationStackView: UIStackView!{
+        didSet{
+            educationStackView.isHidden = true
+        }
+    }
+    
+    @IBOutlet weak var priceStackView: UIStackView!
+    @IBOutlet weak var priceLabel: UILabel!
+    
     
     //Mento Info
     @IBOutlet weak var mentoNameLabel: UILabel!{
@@ -29,10 +51,14 @@ class MentoInfoViewController: UIViewController {
     
     @IBOutlet weak var mentoImg: UIImageView!{
         didSet{
-            mentoImg.image = UIImage(named: "person.png")
+            if let img = mentoInfo?.account.thumbnail{
+                mentoImg.image = UIImage(named: img)
+            }else{
+                mentoImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.lightGray)
+            }
         }
     }
-
+    
     
     //star
     @IBOutlet weak var firstStar: UIImageView!{
@@ -66,7 +92,7 @@ class MentoInfoViewController: UIViewController {
         }
     }
     
-
+    
     //멘토 정보 label
     @IBOutlet weak var mentoInfoTitleLabel: UILabel!{
         didSet{
@@ -95,7 +121,7 @@ class MentoInfoViewController: UIViewController {
             montoUnivInfoLabel.text = "서울대학교 컴퓨터공학과"
         }
     }
-
+    
     //수업 정보 label
     @IBOutlet weak var mentoClassInfoTitleLabel: UILabel!{
         didSet{
@@ -106,7 +132,11 @@ class MentoInfoViewController: UIViewController {
     
     @IBOutlet weak var mentoClassInfoLabel: UILabel!{
         didSet{
-            mentoClassInfoLabel.text = "홍길동의 수학 뿌시기\n고등수학부터 공업수학까지"
+            if let description = mentoInfo?.description{
+                mentoClassInfoLabel.text = description
+            }else{
+                mentoClassInfoLabel.text = "수업 상세 설명이 없습니다."
+            }
             mentoClassInfoLabel.numberOfLines = 5
         }
     }
@@ -119,7 +149,7 @@ class MentoInfoViewController: UIViewController {
     }
     
     @IBOutlet weak var mentoSubjectCollectionView: UICollectionView!
-
+    
     //채팅방 넘어가는 버튼
     @IBOutlet weak var mentoChatBtn: UIButton!{
         didSet{
@@ -128,30 +158,51 @@ class MentoInfoViewController: UIViewController {
         }
     }
     
-    var score = "3"
+    // 멘토 메시지 전송
+    @IBAction func mentoChatAction(_ sender: Any) {
+        let ChatRoomStoryboard = UIStoryboard.init(name: "Chatting", bundle: nil)
+        guard let ChatRoomVC = ChatRoomStoryboard.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController
+        else { return }
+        self.navigationController?.pushViewController(ChatRoomVC, animated: true)
+        // 받는 사람 : 멘토 아이디? 멘토 accountid
+        ChatRoomVC.mentoUser = mentoInfo
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpUI()
     }
+    
     func setUpUI() {
         guard let mentoInfo = mentoInfo else { return }
+        if let minPrice = mentoInfo.minPrice, let maxPrice = mentoInfo.maxPrice  {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            
+            priceLabel.text = "\(String(describing: numberFormatter.string(from: NSNumber(value: minPrice))!))원 ~ \(String(describing: numberFormatter.string(from: NSNumber(value: maxPrice))!))원"
+        }else{
+            priceStackView.isHidden = true
+        }
         
+        if let subject = mentoInfo.listOfExtracurricularSubjectData{
+            for list in subject {
+                mentoSubjectList.append(list)
+                
+            }
+        }
     }
 }
 
+// 제공 서비스 : 멘토 과목 리스트
 extension MentoInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mentoSubjectList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MentoSubjectCell", for: indexPath) as! MentoSubjectCollectionViewCell
-
         cell.mentoSubjectTitle.textColor = .black
-        cell.mentoSubjectTitle.text = mentoSubjectList[indexPath.row]
-
+        cell.mentoSubjectTitle.text = mentoSubjectList[indexPath.row].value
         return cell
-        
     }
 }
