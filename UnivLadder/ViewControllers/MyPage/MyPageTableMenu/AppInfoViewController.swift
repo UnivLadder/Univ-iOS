@@ -10,7 +10,7 @@ import UIKit
 //앱 안내 페이지
 class AppInfoViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
-    var cellTitle = ["서비스 이용약간", "개인정보 처리방침", "오픈소스 라이선스", "앱 버전"]
+    var cellTitle = ["개인정보 처리방침", "오픈소스 라이선스", "앱 버전"]
     var appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
 
     override func viewDidLoad() {
@@ -36,5 +36,16 @@ class AppInfoViewController: UIViewController , UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        // 개인정보 처리방침
+        case 0:
+            let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "AppInfoPrivate") as? AppInfoPrivateViewController
+            self.navigationController?.pushViewController(pushVC!, animated: true)
+        default:
+            return
+        }
     }
 }

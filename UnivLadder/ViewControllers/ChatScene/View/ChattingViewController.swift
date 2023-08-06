@@ -17,8 +17,6 @@ class ChattingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-
-
         if let chattingListUserdefault = UserDefaultsManager.chattingRoom{
             chattingList = chattingListUserdefault
         }
@@ -34,7 +32,6 @@ class ChattingViewController: UIViewController {
 
         enum CodingKeys: String, CodingKey {
             case id = "accountId"
-//            case accountID = "accountId2"
             case createdDate = "accountId3"
             case lastChatMessage = "accountId4"
         }
@@ -76,8 +73,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         guard let ChatRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController
         else { return }
         self.navigationController?.pushViewController(ChatRoomVC, animated: true)
-        ChatRoomVC.accountId = accountId
-
+//        ChatRoomVC.accountId = accountId
         APIService.shared.getDirectMessages(senderAccountId: accountId)
     }
     

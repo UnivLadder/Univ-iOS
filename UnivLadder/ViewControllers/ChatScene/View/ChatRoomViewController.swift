@@ -14,7 +14,7 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     var myChatting = [ChattingRoom]()
     var yourChatting = [ChattingRoom]()
     
-    var accountId: Int = 0
+    var mentoUser: RecommendMentor?
     
     static func instance() -> ChatRoomViewController {
         let vc = UIStoryboard.init(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
@@ -132,17 +132,13 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     }
     
     
-    //메시지 전송
-    //    {
-    //      "accountId" : 4,
-    //      "message" : "안녕하세요!!",
-    //      "type" : "TEXT"
-    //    }
-    @IBAction func sendMsgAction(_ sender: Any) {
-        let msg = ["accountId" : self.accountId,
+    // Direct Message 전송 action
+    @IBAction func sendMsgAction(_ sendffer: Any) {
+        // 받을 멘토 id
+        let msg = ["accountId" : mentoUser?.account.id,
                    "message" : textView.text,
                    "type" : "TEXT"] as [String : Any]
-//        APIService.shared.getDirectListMessage()
+        
         APIService.shared.sendDirectMessage(param: msg)
         textView.text = ""
         chatBubbleTableView.reloadData()
@@ -164,7 +160,8 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = mentoUser?.account.name
+        
         chatBubbleTableView.delegate = self
         chatBubbleTableView.dataSource = self
         chatBubbleTableView.separatorStyle = .none
@@ -174,7 +171,6 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
             chattingListUserdefault.enumerated().forEach({
                 if $0.element.senderAccountId == UserDefaults.standard.integer(forKey: "accountId"){
                     myChatting.append(chattingListUserdefault[$0.offset])
-                    self.navigationItem.title = myChatting[0].receiver.name
                 }else{
                     yourChatting.append(chattingListUserdefault[$0.offset])
                 }
