@@ -17,7 +17,7 @@ struct Constant {
     static var menuContentIntervalHeightMAX = 25.0
     //메뉴 폰트 사이즈
     //xs test
-    static var menuFontSizeXS = 22.0
+    static var menuFontSizeXS = 20.0
     //14 Pro Max test
     static var menuFontSizeMAX = 28.0
     

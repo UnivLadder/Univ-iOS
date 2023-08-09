@@ -24,6 +24,44 @@ final class APIService {
     
     var headers: HTTPHeaders = Config.headers
     
+    // MARK: - 리뷰 API
+    func registerMentoReview(accessToken: String,
+                             param: Parameters,
+                             completion: @escaping (Bool) -> Void){
+        let url = Config.baseURL+"/reviews/mentee-to-mentor"
+        headers.add(name: "Authentication", value: "Bearer " + accessToken)
+        AF.request(url,
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: headers).validate(statusCode: 200..<300).responseString { response in
+            switch response.response?.statusCode{
+                //200인 경우 성공
+            case 200:
+                completion(true)
+            default:
+                completion(false)
+            }
+        }
+    }
+    
+    //멘티 등록
+    func registerMentee(accessToken: String){
+        let url = Config.baseURL+"/mentees"
+        headers.add(name: "Authentication", value: "Bearer " + accessToken)
+        AF.request(url,
+                   method: .post,
+                   headers: headers).validate(statusCode: 200..<300).responseString { response in
+            switch response.result{
+                //200인 경우 성공
+            case .success(_):
+                print("멘티 등록 성공")
+            default:
+                print("👿멘티 등록 실패👿")
+            }
+        }
+    }
+    
     // MARK: - 비밀번호 재설정 API
     //    [x] 비밀번호 분실 요청
     func reportLostPassword(param: Parameters, completion: @escaping (Bool) -> Void){
@@ -167,10 +205,19 @@ final class APIService {
                     
                     CoreDataManager.shared.deleteAllUsers()
                     CoreDataManager.shared
-                        .saveUserEntity(accountId: jsonDict["id"] as! Int64, email: jsonDict["email"] as! String, gender: jsonDict["gender"] as! String, name: jsonDict["name"] as! String, password: nil, thumbnail: jsonDict["thumbnail"] as? String, onSuccess: { onSuccess in
+                        .saveUserEntity(accountId: jsonDict["id"] as! Int64, email: jsonDict["email"] as! String, gender: jsonDict["gender"] as! String, name: jsonDict["name"] as! String, password: nil, thumbnail: jsonDict["thumbnail"] as? String,
+                                        mentee: jsonDict["mentee"] as! Bool,
+                                        mentor: jsonDict["mentor"] as! Bool, onSuccess: { onSuccess in
                             print("⭐️내 계정 coredata 저장 성공⭐️")
                             UIViewController.changeRootViewControllerToHome()
                         })
+                    
+                    if let mentee = jsonDict["mentee"]{
+                        if (mentee as! Bool) == false {
+                            self.registerMentee(accessToken: accessToken)
+                        }
+                    }
+                    
                     UserDefaults.standard.set(jsonDict["name"] as! String, forKey: "name")
                     completion(Int(jsonDict["id"] as! Int64))
                 } catch {
@@ -182,10 +229,10 @@ final class APIService {
         }
     }
     
-    fileprivate func saveNewUser(accountId: Int64, email: String, gender: String, name: String, password: String, thumbnail: String?) {
+    fileprivate func saveNewUser(accountId: Int64, email: String, gender: String, name: String, password: String, thumbnail: String?, mentee: Bool, mentor: Bool) {
         
         CoreDataManager.shared
-            .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, onSuccess: { onSuccess in
+            .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, mentee: mentee, mentor: mentor, onSuccess: { onSuccess in
                 print("saved = \(onSuccess)")
             })
         User.name = name
@@ -250,6 +297,7 @@ final class APIService {
         }
     }
     
+    
     // 회원가입 - 서버 자체 회원가입 요청 API
     func signUp(param: Parameters,
                 completion: @escaping () -> Void){
@@ -268,7 +316,10 @@ final class APIService {
                                      gender: param["gender"] as! String,
                                      name: param["name"] as! String,
                                      password: param["password"] as! String,
-                                     thumbnail: param["email"] as? String)
+                                     thumbnail: param["email"] as? String,
+                                     mentee: true,
+                                     mentor: false
+                    )
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -314,29 +365,32 @@ final class APIService {
     //애플 : kakao
     //구글 : google
     //카카오 : apple
-    //request
-    //    {
-    //      "token" : "KAKAO"
-    //    }
-    //response
-    //    {
-    //        "accessToken": "~~~~"
-    //    }
     func signinSocial(param: Parameters, domain: String) {
-        AF.request(Config.baseURL+"/social/sign-in/"+domain, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
-            switch response.result {
-            case .success:
-                if let data = try! response.result.get() as? [String: Any] {
-                    print("function")
-                    print(data)
+        AF.request(Config.baseURL+"/social/sign-in/"+domain,
+                   method: .post,
+                   parameters: param,
+                   encoding: JSONEncoding.default).responseString { response in
+            switch response.result{
+            case .success(let data):
+                if let jsonData = data.data(using: .utf8) {
+                    do {
+                        if let jsonDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                            UserDefaults.standard.setValue(jsonDict["accessToken"] as? String, forKey: "accessToken")
+                            self.registerMentee(accessToken: (jsonDict["accessToken"] as? String)!)
+                        }
+                    } catch {
+                        // Handle error
+                        print("Error: \(error.localizedDescription)")
+                    }
                 }
-            case .failure(let error):
-                print("Error: \(error)")
-                return
+            default:
+                print("👿소셜로그인 실패👿")
             }
         }
     }
+        
     // MARK: - 멘토 API
+    // 멘토 정보 수정
     // 각 멘토 조회
     func getMentorInfo(mentoId: Int, completion: @escaping (RecommendMentor?) -> Void) {
         let url = Config.baseURL+"/mentors/\(mentoId)"

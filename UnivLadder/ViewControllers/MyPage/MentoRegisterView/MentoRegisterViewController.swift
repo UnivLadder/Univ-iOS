@@ -36,10 +36,6 @@ class MentoRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryCollectionView.allowsMultipleSelection = true
-//        mentoSubjects += selectedSubjects
-//        print("선택 과목들 : \(mentoSubjects)")
-        //기존 선택한 과목들 보여주기
-//        cellList = subjectList
     }
     
     override func viewWillAppear(_ animated: Bool) {

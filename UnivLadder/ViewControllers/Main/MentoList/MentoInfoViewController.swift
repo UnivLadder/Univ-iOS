@@ -6,18 +6,49 @@
 //
 
 import UIKit
+import Cosmos
 
 class MentoInfoViewController: UIViewController {
-    
-    let starColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-    let unfillstarColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-    let fillStar = UIImage(systemName: "star.fill")?.withTintColor(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), renderingMode: .alwaysOriginal)
-    let unFillStar = UIImage(systemName: "star")?.withTintColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), renderingMode: .alwaysOriginal)
-    
+
     var mentoSubjectList = [RecommendMentor.Subject]()
     
     //멘토 정보
     var mentoInfo: RecommendMentor?
+    
+    @IBOutlet weak var ratingView: CosmosView!{
+        didSet{
+            if let info = mentoInfo{
+                if let rating = info.averageReviewScore{
+                    ratingView.rating = rating
+                }else{
+                    ratingView.rating = 0.0
+                }
+            }
+        }
+    }
+    
+    @IBOutlet weak var ratingView2: CosmosView!{
+        didSet{
+            if let info = mentoInfo{
+                if let rating = info.averageReviewScore{
+                    ratingView2.rating = rating
+                }else{
+                    ratingView2.rating = 0.0
+                }
+            }
+        }
+    }
+    @IBOutlet weak var ratingCountLabel: UILabel!{
+        didSet{
+            if let info = mentoInfo{
+                if let rating = info.averageReviewScore{
+                    ratingCountLabel.text = "(\(rating))"
+                }else{
+                    ratingCountLabel.text = "(0.0)"
+                }
+            }
+        }
+    }
     
     @IBOutlet weak var verifyStackView: UIStackView!{
         didSet{
@@ -40,7 +71,6 @@ class MentoInfoViewController: UIViewController {
     @IBOutlet weak var priceStackView: UIStackView!
     @IBOutlet weak var priceLabel: UILabel!
     
-    
     //Mento Info
     @IBOutlet weak var mentoNameLabel: UILabel!{
         didSet{
@@ -58,40 +88,6 @@ class MentoInfoViewController: UIViewController {
             }
         }
     }
-    
-    
-    //star
-    @IBOutlet weak var firstStar: UIImageView!{
-        didSet{
-            firstStar.image = fillStar
-        }
-    }
-    
-    @IBOutlet weak var secondStar: UIImageView!
-    {
-        didSet{
-            secondStar.image = fillStar
-        }
-    }
-    @IBOutlet weak var thirdStar: UIImageView!
-    {
-        didSet{
-            thirdStar.image = fillStar
-        }
-    }
-    @IBOutlet weak var fourthStar: UIImageView!
-    {
-        didSet{
-            fourthStar.image = fillStar
-        }
-    }
-    @IBOutlet weak var fifthStar: UIImageView!
-    {
-        didSet{
-            fifthStar.image = unFillStar
-        }
-    }
-    
     
     //멘토 정보 label
     @IBOutlet weak var mentoInfoTitleLabel: UILabel!{
@@ -133,7 +129,11 @@ class MentoInfoViewController: UIViewController {
     @IBOutlet weak var mentoClassInfoLabel: UILabel!{
         didSet{
             if let description = mentoInfo?.description{
-                mentoClassInfoLabel.text = description
+                if description.count > 0 {
+                    mentoClassInfoLabel.text = description
+                }else{
+                    mentoClassInfoLabel.text = "수업 상세 설명이 없습니다."
+                }
             }else{
                 mentoClassInfoLabel.text = "수업 상세 설명이 없습니다."
             }
@@ -151,13 +151,7 @@ class MentoInfoViewController: UIViewController {
     @IBOutlet weak var mentoSubjectCollectionView: UICollectionView!
     
     //채팅방 넘어가는 버튼
-    @IBOutlet weak var mentoChatBtn: UIButton!{
-        didSet{
-            mentoChatBtn.setTitle("과외 문의하기", for: .normal)
-            mentoChatBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        }
-    }
-    
+    @IBOutlet weak var mentoChatBtn: UIButton!
     // 멘토 메시지 전송
     @IBAction func mentoChatAction(_ sender: Any) {
         let ChatRoomStoryboard = UIStoryboard.init(name: "Chatting", bundle: nil)
@@ -168,12 +162,60 @@ class MentoInfoViewController: UIViewController {
         ChatRoomVC.mentoUser = mentoInfo
     }
     
+    @IBOutlet weak var reviewTitle: UILabel!{
+        didSet{
+            reviewTitle.text = "리뷰"
+            reviewTitle.font = UIFont.boldSystemFont(ofSize: Constant.menuFontSizeXS)
+        }
+    }
+    
+    @IBOutlet weak var registerReviewBtn: UIButton!{
+        didSet{
+            registerReviewBtn.setTitle("리뷰 등록", for: .normal)
+            registerReviewBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        }
+    }
+    
+    @IBOutlet weak var totalReviewScoreLabel: UILabel!{
+        didSet{
+            totalReviewScoreLabel.font = UIFont.boldSystemFont(ofSize: 50)
+            if let score = mentoInfo?.averageReviewScore{
+                totalReviewScoreLabel.text = "\(score)"
+            }else{
+                totalReviewScoreLabel.text = "0.0"
+            }
+        }
+    }
+
+    @IBOutlet weak var reviewCountLabel: UILabel!{
+        didSet{
+            reviewCountLabel.font = UIFont.boldSystemFont(ofSize: 13)
+            if let reviewCount = mentoInfo?.reviewCount{
+                reviewCountLabel.text = "총 \(reviewCount)개의 리뷰"
+            }else{
+                reviewCountLabel.text = "총 0개의 리뷰"
+            }
+        }
+    }
+    
+    @IBAction func goToRegisterView(_ sender: Any) {
+        if let ReviewMentoVC = self.storyboard?.instantiateViewController(withIdentifier: "RegistReviewViewController") as? RegistReviewViewController{
+            self.navigationController?.pushViewController(ReviewMentoVC, animated: true)
+            ReviewMentoVC.mentoId = mentoInfo?.mentoId
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "멘토 정보"
         setUpUI()
     }
     
     func setUpUI() {
+        mentoChatBtn.layer.cornerRadius = 10
+        mentoChatBtn.tintColor = UIColor.white
+        mentoChatBtn.setTitle(NSLocalizedString("mentoChatStart", comment: ""), for: .normal)
+        mentoChatBtn.titleLabel?.font = Fonts.EsamanruOTF.medium.font(size: 20)
         guard let mentoInfo = mentoInfo else { return }
         if let minPrice = mentoInfo.minPrice, let maxPrice = mentoInfo.maxPrice  {
             let numberFormatter = NumberFormatter()

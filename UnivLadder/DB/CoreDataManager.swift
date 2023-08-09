@@ -23,7 +23,7 @@ class CoreDataManager {
     
     // MARK: - User coredata 관리
     // 1. User 저장
-    func saveUserEntity(accountId: Int64, email: String, gender: String, name: String, password: String?, thumbnail: String?, onSuccess: @escaping ((Bool) -> Void)) {
+    func saveUserEntity(accountId: Int64, email: String, gender: String, name: String, password: String?, thumbnail: String?, mentee: Bool, mentor: Bool, onSuccess: @escaping ((Bool) -> Void)) {
         if let context = context {
             //1) entity 생성
             if let entity: NSEntityDescription = NSEntityDescription.entity(forEntityName: modelNameUser as String, in: context) {
@@ -35,7 +35,8 @@ class CoreDataManager {
                     UserEntity.name = name
                     UserEntity.password = password
                     UserEntity.thumbnail = thumbnail
-                    
+                    UserEntity.mentee = mentee
+                    UserEntity.mentor = mentor
                     // coredata 저장
                     contextSave { success in
                         onSuccess(success)

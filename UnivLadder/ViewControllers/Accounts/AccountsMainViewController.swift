@@ -127,6 +127,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                 
                 // 키체인 저장
                 if KeyChain.shared.addItem(id: "accessToken", token: accessToken){
+                    print("토큰 : \(accessToken)")
                 }else{
                     print("👿키체인 저장 실패👿")
                 }

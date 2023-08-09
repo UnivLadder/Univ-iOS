@@ -58,6 +58,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // 채팅 리스트
         APIService.shared.getDirectListMessage()
         
+        // 추천멘토 초기화
+        if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+            APIService.shared.getRecommendMentors(accessToken: accessToken)
+        }
+
         //앱파일 경로 확인
         //        print("App bundle path : \(Bundle.main)")
         //        // User default 값 조회
