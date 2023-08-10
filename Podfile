@@ -6,6 +6,7 @@ target 'UnivLadder' do
   use_frameworks!
 
   # Pods for UnivLadder
+  pod 'MultiSlider'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Messaging'

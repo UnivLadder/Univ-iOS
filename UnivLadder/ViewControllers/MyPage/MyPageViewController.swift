@@ -13,6 +13,10 @@ class MyPageViewController: UIViewController {
     //userStatusBool > false > 멘티인 경우
     var userStatusBool : Bool = true
     
+    // core data에서 user 정보 가져옴
+    let userInfo = CoreDataManager.shared.getUserInfo()
+    var myMentoAccount: RecommendMentor?
+    
     @IBOutlet weak var myPageImg: UIImageView!
     @IBOutlet weak var myPageName: UILabel!
     @IBOutlet weak var myPageEmail: UILabel!
@@ -42,12 +46,34 @@ class MyPageViewController: UIViewController {
         self.navigationController?.navigationBar.transparentNavigationBar()
         self.navigationItem.title = ""
         self.myProfileViewSetting()
+        
     }
     
     // 프로필 뷰
     func myProfileViewSetting() {
-        // core data에서 user 정보 가져옴
-        let userInfo = CoreDataManager.shared.getUserInfo()
+        // 멘토인 경우 멘토 정보 가져오기
+        if userInfo[0].mentor {
+            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+                APIService.shared.getMyMentoAccount(accessToken: accessToken, completion: { [self] response in
+                    myMentoAccount = response
+                    if let score = myMentoAccount?.averageReviewScore{
+                        self.mentoScoreLabel.text = "\(score)"
+                    }else{
+                        self.mentoScoreLabel.text = "\(0)"
+                    }
+                    
+                    if let score = myMentoAccount?.reviewCount{
+                        self.reviewLabel.text = "\(score)"
+                    }else{
+                        self.reviewLabel.text = "\(0)"
+                    }
+                    
+                    //채팅방 개수
+                    let score = UserDefaults.standard.integer(forKey: "ChatCount")
+                    self.employeeLabel.text = "\(score)"
+                })
+            }
+        }
         
         if userInfo.count > 0{
             self.myPageName.text = userInfo[0].name
@@ -83,9 +109,6 @@ class MyPageViewController: UIViewController {
     
     func userStatusViewSetting() {
         self.profileModifyBtn.layer.cornerRadius = 10
-        self.mentoScoreLabel.text = "0"
-        self.reviewLabel.text = "0"
-        self.employeeLabel.text = "0"
     }
 
     /// 멘토 등록

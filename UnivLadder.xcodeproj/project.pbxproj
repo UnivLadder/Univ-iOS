@@ -364,8 +364,8 @@
 		6856B50A2A4845D500BE135E /* MentoModify */ = {
 			isa = PBXGroup;
 			children = (
-				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
 				6856B50B2A48461500BE135E /* MentoDetailModifyViewController.swift */,
+				68C42AF327D4C50400CE9E38 /* ProfileModifyViewController.swift */,
 			);
 			path = MentoModify;
 			sourceTree = "<group>";
@@ -416,7 +416,6 @@
 		688A8B502A2A327F00D0B811 /* MyPageTableMenu */ = {
 			isa = PBXGroup;
 			children = (
-				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
 				E587B0722712F66100FAD77D /* MyPageCell.swift */,
 				689358032998F26C00022EFB /* AppInfoTableViewCell.swift */,
 				689357FA2998E2A500022EFB /* Notice */,
@@ -586,6 +585,7 @@
 		E587B06F2712F53B00FAD77D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				E587B0702712F54D00FAD77D /* MyPageViewController.swift */,
 				6856B50A2A4845D500BE135E /* MentoModify */,
 				681EDDBA2A3F035200380B1F /* MentoRegisterView */,
 				688A8B512A2A32B400D0B811 /* MyPageModify */,

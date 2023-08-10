@@ -102,19 +102,19 @@
                                         <rect key="frame" x="0.0" y="180" width="414" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="W8i-yE-chg">
-                                                <rect key="frame" x="63.5" y="20" width="287" height="57.5"/>
+                                                <rect key="frame" x="65.5" y="20" width="283.5" height="57.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ejD-B7-7Y4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="57.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="57.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdw-Gj-mJx">
-                                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="29.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdw-Gj-mJx">
+                                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="29.5"/>
                                                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="25"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9I-y0-Qib">
-                                                                <rect key="frame" x="0.0" y="37.5" width="43.5" height="20"/>
+                                                                <rect key="frame" x="0.0" y="37.5" width="42.5" height="20"/>
                                                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -122,16 +122,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JBN-Kf-kct">
-                                                        <rect key="frame" x="132.5" y="0.0" width="34" height="57.5"/>
+                                                        <rect key="frame" x="131.5" y="0.0" width="31.5" height="57.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="121" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkD-Ox-Ams">
-                                                                <rect key="frame" x="0.0" y="0.0" width="34" height="29.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkD-Ox-Ams">
+                                                                <rect key="frame" x="0.0" y="0.0" width="31.5" height="29.5"/>
                                                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="25"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="리뷰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmO-0K-TpV">
-                                                                <rect key="frame" x="0.0" y="37.5" width="34" height="20"/>
+                                                                <rect key="frame" x="0.0" y="37.5" width="31.5" height="20"/>
                                                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -139,9 +139,9 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ofc-qF-fer">
-                                                        <rect key="frame" x="255.5" y="0.0" width="31.5" height="57.5"/>
+                                                        <rect key="frame" x="252" y="0.0" width="31.5" height="57.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtu-Ac-tJw">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtu-Ac-tJw">
                                                                 <rect key="frame" x="0.0" y="0.0" width="31.5" height="29.5"/>
                                                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="25"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -623,40 +623,76 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-sn-ciC">
-                                <rect key="frame" x="20" y="88" width="374" height="638"/>
+                                <rect key="frame" x="20" y="68" width="374" height="519"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="99" translatesAutoresizingMaskIntoConstraints="NO" id="bX2-Br-D50">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="61"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="멘트를 어떻게 할까요?!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjc-Zf-Fqr">
-                                                <rect key="frame" x="0.0" y="0.0" width="234" height="28"/>
-                                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최소 50자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saJ-WL-DJa">
-                                                <rect key="frame" x="333" y="0.0" width="41" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="서비스에 대해 상세하게 설명해주세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xJG-Ht-9xl">
-                                        <rect key="frame" x="0.0" y="81" width="374" height="557"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="수업 가격은 어떻게 할까요?!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjc-Zf-Fqr">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4u-QF-DFZ" customClass="MultiSlider" customModule="MultiSlider">
+                                        <rect key="frame" x="0.0" y="49.5" width="350" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="AO6-sE-tO2"/>
+                                            <constraint firstAttribute="height" constant="50" id="oBl-iZ-LYy"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="thumbTintColor">
+                                                <color key="value" red="0.42699998617172241" green="0.5" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="thumbCount">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="valueLabelColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="outerTrackColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="valueLabelAlternatePosition" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="distanceBetweenThumbs">
+                                                <real key="value" value="1000"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                                <real key="value" value="500000"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                <real key="value" value="10000"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keepsDistanceBetweenThumbs" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="멘트를 어떻게 할까요?!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzY-vr-ENo">
+                                        <rect key="frame" x="0.0" y="119.5" width="244" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xJG-Ht-9xl">
+                                        <rect key="frame" x="0.0" y="169" width="374" height="350"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="350" id="K6s-Xa-rDd"/>
+                                        </constraints>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y7m-TO-PWl" id="535-Og-Ma2"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="xJG-Ht-9xl" firstAttribute="trailing" secondItem="bX2-Br-D50" secondAttribute="trailing" id="lkR-sK-jjK"/>
-                                    <constraint firstItem="xJG-Ht-9xl" firstAttribute="top" secondItem="bX2-Br-D50" secondAttribute="bottom" constant="20" id="udE-R8-1ug"/>
+                                    <constraint firstItem="P4u-QF-DFZ" firstAttribute="centerX" secondItem="pgm-sn-ciC" secondAttribute="centerX" id="XCA-ee-H2I"/>
+                                    <constraint firstItem="xJG-Ht-9xl" firstAttribute="trailing" secondItem="pgm-sn-ciC" secondAttribute="trailingMargin" id="zTk-cS-8dN"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-L4-qgF">
-                                <rect key="frame" x="20" y="746" width="374" height="50"/>
+                                <rect key="frame" x="20" y="607" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.41429898139999999" green="0.35561686749999999" blue="0.87063390019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="u3G-fT-kfW"/>
@@ -665,13 +701,15 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="저장"/>
+                                <connections>
+                                    <action selector="modifyMentoDescription:" destination="Y7m-TO-PWl" eventType="touchUpInside" id="iAD-bB-8uY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JUq-cb-4Hw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="MSM-L4-qgF" secondAttribute="bottom" constant="100" id="2GU-aP-2am"/>
-                            <constraint firstItem="pgm-sn-ciC" firstAttribute="top" secondItem="JUq-cb-4Hw" secondAttribute="top" constant="40" id="Hpr-DI-rWX"/>
+                            <constraint firstItem="pgm-sn-ciC" firstAttribute="top" secondItem="JUq-cb-4Hw" secondAttribute="top" constant="20" id="Hpr-DI-rWX"/>
                             <constraint firstItem="JUq-cb-4Hw" firstAttribute="trailing" secondItem="pgm-sn-ciC" secondAttribute="trailing" constant="20" id="SF5-ge-Hqh"/>
                             <constraint firstItem="MSM-L4-qgF" firstAttribute="leading" secondItem="JUq-cb-4Hw" secondAttribute="leading" constant="20" id="VSM-nN-iSA"/>
                             <constraint firstItem="pgm-sn-ciC" firstAttribute="leading" secondItem="JUq-cb-4Hw" secondAttribute="leading" constant="20" id="e2l-oU-Seu"/>
@@ -683,12 +721,12 @@
                         <outlet property="detailTextView" destination="xJG-Ht-9xl" id="vLR-mM-Xtf"/>
                         <outlet property="detailTitleLabel" destination="Yjc-Zf-Fqr" id="jdO-SS-tWt"/>
                         <outlet property="saveBtn" destination="MSM-L4-qgF" id="fDO-fj-VHJ"/>
-                        <outlet property="textMinimumLabel" destination="saJ-WL-DJa" id="czw-cu-cTF"/>
+                        <outlet property="sliderView" destination="P4u-QF-DFZ" id="4Af-Cy-wtP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSb-RY-1yr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6096" y="1357"/>
+            <point key="canvasLocation" x="6095.652173913044" y="1356.6964285714284"/>
         </scene>
         <!--Subject-->
         <scene sceneID="vE7-57-GF3">
@@ -1246,6 +1284,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

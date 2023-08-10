@@ -8,6 +8,17 @@
 import UIKit
 
 extension UIViewController {
+    //키보드 내리기
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
+    }
+    
     static func changeRootViewControllerToHome() {
         let vc = MainTabBarViewController.instantiate()
         DispatchQueue.main.async {

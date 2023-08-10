@@ -6,6 +6,7 @@ PODS:
   - AppAuth/Core (1.6.2)
   - AppAuth/ExternalUserAgent (1.6.2):
     - AppAuth/Core
+  - AvailableHapticFeedback (1.0.2)
   - Cosmos (23.0.0)
   - Firebase/Auth (10.13.0):
     - Firebase/CoreOnly
@@ -125,6 +126,9 @@ PODS:
     - KakaoSDKCommon/Common (= 2.16.0)
   - KakaoSDKUser (2.16.0):
     - KakaoSDKAuth (= 2.16.0)
+  - MultiSlider (2.1.0):
+    - AvailableHapticFeedback
+    - SweeterSwift
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -138,6 +142,7 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SnapKit (5.6.0)
+  - SweeterSwift (1.2.1)
   - SwiftyJSON (5.0.1)
   - Then (3.0.0)
 
@@ -151,6 +156,7 @@ DEPENDENCIES:
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKUser
+  - MultiSlider
   - RxCocoa
   - RxRelay
   - RxSwift
@@ -162,6 +168,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AppAuth
+    - AvailableHapticFeedback
     - Cosmos
     - Firebase
     - FirebaseAnalytics
@@ -180,18 +187,21 @@ SPEC REPOS:
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKUser
+    - MultiSlider
     - nanopb
     - PromisesObjC
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
+    - SweeterSwift
     - SwiftyJSON
     - Then
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
+  AvailableHapticFeedback: 9b21b9f6d3e4566015988b5de35b40abefe6c09a
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Firebase: 343d7539befb614d22b2eae24759f6307b1175e9
   FirebaseAnalytics: 9a12e090ead49f8877ed8132ae920e3cbbd2fcd0
@@ -210,15 +220,17 @@ SPEC CHECKSUMS:
   KakaoSDKAuth: 1b85ed7c41b0517bfd1fc9dc46c292c75b8cb610
   KakaoSDKCommon: d6579aa2e9d963d74e13d741cbf1cce48b8b0c17
   KakaoSDKUser: 427e5b3884abd19ee6d9a7bd6e3f3029eb2968b8
+  MultiSlider: 85b223e54245e773241d15af618c6be5f9c17077
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SweeterSwift: 61baeda1c0c27d1dc57c8112c3d6a82e5aff3139
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: 1ef2d7eb01e77fe47d455cabbcfe8e40ec0ad0e6
+PODFILE CHECKSUM: d0778645e9e2b28a27d79d90630d7d877124d18b
 
 COCOAPODS: 1.11.3

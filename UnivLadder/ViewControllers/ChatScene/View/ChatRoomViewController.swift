@@ -160,6 +160,7 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         self.navigationItem.title = mentoUser?.account.name
         
         chatBubbleTableView.delegate = self
