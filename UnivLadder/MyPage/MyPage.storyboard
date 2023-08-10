@@ -273,7 +273,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="MQB-Rh-RuV">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zNo-SA-hjA">
-                                <rect key="frame" x="244" y="4.5" width="150" height="35"/>
+                                <rect key="frame" x="244" y="4.5" width="100" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -623,7 +623,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pgm-sn-ciC">
-                                <rect key="frame" x="20" y="68" width="374" height="519"/>
+                                <rect key="frame" x="20" y="68" width="374" height="449"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="수업 가격은 어떻게 할까요?!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjc-Zf-Fqr">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="29.5"/>
@@ -632,7 +632,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4u-QF-DFZ" customClass="MultiSlider" customModule="MultiSlider">
-                                        <rect key="frame" x="0.0" y="49.5" width="350" height="50"/>
+                                        <rect key="frame" x="0.0" y="59.5" width="350" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -667,16 +667,16 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="멘트를 어떻게 할까요?!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzY-vr-ENo">
-                                        <rect key="frame" x="0.0" y="119.5" width="244" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="139.5" width="244" height="29.5"/>
                                         <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xJG-Ht-9xl">
-                                        <rect key="frame" x="0.0" y="169" width="374" height="350"/>
+                                        <rect key="frame" x="0.0" y="199" width="374" height="250"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="350" id="K6s-Xa-rDd"/>
+                                            <constraint firstAttribute="height" constant="250" id="K6s-Xa-rDd"/>
                                         </constraints>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -688,11 +688,12 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="P4u-QF-DFZ" firstAttribute="centerX" secondItem="pgm-sn-ciC" secondAttribute="centerX" id="XCA-ee-H2I"/>
+                                    <constraint firstItem="gzY-vr-ENo" firstAttribute="top" secondItem="P4u-QF-DFZ" secondAttribute="bottom" constant="30" id="jYh-kT-vPU"/>
                                     <constraint firstItem="xJG-Ht-9xl" firstAttribute="trailing" secondItem="pgm-sn-ciC" secondAttribute="trailingMargin" id="zTk-cS-8dN"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-L4-qgF">
-                                <rect key="frame" x="20" y="607" width="374" height="50"/>
+                                <rect key="frame" x="20" y="537" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.41429898139999999" green="0.35561686749999999" blue="0.87063390019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="u3G-fT-kfW"/>
@@ -1270,6 +1271,11 @@
             <point key="canvasLocation" x="1795.6521739130437" y="956.91964285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="P4u-QF-DFZ">
+            <size key="intrinsicContentSize" width="-1" height="63"/>
+        </designable>
+    </designables>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>

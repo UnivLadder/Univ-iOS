@@ -47,6 +47,7 @@ class MentoDetailModifyViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         detailTextView.delegate = self
+        sliderView.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,19 +68,26 @@ class MentoDetailModifyViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    @objc func sliderChanged(slider: MultiSlider) {
+//        print("thumb \(slider.draggedThumbIndex) moved")
+//        print("now thumbs are at \(slider.value)") // e.g., [1.0, 4.5, 5.0]
+    }
+    
     @IBAction func modifyMentoDescription(_ sender: Any) {
-        let parameter: Parameters = [
-            "fcmToken" : UserDefaults.standard.string(forKey: "fcmToken") ?? ""
-        ]
-        //멘토 아이디?
         if let description = detailTextView.text{
+            let parameter: Parameters = [
+                "minPrice" : Int(sliderView.value[0]),
+                "maxPrice" : Int(sliderView.value[1]),
+                "description" : description
+            ]
+            
             if let token = UserDefaults.standard.string(forKey: "accessToken"){
-//                APIService.shared.modifyMentorInfo(accessToken: token,
-//                                                   mentoId: <#T##Int#>,
-//                                                   param: parameter,
-//                                                   completion: {
-//                    
-//                })
+                APIService.shared.modifyMentorInfo(accessToken: token,
+                                                   mentoId:  UserDefaults.standard.integer(forKey: "MyMentoId"),
+                                                   param: parameter,
+                                                   completion: {_ in
+                    
+                })
             }
         }
     }

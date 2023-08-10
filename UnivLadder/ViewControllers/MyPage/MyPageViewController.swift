@@ -9,9 +9,8 @@ import UIKit
 
 class MyPageViewController: UIViewController {
     @IBOutlet weak var userStatusToggleBtn: UIButton!
-    //userStatusBool > true > 멘토인 경우
-    //userStatusBool > false > 멘티인 경우
-    var userStatusBool : Bool = true
+
+    var mentoRegistStatus : Bool = false
     
     // core data에서 user 정보 가져옴
     let userInfo = CoreDataManager.shared.getUserInfo()
@@ -51,11 +50,15 @@ class MyPageViewController: UIViewController {
     
     // 프로필 뷰
     func myProfileViewSetting() {
-        // 멘토인 경우 멘토 정보 가져오기
+        // 멘토인지 아는지 확인(현재 user 정보의 mentor 값으로 확인)
+        // 멘토인 경우 > 멘토 정보 가져오기
         if userInfo[0].mentor {
+            // 내가 멘토 등록된 경우
+            self.mentoRegistStatus = true
             if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
                 APIService.shared.getMyMentoAccount(accessToken: accessToken, completion: { [self] response in
                     myMentoAccount = response
+                    
                     if let score = myMentoAccount?.averageReviewScore{
                         self.mentoScoreLabel.text = "\(score)"
                     }else{
@@ -71,6 +74,10 @@ class MyPageViewController: UIViewController {
                     //채팅방 개수
                     let score = UserDefaults.standard.integer(forKey: "ChatCount")
                     self.employeeLabel.text = "\(score)"
+                    
+                 
+                    //멘토 아이디 전역 변수 저장
+                    UserDefaults.standard.setValue(myMentoAccount?.mentoId, forKey: "MyMentoId")
                 })
             }
         }
@@ -95,15 +102,17 @@ class MyPageViewController: UIViewController {
         self.userStatusToggleBtn.layer.borderColor = UIColor.black.cgColor
         self.userStatusToggleBtn.layer.cornerRadius = 5
       
-        if userStatusBool{
-            // 유저 상태가 true 면 멘티로 등록
-            self.userStatusToggleBtn.setTitle("멘티로 전환", for: .normal)
+        //멘토 등록 상태인지 확인
+        if mentoRegistStatus{
+            // 멘토 등록된 경우
+            self.userStatusToggleBtn.isHidden = true
             self.mentoView.isHidden = false
             self.userStatusViewSetting()
         }else{
-            // 유저 상태가 false 면 멘토로 등록
-            self.userStatusToggleBtn.setTitle("멘토로 전환", for: .normal)
+            // 멘토 등록 안된 경우
+            self.userStatusToggleBtn.isHidden = false
             self.mentoView.isHidden = true
+            self.userStatusToggleBtn.setTitle("멘토 등록", for: .normal)
         }
     }
     
@@ -114,13 +123,13 @@ class MyPageViewController: UIViewController {
     /// 멘토 등록
     /// - Parameter sender: 상태 변경
     @IBAction func userStatusChangeBtn(_ sender: Any) {
-            //멘토인 경우
-        if userStatusBool{
-            userStatusBool = false
+        //멘토인 경우
+        if mentoRegistStatus{
+            mentoRegistStatus = true
             myProfileViewSetting()
         }else{
             // 멘티인 경우 - 멘토로 등록 API 수행
-            userStatusBool = true
+            mentoRegistStatus = false
             myProfileViewSetting()
             let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoRegister")
             self.navigationController?.pushViewController(pushVC!, animated: true)
