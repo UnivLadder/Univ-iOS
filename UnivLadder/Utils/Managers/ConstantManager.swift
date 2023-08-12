@@ -36,7 +36,7 @@ struct Storyboard {
     }
     
     struct Msg {
-        static let registerMentoConfirmMsg = "멘토로 등록되었습니다.\n프로필을 수정해주세요"
-   
+        static let registerMentoConfirmMsg = "멘토로 등록되었습니다."
+        static let modifyMentoConfirmMsg = "멘토 정보가 수정되었습니다."
     }
 }

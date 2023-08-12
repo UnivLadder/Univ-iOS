@@ -4,14 +4,13 @@
 //
 //  Created by leeyeon2 on 2021/12/06.
 //
-//fork test
 
 import UIKit
 import AuthenticationServices
 import GoogleSignIn
-
 import KakaoSDKUser
 
+// 로그인 화면
 class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate, StoryboardInitializable {
     
     static var storyboardName: String = "Accounts"
@@ -137,6 +136,7 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                     // FCM 토큰 저장
                     if let fcmToken = UserDefaults.standard.string(forKey: "fcmToken") {
                         APIService.shared.putFCMToken(fcmToken: fcmToken, accessToken: accessToken, accountId: accountId)
+                        print("accountId = \(accountId)")
                     }
                 })
 
@@ -183,8 +183,23 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         })
     }
     
+    fileprivate func saveNewUser(_ accountId: Int, email: String, gender: String, name: String, password: String, thumbnail: String?, mentee: Bool, mentor: Bool) {
+        CoreDataManager.shared
+            .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, mentee: mentee, mentor: mentor,  onSuccess: { onSuccess in
+                UIViewController.changeRootViewControllerToHome()
+            })
+        User.name = name
+    }
+    
     //소셜 로그인 - 1. 카카오
     @IBAction func kakaoLogInAction(_ sender: Any) {
+        // 자동 로그인 설정 값 저장
+        if self.isAutoLogin == true {
+            UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
+        }else{
+            UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
+        }
+        
         // 카카오톡 설치 여부 확인
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
@@ -192,11 +207,28 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                     print(error)
                 }
                 else {
-                    print("loginWithKakaoTalk() success.")
                     if let oauthToken = oauthToken{
                         LoginDataModel.token = oauthToken.accessToken
                         // kakaotalk login post
-                        APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "kakao")
+                        APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "kakao", completion: { res in
+                            
+                            APIService.shared.getMyAccount(accessToken: res, completion: { accountId in
+                                UserDefaults.standard.setValue(accountId, forKey: "accountId")
+                                self.getKakaoAccount(completion: { myEmail, myNickName   in
+                                   
+                                    CoreDataManager.shared.deleteAllUsers()
+                                    self.saveNewUser(accountId,
+                                                     email: myEmail,
+                                                     gender: "",
+                                                     name: myNickName,
+                                                     password: "",
+                                                     thumbnail: "",
+                                                     mentee: true,
+                                                     mentor: false
+                                    )
+                                })
+                            })
+                        })
                         print("kakao accessToken : \(oauthToken.accessToken)")
                     } else {
                         print("Error : User Data Not Found")
@@ -206,9 +238,37 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         }
     }
     
+    // 카카오 계정 정보 가져오기
+    func getKakaoAccount(completion: @escaping (String, String) -> Void) {
+        var myEmail = ""
+        var myNickName = ""
+        
+        UserApi.shared.me() {(user, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                _ = user
+                if let email = user?.kakaoAccount?.email{
+                    myEmail = email
+                }
+                if let nickName = user?.kakaoAccount?.profile?.nickname{
+                    myNickName = nickName
+                }
+                completion(myEmail, myNickName)
+            }
+        }
+    }
     
     //소셜 로그인 - 2. 구글
     @IBAction func googleLogInAction(_ sender: Any) {
+        // 자동 로그인 설정 값 저장
+        if self.isAutoLogin == true {
+            UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
+        }else{
+            UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
+        }
+        
         // OAuth 2.0 클라이언트 ID - Info URL Types에 입력한 clientID
         let id = "895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com"
         let signInConfig = GIDConfiguration(clientID: id)
@@ -230,6 +290,13 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     
     //소셜 로그인 - 3. 애플
     @IBAction func appleLogIn(_ sender: Any) {
+        // 자동 로그인 설정 값 저장
+        if self.isAutoLogin == true {
+            UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
+        }else{
+            UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
+        }
+        
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -263,7 +330,10 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             print("Token Value : \(accessToken)")
             
             // apple login post
-            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "apple")
+            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "apple", completion: { res in
+                // 계정 정보 수정 화면으로 이동
+                
+            })
             
         default:
             break

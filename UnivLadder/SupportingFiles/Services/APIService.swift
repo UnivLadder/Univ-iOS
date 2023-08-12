@@ -51,7 +51,7 @@ final class APIService {
         headers.add(name: "Authentication", value: "Bearer " + accessToken)
         AF.request(url,
                    method: .post,
-                   headers: headers).validate(statusCode: 200..<300).responseString { response in
+                   headers: headers).responseString { response in
             switch response.result{
                 //200인 경우 성공
             case .success(_):
@@ -115,9 +115,31 @@ final class APIService {
         }
     }
     
-
+    
     
     // MARK: - 계정 API
+    // 계정 수정 API
+    func modifyMyAccount(accessToken: String,
+                         accountId: Int,
+                         param: Parameters,
+                         completion: @escaping (Bool) -> Void) {
+        let url = Config.baseURL+"/accounts/" + String(accountId)
+        headers.add(name: "Authentication", value: "Bearer " + accessToken)
+        
+        AF.request(url, method: .put, parameters: param, encoding: JSONEncoding.default, headers: headers).responseString { response in
+            
+            switch response.result{
+                //200인 경우 성공
+            case .success(_):
+                completion(true)
+                print("⭐️계정 수정 성공⭐️")
+            default:
+                print("👿계정 수정 실패👿")
+            }
+            
+        }
+    }
+    
     // 계정 조회 API
     //    HTTP://localhost/accounts/54
     func getAccount(accountId: Int, completion: @escaping (String) -> Void){
@@ -168,17 +190,17 @@ final class APIService {
                     
                     CoreDataManager.shared.deleteAllUsers()
                     CoreDataManager.shared
-                        .saveUserEntity(accountId: jsonDict["id"] as! Int64,
-                                        email: jsonDict["email"] as! String,
-                                        gender: jsonDict["gender"] as! String,
-                                        name: jsonDict["name"] as! String,
+                        .saveUserEntity(accountId: jsonDict["id"] as! Int,
+                                        email: jsonDict["email"] as? String ?? "",
+                                        gender: jsonDict["gender"] as? String ?? "",
+                                        name: jsonDict["name"] as? String ?? "",
                                         password: nil,
                                         thumbnail: jsonDict["thumbnail"] as? String,
-                                        mentee: jsonDict["mentee"] as! Bool,
-                                        mentor: jsonDict["mentor"] as! Bool,
+                                        mentee: jsonDict["mentee"] as? Bool ?? true,
+                                        mentor: jsonDict["mentor"] as? Bool ?? false,
                                         onSuccess: { onSuccess in
                             print("⭐️내 계정 coredata 저장 성공⭐️")
-                            UIViewController.changeRootViewControllerToHome()
+                            //                            UIViewController.changeRootViewControllerToHome()
                         })
                     
                     if let mentee = jsonDict["mentee"]{
@@ -198,7 +220,7 @@ final class APIService {
         }
     }
     
-    fileprivate func saveNewUser(accountId: Int64, email: String, gender: String, name: String, password: String, thumbnail: String?, mentee: Bool, mentor: Bool) {
+    fileprivate func saveNewUser(accountId: Int, email: String, gender: String, name: String, password: String, thumbnail: String?, mentee: Bool, mentor: Bool) {
         
         CoreDataManager.shared
             .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, mentee: mentee, mentor: mentor, onSuccess: { onSuccess in
@@ -280,7 +302,7 @@ final class APIService {
                     self.accountId = jsonDict["accountId"] as? Int
                     
                     CoreDataManager.shared.deleteAllUsers()
-                    self.saveNewUser(accountId: (jsonDict["accountId"] as! Int64),
+                    self.saveNewUser(accountId: (jsonDict["accountId"] as! Int),
                                      email: param["email"] as! String,
                                      gender: param["gender"] as! String,
                                      name: param["name"] as! String,
@@ -331,10 +353,10 @@ final class APIService {
     }
     
     //소셜 로그인
-    //애플 : kakao
+    //애플 : apple
     //구글 : google
-    //카카오 : apple
-    func signinSocial(param: Parameters, domain: String) {
+    //카카오 : kakao
+    func signinSocial(param: Parameters, domain: String, completion: @escaping (String) -> Void) {
         AF.request(Config.baseURL+"/social/sign-in/"+domain,
                    method: .post,
                    parameters: param,
@@ -344,9 +366,9 @@ final class APIService {
                 if let jsonData = data.data(using: .utf8) {
                     do {
                         if let jsonDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
-                            UserDefaults.standard.setValue(jsonDict["accessToken"] as? String, forKey: "accessToken")
-                            self.registerMentee(accessToken: (jsonDict["accessToken"] as? String)!)
-                            // 1. 계정정보 수정 화면으로 이동 후 회원 정보 수정 + main 화면으로
+                            UserDefaults.standard.setValue(jsonDict["accessToken"] as! String, forKey: "accessToken")
+                            print("accessToken = \(jsonDict["accessToken"] as! String))")
+                            completion(jsonDict["accessToken"] as! String)
                         }
                     } catch {
                         // Handle error
@@ -354,7 +376,8 @@ final class APIService {
                     }
                 }
             default:
-                print("👿소셜로그인 실패👿")
+                print("👿소셜 로그인 실패👿")
+                completion("")
             }
         }
     }
@@ -362,7 +385,7 @@ final class APIService {
     // MARK: - 멘토 API
     // 내 멘토 정보 조회
     func getMyMentoAccount(accessToken: String,
-                      completion: @escaping (RecommendMentor) -> Void){
+                           completion: @escaping (RecommendMentor) -> Void){
         let url = Config.baseURL+"/mentors/me"
         headers.add(name: "Authentication", value: "Bearer " + accessToken)
         
@@ -431,7 +454,7 @@ final class APIService {
     
     
     // 멘토 정보 수정
-    func modifyMentorInfo(accessToken: String, mentoId: Int, param: Parameters, completion: @escaping (RecommendMentor?) -> Void) {
+    func modifyMentorInfo(accessToken: String, mentoId: Int, param: Parameters, completion: @escaping () -> Void) {
         let url = Config.baseURL+"/mentors/\(mentoId)"
         headers.add(name: "Authentication", value: "Bearer " + accessToken)
         AF.request(url,
@@ -443,6 +466,7 @@ final class APIService {
                 switch response.statusCode{
                     //200인 경우 전송 성공
                 case 200:
+                    completion()
                     print("⭐️멘토 정보 수정 성공⭐️")
                 default:
                     print("👿멘토 정보 수정 실패👿")
@@ -523,7 +547,7 @@ final class APIService {
             }
         }
     }
-
+    
     // MARK: - 채팅 - 다이렉트 (Chatting) API
     // 다이렉트 메시지를 생성
     // 다이렉트 메시지 리스트를 조회

@@ -20,6 +20,11 @@ class MentoRegisterViewController: UIViewController {
     @IBOutlet weak var registerMentoBtn: UIButton!{
         didSet{
             registerMentoBtn.layer.cornerRadius = 10
+            if UserDefaults.standard.integer(forKey: "MyMentoId") > 0 {
+                registerMentoBtn.setTitle("확인", for: .normal)
+            }else{
+                registerMentoBtn.setTitle("다음", for: .normal)
+            }
         }
     }
     
@@ -36,6 +41,7 @@ class MentoRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryCollectionView.allowsMultipleSelection = true
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,32 +49,21 @@ class MentoRegisterViewController: UIViewController {
     }
     
     
-    // 멘토 등록 + 마이페이지 화면으로 돌아가기
+    // 분야 선택 완료 버튼
     @IBAction func registerMentoBtnAction(_ sender: Any) {
-
-        //dummy data
-        let params = ["minPrice" : nil,
-                      "maxPrice" : nil,
-                      "description" : " ",
-                      "extracurricularSubjectCodes" : [1,3,12]] as [String : Any?]
-        
-        APIService.shared.registerMento(param: params, completion: {_ in
-            //alert
-            let alert = UIAlertController(title:Storyboard.Msg.registerMentoConfirmMsg,
-                                          message: "",
-                                          preferredStyle: UIAlertController.Style.alert)
-            let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: { action in
-                self.confirmAction()
-            })
-            alert.addAction(buttonLabel)
-            self.present(alert,animated: true,completion: nil)
-        })
+        // 멘토 등록 되어있는 경우
+        // 확인으로 하고 멘토 수업 과목 생성 API 수행
+        if UserDefaults.standard.integer(forKey: "MyMentoId") > 0 {
+//            registerMentoBtn.titleLabel?.text = "확인"
+        }else{
+//            registerMentoBtn.titleLabel?.text = "다음"
+            // 멘토 등록 안 되어있는 경우 - 상세 서비스 설정 화면 이동
+            let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfo") as? MentoDetailModifyViewController
+            //선택한 과목 코드 전달
+            pushVC?.extracurricularSubjectCodes = [1,2,3]
+            self.navigationController?.pushViewController(pushVC!, animated: true)
+        }
     }
-    
-    func confirmAction() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
 }
 
 extension MentoRegisterViewController: SendData {

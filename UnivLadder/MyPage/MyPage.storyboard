@@ -23,7 +23,7 @@
         <!--My Page View Controller-->
         <scene sceneID="0MV-gN-iVV">
             <objects>
-                <viewController storyboardIdentifier="MyPage" id="NXb-HQ-XxT" customClass="MyPageViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageVC" id="NXb-HQ-XxT" customClass="MyPageViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VEf-co-mLu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +273,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="MQB-Rh-RuV">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zNo-SA-hjA">
-                                <rect key="frame" x="244" y="4.5" width="100" height="35"/>
+                                <rect key="frame" x="294" y="4.5" width="100" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -925,7 +925,7 @@
                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="확인"/>
+                                <state key="normal" title="이전"/>
                                 <connections>
                                     <action selector="sendMentoCategorySubjects:" destination="ViD-It-XZ9" eventType="touchUpInside" id="tzg-5e-7If"/>
                                 </connections>
@@ -959,7 +959,7 @@
         <!--계정 정보 수정-->
         <scene sceneID="o7v-Ww-hxs">
             <objects>
-                <viewController storyboardIdentifier="AccountModify" id="Nni-Qm-Jwc" customClass="AccountModifyViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountModify" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nni-Qm-Jwc" customClass="AccountModifyViewController" customModule="Real_Tutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HPH-Pp-uwS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1000,7 +1000,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kgq-DC-cvf">
-                                <rect key="frame" x="30" y="252" width="354" height="339"/>
+                                <rect key="frame" x="30" y="252" width="354" height="315.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="301-IC-r00">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="73.5"/>
@@ -1062,36 +1062,51 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hn5-EH-8m6">
-                                        <rect key="frame" x="0.0" y="265.5" width="354" height="73.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jv3-0z-FKf">
+                                        <rect key="frame" x="0.0" y="265.5" width="354" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2e5-1V-98j">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ps-tu-aqD">
-                                                <rect key="frame" x="0.0" y="28.5" width="354" height="45"/>
-                                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6b-jv-FTR">
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="50"/>
+                                                <color key="backgroundColor" red="0.60412872969999998" green="0.72533008450000003" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="Fsn-gB-faW"/>
+                                                    <constraint firstAttribute="height" constant="50" id="6j2-LN-uUZ"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <color key="tintColor" red="0.42745098040000001" green="0.35294117650000001" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="남성">
+                                                    <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="maleBtn:" destination="Nni-Qm-Jwc" eventType="touchUpInside" id="BFv-hG-RVe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfZ-h0-zRa">
+                                                <rect key="frame" x="182" y="0.0" width="172" height="50"/>
+                                                <color key="backgroundColor" red="0.60412872969999998" green="0.72533008450000003" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="WBD-ie-gps"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.42745098040000001" green="0.35294117650000001" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="여성">
+                                                    <fontDescription key="titleFontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="femaleBtn:" destination="Nni-Qm-Jwc" eventType="touchUpInside" id="zn1-6Q-Sxl"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Hn5-EH-8m6" secondAttribute="trailing" id="PBf-Pb-cPG"/>
                                     <constraint firstAttribute="trailing" secondItem="301-IC-r00" secondAttribute="trailing" id="TCa-00-3bh"/>
                                     <constraint firstAttribute="trailing" secondItem="N8O-Sf-fkY" secondAttribute="trailing" id="guu-I6-nop"/>
                                     <constraint firstAttribute="trailing" secondItem="EZ2-7H-zhu" secondAttribute="trailing" id="jyI-Nm-zv2"/>
+                                    <constraint firstAttribute="trailing" secondItem="jv3-0z-FKf" secondAttribute="trailing" id="rHx-Kl-bBV"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEj-Sf-hFO">
-                                <rect key="frame" x="30" y="631" width="354" height="50"/>
+                                <rect key="frame" x="30" y="607.5" width="354" height="50"/>
                                 <color key="backgroundColor" red="0.41429898139999999" green="0.35561686749999999" blue="0.87063390019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Day-45-eO6"/>
@@ -1136,14 +1151,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="PasswordTextField" destination="Vpz-GX-JRj" id="TzH-VF-Z1z"/>
                         <outlet property="accountImg" destination="qdl-Io-OQt" id="aNi-KQ-VM6"/>
                         <outlet property="accountImgModifyBtn" destination="NIG-zp-SfY" id="OMY-nY-ZRR"/>
+                        <outlet property="emailTextField" destination="S1i-ZP-Qfs" id="lGD-PT-sjd"/>
+                        <outlet property="femaleBtn" destination="LfZ-h0-zRa" id="S5d-Js-pI8"/>
+                        <outlet property="maleBtn" destination="G6b-jv-FTR" id="FVf-ch-tJL"/>
+                        <outlet property="nameTextField" destination="g1J-sY-GPv" id="t9A-B0-dG7"/>
                         <outlet property="saveModifiedUserInfoBtn" destination="xEj-Sf-hFO" id="KMs-fh-P9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81A-Q8-ngn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3717" y="623"/>
+            <point key="canvasLocation" x="3715.9420289855075" y="622.76785714285711"/>
         </scene>
         <!--과외 분야 설정-->
         <scene sceneID="Tl5-zs-qBP">
@@ -1202,7 +1222,6 @@
                                 <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="등록"/>
                                 <connections>
                                     <action selector="registerMentoBtnAction:" destination="eu3-ai-69y" eventType="touchUpInside" id="eMc-wl-1pr"/>
                                 </connections>
@@ -1271,11 +1290,6 @@
             <point key="canvasLocation" x="1795.6521739130437" y="956.91964285714278"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="P4u-QF-DFZ">
-            <size key="intrinsicContentSize" width="-1" height="63"/>
-        </designable>
-    </designables>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>

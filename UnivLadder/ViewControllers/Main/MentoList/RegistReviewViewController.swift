@@ -35,7 +35,7 @@ class RegistReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "리뷰 등록"
-        
+        hideKeyboardWhenTappedAround()
         senderBtn.layer.cornerRadius = 10
         senderBtn.tintColor = UIColor.white
         senderBtn.setTitle(NSLocalizedString("registerReview", comment: ""), for: .normal)

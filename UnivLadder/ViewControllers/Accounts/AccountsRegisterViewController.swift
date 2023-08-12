@@ -300,7 +300,7 @@ class AccountsRegisterViewController: UIViewController {
         }
     }
     
-    fileprivate func saveNewUser(_ accountId: Int64, email: String, gender: String, name: String, password: String, thumbnail: String?, mentee: Bool, mentor: Bool) {
+    fileprivate func saveNewUser(_ accountId: Int, email: String, gender: String, name: String, password: String, thumbnail: String?, mentee: Bool, mentor: Bool) {
         CoreDataManager.shared
             .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, mentee: mentee, mentor: mentor,  onSuccess: { onSuccess in
                 print("saved = \(onSuccess)")

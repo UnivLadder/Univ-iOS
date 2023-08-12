@@ -120,7 +120,7 @@ class MyPageViewController: UIViewController {
         self.profileModifyBtn.layer.cornerRadius = 10
     }
 
-    /// 멘토 등록
+    /// 멘토 등록 action
     /// - Parameter sender: 상태 변경
     @IBAction func userStatusChangeBtn(_ sender: Any) {
         //멘토인 경우
