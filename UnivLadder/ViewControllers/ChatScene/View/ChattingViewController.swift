@@ -16,10 +16,13 @@ class ChattingViewController: UIViewController {
     var chattingList = [ChattingRoom]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "과외 문의"
         setUI()
         if let chattingListUserdefault = UserDefaultsManager.chattingRoom{
             chattingList = chattingListUserdefault
         }
+
+        
 //        bindViewModel()
         // Do any additional setup after loading the view.
     }
@@ -69,12 +72,16 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // senderid > 내 계정 아이디가 아닌 accountid로
         let accountId = (chattingList[indexPath.row].senderAccountId == UserDefaults.standard.integer(forKey: "accountId")) ? chattingList[indexPath.row].receiver.id : chattingList[indexPath.row].senderAccountId
-        
-        guard let ChatRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController
-        else { return }
-        self.navigationController?.pushViewController(ChatRoomVC, animated: true)
-//        ChatRoomVC.accountId = accountId
-        APIService.shared.getDirectMessages(senderAccountId: accountId)
+
+        APIService.shared.getDirectMessages(myaccessToken: UserDefaults.standard.string(forKey: "accessToken")!, senderAccountId: accountId, completion: { res in
+            guard let ChatRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController
+            else { return }
+            ChatRoomVC.allChatting = res
+//            ChatRoomVC.mentoUser =
+            self.navigationController?.pushViewController(ChatRoomVC, animated: true)
+            
+        })
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,11 +93,26 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         
-        var accountId = (chattingList[indexPath.row].senderAccountId == UserDefaults.standard.integer(forKey: "accountId")) ? chattingList[indexPath.row].receiver.id : chattingList[indexPath.row].senderAccountId
+        // 대화방 타이틀 무조건 상대 이름
+        // senderAccountId 보낸 사람이 나이면 > rereceiver name 가져오면 된당
+        if (chattingList[indexPath.row].senderAccountId == UserDefaults.standard.integer(forKey: "accountId")){
+            // senderAccountId 보낸 사람이 나이면
+            cell.nameLabel.text = self.chattingList[indexPath.row].receiver.name
+        }else{
+            // 내가 아니면 senderAccountId 로 계정 조회 해서 이름 가져와야대
+            cell.nameLabel.text = "other"
+            var senderId = chattingList[indexPath.row].senderAccountId
+            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+                APIService.shared.getAccount(accessToken: accessToken, accountId: senderId, completion: { res in
+                    if let result = res {
+                        cell.nameLabel.text = result.name
+                    }
+                })
+            }
+        }
         
-        cell.nameLabel.text = self.chattingList[indexPath.row].receiver.name
         cell.lastMessageLabel.text = self.chattingList[indexPath.row].message
-        cell.timeLabel.text = self.chattingList[indexPath.row].lastModifiedDate
+        cell.timeLabel.text = self.chattingList[indexPath.row].lastModifiedDate.toDate()?.toString()
         cell.messageCountLabel.text = "1"
         
         return cell

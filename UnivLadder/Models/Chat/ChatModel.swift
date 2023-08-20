@@ -12,6 +12,6 @@ struct ChatModel {
     let accountId: Int
     let chatId: Int
     let message: String
-    let createdDate: Date
-    let lastModifiedDate: Date
+    let createdDate: String
+    let lastModifiedDate: String
 }

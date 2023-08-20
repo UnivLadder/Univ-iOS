@@ -60,8 +60,8 @@ class ChatRoomListCell: UITableViewCell {
     func setUI() {
         messageCountView.layer.cornerRadius = messageCountView.bounds.width / 2
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
-        
-        profileImageView.backgroundColor = .lightGray
+        profileImageView.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
+//        profileImageView.backgroundColor = .lightGray
     }
 
 }

@@ -16,6 +16,7 @@ class MentoListViewController: UIViewController {
     var mentoList = [RecommendMentor]()
     var customImage: UIImage?
     
+    
     static func instance() -> MentoListViewController {
         return MentoListViewController.init(nibName: nil, bundle: nil)
     }
@@ -149,27 +150,17 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MentoListCell.mentoRegisterId, for: indexPath) as? MentoListCell else {
                 return UICollectionViewCell()
             }
-            //UI용
-            //[100, 10, "w4.jpg", "이정은"]
+            
             cell.label.text = mentoList[indexPath.row].account.name
             
+            
             if let mentoImg = mentoList[indexPath.row].account.thumbnail {
-                customImage =  UIImage(named: (mentoImg as? String)!)
+                customImage = UIImage(named: (mentoImg as? String)!)
             }else{
-                customImage = UIImage(systemName: "person.crop.circle.fill")
+                customImage = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.systemGray2, renderingMode: .alwaysOriginal)
             }
-            
-            //실데이터
-            //cell.label.text = recommendMentoArr[indexPath.row].name
-            //            let customImage = (recommendMentoArr[indexPath.row].thumbnail == nil) ? UIImage(systemName: "person.crop.circle.fill") : UIImage(named: mentoList[indexPath.row][1])
-            let newImageRect = CGRect(x: 0, y: 0, width: Constant.profileImgSize, height: Constant.profileImgSize)
-            UIGraphicsBeginImageContext(CGSize(width: Constant.profileImgSize, height: Constant.profileImgSize))
-            customImage?.draw(in: newImageRect)
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()?.withRenderingMode(.alwaysOriginal)
-            UIGraphicsEndImageContext()
-            
-            cell.tvImageView.image = newImage
-            cell.tvImageView.layer.cornerRadius = CGFloat(Constant.profileImgSize/2)
+
+            cell.tvImageView.image = customImage
             cell.tvImageView.clipsToBounds = true
             
             return cell

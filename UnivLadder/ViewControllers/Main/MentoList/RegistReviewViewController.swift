@@ -69,6 +69,7 @@ class RegistReviewViewController: UIViewController {
                 })
                 alert.addAction(buttonLabel)
                 self.present(alert,animated: true,completion: nil)
+                return 0
             })
         }
     }

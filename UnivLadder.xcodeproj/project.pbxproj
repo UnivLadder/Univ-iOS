@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		301DC0B77D813E609EAF98D1 /* Pods_UnivLadderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6864AAC8D2CD53104ECBF2 /* Pods_UnivLadderTests.framework */; };
-		4B8A6217F7FC077C8E568A5C /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */; };
+		4393D1B4723602C78F2B23A0 /* Pods_UnivLadderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5988CFE92669086C115A62B /* Pods_UnivLadderTests.framework */; };
 		680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */; };
 		6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6815DB36297A735D00E6B356 /* KeyChain.swift */; };
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
+		681A1ADB2A8CDC12001EBC92 /* SubjectMento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681A1ADA2A8CDC12001EBC92 /* SubjectMento.swift */; };
 		681EDDBC2A3F038000380B1F /* MentoRegisterSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */; };
 		6827107E2A6D5E82004E85CD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6827107D2A6D5E82004E85CD /* Localizable.strings */; };
 		68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */; };
@@ -27,6 +27,8 @@
 		6855269E27830BF40030594A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6855269D27830BF40030594A /* GoogleService-Info.plist */; };
 		6856B5092A48315300BE135E /* MentoSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856B5082A48315300BE135E /* MentoSubject.swift */; };
 		6856B50C2A48461500BE135E /* MentoDetailModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856B50B2A48461500BE135E /* MentoDetailModifyViewController.swift */; };
+		685F6BBC2A91DC42009496DB /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685F6BBB2A91DC42009496DB /* AccountData.swift */; };
+		685F6BBE2A91F7B5009496DB /* podlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 685F6BBD2A91F7B5009496DB /* podlist.txt */; };
 		6864B288278AFE3C00CE80FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864B287278AFE3C00CE80FE /* APIService.swift */; };
 		6879ACB928BB73A300E758A4 /* MentoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6879ACB828BB73A300E758A4 /* MentoListCell.swift */; };
 		6880A66228719F7F00DB6D20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880A66128719F7F00DB6D20 /* User.swift */; };
@@ -53,6 +55,7 @@
 		68D099472A7F977D00BD31B8 /* AppInfoPrivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D099462A7F977D00BD31B8 /* AppInfoPrivateViewController.swift */; };
 		68D099492A7F9FD600BD31B8 /* realtutorInfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 68D099482A7F9FD600BD31B8 /* realtutorInfo.txt */; };
 		68D0994B2A7FA67600BD31B8 /* RegistReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D0994A2A7FA67600BD31B8 /* RegistReviewViewController.swift */; };
+		68D25BDA2A8B5990000DDA85 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D25BD92A8B5990000DDA85 /* String+Extension.swift */; };
 		68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D41CD328A9082B0098B29D /* MentoListView.swift */; };
 		68D4385227942FA80082BE11 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4385127942FA80082BE11 /* Config.swift */; };
 		68D794EC293368C300C905D5 /* launchMsg.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D794EA293368C200C905D5 /* launchMsg.png */; };
@@ -77,7 +80,8 @@
 		68F6ED1F28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */; };
 		68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F6F5C628D726EA0092B477 /* Assets.xcassets */; };
 		68FA133D298FCB8000F950A6 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */; };
-		AF54187CD725C296D73ECC3A /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */; };
+		8941641FFAD62E8DC66E3AC9 /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E95D79940412A2D52E93985 /* Pods_UnivLadder.framework */; };
+		AB276FA0260C6D36AE674858 /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C628827050128207DDD76F7 /* Pods_UnivLadder_UnivLadderUITests.framework */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
 		E546934227F9C12B007A1791 /* APIService+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546934127F9C12B007A1791 /* APIService+Ex.swift */; };
@@ -141,13 +145,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		419AB5D84CFD7F00C3CF602A /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; sourceTree = "<group>"; };
-		41D277C4299A8DFAC0969758 /* Pods-UnivLadderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4E6864AAC8D2CD53104ECBF2 /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E95D79940412A2D52E93985 /* Pods_UnivLadder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B28EB398542A5F4D4C81C62 /* Pods-UnivLadderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C628827050128207DDD76F7 /* Pods_UnivLadder_UnivLadderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder_UnivLadderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CFFC54965A55F46842E3502 /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6815DB36297A735D00E6B356 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		681A1ADA2A8CDC12001EBC92 /* SubjectMento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectMento.swift; sourceTree = "<group>"; };
 		681EDDBB2A3F038000380B1F /* MentoRegisterSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoRegisterSubjectViewController.swift; sourceTree = "<group>"; };
 		6827107D2A6D5E82004E85CD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		68288C9828F2CCAD00E2B70D /* AccountModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModifyViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +168,8 @@
 		6855269D27830BF40030594A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6856B5082A48315300BE135E /* MentoSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoSubject.swift; sourceTree = "<group>"; };
 		6856B50B2A48461500BE135E /* MentoDetailModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoDetailModifyViewController.swift; sourceTree = "<group>"; };
+		685F6BBB2A91DC42009496DB /* AccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
+		685F6BBD2A91F7B5009496DB /* podlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = podlist.txt; path = Resource/podlist.txt; sourceTree = SOURCE_ROOT; };
 		6864B287278AFE3C00CE80FE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		6879ACB828BB73A300E758A4 /* MentoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListCell.swift; sourceTree = "<group>"; };
 		6880A66128719F7F00DB6D20 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -189,6 +196,7 @@
 		68D099462A7F977D00BD31B8 /* AppInfoPrivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoPrivateViewController.swift; sourceTree = "<group>"; };
 		68D099482A7F9FD600BD31B8 /* realtutorInfo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = realtutorInfo.txt; path = Resource/realtutorInfo.txt; sourceTree = SOURCE_ROOT; };
 		68D0994A2A7FA67600BD31B8 /* RegistReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistReviewViewController.swift; sourceTree = "<group>"; };
+		68D25BD92A8B5990000DDA85 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		68D41CD328A9082B0098B29D /* MentoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListView.swift; sourceTree = "<group>"; };
 		68D4385127942FA80082BE11 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		68D794EA293368C200C905D5 /* launchMsg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchMsg.png; sourceTree = "<group>"; };
@@ -214,9 +222,11 @@
 		68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataProperties.swift"; path = "/Users/leeyeon2/Dev/Univ/Univ-iOS_leeyeon/UnivLadder/DB/UserEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		68F6F5C628D726EA0092B477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
-		9B84878A71CDD8EF1B04D5B7 /* Pods-UnivLadder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.release.xcconfig"; sourceTree = "<group>"; };
-		CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder_UnivLadderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0F1C83937D5AB2F8D6ED521 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		88DF0ADE7ED9A99FA24A81D9 /* Pods-UnivLadder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.release.xcconfig"; sourceTree = "<group>"; };
+		AF11F3CD148103EDD519B4B6 /* Pods-UnivLadderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.release.xcconfig"; sourceTree = "<group>"; };
+		B5988CFE92669086C115A62B /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA9C8776CEA48D3180F7AF08 /* Pods-UnivLadder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.debug.xcconfig"; sourceTree = "<group>"; };
+		E0004C7909DFBE88DDB5C257 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5043A0126A4285E004D2870 /* AppColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorSet.swift; sourceTree = "<group>"; };
 		E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatBubbleCell.swift; sourceTree = "<group>"; };
 		E546934127F9C12B007A1791 /* APIService+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Ex.swift"; sourceTree = "<group>"; };
@@ -266,8 +276,6 @@
 		E5FDFBE5264E775F000269F9 /* esamanru OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru OTF Bold.otf"; sourceTree = "<group>"; };
 		E5FDFBE6264E775F000269F9 /* esamanru OTF Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru OTF Medium.otf"; sourceTree = "<group>"; };
 		E5FDFBE7264E775F000269F9 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
-		EE9BD3C3A12BC88D02C15271 /* Pods-UnivLadderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.release.xcconfig"; sourceTree = "<group>"; };
-		F210F1612E605E01375ABAD6 /* Pods-UnivLadder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,7 +283,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF54187CD725C296D73ECC3A /* Pods_UnivLadder.framework in Frameworks */,
+				8941641FFAD62E8DC66E3AC9 /* Pods_UnivLadder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				301DC0B77D813E609EAF98D1 /* Pods_UnivLadderTests.framework in Frameworks */,
+				4393D1B4723602C78F2B23A0 /* Pods_UnivLadderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +299,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B8A6217F7FC077C8E568A5C /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */,
+				AB276FA0260C6D36AE674858 /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +319,16 @@
 				E5FDFBE3264E775F000269F9 /* GmarketSansMedium.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5375DF2EDDA208A746340EA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E95D79940412A2D52E93985 /* Pods_UnivLadder.framework */,
+				5C628827050128207DDD76F7 /* Pods_UnivLadder_UnivLadderUITests.framework */,
+				B5988CFE92669086C115A62B /* Pods_UnivLadderTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		681EDDBA2A3F035200380B1F /* MentoRegisterView */ = {
@@ -350,13 +368,14 @@
 			children = (
 				683461112A2C6A0900A31EDB /* RecommendMentor.swift */,
 				6856B5082A48315300BE135E /* MentoSubject.swift */,
+				68442AEE27730E2F009DF75A /* UserModel.swift */,
+				6880A66128719F7F00DB6D20 /* User.swift */,
+				685F6BBB2A91DC42009496DB /* AccountData.swift */,
 				68F3AE68280C249200CF53DC /* Subject */,
 				E546934527F9C73A007A1791 /* Chat */,
-				68442AEE27730E2F009DF75A /* UserModel.swift */,
 				68D4385127942FA80082BE11 /* Config.swift */,
 				68B27C89279D610C0064D1DD /* LoginDataModel.swift */,
 				689C759C27AFD80E00C04978 /* DummyData.swift */,
-				6880A66128719F7F00DB6D20 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -467,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				68D099482A7F9FD600BD31B8 /* realtutorInfo.txt */,
+				685F6BBD2A91F7B5009496DB /* podlist.txt */,
 				16427161264D83DA003A953C /* Fonts */,
 				68D794E22933672200C905D5 /* Img */,
 			);
@@ -508,6 +528,7 @@
 			children = (
 				68F3AE69280C24AC00CF53DC /* SubjectModel.swift */,
 				68E53B492A1A0B1200DD6F26 /* Category.swift */,
+				681A1ADA2A8CDC12001EBC92 /* SubjectMento.swift */,
 			);
 			path = Subject;
 			sourceTree = "<group>";
@@ -515,24 +536,14 @@
 		6C6576DBF1AEC189ACCCF05A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F210F1612E605E01375ABAD6 /* Pods-UnivLadder.debug.xcconfig */,
-				9B84878A71CDD8EF1B04D5B7 /* Pods-UnivLadder.release.xcconfig */,
-				E0F1C83937D5AB2F8D6ED521 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */,
-				419AB5D84CFD7F00C3CF602A /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */,
-				41D277C4299A8DFAC0969758 /* Pods-UnivLadderTests.debug.xcconfig */,
-				EE9BD3C3A12BC88D02C15271 /* Pods-UnivLadderTests.release.xcconfig */,
+				DA9C8776CEA48D3180F7AF08 /* Pods-UnivLadder.debug.xcconfig */,
+				88DF0ADE7ED9A99FA24A81D9 /* Pods-UnivLadder.release.xcconfig */,
+				E0004C7909DFBE88DDB5C257 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */,
+				5CFFC54965A55F46842E3502 /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */,
+				2B28EB398542A5F4D4C81C62 /* Pods-UnivLadderTests.debug.xcconfig */,
+				AF11F3CD148103EDD519B4B6 /* Pods-UnivLadderTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		B526C9B57E71D5C994BFE23B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5DA1B81DB2AEF4DFE2B2714A /* Pods_UnivLadder.framework */,
-				CF7FBFF01A314D0CBD4ACC8C /* Pods_UnivLadder_UnivLadderUITests.framework */,
-				4E6864AAC8D2CD53104ECBF2 /* Pods_UnivLadderTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E546933F27F9BDAF007A1791 /* ViewModel */ = {
@@ -626,7 +637,7 @@
 				E5B38B452615EBCC00D4EB5D /* UnivLadderUITests */,
 				E5B38B1F2615EBCC00D4EB5D /* Products */,
 				6C6576DBF1AEC189ACCCF05A /* Pods */,
-				B526C9B57E71D5C994BFE23B /* Frameworks */,
+				5375DF2EDDA208A746340EA2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -754,6 +765,7 @@
 				E5B6CECB269A8808005D0501 /* UINavigationBar+Extension.swift */,
 				E57A31B827B900DF00276D7F /* UIViewController+Extension.swift */,
 				E58A9C1927DDEF1000A4ACBB /* UIButton+Extension.swift */,
+				68D25BD92A8B5990000DDA85 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -774,11 +786,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5B38B4B2615EBCD00D4EB5D /* Build configuration list for PBXNativeTarget "UnivLadder" */;
 			buildPhases = (
-				873408833CFAA9189BA7E1D9 /* [CP] Check Pods Manifest.lock */,
+				47412637FDAFD7D40B9ABC4F /* [CP] Check Pods Manifest.lock */,
 				E5B38B1A2615EBCC00D4EB5D /* Sources */,
 				E5B38B1B2615EBCC00D4EB5D /* Frameworks */,
 				E5B38B1C2615EBCC00D4EB5D /* Resources */,
-				AA8492927AA210413625AAF5 /* [CP] Embed Pods Frameworks */,
+				6A9E20E3C6552D868F4D6281 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -793,7 +805,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5B38B4E2615EBCD00D4EB5D /* Build configuration list for PBXNativeTarget "UnivLadderTests" */;
 			buildPhases = (
-				E78B519950319C70FBDFD801 /* [CP] Check Pods Manifest.lock */,
+				D56BE54CE48458585B637732 /* [CP] Check Pods Manifest.lock */,
 				E5B38B332615EBCC00D4EB5D /* Sources */,
 				E5B38B342615EBCC00D4EB5D /* Frameworks */,
 				E5B38B352615EBCC00D4EB5D /* Resources */,
@@ -812,11 +824,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5B38B512615EBCD00D4EB5D /* Build configuration list for PBXNativeTarget "UnivLadderUITests" */;
 			buildPhases = (
-				CE508FEFCC75BC2CBA44C589 /* [CP] Check Pods Manifest.lock */,
+				A9BF5A41A6B610DCE998E682 /* [CP] Check Pods Manifest.lock */,
 				E5B38B3E2615EBCC00D4EB5D /* Sources */,
 				E5B38B3F2615EBCC00D4EB5D /* Frameworks */,
 				E5B38B402615EBCC00D4EB5D /* Resources */,
-				787102D3A4194CAAF5CE973B /* [CP] Embed Pods Frameworks */,
+				CE20BD5D0CB6332086119358 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -862,8 +874,8 @@
 			packageReferences = (
 				E587B0662712E93500FAD77D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				E587B0692712E94100FAD77D /* XCRemoteSwiftPackageReference "Then" */,
-				E546933C27F9BD52007A1791 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
-				E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E546933C27F9BD52007A1791 /* XCRemoteSwiftPackageReference "socket.io-client-swift.git" */,
+				E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
 			);
 			productRefGroup = E5B38B1F2615EBCC00D4EB5D /* Products */;
 			projectDirPath = "";
@@ -897,6 +909,7 @@
 				68F26FAE293C99390059D700 /* MentoSubjectTableViewCell.xib in Resources */,
 				6827107E2A6D5E82004E85CD /* Localizable.strings in Resources */,
 				68D794ED293368C300C905D5 /* logo.png in Resources */,
+				685F6BBE2A91F7B5009496DB /* podlist.txt in Resources */,
 				68D794EF293368EA00C905D5 /* launchBottom.png in Resources */,
 				E5B38B312615EBCC00D4EB5D /* LaunchScreen.storyboard in Resources */,
 				E5F3F95326470FFC00763ADB /* MentoList.storyboard in Resources */,
@@ -924,24 +937,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		787102D3A4194CAAF5CE973B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		873408833CFAA9189BA7E1D9 /* [CP] Check Pods Manifest.lock */ = {
+		47412637FDAFD7D40B9ABC4F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -963,7 +959,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AA8492927AA210413625AAF5 /* [CP] Embed Pods Frameworks */ = {
+		6A9E20E3C6552D868F4D6281 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -980,7 +976,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CE508FEFCC75BC2CBA44C589 /* [CP] Check Pods Manifest.lock */ = {
+		A9BF5A41A6B610DCE998E682 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1002,7 +998,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E78B519950319C70FBDFD801 /* [CP] Check Pods Manifest.lock */ = {
+		CE20BD5D0CB6332086119358 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D56BE54CE48458585B637732 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1072,6 +1085,7 @@
 				68288C9928F2CCAD00E2B70D /* AccountModifyViewController.swift in Sources */,
 				68D41CD428A9082B0098B29D /* MentoListView.swift in Sources */,
 				6856B5092A48315300BE135E /* MentoSubject.swift in Sources */,
+				685F6BBC2A91DC42009496DB /* AccountData.swift in Sources */,
 				6880A66228719F7F00DB6D20 /* User.swift in Sources */,
 				683D5213296AACC800F8EB88 /* CategoryMentoListViewController.swift in Sources */,
 				68F26FAD293C99390059D700 /* MentoSubjectTableViewCell.swift in Sources */,
@@ -1079,6 +1093,7 @@
 				68D92B9727DDF55600866E0D /* AccountModifyTableViewCell.swift in Sources */,
 				689478422A35B49700243D47 /* MentoSubjectCollectionViewCell.swift in Sources */,
 				E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */,
+				681A1ADB2A8CDC12001EBC92 /* SubjectMento.swift in Sources */,
 				688E6C902A2392E500E21E81 /* CategoryCell.swift in Sources */,
 				E57A31B927B900DF00276D7F /* UIViewController+Extension.swift in Sources */,
 				E587B0712712F54D00FAD77D /* MyPageViewController.swift in Sources */,
@@ -1116,6 +1131,7 @@
 				68F3AE6A280C24AC00CF53DC /* SubjectModel.swift in Sources */,
 				68F26FB1293CA2930059D700 /* MetnoSubjectCollectionViewCell.swift in Sources */,
 				E58D4B63275DF3F1009CF08D /* MentoListViewController.swift in Sources */,
+				68D25BDA2A8B5990000DDA85 /* String+Extension.swift in Sources */,
 				68F6ED1128FC0E5A003C93D3 /* UserModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1299,7 +1315,7 @@
 		};
 		E5B38B4C2615EBCD00D4EB5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F210F1612E605E01375ABAD6 /* Pods-UnivLadder.debug.xcconfig */;
+			baseConfigurationReference = DA9C8776CEA48D3180F7AF08 /* Pods-UnivLadder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1327,7 +1343,7 @@
 		};
 		E5B38B4D2615EBCD00D4EB5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B84878A71CDD8EF1B04D5B7 /* Pods-UnivLadder.release.xcconfig */;
+			baseConfigurationReference = 88DF0ADE7ED9A99FA24A81D9 /* Pods-UnivLadder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1355,7 +1371,7 @@
 		};
 		E5B38B4F2615EBCD00D4EB5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41D277C4299A8DFAC0969758 /* Pods-UnivLadderTests.debug.xcconfig */;
+			baseConfigurationReference = 2B28EB398542A5F4D4C81C62 /* Pods-UnivLadderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1377,7 +1393,7 @@
 		};
 		E5B38B502615EBCD00D4EB5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE9BD3C3A12BC88D02C15271 /* Pods-UnivLadderTests.release.xcconfig */;
+			baseConfigurationReference = AF11F3CD148103EDD519B4B6 /* Pods-UnivLadderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1399,7 +1415,7 @@
 		};
 		E5B38B522615EBCD00D4EB5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0F1C83937D5AB2F8D6ED521 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */;
+			baseConfigurationReference = E0004C7909DFBE88DDB5C257 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1419,7 +1435,7 @@
 		};
 		E5B38B532615EBCD00D4EB5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 419AB5D84CFD7F00C3CF602A /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */;
+			baseConfigurationReference = 5CFFC54965A55F46842E3502 /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1479,7 +1495,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E546933C27F9BD52007A1791 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+		E546933C27F9BD52007A1791 /* XCRemoteSwiftPackageReference "socket.io-client-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
 			requirement = {
@@ -1503,7 +1519,7 @@
 				kind = branch;
 			};
 		};
-		E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {

@@ -9,7 +9,7 @@ import UIKit
 import Cosmos
 
 class MentoInfoViewController: UIViewController {
-
+    
     var mentoSubjectList = [RecommendMentor.Subject]()
     
     //멘토 정보
@@ -159,7 +159,7 @@ class MentoInfoViewController: UIViewController {
         else { return }
         self.navigationController?.pushViewController(ChatRoomVC, animated: true)
         // 받는 사람 : 멘토 아이디? 멘토 accountid
-        ChatRoomVC.mentoUser = mentoInfo
+//        ChatRoomVC.mentoUser = mentoInfo
     }
     
     @IBOutlet weak var reviewTitle: UILabel!{
@@ -186,7 +186,7 @@ class MentoInfoViewController: UIViewController {
             }
         }
     }
-
+    
     @IBOutlet weak var reviewCountLabel: UILabel!{
         didSet{
             reviewCountLabel.font = UIFont.boldSystemFont(ofSize: 13)
@@ -237,6 +237,17 @@ class MentoInfoViewController: UIViewController {
 
 // 제공 서비스 : 멘토 과목 리스트
 extension MentoInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MentoSubjectCell", for: indexPath) as! MentoSubjectCollectionViewCell
+        cell.mentoSubjectTitle.sizeToFit()
+        let cellWidth = cell.mentoSubjectTitle.frame.width + 10
+        return CGSize(width: cellWidth, height: 10)
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mentoSubjectList.count
     }

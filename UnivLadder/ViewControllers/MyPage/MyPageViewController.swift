@@ -201,13 +201,15 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             alert = UIAlertController(title:"로그아웃 하시겠습니까?",
                                       message: "",
                                       preferredStyle: UIAlertController.Style.alert)
+            
             let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: { action in
                 // 자동로그인 해제
                 UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
                 self.signOut()
             })
             alert.addAction(buttonLabel)
-            self.present(alert,animated: true,completion: nil)
+            alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler : nil))
+            self.present(alert, animated: true,completion: nil)
             return
         }
     }

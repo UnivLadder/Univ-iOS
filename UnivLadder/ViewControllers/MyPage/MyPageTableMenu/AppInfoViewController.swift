@@ -44,6 +44,11 @@ class AppInfoViewController: UIViewController , UITableViewDelegate, UITableView
         case 0:
             let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "AppInfoPrivate") as? AppInfoPrivateViewController
             self.navigationController?.pushViewController(pushVC!, animated: true)
+        //오픈소스 라이브러리
+        case 1:
+            let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "AppInfoPrivate") as? AppInfoPrivateViewController
+            self.navigationController?.pushViewController(pushVC!, animated: true)
+            pushVC!.status = 1
         default:
             return
         }

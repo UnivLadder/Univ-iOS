@@ -28,7 +28,7 @@ struct RecommendMentor: Hashable, Codable {
     
     struct Subject: Hashable, Codable{
         var code: Int
-        var topic: String?
+        var topic: String
         var value: String
     }
 }

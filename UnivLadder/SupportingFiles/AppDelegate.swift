@@ -54,10 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // 과목 리스트 초기화
         //과목 리스트
-        APIService.shared.getSubjects()
-        // 채팅 리스트
-        APIService.shared.getDirectListMessage()
-        
+        DispatchQueue.global().async {
+            APIService.shared.getSubjects()
+        }
+
+
         // 추천멘토 초기화
         if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
             APIService.shared.getRecommendMentors(accessToken: accessToken)

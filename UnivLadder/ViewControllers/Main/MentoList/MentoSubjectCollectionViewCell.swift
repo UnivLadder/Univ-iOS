@@ -14,6 +14,7 @@ class MentoSubjectCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        mentoSubjectTitle.frame.size = mentoSubjectTitle.intrinsicContentSize
     }
 
 }

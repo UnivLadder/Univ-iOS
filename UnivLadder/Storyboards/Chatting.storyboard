@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatRoomCell" rowHeight="158" id="Xsu-N1-k7m" customClass="ChatRoomListCell" customModule="Real_Tutor" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatRoomCell" rowHeight="158" id="Xsu-N1-k7m" customClass="ChatRoomListCell" customModule="Real_Tutor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xsu-N1-k7m" id="GD5-aw-BHx">
@@ -29,15 +29,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1o4-rT-4Jl">
-                                                    <rect key="frame" x="20" y="20" width="44" height="118"/>
-                                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                    <rect key="frame" x="20" y="20" width="50" height="118"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="eh9-kN-Bbo"/>
+                                                        <constraint firstAttribute="width" constant="50" id="eh9-kN-Bbo"/>
                                                         <constraint firstAttribute="width" secondItem="1o4-rT-4Jl" secondAttribute="height" id="nlu-MU-O4G"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="E4Y-py-pFz">
-                                                    <rect key="frame" x="84" y="54.666666666666671" width="41.333333333333343" height="48.666666666666671"/>
+                                                    <rect key="frame" x="90" y="54.666666666666671" width="41.333333333333343" height="48.666666666666671"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUQ-K5-I9s">
                                                             <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
@@ -543,6 +542,9 @@
                         <outlet property="galleryButtonTitle" destination="sZ8-w0-JDK" id="XFm-GF-P8a"/>
                         <outlet property="galleryView" destination="eVZ-9k-p2b" id="QDO-LH-f0q"/>
                         <outlet property="inputBackgroundView" destination="oyf-wJ-SRK" id="bRD-dZ-7iJ"/>
+                        <outlet property="messageButtonStackView" destination="EcP-Ug-Owr" id="gv5-zZ-byi"/>
+                        <outlet property="messageStackView" destination="5SZ-Rs-54t" id="XuN-hY-1Pk"/>
+                        <outlet property="messageView" destination="DG2-3g-lly" id="vbf-nj-ouK"/>
                         <outlet property="sendButton" destination="4l7-CZ-EsZ" id="buP-Ah-eAb"/>
                         <outlet property="textView" destination="zb3-vn-siQ" id="EJB-a6-NFT"/>
                     </connections>
@@ -563,9 +565,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

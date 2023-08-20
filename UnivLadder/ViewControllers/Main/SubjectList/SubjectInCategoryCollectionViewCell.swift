@@ -12,12 +12,13 @@ class SubjectInCategoryCollectionViewCell: UICollectionViewCell {
 
     override var isSelected: Bool {
         willSet {
-            self.subjectTitleLabel.textColor = newValue ? .black : .lightGray
+//            self.subjectTitleLabel.textColor = newValue ? .black : .lightGray
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        subjectTitleLabel.frame.size = subjectTitleLabel.intrinsicContentSize
     }
     
     override func prepareForReuse() {

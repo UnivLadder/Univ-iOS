@@ -11,10 +11,14 @@ class AppInfoPrivateViewController: UIViewController {
     
     var result = ""
     var titleText = ""
+    var status = 0
     
     @IBOutlet weak var titleLabel: UILabel!{
         didSet{
             titleLabel.text = "개인정보처리방침"
+            if status == 1{
+                titleLabel.text = "오픈소스 라이선스"
+            }
             titleLabel.font = Fonts.EsamanruOTF.bold.font(size: Constant.menuFontSizeXS)
         }
     }
@@ -30,8 +34,13 @@ class AppInfoPrivateViewController: UIViewController {
         super.viewDidLoad()
         readTxtFile()
     }
+    
     func readTxtFile() {
-        let paths = Bundle.main.path(forResource: "realtutorInfo.txt", ofType: nil)
+        var paths = Bundle.main.path(forResource: "realtutorInfo.txt", ofType: nil)
+        if self.status == 1{
+            paths = Bundle.main.path(forResource: "podlist.txt", ofType: nil)
+        }
+
         guard paths != nil else { return }
 
         do {

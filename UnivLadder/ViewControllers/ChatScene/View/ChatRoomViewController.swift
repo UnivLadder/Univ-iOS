@@ -14,7 +14,11 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     var myChatting = [ChattingRoom]()
     var yourChatting = [ChattingRoom]()
     
-    var mentoUser: RecommendMentor?
+    var user: AccountData?
+    
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var messageStackView: UIStackView!
+    @IBOutlet weak var messageButtonStackView: UIView!
     
     static func instance() -> ChatRoomViewController {
         let vc = UIStoryboard.init(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
@@ -45,8 +49,24 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
         didSet {
             expandButton.setTitle("", for: .normal)
             expandButton.setImage(UIImage(named: "plusbutton"), for: .normal)
-            expandButton.addTarget(self, action: #selector(expandButtonClicked(_:)), for: .touchUpInside)
+//            expandButton.addTarget(self, action: #selector(expandButtonClicked(_:)), for: .touchUpInside)
         }
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    //키보드 올라갔다는 알림을 받으면 실행되는 메서드
+    @objc func keyboardWillShow(_ sender:Notification){
+        guard let keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardHeight = keyboardFrame.cgRectValue.height - messageButtonStackView.frame.height + 10
+
+        if messageView.frame.origin.y == 0 {
+            messageView.frame.origin.y -= keyboardHeight
+        }
+    }
+    //키보드 내려갔다는 알림을 받으면 실행되는 메서드
+    @objc func keyboardWillHide(_ sender:Notification){
+        self.messageView.frame.origin.y = 0
     }
     
     let textViewPlaceHolder = "메시지를 입력해주세요."
@@ -135,13 +155,21 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     // Direct Message 전송 action
     @IBAction func sendMsgAction(_ sendffer: Any) {
         // 받을 멘토 id
-        let msg = ["accountId" : mentoUser?.account.id,
+        let msg = ["accountId" : 1,
                    "message" : textView.text,
                    "type" : "TEXT"] as [String : Any]
         
-        APIService.shared.sendDirectMessage(param: msg)
-        textView.text = ""
-        chatBubbleTableView.reloadData()
+        APIService.shared.sendDirectMessage(param: msg, completion: { res in
+            if res == true {
+                APIService.shared.getDirectMessages(myaccessToken: UserDefaults.standard.string(forKey: "accessToken")!, senderAccountId: msg["accountId"] as! Int, completion: { res in
+                    self.allChatting = res
+                    self.textView.text = ""
+                    self.chatBubbleTableView.reloadData()
+                    let moveIndex = IndexPath(row: self.allChatting.count-1, section: 0)
+                    self.chatBubbleTableView.scrollToRow(at: moveIndex, at: .bottom, animated: false)
+                })
+            }
+        })
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -160,8 +188,20 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.chatBubbleTableView.setContentOffset(CGPoint(x: 0, y: chatBubbleTableView.contentSize.height - chatBubbleTableView.bounds.height), animated: true)
         self.hideKeyboardWhenTappedAround()
-        self.navigationItem.title = mentoUser?.account.name
+        self.navigationItem.title = user?.name
+        //키패드 제어
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        
         
         chatBubbleTableView.delegate = self
         chatBubbleTableView.dataSource = self
@@ -177,6 +217,8 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
                 }
             })
         }
+        let moveIndex = IndexPath(row: allChatting.count-1, section: 0)
+        chatBubbleTableView.scrollToRow(at: moveIndex, at: .bottom, animated: false)
     }
 }
 
@@ -201,7 +243,7 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
             var time = allChatting[indexPath.row].lastModifiedDate
 
             cell.bubbleLabel.text = bubble
-            cell.timeLabel.text = time
+            cell.timeLabel.text = time.toDate()?.toString()
             
             cell.selectionStyle = .none
             return cell
@@ -212,10 +254,10 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         var bubble2 = allChatting[indexPath.row].message
-        var time2 = allChatting[indexPath.row].lastModifiedDate
+        var time2 = allChatting[indexPath.row].lastModifiedDate.toDate()?.toString()
 
         cell.bubbleLabel.text = allChatting[indexPath.row].message
-        cell.timeLabel.text = allChatting[indexPath.row].lastModifiedDate
+        cell.timeLabel.text = allChatting[indexPath.row].lastModifiedDate.toDate()?.toString()
         cell.selectionStyle = .none
         return cell
     }
@@ -243,6 +285,6 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ChatRoomViewController {
     @objc func expandButtonClicked(_ sender: UIButton) {
-        isExpanded.toggle()
+//        isExpanded.toggle()
     }
 }

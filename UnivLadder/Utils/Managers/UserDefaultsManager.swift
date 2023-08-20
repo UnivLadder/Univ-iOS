@@ -31,6 +31,9 @@ struct UserDefaultsManager {
     
     @UserDefaultWrapper(key: "mentorSubjectList", defaultValue: nil)
     static var mentorSubjectList: [String]?
+    
+    @UserDefaultWrapper(key: "subjectHash", defaultValue: nil)
+    static var subjectHash: Dictionary<Int,[Int]>?
 }
 
 @propertyWrapper
