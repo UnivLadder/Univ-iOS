@@ -30,6 +30,7 @@
 		685F6BBE2A91F7B5009496DB /* podlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 685F6BBD2A91F7B5009496DB /* podlist.txt */; };
 		6864B288278AFE3C00CE80FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864B287278AFE3C00CE80FE /* APIService.swift */; };
 		6874FC792A99C98100595C67 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874FC782A99C98100595C67 /* UIDevice+Extension.swift */; };
+		6874FC7B2A99CE9D00595C67 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874FC7A2A99CE9D00595C67 /* UILabel+Extension.swift */; };
 		6879ACB928BB73A300E758A4 /* MentoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6879ACB828BB73A300E758A4 /* MentoListCell.swift */; };
 		6880A66228719F7F00DB6D20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880A66128719F7F00DB6D20 /* User.swift */; };
 		688518FB2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688518FA2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift */; };
@@ -171,6 +172,7 @@
 		685F6BBD2A91F7B5009496DB /* podlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = podlist.txt; path = Resource/podlist.txt; sourceTree = SOURCE_ROOT; };
 		6864B287278AFE3C00CE80FE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		6874FC782A99C98100595C67 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		6874FC7A2A99CE9D00595C67 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		6879ACB828BB73A300E758A4 /* MentoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListCell.swift; sourceTree = "<group>"; };
 		6880A66128719F7F00DB6D20 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		688518FA2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -769,6 +771,7 @@
 				E58A9C1927DDEF1000A4ACBB /* UIButton+Extension.swift */,
 				68D25BD92A8B5990000DDA85 /* String+Extension.swift */,
 				6874FC782A99C98100595C67 /* UIDevice+Extension.swift */,
+				6874FC7A2A99CE9D00595C67 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1089,6 +1092,7 @@
 				689E0D2A2A4C07E400968DB4 /* ChattingRoom.swift in Sources */,
 				68F6ED1C28FC0F58003C93D3 /* UserEntity+CoreDataClass.swift in Sources */,
 				689357FC2998E2DD00022EFB /* NoticeViewController.swift in Sources */,
+				6874FC7B2A99CE9D00595C67 /* UILabel+Extension.swift in Sources */,
 				68B27C8A279D610C0064D1DD /* LoginDataModel.swift in Sources */,
 				E5576B05275E27DC002BF041 /* ConstantManager.swift in Sources */,
 				68E53B4A2A1A0B1200DD6F26 /* Category.swift in Sources */,

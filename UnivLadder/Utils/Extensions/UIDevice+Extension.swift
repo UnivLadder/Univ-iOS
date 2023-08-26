@@ -15,6 +15,7 @@ extension UIDevice{
         
         // 뷰 전체 높이 길이
         let screenHeight = UIScreen.main.bounds.size.height
+        
         if screenHeight == 896 {
             print("iPhone 11, 11proMax, iPhone XR")
             return false

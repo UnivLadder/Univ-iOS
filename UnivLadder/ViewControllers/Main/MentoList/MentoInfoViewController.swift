@@ -11,7 +11,10 @@ import Cosmos
 class MentoInfoViewController: UIViewController {
     
     var mentoSubjectList = [RecommendMentor.Subject]()
+    var tagButtonArray = [UIButton]()
     
+    @IBOutlet weak var tagListView: UIView!
+    @IBOutlet weak var tagListViewHeight: NSLayoutConstraint!
     //멘토 정보
     var mentoInfo: RecommendMentor?
     
@@ -147,10 +150,9 @@ class MentoInfoViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var mentoSubjectCollectionView: UICollectionView!
-    
     //채팅방 넘어가는 버튼
     @IBOutlet weak var mentoChatBtn: UIButton!
+    
     // 멘토 메시지 전송
     @IBAction func mentoChatAction(_ sender: Any) {
         if let mento = mentoInfo {
@@ -172,7 +174,7 @@ class MentoInfoViewController: UIViewController {
             reviewTitle.font = Fonts.EsamanruOTF.medium.font(size: Constant.menuFontSizeXS)
         }
     }
-
+    
     @IBOutlet weak var registerReviewBtn: UIButton!{
         didSet{
             registerReviewBtn.setTitle("리뷰 등록", for: .normal)
@@ -212,24 +214,82 @@ class MentoInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "멘토 정보"
-        configure()
         setUpUI()
-//        mentoSubjectCollectionView.heightAnchor.constraint(equalToConstant: mentoSubjectCollectionView.collectionViewLayout.collectionViewContentSize.height).isActive = true
+        initTagView()
     }
     
-    func configure() {
-        mentoSubjectCollectionView.collectionViewLayout = CollectionViewLeftAlignFlowLayout()
-
-        if let flowLayout = mentoSubjectCollectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-            
-            mentoSubjectCollectionView.translatesAutoresizingMaskIntoConstraints = false
-            mentoSubjectCollectionView.isScrollEnabled = false
+    /// 태그뷰 초기화
+    private func initTagView() {
+        // 태그버튼들 생성
+        var tagStringArray = [String]()
+        
+        for i in mentoSubjectList {
+            tagStringArray.append(i.value)
         }
-        mentoSubjectCollectionView.delegate = self
-        mentoSubjectCollectionView.dataSource = self
+    
+        tagButtonArray = tagStringArray.map { createButton(with: $0) }
+ 
+        // 태그뷰에 태그버튼들 붙이기
+        let frame = CGRect(x: 0, y: 0, width: tagListView.frame.width, height: tagListView.frame.height)
+        let tagView = UIView(frame: frame)
+        attachTagButtons(at: tagView, tagButtonArray)
+        
+        // addSubview
+        tagListView.addSubview(tagView)
+        tagListViewHeight.constant = tagView.frame.height
     }
     
+    
+    private func createButton(with title: String) -> UIButton {
+        let font = UIFont.systemFont(ofSize: 15)
+        let fontAttributes: [NSAttributedString.Key: Any] = [.font: font]
+        let fontSize = title.size(withAttributes: fontAttributes)
+        
+        let tag = UIButton(type: .custom)
+        tag.setTitle(title, for: .normal)
+        tag.titleLabel?.font = font
+        tag.setTitleColor(.darkGray, for: .normal)
+        tag.layer.borderColor = UIColor.darkGray.cgColor
+        tag.layer.borderWidth = 1
+        tag.layer.cornerRadius = 14
+        tag.frame = CGRect(x: 0.0, y: 0.0, width: fontSize.width + 30.0, height: fontSize.height + 13.0)
+        tag.contentEdgeInsets = UIEdgeInsets(top: 6.5, left: 15, bottom: 6.5, right: 15)
+        
+        return tag
+    }
+    
+    private func attachTagButtons(at view: UIView, _ tagButtons: [UIButton]) {
+        var lineCount: CGFloat = 1
+        let marginX: CGFloat = 5
+        let marginY: CGFloat = 8
+        
+        var positionX: CGFloat = 0
+        var positionY: CGFloat = 0
+        
+        for (index, tagButton) in tagButtons.enumerated() {
+            tagButton.tag = index
+            tagButton.frame = CGRect(x: positionX, y: positionY, width: tagButton.frame.width, height: tagButton.frame.height)
+            view.addSubview(tagButton)
+            
+            if index < tagButtons.count - 1 {
+                // 다음 태그버튼 좌표 설정
+                positionX += tagButton.frame.width + marginX
+                
+                // 현재 줄에 공간이 부족해 다음 태그버튼이 붙을 수 없으면 다음 줄로 내리기
+                if positionX + tagButtons[index + 1].frame.width > view.frame.width {
+                    positionX = 0
+                    positionY += tagButton.frame.height + marginY
+                    lineCount += 1
+                }
+            }
+        }
+        
+        // 태그뷰 높이 계산
+        let height = view.subviews.first?.frame.height ?? 0
+        let margins: CGFloat = (lineCount - 1) * marginY
+        view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: (lineCount * height) + margins)
+    }
+
     func setUpUI() {
         mentoChatBtn.layer.cornerRadius = 10
         mentoChatBtn.tintColor = UIColor.white
@@ -273,35 +333,5 @@ class CollectionViewLeftAlignFlowLayout: UICollectionViewFlowLayout {
             maxY = max(layoutAttribute.frame.maxY, maxY)
         }
         return attributes
-    }
-}
-
-// 제공 서비스 : 멘토 과목 리스트
-extension MentoInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
-    }
-    //
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //
-    //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MentoSubjectCell", for: indexPath) as! MentoSubjectCollectionViewCell
-    //        cell.mentoSubjectTitle.sizeToFit()
-    //        let cellWidth = cell.mentoSubjectTitle.frame.width + 10
-    //        return CGSize(width: cellWidth, height: 10)
-    //    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mentoSubjectList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MentoSubjectCell", for: indexPath) as! MentoSubjectCollectionViewCell
-        cell.mentoSubjectTitle.textColor = .black
-        cell.mentoSubjectTitle.text = mentoSubjectList[indexPath.row].value
-        return cell
     }
 }
