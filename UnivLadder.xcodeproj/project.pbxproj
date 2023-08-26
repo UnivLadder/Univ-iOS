@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4393D1B4723602C78F2B23A0 /* Pods_UnivLadderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5988CFE92669086C115A62B /* Pods_UnivLadderTests.framework */; };
 		680452EE27F07F1E00F24A25 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */; };
 		6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6815DB36297A735D00E6B356 /* KeyChain.swift */; };
 		6819DD9E2802D9B400C7FF54 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6819DD9D2802D9B400C7FF54 /* UserDefaultManager.swift */; };
@@ -30,6 +29,7 @@
 		685F6BBC2A91DC42009496DB /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685F6BBB2A91DC42009496DB /* AccountData.swift */; };
 		685F6BBE2A91F7B5009496DB /* podlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 685F6BBD2A91F7B5009496DB /* podlist.txt */; };
 		6864B288278AFE3C00CE80FE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864B287278AFE3C00CE80FE /* APIService.swift */; };
+		6874FC792A99C98100595C67 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874FC782A99C98100595C67 /* UIDevice+Extension.swift */; };
 		6879ACB928BB73A300E758A4 /* MentoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6879ACB828BB73A300E758A4 /* MentoListCell.swift */; };
 		6880A66228719F7F00DB6D20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6880A66128719F7F00DB6D20 /* User.swift */; };
 		688518FB2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688518FA2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift */; };
@@ -80,8 +80,9 @@
 		68F6ED1F28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */; };
 		68F6F5C728D726EA0092B477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F6F5C628D726EA0092B477 /* Assets.xcassets */; };
 		68FA133D298FCB8000F950A6 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */; };
-		8941641FFAD62E8DC66E3AC9 /* Pods_UnivLadder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E95D79940412A2D52E93985 /* Pods_UnivLadder.framework */; };
-		AB276FA0260C6D36AE674858 /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C628827050128207DDD76F7 /* Pods_UnivLadder_UnivLadderUITests.framework */; };
+		8E7A22713EF082ADE0238297 /* libPods-UnivLadderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22B606B363C14E847F65A6D /* libPods-UnivLadderTests.a */; };
+		C9C80AA460927409861ED936 /* libPods-UnivLadder-UnivLadderUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 950C27C821D324AB6016EE1E /* libPods-UnivLadder-UnivLadderUITests.a */; };
+		D81DF379343CCBDE5BD7B2DF /* libPods-UnivLadder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85C574E75CDE0126A2DACC71 /* libPods-UnivLadder.a */; };
 		E5043A0226A4285E004D2870 /* AppColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5043A0126A4285E004D2870 /* AppColorSet.swift */; };
 		E50F466F27705F5E00BEED86 /* MyChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F466E27705F5E00BEED86 /* MyChatBubbleCell.swift */; };
 		E546934227F9C12B007A1791 /* APIService+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546934127F9C12B007A1791 /* APIService+Ex.swift */; };
@@ -145,9 +146,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E95D79940412A2D52E93985 /* Pods_UnivLadder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B28EB398542A5F4D4C81C62 /* Pods-UnivLadderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5C628827050128207DDD76F7 /* Pods_UnivLadder_UnivLadderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadder_UnivLadderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFFC54965A55F46842E3502 /* Pods-UnivLadder-UnivLadderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		680452ED27F07F1E00F24A25 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6815DB36297A735D00E6B356 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
@@ -171,6 +170,7 @@
 		685F6BBB2A91DC42009496DB /* AccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
 		685F6BBD2A91F7B5009496DB /* podlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = podlist.txt; path = Resource/podlist.txt; sourceTree = SOURCE_ROOT; };
 		6864B287278AFE3C00CE80FE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		6874FC782A99C98100595C67 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		6879ACB828BB73A300E758A4 /* MentoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentoListCell.swift; sourceTree = "<group>"; };
 		6880A66128719F7F00DB6D20 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		688518FA2A2DC66F00878D8A /* SubjectInCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -222,9 +222,11 @@
 		68F6ED1B28FC0F58003C93D3 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserEntity+CoreDataProperties.swift"; path = "/Users/leeyeon2/Dev/Univ/Univ-iOS_leeyeon/UnivLadder/DB/UserEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		68F6F5C628D726EA0092B477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68FA133C298FCB8000F950A6 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
+		85C574E75CDE0126A2DACC71 /* libPods-UnivLadder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnivLadder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF0ADE7ED9A99FA24A81D9 /* Pods-UnivLadder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.release.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.release.xcconfig"; sourceTree = "<group>"; };
+		950C27C821D324AB6016EE1E /* libPods-UnivLadder-UnivLadderUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnivLadder-UnivLadderUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A22B606B363C14E847F65A6D /* libPods-UnivLadderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnivLadderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF11F3CD148103EDD519B4B6 /* Pods-UnivLadderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadderTests.release.xcconfig"; path = "Target Support Files/Pods-UnivLadderTests/Pods-UnivLadderTests.release.xcconfig"; sourceTree = "<group>"; };
-		B5988CFE92669086C115A62B /* Pods_UnivLadderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnivLadderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9C8776CEA48D3180F7AF08 /* Pods-UnivLadder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder/Pods-UnivLadder.debug.xcconfig"; sourceTree = "<group>"; };
 		E0004C7909DFBE88DDB5C257 /* Pods-UnivLadder-UnivLadderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; path = "Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5043A0126A4285E004D2870 /* AppColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorSet.swift; sourceTree = "<group>"; };
@@ -283,7 +285,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8941641FFAD62E8DC66E3AC9 /* Pods_UnivLadder.framework in Frameworks */,
+				D81DF379343CCBDE5BD7B2DF /* libPods-UnivLadder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +293,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4393D1B4723602C78F2B23A0 /* Pods_UnivLadderTests.framework in Frameworks */,
+				8E7A22713EF082ADE0238297 /* libPods-UnivLadderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB276FA0260C6D36AE674858 /* Pods_UnivLadder_UnivLadderUITests.framework in Frameworks */,
+				C9C80AA460927409861ED936 /* libPods-UnivLadder-UnivLadderUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,9 +326,9 @@
 		5375DF2EDDA208A746340EA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0E95D79940412A2D52E93985 /* Pods_UnivLadder.framework */,
-				5C628827050128207DDD76F7 /* Pods_UnivLadder_UnivLadderUITests.framework */,
-				B5988CFE92669086C115A62B /* Pods_UnivLadderTests.framework */,
+				85C574E75CDE0126A2DACC71 /* libPods-UnivLadder.a */,
+				950C27C821D324AB6016EE1E /* libPods-UnivLadder-UnivLadderUITests.a */,
+				A22B606B363C14E847F65A6D /* libPods-UnivLadderTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -766,6 +768,7 @@
 				E57A31B827B900DF00276D7F /* UIViewController+Extension.swift */,
 				E58A9C1927DDEF1000A4ACBB /* UIButton+Extension.swift */,
 				68D25BD92A8B5990000DDA85 /* String+Extension.swift */,
+				6874FC782A99C98100595C67 /* UIDevice+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -790,7 +793,8 @@
 				E5B38B1A2615EBCC00D4EB5D /* Sources */,
 				E5B38B1B2615EBCC00D4EB5D /* Frameworks */,
 				E5B38B1C2615EBCC00D4EB5D /* Resources */,
-				6A9E20E3C6552D868F4D6281 /* [CP] Embed Pods Frameworks */,
+				687CDA1F2A96321A004E59E4 /* ShellScript */,
+				254D9A55A783F86ECDD8D8AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -828,7 +832,7 @@
 				E5B38B3E2615EBCC00D4EB5D /* Sources */,
 				E5B38B3F2615EBCC00D4EB5D /* Frameworks */,
 				E5B38B402615EBCC00D4EB5D /* Resources */,
-				CE20BD5D0CB6332086119358 /* [CP] Embed Pods Frameworks */,
+				2803BCDABED20AA29FDBD49E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -874,8 +878,8 @@
 			packageReferences = (
 				E587B0662712E93500FAD77D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				E587B0692712E94100FAD77D /* XCRemoteSwiftPackageReference "Then" */,
-				E546933C27F9BD52007A1791 /* XCRemoteSwiftPackageReference "socket.io-client-swift.git" */,
-				E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
+				E546933C27F9BD52007A1791 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = E5B38B1F2615EBCC00D4EB5D /* Products */;
 			projectDirPath = "";
@@ -937,6 +941,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		254D9A55A783F86ECDD8D8AB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2803BCDABED20AA29FDBD49E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		47412637FDAFD7D40B9ABC4F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -959,22 +997,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6A9E20E3C6552D868F4D6281 /* [CP] Embed Pods Frameworks */ = {
+		687CDA1F2A96321A004E59E4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+			);
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder/Pods-UnivLadder-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then \n    rm -fr Frameworks\nfi\n\n";
 		};
 		A9BF5A41A6B610DCE998E682 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -996,23 +1034,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE20BD5D0CB6332086119358 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnivLadder-UnivLadderUITests/Pods-UnivLadder-UnivLadderUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D56BE54CE48458585B637732 /* [CP] Check Pods Manifest.lock */ = {
@@ -1121,6 +1142,7 @@
 				6815DB37297A735D00E6B356 /* KeyChain.swift in Sources */,
 				689358042998F26C00022EFB /* AppInfoTableViewCell.swift in Sources */,
 				688518FD2A2DCB3C00878D8A /* MentoTableViewCell.swift in Sources */,
+				6874FC792A99C98100595C67 /* UIDevice+Extension.swift in Sources */,
 				E58A9C1E27DDF68A00A4ACBB /* Fonts+Generated.swift in Sources */,
 				E546934427F9C31A007A1791 /* SocketManager.swift in Sources */,
 				68C42AF927D4CEF600CE9E38 /* SubjectCollectionViewCell.swift in Sources */,
@@ -1322,7 +1344,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = W832C4SNYD;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
@@ -1332,11 +1354,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RealTutor.leeyeon;
 				PRODUCT_NAME = "Real Tutor";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
@@ -1350,7 +1375,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = UnivLadder/UnivLadder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = W832C4SNYD;
 				INFOPLIST_FILE = UnivLadder/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Real Tutor";
@@ -1360,11 +1385,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RealTutor.leeyeon;
 				PRODUCT_NAME = "Real Tutor";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
@@ -1495,7 +1524,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E546933C27F9BD52007A1791 /* XCRemoteSwiftPackageReference "socket.io-client-swift.git" */ = {
+		E546933C27F9BD52007A1791 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
 			requirement = {
@@ -1519,7 +1548,7 @@
 				kind = branch;
 			};
 		};
-		E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
+		E5AF9A39280C2AA900601AE2 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {

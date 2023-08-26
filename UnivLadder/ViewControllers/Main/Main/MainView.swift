@@ -17,19 +17,6 @@ class MainView: UIView {
     let profileImageView = UIImageView().then {
         //이미지 try catch 처리
         let image = UIImage(named: "펭수.png");
-        
-//        let imageView = UIImageView(image: squareImg(at: image!)!)
-//        let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 160, height: 160))
-//        mainView.addSubview(imageView)
-//        $0.image = mainView.asImage()
-//        let userInfo = CoreDataManager.shared.getUserInfo()
-//        // 없는 경우 기본 이미지
-//        var image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
-        // 있는 경우
-//        if userInfo[0].thumbnail != nil {
-//            image = UIImage(named: self.userInfo[0].thumbnail)
-//        }
-
         $0.image = image
         $0.contentMode = .scaleAspectFill
         $0.layer.cornerRadius = Constant.profileImgSize/2
@@ -188,18 +175,6 @@ extension MainView: ViewRepresentable {
             $0.leading.equalTo(nameLabel.snp.trailing)
             $0.bottom.firstBaseline.equalTo(nameLabel)
         }
-        
-//        mapImageView.snp.makeConstraints {
-//            $0.leading.equalTo(profileImageView)
-//            $0.width.height.equalTo(15)
-//            $0.top.equalTo(nameLabel.snp.bottom).offset(10)
-//        }
-        
-//        addressLabel.snp.makeConstraints {
-//            $0.leading.equalTo(mapImageView.snp.trailing).offset(10)
-//            $0.centerY.equalTo(mapImageView)
-//            $0.trailing.equalToSuperview().offset(-20)
-//        }
         
         searchMentoTitleLabel.snp.makeConstraints {
             $0.top.equalTo(nameLabel.snp.bottom).offset(Constant.menuIntervalHeight)

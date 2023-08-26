@@ -18,6 +18,7 @@ class MentoTableViewCell: UITableViewCell {
     @IBOutlet weak var subjectImg: UIImageView!
     @IBOutlet weak var mentoSubject: UILabel!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

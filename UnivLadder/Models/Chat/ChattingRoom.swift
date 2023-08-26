@@ -11,12 +11,17 @@ struct ChattingRoom: Codable {
     let id: Int
     let senderAccountId: Int
     let receiver: Receiver
+    let sender: Sender
     let message: String
     let type: String
     let createdDate: String
     let lastModifiedDate: String
     
     struct Receiver: Codable{
+        let id: Int
+        let name: String
+    }
+    struct Sender: Codable{
         let id: Int
         let name: String
     }

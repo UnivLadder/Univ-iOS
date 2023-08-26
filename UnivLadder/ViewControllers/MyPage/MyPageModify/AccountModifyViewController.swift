@@ -78,19 +78,28 @@ class AccountModifyViewController: UIViewController, UIImagePickerControllerDele
         //2. 확인 버튼 만들기
         let okLabel = UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
             // 회원 탈퇴 API 수행
-            APIService.shared.deleteUser(accountId: UserDefaults.standard.integer(forKey: "accountId"))
+            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+                APIService.shared.deleteUser(accessToken: accessToken,
+                                             accountId: UserDefaults.standard.integer(forKey: "accountId"), completion: { res in
+                    if res {
+                        // 밑에 두개 언제?
+                        let alert = UIAlertController(title:"👿회원 탈퇴 완료👿",
+                                                      message: "",
+                                                      preferredStyle: UIAlertController.Style.alert)
+                        
+                        let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
+                        alert.addAction(buttonLabel)
+                        //            present(alert,animated: true,completion: nil)
+                        
+                        //2. 로그인 화면(맨처음) 이동
+                        UIViewController.changeRootViewControllerToLogin()
+                    }else{
+                        
+                    }
+                })
+            }
             
-            // 밑에 두개 언제?
-            let alert = UIAlertController(title:"👿회원 탈퇴 완료👿",
-                                          message: "",
-                                          preferredStyle: UIAlertController.Style.alert)
             
-            let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
-            alert.addAction(buttonLabel)
-            //            present(alert,animated: true,completion: nil)
-            
-            //2. 로그인 화면(맨처음) 이동
-            UIViewController.changeRootViewControllerToLogin()
         })
         let cancleLabel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         

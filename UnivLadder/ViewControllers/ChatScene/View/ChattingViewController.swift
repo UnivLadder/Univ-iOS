@@ -71,15 +71,17 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // senderid > 내 계정 아이디가 아닌 accountid로
-        let accountId = (chattingList[indexPath.row].senderAccountId == UserDefaults.standard.integer(forKey: "accountId")) ? chattingList[indexPath.row].receiver.id : chattingList[indexPath.row].senderAccountId
-
+        let accountId = (chattingList[indexPath.row].sender.id == UserDefaults.standard.integer(forKey: "accountId")) ? chattingList[indexPath.row].receiver.id : chattingList[indexPath.row].sender.id
+        let userName = (chattingList[indexPath.row].sender.id == UserDefaults.standard.integer(forKey: "accountId")) ? self.chattingList[indexPath.row].receiver.name : chattingList[indexPath.row].sender.name
+        
         APIService.shared.getDirectMessages(myaccessToken: UserDefaults.standard.string(forKey: "accessToken")!, senderAccountId: accountId, completion: { res in
             guard let ChatRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController
             else { return }
             ChatRoomVC.allChatting = res
-//            ChatRoomVC.mentoUser =
+            ChatRoomVC.userName = userName
+            ChatRoomVC.userAccount = accountId
             self.navigationController?.pushViewController(ChatRoomVC, animated: true)
-            
+
         })
 
     }
@@ -100,15 +102,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
             cell.nameLabel.text = self.chattingList[indexPath.row].receiver.name
         }else{
             // 내가 아니면 senderAccountId 로 계정 조회 해서 이름 가져와야대
-            cell.nameLabel.text = "other"
-            var senderId = chattingList[indexPath.row].senderAccountId
-            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
-                APIService.shared.getAccount(accessToken: accessToken, accountId: senderId, completion: { res in
-                    if let result = res {
-                        cell.nameLabel.text = result.name
-                    }
-                })
-            }
+            cell.nameLabel.text = self.chattingList[indexPath.row].sender.name
         }
         
         cell.lastMessageLabel.text = self.chattingList[indexPath.row].message

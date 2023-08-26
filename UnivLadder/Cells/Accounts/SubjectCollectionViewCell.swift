@@ -14,7 +14,10 @@ class SubjectCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.subjectLabel.lineBreakMode = .byWordWrapping
+        self.subjectLabel.numberOfLines = 0
+        self.subjectLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6)
+        self.subjectLabel.preferredMaxLayoutWidth = self.frame.size.width * 0.8
         self.subjectContentView.layer.cornerRadius = 10.0
         self.subjectContentView.layer.borderWidth = 1.0
         self.subjectContentView.layer.borderColor = UIColor.lightGray.cgColor

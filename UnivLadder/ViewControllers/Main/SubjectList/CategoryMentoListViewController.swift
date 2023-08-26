@@ -21,15 +21,27 @@ class CategoryMentoListViewController: UIViewController {
     //클릭한 카테고리에 해당하는 과목들
     public var category: String?
     
-    private var subjectCategoryList:[String] = []
+    @IBOutlet weak var emptyView: UIView!
+    
     let categoryList = UserDefaultsManager.categoryList
+    
+    
     var subjectDictionary: [String:[String]] = [:]
+    private var subjectCategoryList:[String] = []
+    private var subjectCategoryCodeList:[Int] = []
+    private var subjectMentoAccoutIdList:[Int] = []
+    
     let userSubjectHash = UserDefaultsManager.subjectHash ?? Dictionary<Int,[Int]>()
     var constraints: [NSLayoutConstraint] = []
     override func viewDidLoad() {
+        emptyView.isHidden = false
         if let category = category{
             if let subjectDictionary = UserDefaultsManager.subjectDictionary{
-                subjectCategoryList = subjectDictionary[category]!
+                
+                subjectCategoryList = Array((subjectDictionary[category]?.values)!)
+                subjectCategoryCodeList = Array((subjectDictionary[category]?.keys)!)
+//                var tmpDict = subjectDictionary[categoryList![indexPath.section]]!
+//                var list = Array(tmpDict.values)
             }
         }
         super.viewDidLoad()
@@ -39,6 +51,17 @@ class CategoryMentoListViewController: UIViewController {
 
     }
     
+    func searchMento(searchMentoId: Int) -> RecommendMentor? {
+        if let mentoList = UserDefaultsManager.recommendMentorList{
+            for mento in mentoList {
+                if mento.mentoId == searchMentoId{
+                    return mento
+                }
+            }
+        }
+        return nil
+    }
+
     private func collectionViewLayout() {
 
         //카테고리바
@@ -122,8 +145,20 @@ extension CategoryMentoListViewController: UICollectionViewDelegate, UICollectio
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
             }
-            
-            //            pageTableView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+
+            var categorycode = subjectCategoryCodeList[indexPath.row]
+            for (key, value) in userSubjectHash{
+                if key == categorycode{
+                    subjectMentoAccoutIdList = value
+                    pageTableView.reloadData()
+                    emptyView.isHidden = true
+                    break
+                }else{
+                    subjectMentoAccoutIdList = []
+                    pageTableView.reloadData()
+                    emptyView.isHidden = false
+                }
+            }
         }
     }
     
@@ -163,20 +198,6 @@ extension CategoryMentoListViewController: UICollectionViewDelegate, UICollectio
                 cell.isSelected = true
             }
             return cell
-            
-            // 교과목(value) cell view
-            //        } else if collectionView == pageCollectionView {
-            //            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pageCell", for: indexPath) as? PageCollectionViewCell else { return UICollectionViewCell() }
-            //                        lazy var backColor: [UIColor] = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1), #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1), #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1), #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), #colorLiteral(red: 1, green: 0.8492714985, blue: 0.8835704761, alpha: 1), #colorLiteral(red: 1, green: 0.5409764051, blue: 0.8473142982, alpha: 1)]
-            //
-            //            cell.subjectTitle.text = "영어"
-            //            // indexPath 에러처리 로직 추가하기
-            //            cell.backgroundColor = backColor[indexPath.row]
-            //            //            cell.subjectTitle.text = subjectList[indexPath.row]
-            //            //            cell.configureCell(color: pageBackgroundColor[indexPath.item])
-            //
-            //            return cell
-            
         } else {
             return UICollectionViewCell()
         }
@@ -185,21 +206,34 @@ extension CategoryMentoListViewController: UICollectionViewDelegate, UICollectio
 
 extension CategoryMentoListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return subjectMentoAccoutIdList.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoTableViewCell", for: indexPath) as? MentoTableViewCell else { return UITableViewCell() }
         cell.layer.cornerRadius = 10
-        cell.mentoImage.image = UIImage(named: "person.png")
-        cell.mentoName.text = "홍길동"
-        cell.mentoSubject.text = "수학, 영어"
+        cell.mentoImage.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.systemGray2, renderingMode: .alwaysOriginal)
+        if let mento = self.searchMento(searchMentoId: subjectMentoAccoutIdList[indexPath.row]){
+            cell.mentoName.text = mento.account.name
+            if let description = mento.description{
+                if description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty{
+                    cell.descriptionLabel.text = "영어를 배워보아요"
+                }else{
+                    cell.descriptionLabel.text = description
+                }
+            }else{
+                cell.descriptionLabel.text = "영어를 배워보아요"
+            }
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let CategoryMentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController")
-        self.navigationController?.pushViewController(CategoryMentoListVC!, animated: true)
+        let CategoryMentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController") as! MentoInfoViewController
+        if let mento = self.searchMento(searchMentoId: subjectMentoAccoutIdList[indexPath.row]){
+            CategoryMentoListVC.mentoInfo = mento
+        }
+        self.navigationController?.pushViewController(CategoryMentoListVC, animated: true)
     }
 }
 

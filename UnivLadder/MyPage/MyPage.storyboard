@@ -626,7 +626,7 @@
                                 <rect key="frame" x="20" y="68" width="374" height="449"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="수업 가격은 어떻게 할까요?!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjc-Zf-Fqr">
-                                        <rect key="frame" x="0.0" y="0.0" width="279.5" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="29.5"/>
                                         <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -667,7 +667,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="멘트를 어떻게 할까요?!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzY-vr-ENo">
-                                        <rect key="frame" x="0.0" y="139.5" width="229" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="139.5" width="244" height="29.5"/>
                                         <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -876,7 +876,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ow-70-FiC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ow-70-FiC">
                                                     <rect key="frame" x="45.5" y="55" width="37.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -1190,7 +1190,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fs-cv-GDi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fs-cv-GDi">
                                                     <rect key="frame" x="45.5" y="55" width="37.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -1268,7 +1268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="di8-Xp-Nng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4558" y="1357"/>
+            <point key="canvasLocation" x="4557.971014492754" y="1356.6964285714284"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="Hvr-N8-taf">
@@ -1290,6 +1290,11 @@
             <point key="canvasLocation" x="1795.6521739130437" y="956.91964285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="P4u-QF-DFZ">
+            <size key="intrinsicContentSize" width="-1" height="63"/>
+        </designable>
+    </designables>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>

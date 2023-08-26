@@ -12,13 +12,13 @@ import MultiSlider
 class MentoDetailModifyViewController: UIViewController, UITextViewDelegate {
     
     let textViewPlaceHolder = "서비스에 대해 상세하게 설명해주세요.(최대 50자)"
-    var extracurricularSubjectCodes: [Int]?
+//    var extracurricularSubjectCodes: [Int]?
     
     @IBOutlet weak var sliderView: MultiSlider!{
         didSet{
             sliderView.valueLabelPosition = .top
             sliderView.keepsDistanceBetweenThumbs = true
-            sliderView.value = [10000, 400000]
+            sliderView.value = [10000, 200000]
             sliderView.snapStepSize = 1000
             sliderView.valueLabelTextForThumb = { thumbIndex, thumbValue in
                 let numberFormatter = NumberFormatter()
@@ -107,23 +107,33 @@ class MentoDetailModifyViewController: UIViewController, UITextViewDelegate {
             }
         }else{
             // 멘토 등록 안 되어 있는 경우 멘토 등록 API
-            if let description = detailTextView.text{
+            if let description = detailTextView.text, let accesstoken = UserDefaults.standard.string(forKey: "accessToken") {
+            
                 let parameter: Parameters = [
                     "minPrice" : Int(sliderView.value[0]),
                     "maxPrice" : Int(sliderView.value[1]),
                     "description" : description,
-                    "extracurricularSubjectCodes" : [1,3,12]]
+                    "extracurricularSubjectCodes" : UserDefaultsManager.selectedSubject ?? []]
                 
-                APIService.shared.registerMento(param: parameter, completion: {_ in
-                    //alert
-                    let alert = UIAlertController(title:Storyboard.Msg.registerMentoConfirmMsg,
-                                                  message: "",
-                                                  preferredStyle: UIAlertController.Style.alert)
-                    let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: { action in
-                        self.confirmAction()
-                    })
-                    alert.addAction(buttonLabel)
-                    self.present(alert,animated: true,completion: nil)
+                APIService.shared.registerMento(accessToken: accesstoken, param: parameter, completion: {res in
+                    if res {
+                        let alert = UIAlertController(title:Storyboard.Msg.registerMentoConfirmMsg,
+                                                      message: "",
+                                                      preferredStyle: UIAlertController.Style.alert)
+                        let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: { action in
+                            self.confirmAction()
+                        })
+                        alert.addAction(buttonLabel)
+                        self.present(alert,animated: true,completion: nil)
+                    }else{
+                        let alert = UIAlertController(title: "멘토 등록 실패",
+                                                      message: "정보를 다시 기입해주세요",
+                                                      preferredStyle: UIAlertController.Style.alert)
+                        let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: { action in
+                            self.confirmAction()
+                        })
+                        alert.addAction(buttonLabel)
+                    }
                 })
             }
         }

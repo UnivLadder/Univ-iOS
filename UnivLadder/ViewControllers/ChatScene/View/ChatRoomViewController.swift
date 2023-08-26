@@ -15,7 +15,8 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     var yourChatting = [ChattingRoom]()
     
     var user: AccountData?
-    
+    var userName: String?
+    var userAccount: Int?
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var messageStackView: UIStackView!
     @IBOutlet weak var messageButtonStackView: UIView!
@@ -155,21 +156,23 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     // Direct Message 전송 action
     @IBAction func sendMsgAction(_ sendffer: Any) {
         // 받을 멘토 id
-        let msg = ["accountId" : 1,
+        let msg = ["accountId" : userAccount ?? 0,
                    "message" : textView.text,
                    "type" : "TEXT"] as [String : Any]
-        
-        APIService.shared.sendDirectMessage(param: msg, completion: { res in
-            if res == true {
-                APIService.shared.getDirectMessages(myaccessToken: UserDefaults.standard.string(forKey: "accessToken")!, senderAccountId: msg["accountId"] as! Int, completion: { res in
-                    self.allChatting = res
-                    self.textView.text = ""
-                    self.chatBubbleTableView.reloadData()
-                    let moveIndex = IndexPath(row: self.allChatting.count-1, section: 0)
-                    self.chatBubbleTableView.scrollToRow(at: moveIndex, at: .bottom, animated: false)
-                })
-            }
-        })
+        if let token = UserDefaults.standard.string(forKey: "accessToken"){
+            APIService.shared.sendDirectMessage(accessToken: token, param: msg, completion: { res in
+                if res == true {
+                    APIService.shared.getDirectMessages(myaccessToken: token, senderAccountId: msg["accountId"] as! Int, completion: { res in
+                        self.allChatting = res
+                        self.textView.text = ""
+                        self.chatBubbleTableView.reloadData()
+                        let moveIndex = IndexPath(row: self.allChatting.count-1, section: 0)
+                        self.chatBubbleTableView.scrollToRow(at: moveIndex, at: .bottom, animated: false)
+                    })
+                }
+            })
+        }
+
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -191,7 +194,7 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
 
         self.chatBubbleTableView.setContentOffset(CGPoint(x: 0, y: chatBubbleTableView.contentSize.height - chatBubbleTableView.bounds.height), animated: true)
         self.hideKeyboardWhenTappedAround()
-        self.navigationItem.title = user?.name
+        self.navigationItem.title = userName ?? ""
         //키패드 제어
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillHide(_:)),
@@ -216,9 +219,11 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
                     yourChatting.append(chattingListUserdefault[$0.offset])
                 }
             })
+            if allChatting.count > 0 {
+                let moveIndex = IndexPath(row: allChatting.count-1, section: 0)
+                chatBubbleTableView.scrollToRow(at: moveIndex, at: .bottom, animated: false)
+            }
         }
-        let moveIndex = IndexPath(row: allChatting.count-1, section: 0)
-        chatBubbleTableView.scrollToRow(at: moveIndex, at: .bottom, animated: false)
     }
 }
 

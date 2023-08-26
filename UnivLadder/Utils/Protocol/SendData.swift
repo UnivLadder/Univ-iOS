@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SendData {
-    func sendData(subjects: [String])
+    func sendData(subjects: [Int])
 }

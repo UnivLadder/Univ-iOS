@@ -27,8 +27,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반가워요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrC-Tm-tlK">
+                                <rect key="frame" x="50" y="150" width="138.33333333333334" height="41"/>
+                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FvB-Wa-oSb">
-                                <rect key="frame" x="50" y="301" width="275" height="208"/>
+                                <rect key="frame" x="50" y="274.66666666666669" width="275" height="208"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2ep-OG-iRd">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="89"/>
@@ -95,54 +101,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반가워요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrC-Tm-tlK">
-                                <rect key="frame" x="50" y="160" width="130.33333333333334" height="41"/>
-                                <fontDescription key="fontDescription" name="esamanruOTFMedium" family="esamanru OTF" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fii-hq-YE8">
-                                <rect key="frame" x="50.000000000000007" y="539" width="105.66666666666669" height="22"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlB-XG-dWc">
-                                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="IP6-xH-gXE"/>
-                                            <constraint firstAttribute="height" constant="22" id="xMm-Jh-l6x"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="checkBox" title=""/>
-                                        <connections>
-                                            <action selector="autoLoginAction:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="1wV-VE-BIS"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGb-gK-HYi">
-                                        <rect key="frame" x="32.000000000000007" y="0.0" width="73.666666666666686" height="22"/>
-                                        <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8h-7T-09z">
-                                <rect key="frame" x="50" y="571" width="275" height="50"/>
-                                <color key="backgroundColor" red="0.41429898139999999" green="0.35561686749999999" blue="0.87063390019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kAv-pq-O94"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
-                                <color key="tintColor" red="0.42745098039215684" green="0.3529411764705882" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="로그인">
-                                    <color key="titleColor" name="light300"/>
-                                </state>
-                                <connections>
-                                    <action selector="logInAction:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="upc-6N-5CE"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="exE-B2-gCH">
-                                <rect key="frame" x="92.666666666666686" y="641" width="190" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="exE-B2-gCH">
+                                <rect key="frame" x="102.66666666666669" y="634.66666666666663" width="170" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tlf-3f-TQL">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -157,7 +117,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ani-da-8ib">
-                                        <rect key="frame" x="69.999999999999986" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="59.999999999999986" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="8Am-i5-WVF"/>
                                             <constraint firstAttribute="height" constant="50" id="ah6-I3-Jta"/>
@@ -171,7 +131,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGI-L8-tGI">
-                                        <rect key="frame" x="140" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="120" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="dOh-sw-ZiZ"/>
@@ -188,12 +148,15 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lqc-vl-pVX"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gtd-cV-urL">
-                                <rect key="frame" x="91.666666666666671" y="711" width="191.66666666666663" height="66"/>
+                                <rect key="frame" x="83.000000000000014" y="694.66666666666663" width="209.33333333333337" height="63.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E57-en-ZtY">
-                                        <rect key="frame" x="0.0" y="0.0" width="191.66666666666666" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="209.33333333333334" height="34.333333333333336"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="비밀번호를 잊어버렸어요"/>
@@ -201,17 +164,17 @@
                                             <segue destination="Q5r-Vh-zdk" kind="show" id="qaa-SR-riV"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRZ-eV-CwS">
-                                        <rect key="frame" x="0.0" y="34.333333333333371" width="191.66666666666666" height="31.666666666666671"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RRZ-eV-CwS">
+                                        <rect key="frame" x="0.0" y="34.333333333333371" width="209.33333333333334" height="29"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정이 없어요? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVH-71-sFH">
-                                                <rect key="frame" x="0.0" y="0.0" width="94.666666666666671" height="31.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="104.66666666666667" height="29"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd6-Xn-3dr">
-                                                <rect key="frame" x="94.666666666666686" y="0.0" width="97" height="31.666666666666668"/>
+                                                <rect key="frame" x="104.66666666666666" y="0.0" width="104.66666666666666" height="29"/>
                                                 <color key="tintColor" red="0.42745098039215684" green="0.3529411764705882" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="계정 만들기!">
@@ -225,25 +188,76 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63.329999999999998" id="uk3-gO-i8j"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dPh-KT-G5J">
+                                <rect key="frame" x="50" y="532.66666666666663" width="275" height="82"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fii-hq-YE8">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="82"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kve-QG-TpF">
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="22"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlB-XG-dWc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="IP6-xH-gXE"/>
+                                                            <constraint firstAttribute="height" constant="22" id="xMm-Jh-l6x"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" image="checkBox" title=""/>
+                                                        <connections>
+                                                            <action selector="autoLoginAction:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="1wV-VE-BIS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGb-gK-HYi">
+                                                        <rect key="frame" x="32" y="0.0" width="243" height="22"/>
+                                                        <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8h-7T-09z">
+                                                <rect key="frame" x="0.0" y="32" width="275" height="50"/>
+                                                <color key="backgroundColor" red="0.41429898139999999" green="0.35561686749999999" blue="0.87063390019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="kAv-pq-O94"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="18"/>
+                                                <color key="tintColor" red="0.42745098039215684" green="0.3529411764705882" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="로그인">
+                                                    <color key="titleColor" name="light300"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logInAction:" destination="iKF-cV-Kkq" eventType="touchUpInside" id="upc-6N-5CE"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZWP-Gs-2Zu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="exE-B2-gCH" firstAttribute="top" secondItem="a8h-7T-09z" secondAttribute="bottom" constant="20" id="04F-Mm-zCY"/>
-                            <constraint firstItem="Gtd-cV-urL" firstAttribute="top" secondItem="exE-B2-gCH" secondAttribute="bottom" constant="20" id="0Xm-pq-QTb"/>
-                            <constraint firstItem="a8h-7T-09z" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="50" id="5sS-m2-YGT"/>
-                            <constraint firstItem="exE-B2-gCH" firstAttribute="centerX" secondItem="ZWP-Gs-2Zu" secondAttribute="centerX" id="CEV-IH-Jz6"/>
-                            <constraint firstItem="FvB-Wa-oSb" firstAttribute="top" secondItem="ZrC-Tm-tlK" secondAttribute="bottom" constant="100" id="D7p-th-d5e"/>
+                            <constraint firstItem="exE-B2-gCH" firstAttribute="centerX" secondItem="ZWP-Gs-2Zu" secondAttribute="centerX" id="Dcu-Ss-IeP"/>
                             <constraint firstItem="FvB-Wa-oSb" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="50" id="EZ8-2e-q6M"/>
-                            <constraint firstAttribute="bottom" secondItem="Gtd-cV-urL" secondAttribute="bottom" constant="35" id="QjD-eu-jRz"/>
-                            <constraint firstItem="ZWP-Gs-2Zu" firstAttribute="trailing" secondItem="a8h-7T-09z" secondAttribute="trailing" constant="50" id="VwU-6c-ZYV"/>
-                            <constraint firstItem="Gtd-cV-urL" firstAttribute="centerX" secondItem="ZWP-Gs-2Zu" secondAttribute="centerX" id="dR2-JP-3tp"/>
+                            <constraint firstItem="exE-B2-gCH" firstAttribute="top" secondItem="dPh-KT-G5J" secondAttribute="bottom" constant="20" id="UeJ-qy-DES"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Gtd-cV-urL" secondAttribute="bottom" constant="20" id="Uxf-o6-0nc"/>
+                            <constraint firstItem="Gtd-cV-urL" firstAttribute="centerX" secondItem="ZWP-Gs-2Zu" secondAttribute="centerX" id="Xrc-BW-ZWG"/>
+                            <constraint firstItem="dPh-KT-G5J" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="50" id="cos-Z1-9Zd"/>
+                            <constraint firstItem="Gtd-cV-urL" firstAttribute="top" secondItem="exE-B2-gCH" secondAttribute="bottom" constant="10" id="ix0-1g-7ey"/>
                             <constraint firstItem="ZrC-Tm-tlK" firstAttribute="leading" secondItem="ZWP-Gs-2Zu" secondAttribute="leading" constant="50" id="nEH-jm-17Y"/>
-                            <constraint firstItem="fii-hq-YE8" firstAttribute="leading" secondItem="a8h-7T-09z" secondAttribute="leading" id="nQD-sS-ejc"/>
                             <constraint firstItem="ZWP-Gs-2Zu" firstAttribute="trailing" secondItem="FvB-Wa-oSb" secondAttribute="trailing" constant="50" id="qyo-0v-Kc1"/>
-                            <constraint firstItem="ZrC-Tm-tlK" firstAttribute="top" secondItem="ZWP-Gs-2Zu" secondAttribute="top" constant="110" id="vMb-VZ-xTK"/>
-                            <constraint firstItem="a8h-7T-09z" firstAttribute="top" secondItem="fii-hq-YE8" secondAttribute="bottom" constant="10" id="xeB-Sk-UAg"/>
+                            <constraint firstItem="ZWP-Gs-2Zu" firstAttribute="trailing" secondItem="dPh-KT-G5J" secondAttribute="trailing" constant="50" id="tkO-wa-mXB"/>
+                            <constraint firstItem="ZrC-Tm-tlK" firstAttribute="top" secondItem="ZWP-Gs-2Zu" secondAttribute="top" constant="100" id="vMb-VZ-xTK"/>
+                            <constraint firstItem="dPh-KT-G5J" firstAttribute="top" secondItem="FvB-Wa-oSb" secondAttribute="bottom" constant="50" id="yv2-ES-V3Y"/>
                         </constraints>
                     </view>
                     <connections>
@@ -292,7 +306,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gfT-mj-H8h"/>
                                         </constraints>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
@@ -308,7 +322,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="uaK-mn-f6e"/>
                                                         </constraints>
-                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     </textField>
@@ -351,7 +365,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="LLF-qS-tth"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
@@ -383,7 +397,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Pbx-BL-bsa"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                             </textField>
@@ -404,7 +418,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="jvm-bj-mIt"/>
                                         </constraints>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
@@ -724,10 +738,10 @@
     </scenes>
     <designables>
         <designable name="BLi-G2-zE3">
-            <size key="intrinsicContentSize" width="67" height="34"/>
+            <size key="intrinsicContentSize" width="71.666666666666671" height="34"/>
         </designable>
         <designable name="MyI-2Y-6aw">
-            <size key="intrinsicContentSize" width="80" height="34"/>
+            <size key="intrinsicContentSize" width="86" height="34"/>
         </designable>
     </designables>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -35,13 +35,12 @@ class MentoRegisterViewController: UIViewController {
     var categoryList = UserDefaultsManager.categoryList
 
     // 멘토 등록시 전송될 선택된 과목들
-    var mentoSubjects: [String] = []
-    
+    var mentoSubjects: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryCollectionView.allowsMultipleSelection = true
-
+        UserDefaultsManager.selectedSubject = []
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,23 +53,27 @@ class MentoRegisterViewController: UIViewController {
         // 멘토 등록 되어있는 경우
         // 확인으로 하고 멘토 수업 과목 생성 API 수행
         if UserDefaults.standard.integer(forKey: "MyMentoId") > 0 {
-//            registerMentoBtn.titleLabel?.text = "확인"
+            registerMentoBtn.titleLabel?.text = "확인"
+            if let accesstoken = UserDefaults.standard.string(forKey: "accessToken"){
+                
+            }
+
         }else{
-//            registerMentoBtn.titleLabel?.text = "다음"
+            registerMentoBtn.titleLabel?.text = "다음"
             // 멘토 등록 안 되어있는 경우 - 상세 서비스 설정 화면 이동
             let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfo") as? MentoDetailModifyViewController
             //선택한 과목 코드 전달
-            pushVC?.extracurricularSubjectCodes = [1,2,3]
+//            pushVC?.extracurricularSubjectCodes = mentoSubjects
             self.navigationController?.pushViewController(pushVC!, animated: true)
         }
     }
 }
 
-extension MentoRegisterViewController: SendData {
-    func sendData(subjects: [String]) {
-        mentoSubjects += subjects
-    }
-}
+//extension MentoRegisterViewController: SendData {
+//    func sendData(subjects: [Int]) {
+//        mentoSubjects += subjects
+//    }
+//}
 
 extension MentoRegisterViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -81,7 +84,7 @@ extension MentoRegisterViewController: UICollectionViewDelegate, UICollectionVie
         }
 //        let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoRegisterSubject")
         pushVC.categoryName = categoryList![indexPath.row]
-        pushVC.delegate = self
+//        pushVC.delegate = self
         self.navigationController?.pushViewController(pushVC, animated: true)
                 
         

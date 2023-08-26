@@ -75,7 +75,7 @@ class MentoInfoViewController: UIViewController {
     @IBOutlet weak var mentoNameLabel: UILabel!{
         didSet{
             mentoNameLabel.text = mentoInfo?.account.name
-            mentoNameLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            mentoNameLabel.font = Fonts.EsamanruOTF.medium.font(size: 23)
         }
     }
     
@@ -93,7 +93,7 @@ class MentoInfoViewController: UIViewController {
     @IBOutlet weak var mentoInfoTitleLabel: UILabel!{
         didSet{
             mentoInfoTitleLabel.text = "멘토 정보"
-            mentoInfoTitleLabel.font = UIFont.boldSystemFont(ofSize: Constant.menuFontSizeXS)
+            mentoInfoTitleLabel.font = Fonts.EsamanruOTF.medium.font(size: Constant.menuFontSizeXS)
         }
     }
     
@@ -122,20 +122,19 @@ class MentoInfoViewController: UIViewController {
     @IBOutlet weak var mentoClassInfoTitleLabel: UILabel!{
         didSet{
             mentoClassInfoTitleLabel.text = "수업 상세설명"
-            mentoClassInfoTitleLabel.font = UIFont.boldSystemFont(ofSize: Constant.menuFontSizeXS)
+            mentoClassInfoTitleLabel.font = Fonts.EsamanruOTF.medium.font(size: Constant.menuFontSizeXS)
         }
     }
     
     @IBOutlet weak var mentoClassInfoLabel: UILabel!{
         didSet{
+            mentoClassInfoLabel.text = "수업 상세 설명이 없습니다."
             if let description = mentoInfo?.description{
-                if description.count > 0 {
-                    mentoClassInfoLabel.text = description
-                }else{
+                if description.isEmpty || description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                     mentoClassInfoLabel.text = "수업 상세 설명이 없습니다."
+                }else{
+                    mentoClassInfoLabel.text = description
                 }
-            }else{
-                mentoClassInfoLabel.text = "수업 상세 설명이 없습니다."
             }
             mentoClassInfoLabel.numberOfLines = 5
         }
@@ -144,7 +143,7 @@ class MentoInfoViewController: UIViewController {
     @IBOutlet weak var mentoSubjectTitleInfo: UILabel!{
         didSet{
             mentoSubjectTitleInfo.text = "제공 서비스"
-            mentoSubjectTitleInfo.font = UIFont.boldSystemFont(ofSize: Constant.menuFontSizeXS)
+            mentoSubjectTitleInfo.font = Fonts.EsamanruOTF.medium.font(size: Constant.menuFontSizeXS)
         }
     }
     
@@ -154,25 +153,30 @@ class MentoInfoViewController: UIViewController {
     @IBOutlet weak var mentoChatBtn: UIButton!
     // 멘토 메시지 전송
     @IBAction func mentoChatAction(_ sender: Any) {
-        let ChatRoomStoryboard = UIStoryboard.init(name: "Chatting", bundle: nil)
-        guard let ChatRoomVC = ChatRoomStoryboard.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController
-        else { return }
-        self.navigationController?.pushViewController(ChatRoomVC, animated: true)
-        // 받는 사람 : 멘토 아이디? 멘토 accountid
-//        ChatRoomVC.mentoUser = mentoInfo
+        if let mento = mentoInfo {
+            APIService.shared.getDirectMessages(myaccessToken: UserDefaults.standard.string(forKey: "accessToken")!, senderAccountId: mento.account.id, completion: { res in
+                let ChatRoomStoryboard = UIStoryboard.init(name: "Chatting", bundle: nil)
+                guard let ChatRoomVC = ChatRoomStoryboard.instantiateViewController(withIdentifier: "ChatRoomViewController") as? ChatRoomViewController
+                else { return }
+                ChatRoomVC.allChatting = res
+                ChatRoomVC.userName = mento.account.name
+                ChatRoomVC.userAccount = mento.account.id
+                self.navigationController?.pushViewController(ChatRoomVC, animated: true)
+            })
+        }
     }
     
     @IBOutlet weak var reviewTitle: UILabel!{
         didSet{
             reviewTitle.text = "리뷰"
-            reviewTitle.font = UIFont.boldSystemFont(ofSize: Constant.menuFontSizeXS)
+            reviewTitle.font = Fonts.EsamanruOTF.medium.font(size: Constant.menuFontSizeXS)
         }
     }
-    
+
     @IBOutlet weak var registerReviewBtn: UIButton!{
         didSet{
             registerReviewBtn.setTitle("리뷰 등록", for: .normal)
-            registerReviewBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+            registerReviewBtn.titleLabel?.font = Fonts.EsamanruOTF.medium.font(size: 17)
         }
     }
     
@@ -208,7 +212,22 @@ class MentoInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "멘토 정보"
+        configure()
         setUpUI()
+//        mentoSubjectCollectionView.heightAnchor.constraint(equalToConstant: mentoSubjectCollectionView.collectionViewLayout.collectionViewContentSize.height).isActive = true
+    }
+    
+    func configure() {
+        mentoSubjectCollectionView.collectionViewLayout = CollectionViewLeftAlignFlowLayout()
+
+        if let flowLayout = mentoSubjectCollectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+            
+            mentoSubjectCollectionView.translatesAutoresizingMaskIntoConstraints = false
+            mentoSubjectCollectionView.isScrollEnabled = false
+        }
+        mentoSubjectCollectionView.delegate = self
+        mentoSubjectCollectionView.dataSource = self
     }
     
     func setUpUI() {
@@ -235,19 +254,46 @@ class MentoInfoViewController: UIViewController {
     }
 }
 
+class CollectionViewLeftAlignFlowLayout: UICollectionViewFlowLayout {
+    let cellSpacing: CGFloat = 10
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        self.minimumLineSpacing = 10.0
+        self.sectionInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        let attributes = super.layoutAttributesForElements(in: rect)
+        
+        var leftMargin = sectionInset.left
+        var maxY: CGFloat = -1.0
+        attributes?.forEach { layoutAttribute in
+            if layoutAttribute.frame.origin.y >= maxY {
+                leftMargin = sectionInset.left
+            }
+            layoutAttribute.frame.origin.x = leftMargin
+            leftMargin += layoutAttribute.frame.width + cellSpacing
+            maxY = max(layoutAttribute.frame.maxY, maxY)
+        }
+        return attributes
+    }
+}
+
 // 제공 서비스 : 멘토 과목 리스트
 extension MentoInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 5
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MentoSubjectCell", for: indexPath) as! MentoSubjectCollectionViewCell
-        cell.mentoSubjectTitle.sizeToFit()
-        let cellWidth = cell.mentoSubjectTitle.frame.width + 10
-        return CGSize(width: cellWidth, height: 10)
-    }
-
+    //
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    //
+    //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MentoSubjectCell", for: indexPath) as! MentoSubjectCollectionViewCell
+    //        cell.mentoSubjectTitle.sizeToFit()
+    //        let cellWidth = cell.mentoSubjectTitle.frame.width + 10
+    //        return CGSize(width: cellWidth, height: 10)
+    //    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mentoSubjectList.count
     }

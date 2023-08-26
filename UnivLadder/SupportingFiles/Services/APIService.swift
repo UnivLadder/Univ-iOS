@@ -268,13 +268,12 @@ final class APIService {
     
     // 회원탈퇴
     //HTTP://localhost/accounts/49
-    func deleteUser(accountId: Int){
+    func deleteUser(accessToken: String,
+                    accountId: Int,
+                    completion: @escaping (Bool) -> Void){
+        
         let url = Config.baseURL+"/accounts/"+String(accountId)
-        guard let mentoAccessToken = accessToken else {
-            print("👿멘토 토큰 조회 실패👿")
-            return
-        }
-        headers.add(name: "Authentication", value: "Bearer " + mentoAccessToken)
+        headers.add(name: "Authentication", value: "Bearer " + accessToken)
         
         AF.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).responseString { response in
             if let response = response.response{
@@ -282,8 +281,10 @@ final class APIService {
                     //200인 경우 전송 성공
                 case 200:
                     print("⭐️회원가입 탈퇴 성공⭐️")
+                    completion(true)
                 default:
                     print("👿회원가입 탈퇴 실패👿")
+                    completion(false)
                 }
             }
         }
@@ -461,14 +462,12 @@ final class APIService {
     
     
     // 멘토 등록
-    func registerMento(param: Parameters, completion: @escaping (Bool) -> Void){
-        guard let mentoAccessToken = accessToken else {
-            print("👿멘토 토큰 조회 실패👿")
-            return
-        }
+    func registerMento(accessToken: String,
+                       param: Parameters,
+                       completion: @escaping (Bool) -> Void){
         let headers: HTTPHeaders = ["Accept" : "application/json",
                                     "Content-Type" : "application/json",
-                                    "Authentication" : "Bearer " + mentoAccessToken]
+                                    "Authentication" : "Bearer " + accessToken]
         AF.request(Config.baseURL+"/mentors",
                    method: .post,
                    parameters: param,
@@ -593,12 +592,9 @@ final class APIService {
     //    }
     
     // 다이렉트 메시지 생성
-    func sendDirectMessage(param: Parameters, completion: @escaping (Bool) -> Void){
-        guard let mentoAccessToken = accessToken else {
-            print("👿멘토 토큰 조회 실패👿")
-            return
-        }
-        headers.add(name: "Authentication", value: "Bearer " + mentoAccessToken)
+    func sendDirectMessage(accessToken: String, param: Parameters, completion: @escaping (Bool) -> Void){
+
+        headers.add(name: "Authentication", value: "Bearer " + accessToken)
         
         AF.request(Config.baseURL+"/direct-messages",
                    method: .post,
@@ -616,12 +612,16 @@ final class APIService {
                             
                             // chattingroom 데이터 추가
                             
-                            if let receiver = self.optionalAnyToDictionary(chatDict["receiver"]){
+                            if let receiver = self.optionalAnyToDictionary(chatDict["receiver"]), let sender = self.optionalAnyToDictionary(chatDict["sender"]){
                                 let chatReceiver = ChattingRoom.Receiver(id: receiver["id"] as! Int,
                                                                          name: receiver["name"] as! String)
+                                let chatSender = ChattingRoom.Sender(id: sender["id"] as! Int,
+                                                                         name: sender["name"] as! String)
+                                
                                 let chat = ChattingRoom(id: chatDict["id"] as! Int,
-                                                        senderAccountId: chatDict["senderAccountId"] as! Int,
+                                                        senderAccountId: chatSender.id,
                                                         receiver: chatReceiver,
+                                                        sender: chatSender,
                                                         message: chatDict["message"] as! String,
                                                         type: chatDict["type"] as! String,
                                                         createdDate: chatDict["createdDate"] as! String,
@@ -660,12 +660,15 @@ final class APIService {
                         UserDefaultsManager.chattingRoom = []
                         for chat in jsonArray{
                             UserDefaults.standard.set(jsonArray.count, forKey: "ChatCount")
-                            if let receiver = self.optionalAnyToDictionary(chat["receiver"]) {
+                            if let receiver = self.optionalAnyToDictionary(chat["receiver"]), let sender = self.optionalAnyToDictionary(chat["sender"]){
                                 let chatReceiver = ChattingRoom.Receiver(id: receiver["id"] as! Int,
                                                                          name: receiver["name"] as! String)
-                                let chat = ChattingRoom(id: chat["id"] as! Int,
-                                                        senderAccountId: chat["senderAccountId"] as! Int,
+                                let chatSender = ChattingRoom.Sender(id: sender["id"] as! Int,
+                                                                     name: sender["name"] as! String)
+                                
+                                let chat = ChattingRoom(id: chat["id"] as! Int, senderAccountId: chatSender.id,
                                                         receiver: chatReceiver,
+                                                        sender: chatSender,
                                                         message: chat["message"] as! String,
                                                         type: chat["type"] as! String,
                                                         createdDate: chat["createdDate"] as! String,
@@ -703,12 +706,16 @@ final class APIService {
                     if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]{
                         UserDefaultsManager.chatting = []
                         for chat in jsonArray{
-                            if let receiver = self.optionalAnyToDictionary(chat["receiver"]) {
+                            if let receiver = self.optionalAnyToDictionary(chat["receiver"]), let sender = self.optionalAnyToDictionary(chat["sender"]){
                                 let chatReceiver = ChattingRoom.Receiver(id: receiver["id"] as! Int,
                                                                          name: receiver["name"] as! String)
+                                let chatSender = ChattingRoom.Sender(id: sender["id"] as! Int,
+                                                                     name: sender["name"] as! String)
+                                
                                 let chat = ChattingRoom(id: chat["id"] as! Int,
-                                                        senderAccountId: chat["senderAccountId"] as! Int,
+                                                        senderAccountId: chatSender.id,
                                                         receiver: chatReceiver,
+                                                        sender: chatSender,
                                                         message: chat["message"] as! String,
                                                         type: chat["type"] as! String,
                                                         createdDate: chat["createdDate"] as! String,
@@ -795,7 +802,7 @@ final class APIService {
     func dataParsing(){
         var categoryArr = [String]()
         var mentoList = [RecommendMentor]()
-        var subjectDictionary : [String:[String]] = [:]
+        var subjectDictionary = [String:[Int:String]]()
         let subjects = UserDefaultsManager.subjectList
         var tmpArr: [String] = []
         for i in 0..<subjects!.count{
@@ -811,13 +818,16 @@ final class APIService {
         
         if let categoryList = UserDefaultsManager.categoryList {
             categoryList.enumerated().forEach({
+                var tmpDict: [Int:String] = [:]
                 var tmpArr: [String] = []
                 for j in 0..<subjects!.count{
                     if subjects.map({$0[j].topic})! == categoryList[$0.offset]{
-                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
+//                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
+                        tmpDict[subjects.map({$0[j].code})!] = subjects.map({$0[j].value})!
+                        
                     }
                 }
-                subjectDictionary.updateValue(tmpArr, forKey: $0.element)
+                subjectDictionary.updateValue(tmpDict, forKey: $0.element)
             })
             UserDefaultsManager.subjectDictionary = subjectDictionary
         }
@@ -854,10 +864,10 @@ final class APIService {
                                                                              value: mentoSubject["value"] as! String)
                                     mentoSubjectArr.append(subjectDict)
                                 }
-                                DispatchQueue.global().async {
+//                                DispatchQueue.global().async {
                                     self.subjectMentoHashing(subjectList: mentoSubjectArr,
-                                                             accountId: mentoDict["id"] as! Int)
-                                }
+                                                             accountId: mentor["id"] as! Int)
+//                                }
                             }
                                                                
                             let mentoData = RecommendMentor(mentoId: mentor["id"] as! Int,

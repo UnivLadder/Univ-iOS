@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+
 class MentoListViewController: UIViewController {
     
     let mainView = MainView()
@@ -34,7 +35,7 @@ class MentoListViewController: UIViewController {
             "fcmToken" : UserDefaults.standard.string(forKey: "fcmToken") ?? ""
         ]
         
-        //카테고리
+        // 카테고리(topic)
         let subjects = UserDefaultsManager.subjectList
         var tmpArr: [String] = []
         for i in 0..<subjects!.count{

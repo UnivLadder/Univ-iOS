@@ -14,7 +14,11 @@ class MentoSubjectCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        mentoSubjectTitle.frame.size = mentoSubjectTitle.intrinsicContentSize
+        self.contentView.layer.cornerRadius = 20
+        self.contentView.layer.borderWidth = 1.0
+        self.contentView.layer.borderColor = UIColor.lightGray.cgColor
+
+//        mentoSubjectTitle.frame.size = mentoSubjectTitle.intrinsicContentSize
     }
 
 }
