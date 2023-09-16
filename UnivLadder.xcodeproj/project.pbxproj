@@ -370,13 +370,13 @@
 		68442AED27730E2F009DF75A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E546934527F9C73A007A1791 /* Chat */,
+				68F3AE68280C249200CF53DC /* Subject */,
 				683461112A2C6A0900A31EDB /* RecommendMentor.swift */,
 				6856B5082A48315300BE135E /* MentoSubject.swift */,
 				68442AEE27730E2F009DF75A /* UserModel.swift */,
 				6880A66128719F7F00DB6D20 /* User.swift */,
 				685F6BBB2A91DC42009496DB /* AccountData.swift */,
-				68F3AE68280C249200CF53DC /* Subject */,
-				E546934527F9C73A007A1791 /* Chat */,
 				68D4385127942FA80082BE11 /* Config.swift */,
 				68B27C89279D610C0064D1DD /* LoginDataModel.swift */,
 				689C759C27AFD80E00C04978 /* DummyData.swift */,

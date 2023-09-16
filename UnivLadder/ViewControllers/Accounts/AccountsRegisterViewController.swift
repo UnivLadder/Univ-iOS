@@ -263,7 +263,7 @@ class AccountsRegisterViewController: UIViewController {
                         "email" : User.email,
                         "password" : password2,
                         "name" : name,
-                        "thumbnail" : "THUMBNAIL",
+                        "thumbnail" : "",
                         "gender" : User.gender
                     ]
 

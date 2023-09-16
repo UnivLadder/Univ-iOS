@@ -34,8 +34,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVL-8Z-CYj">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="BNH-jE-2Ll">
-                                                <rect key="frame" x="30" y="0.0" width="100" height="100"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BNH-jE-2Ll">
+                                                <rect key="frame" x="30" y="0.5" width="100" height="99"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="8bg-vN-ZcP"/>
                                                     <constraint firstAttribute="width" constant="100" id="Lcv-1t-6jp"/>
@@ -967,8 +967,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVF-Lt-UDG">
                                 <rect key="frame" x="162" y="122" width="90" height="90"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="qdl-Io-OQt">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qdl-Io-OQt">
+                                        <rect key="frame" x="0.0" y="0.5" width="90" height="89"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIG-zp-SfY">
                                         <rect key="frame" x="65" y="65" width="25" height="25"/>
@@ -1290,17 +1290,12 @@
             <point key="canvasLocation" x="1795.6521739130437" y="956.91964285714278"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="P4u-QF-DFZ">
-            <size key="intrinsicContentSize" width="-1" height="63"/>
-        </designable>
-    </designables>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="modify" width="18" height="18"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="profile" width="48" height="48"/>
         <namedColor name="text500">
             <color red="0.36899998784065247" green="0.36500000953674316" blue="0.39599999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

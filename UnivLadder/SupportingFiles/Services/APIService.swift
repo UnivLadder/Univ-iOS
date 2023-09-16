@@ -14,20 +14,68 @@ final class APIService {
     private init() {}
     
     var categories = [Category]()
-    
     var accountId: Int?
-    
     var emailToken: String?
     var values: [String] = [""]
-    
-    let accessToken = UserDefaults.standard.string(forKey: "accessToken")
-    
     var headers: HTTPHeaders = Config.headers
+    
+    // MARK: - 파일 업로드 API
+    func fileUpload(imageData: UIImage,
+                    completion: @escaping (String) -> Void) {
+        let url = Config.baseURL+"/archive-files"
+        
+        let parameters: [String : Any] = [:]
+        AF.upload(multipartFormData: { MultipartFormData in
+            //body 추가
+            for (key, value) in parameters {
+                MultipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+            }
+            if let image = imageData.pngData() {
+                MultipartFormData.append(image, withName: "file", fileName: "test.png", mimeType: "image/png")
+            }
+        }, to: url, method: .post, headers: Config.headerMultipart)
+        .validate()
+        .responseDecodable(of: GetUrl.self, completionHandler:  { response in
+            switch response.result{
+            case .success(let data):
+                print("url : \(data.url)")
+                completion(data.url)
+                //url 로 저장
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+    
+    struct GetUrl: Decodable {
+        let url: String
+    }
+    
+    // MARK: - 신고 API
+    func reportMento(accessToken: String,
+                     param: Parameters,
+                     completion: @escaping (Bool) -> Void){
+        let url = Config.baseURL+"/reports"
+        headers.add(name: "Authentication", value: "Bearer " + accessToken)
+        AF.request(url,
+                   method: .post,
+                   headers: headers).responseString { response in
+            switch response.result{
+                //200인 경우 성공
+            case .success(_):
+                completion(true)
+                print("멘토 신고 성공")
+            default:
+                completion(false)
+                print("👿멘토 신고 실패👿")
+            }
+        }
+    }
     
     // MARK: - 리뷰 API
     func registerMentoReview(accessToken: String,
                              param: Parameters,
-                             completion: @escaping (Bool) -> Int){
+                             completion: @escaping (Bool) -> Void){
         let url = Config.baseURL+"/reviews/mentee-to-mentor"
         headers.add(name: "Authentication", value: "Bearer " + accessToken)
         AF.request(url,
@@ -545,13 +593,10 @@ final class APIService {
     }
     
     // 멘토 과목 조회
-    func getMentorSubjects(mentoId: Int, completion: @escaping (String) -> Void) {
+    func getMentorSubjects(accessToken: String, mentoId: Int, completion: @escaping (String) -> Void) {
         let url = Config.baseURL+"/mentors/\(mentoId)/extracurricular-subjects"
-        guard let mentoAccessToken = accessToken else {
-            print("👿멘토 토큰 조회 실패👿")
-            return
-        }
-        headers.add(name: "Authentication", value: "Bearer " + mentoAccessToken)
+        
+        headers.add(name: "Authentication", value: "Bearer " + accessToken)
         
         AF.request(url, method: .get,  headers: headers).responseString { response in
             switch response.result{
@@ -593,7 +638,7 @@ final class APIService {
     
     // 다이렉트 메시지 생성
     func sendDirectMessage(accessToken: String, param: Parameters, completion: @escaping (Bool) -> Void){
-
+        
         headers.add(name: "Authentication", value: "Bearer " + accessToken)
         
         AF.request(Config.baseURL+"/direct-messages",
@@ -616,7 +661,7 @@ final class APIService {
                                 let chatReceiver = ChattingRoom.Receiver(id: receiver["id"] as! Int,
                                                                          name: receiver["name"] as! String)
                                 let chatSender = ChattingRoom.Sender(id: sender["id"] as! Int,
-                                                                         name: sender["name"] as! String)
+                                                                     name: sender["name"] as! String)
                                 
                                 let chat = ChattingRoom(id: chatDict["id"] as! Int,
                                                         senderAccountId: chatSender.id,
@@ -643,8 +688,7 @@ final class APIService {
     }
     
     // GET : 다이렉트 메시지 리스트 조회
-    // 앱 실행시 수행
-    func getDirectListMessage(accessToken: String) {
+    func getDirectListMessage(accessToken: String, completion: @escaping (([ChattingRoom])?) -> Void) {
         let url = Config.baseURL+"/direct-messages/list"
         headers.add(name: "Authentication", value: "Bearer " + accessToken)
         
@@ -658,6 +702,7 @@ final class APIService {
                     let data = dataString!.data(using: .utf8)!
                     if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]{
                         UserDefaultsManager.chattingRoom = []
+                        var tmp = [ChattingRoom]()
                         for chat in jsonArray{
                             UserDefaults.standard.set(jsonArray.count, forKey: "ChatCount")
                             if let receiver = self.optionalAnyToDictionary(chat["receiver"]), let sender = self.optionalAnyToDictionary(chat["sender"]){
@@ -674,7 +719,9 @@ final class APIService {
                                                         createdDate: chat["createdDate"] as! String,
                                                         lastModifiedDate: chat["lastModifiedDate"] as! String)
                                 UserDefaultsManager.chattingRoom!.insert(chat, at: 0)
+                                tmp.append(chat)
                             }
+                            completion(tmp)
                             print("⭐️메시지 리스트 조회 성공⭐️")
                         }
                     }
@@ -692,7 +739,7 @@ final class APIService {
                            senderAccountId: Int,
                            completion: @escaping([ChattingRoom]) -> Void) {
         let url = Config.baseURL+"/direct-messages?accountId=" + String(senderAccountId) + "&lastId=2147483647&displayCount=50"
-
+        
         headers.add(name: "Authentication", value: "Bearer " + myaccessToken)
         
         AF.request(url,
@@ -744,26 +791,26 @@ final class APIService {
         let fcmParameter: Parameters = [
             "fcmToken" : fcmToken
         ]
-//        if KeyChain.shared.getItem(id: "accessToken") != nil{
-            let headers: HTTPHeaders = ["Accept" : "application/json",
-                                        "Content-Type" : "application/json",
-                                        "Authentication" : "Bearer " + accessToken]
-            var url = Config.baseURL + "/accounts/" + String(accountId) + "/fcm-token"
-            
-            AF.request(url, method: .put, parameters: fcmParameter, encoding: JSONEncoding.default, headers: headers).responseString { response in
-                if let response = response.response{
-                    switch response.statusCode{
-                        //200인 경우 전송 성공
-                    case 200:
-                        print("⭐️FCM Token 전송 성공⭐️")
-                    default:
-                        print("👿FCM Token 전송 실패👿")
-                    }
+        //        if KeyChain.shared.getItem(id: "accessToken") != nil{
+        let headers: HTTPHeaders = ["Accept" : "application/json",
+                                    "Content-Type" : "application/json",
+                                    "Authentication" : "Bearer " + accessToken]
+        var url = Config.baseURL + "/accounts/" + String(accountId) + "/fcm-token"
+        
+        AF.request(url, method: .put, parameters: fcmParameter, encoding: JSONEncoding.default, headers: headers).responseString { response in
+            if let response = response.response{
+                switch response.statusCode{
+                    //200인 경우 전송 성공
+                case 200:
+                    print("⭐️FCM Token 전송 성공⭐️")
+                default:
+                    print("👿FCM Token 전송 실패👿")
                 }
             }
-//        }else{
-//            print("👿FCM Token 전송 실패👿")
-//        }
+        }
+        //        }else{
+        //            print("👿FCM Token 전송 실패👿")
+        //        }
     }
     
     // MARK: - UI API
@@ -822,7 +869,7 @@ final class APIService {
                 var tmpArr: [String] = []
                 for j in 0..<subjects!.count{
                     if subjects.map({$0[j].topic})! == categoryList[$0.offset]{
-//                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
+                        //                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
                         tmpDict[subjects.map({$0[j].code})!] = subjects.map({$0[j].value})!
                         
                     }
@@ -838,7 +885,7 @@ final class APIService {
     func getRecommendMentors(accessToken: String) {
         let url = Config.baseURL+"/mentors/recommend"
         headers.add(name: "Authentication", value: "Bearer " + accessToken)
-
+        
         AF.request(url,
                    method: .get,
                    headers: headers).responseString { response in
@@ -860,16 +907,16 @@ final class APIService {
                             if let mentoSubjects = mentor["listOfExtracurricularSubjectData"] as? [Dictionary<String,Any>]{
                                 for mentoSubject in mentoSubjects{
                                     let subjectDict = RecommendMentor.Subject(code: mentoSubject["code"] as! Int,
-                                                                             topic: mentoSubject["topic"] as! String,
-                                                                             value: mentoSubject["value"] as! String)
+                                                                              topic: mentoSubject["topic"] as! String,
+                                                                              value: mentoSubject["value"] as! String)
                                     mentoSubjectArr.append(subjectDict)
                                 }
-//                                DispatchQueue.global().async {
-                                    self.subjectMentoHashing(subjectList: mentoSubjectArr,
-                                                             accountId: mentor["id"] as! Int)
-//                                }
+                                //                                DispatchQueue.global().async {
+                                self.subjectMentoHashing(subjectList: mentoSubjectArr,
+                                                         accountId: mentor["id"] as! Int)
+                                //                                }
                             }
-                                                               
+                            
                             let mentoData = RecommendMentor(mentoId: mentor["id"] as! Int,
                                                             account: mentoAccount,
                                                             mentoringCount: mentor["mentoringCount"] as? Int,

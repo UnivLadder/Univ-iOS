@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 //채팅방 화면
 class ChatRoomViewController: UIViewController, UITextViewDelegate {
@@ -50,7 +51,7 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
         didSet {
             expandButton.setTitle("", for: .normal)
             expandButton.setImage(UIImage(named: "plusbutton"), for: .normal)
-//            expandButton.addTarget(self, action: #selector(expandButtonClicked(_:)), for: .touchUpInside)
+            expandButton.addTarget(self, action: #selector(expandButtonClicked(_:)), for: .touchUpInside)
         }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -94,48 +95,107 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    @IBOutlet weak var cameraView: UIView! {
+//    @IBOutlet weak var cameraView: UIView! {
+//        didSet {
+//            cameraView.layer.cornerRadius = cameraView.bounds.width / 2
+//            cameraView.backgroundColor = Colors.Light.light500.color
+//        }
+//    }
+//    @IBOutlet weak var cameraButtonTitle: UILabel! {
+//        didSet {
+//            cameraButtonTitle.text = "카메라"
+//            cameraButtonTitle.textAlignment = .center
+//            cameraButtonTitle.textColor = Colors.Text.text900.color
+//            cameraButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
+//        }
+//    }
+//    @IBOutlet weak var galleryView: UIView! {
+//        didSet {
+//            galleryView.layer.cornerRadius = galleryView.bounds.width / 2
+//            galleryView.backgroundColor = Colors.Light.light500.color
+//        }
+//    }
+//    @IBOutlet weak var galleryButtonTitle: UILabel! {
+//        didSet {
+//            galleryButtonTitle.text = "앨범"
+//            galleryButtonTitle.textAlignment = .center
+//            galleryButtonTitle.textColor = Colors.Text.text900.color
+//            galleryButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
+//        }
+//    }
+//    @IBOutlet weak var documentView: UIView! {
+//        didSet {
+//            documentView.layer.cornerRadius = documentView.bounds.width / 2
+//            documentView.backgroundColor = Colors.Light.light500.color
+//        }
+//    }
+//    @IBOutlet weak var documentButtonTitle: UILabel! {
+//        didSet {
+//            documentButtonTitle.text = "파일"
+//            documentButtonTitle.textAlignment = .center
+//            documentButtonTitle.textColor = Colors.Text.text900.color
+//            documentButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
+//        }
+//    }
+
+    @IBOutlet weak var reportView: UIView! {
         didSet {
-            cameraView.layer.cornerRadius = cameraView.bounds.width / 2
-            cameraView.backgroundColor = Colors.Light.light500.color
+            reportView.layer.cornerRadius = reportView.bounds.width / 2
+            reportView.backgroundColor = Colors.Light.light500.color
         }
     }
-    @IBOutlet weak var cameraButtonTitle: UILabel! {
-        didSet {
-            cameraButtonTitle.text = "카메라"
-            cameraButtonTitle.textAlignment = .center
-            cameraButtonTitle.textColor = Colors.Text.text900.color
-            cameraButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
+    
+    //멘토 신고 action
+    @IBAction func reportBtnAction(_ sender: Any) {
+        let parameter: Parameters = [
+            "reportCategoryCode" : 1,
+            "targetAccountId" : userAccount ?? 1,
+            "reason" : "신고합니다.",
+            "isBlockAccount" : true
+        ]
+        
+        if let accessToken = UserDefaults.standard.string(forKey: "accessToken"){
+            let alert = UIAlertController(title:"🚨사용자를 신고하기🚨",
+                                          message: "이 사용자와의 채팅을 차단합니다.",
+                                          preferredStyle: UIAlertController.Style.alert)
+            //2. 확인 버튼 만들기
+            let okLabel = UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
+                // 회원 신고 API 수행
+                APIService.shared.reportMento(accessToken: accessToken, param: parameter, completion: { res in
+                    if res {
+                        // 신고 성공
+                        let alert2 = UIAlertController(title:"🚨신고 완료🚨",
+                                                      message: "해당 사용자와 대화가 차단되었습니다.",
+                                                      preferredStyle: UIAlertController.Style.alert)
+                        let okLabel2 = UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
+                            UIViewController.changeRootViewControllerToHome()
+                            self?.dismiss(animated:true, completion: nil)
+                        })
+                        alert2.addAction(okLabel2)
+                        self?.present(alert2,animated: true,completion: nil)
+                    }
+                })
+            })
+            let cancleLabel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            
+            alert.addAction(okLabel)
+            alert.addAction(cancleLabel)
+            
+            //4. 경고창 보이기
+            present(alert,animated: true,completion: nil)
+            
         }
     }
-    @IBOutlet weak var galleryView: UIView! {
+    
+    @IBOutlet weak var reportButtonTitle: UILabel! {
         didSet {
-            galleryView.layer.cornerRadius = galleryView.bounds.width / 2
-            galleryView.backgroundColor = Colors.Light.light500.color
+            reportButtonTitle.text = "신고하기"
+            reportButtonTitle.textAlignment = .center
+            reportButtonTitle.textColor = Colors.Text.text900.color
+            reportButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
         }
     }
-    @IBOutlet weak var galleryButtonTitle: UILabel! {
-        didSet {
-            galleryButtonTitle.text = "앨범"
-            galleryButtonTitle.textAlignment = .center
-            galleryButtonTitle.textColor = Colors.Text.text900.color
-            galleryButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
-        }
-    }
-    @IBOutlet weak var documentView: UIView! {
-        didSet {
-            documentView.layer.cornerRadius = documentView.bounds.width / 2
-            documentView.backgroundColor = Colors.Light.light500.color
-        }
-    }
-    @IBOutlet weak var documentButtonTitle: UILabel! {
-        didSet {
-            documentButtonTitle.text = "파일"
-            documentButtonTitle.textAlignment = .center
-            documentButtonTitle.textColor = Colors.Text.text900.color
-            documentButtonTitle.font = Fonts.EsamanruOTF.light.font(size: 11)
-        }
-    }
+
     @IBOutlet weak var cameraButton: UIButton! {
         didSet {
             cameraButton.setTitle("", for: .normal)
@@ -151,7 +211,11 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
             documentButton.setTitle("", for: .normal)
         }
     }
-    
+    @IBOutlet weak var reportButton: UIButton! {
+        didSet {
+            reportButton.setTitle("", for: .normal)
+        }
+    }
     
     // Direct Message 전송 action
     @IBAction func sendMsgAction(_ sendffer: Any) {
@@ -176,6 +240,7 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        isExpanded.toggle()
         if textView.text == textViewPlaceHolder {
             textView.text = nil
             textView.textColor = .black
@@ -183,6 +248,7 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        isExpanded.toggle()
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.text = textViewPlaceHolder
             textView.textColor = .lightGray
@@ -209,21 +275,26 @@ class ChatRoomViewController: UIViewController, UITextViewDelegate {
         chatBubbleTableView.delegate = self
         chatBubbleTableView.dataSource = self
         chatBubbleTableView.separatorStyle = .none
-
-        if let chattingListUserdefault = UserDefaultsManager.chatting{
-            allChatting = chattingListUserdefault
-            chattingListUserdefault.enumerated().forEach({
-                if $0.element.senderAccountId == UserDefaults.standard.integer(forKey: "accountId"){
-                    myChatting.append(chattingListUserdefault[$0.offset])
-                }else{
-                    yourChatting.append(chattingListUserdefault[$0.offset])
+        
+        DispatchQueue.global().async {
+            if let chattingListUserdefault = UserDefaultsManager.chatting{
+                self.allChatting = chattingListUserdefault
+                chattingListUserdefault.enumerated().forEach({
+                    if $0.element.senderAccountId == UserDefaults.standard.integer(forKey: "accountId"){
+                        self.myChatting.append(chattingListUserdefault[$0.offset])
+                    }else{
+                        self.yourChatting.append(chattingListUserdefault[$0.offset])
+                    }
+                })
+                if self.allChatting.count > 0 {
+                    let moveIndex = IndexPath(row: self.allChatting.count-1, section: 0)
+                    DispatchQueue.main.async {
+                        self.chatBubbleTableView.scrollToRow(at: moveIndex, at: .bottom, animated: false)
+                    }
                 }
-            })
-            if allChatting.count > 0 {
-                let moveIndex = IndexPath(row: allChatting.count-1, section: 0)
-                chatBubbleTableView.scrollToRow(at: moveIndex, at: .bottom, animated: false)
             }
         }
+        
     }
 }
 
@@ -290,6 +361,6 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ChatRoomViewController {
     @objc func expandButtonClicked(_ sender: UIButton) {
-//        isExpanded.toggle()
+        isExpanded.toggle()
     }
 }

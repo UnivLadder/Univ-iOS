@@ -17,13 +17,13 @@ struct Constant {
 
     //mainView
     //메뉴별 간격
-    static var menuIntervalHeight = UIDevice.current.isiPhoneSE2 ? 20.0 : 40.0
+    static var menuIntervalHeight = UIDevice.current.isiPhoneSE ? 20.0 : 40.0
     //메뉴별 컨텐츠와의 간격
-    static var menuContentIntervalHeight = UIDevice.current.isiPhoneSE2 ? 15.0 : 20.0
+    static var menuContentIntervalHeight = UIDevice.current.isiPhoneSE ? 10.0 : 20.0
     static var menuContentIntervalHeightMAX = 25.0
     //메뉴 폰트 사이즈
     //xs test
-    static var menuFontSizeXS = UIDevice.current.isiPhoneSE2 ? 15.0 : 20.0
+    static var menuFontSizeXS = UIDevice.current.isiPhoneSE ? 15.0 : 20.0
     //14 Pro Max test
     static var menuFontSizeMAX = 28.0
     

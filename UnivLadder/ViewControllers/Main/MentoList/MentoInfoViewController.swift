@@ -78,7 +78,7 @@ class MentoInfoViewController: UIViewController {
     @IBOutlet weak var mentoNameLabel: UILabel!{
         didSet{
             mentoNameLabel.text = mentoInfo?.account.name
-            mentoNameLabel.font = Fonts.EsamanruOTF.medium.font(size: 23)
+            mentoNameLabel.font = Fonts.EsamanruOTF.medium.font(size: 20)
         }
     }
     

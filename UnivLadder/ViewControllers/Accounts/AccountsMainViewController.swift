@@ -134,8 +134,10 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                 }
                 
                 // 유저의 채팅 리스트 불러오기
-                DispatchQueue.main.async {
-                    APIService.shared.getDirectListMessage(accessToken: accessToken)
+                DispatchQueue.global().async {
+                    APIService.shared.getDirectListMessage(accessToken: accessToken, completion: { res in
+                        
+                    })
                 }
 
                 

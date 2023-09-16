@@ -85,18 +85,19 @@ class MyPageViewController: UIViewController {
         if userInfo.count > 0{
             self.myPageName.text = userInfo[0].name
             self.myPageEmail.text = userInfo[0].email
+            
         }else{
             self.myPageName.text = "홍길동"
-            self.myPageEmail.text = "lxxyeon@gmail.com"
+            self.myPageEmail.text = "test@gmail.com"
         }
         
-        // 없는 경우 기본 이미지
-        self.myPageImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
-        
-//        if userInfo[0].thumbnail != nil {
-//            self.myPageImg.image = UIImage(named: userInfo[0].thumbnail)
-//        }
-//
+        if let thumbnail = userInfo[0].thumbnail{
+            self.myPageImg.loadwithURLSession(url: URL(string:thumbnail)!)
+        }else{
+            self.myPageImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
+        }
+            
+
         self.userStatusToggleBtn.setTitleColor(UIColor.black, for: .normal)
         self.userStatusToggleBtn.layer.borderWidth = 1
         self.userStatusToggleBtn.layer.borderColor = UIColor.black.cgColor
@@ -168,7 +169,11 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        if UIDevice.current.isiPhoneSE{
+            return 50
+        }else {
+            return 70
+        }
     }
     
     // 마이페이지 테이블 뷰
@@ -217,5 +222,15 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     func signOut() {
         UIViewController.changeRootViewControllerToLogin()
         CoreDataManager.shared.deleteAllUsers()
+    }
+}
+extension UIImageView {
+    func loadwithURLSession(url: URL){
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async { /// execute on main thread
+                self.image = UIImage(data: data)
+            }
+        }.resume()
     }
 }

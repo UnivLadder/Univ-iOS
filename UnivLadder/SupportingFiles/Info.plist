@@ -107,9 +107,9 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>사용자의 프로필 사진 수정하기 위한 사진을 찍기 위해 사용됩니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>사용자의 프로필 사진 수정하기 위해 앨범이 사용됩니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>esamanru OTF Bold.otf</string>

@@ -7,46 +7,31 @@
 
 import Foundation
 import UIKit
+// 뷰 전체 폭 길이
+let screenWidth = UIScreen.main.bounds.size.width
+// 뷰 전체 높이 길이
+let screenHeight = UIScreen.main.bounds.size.height
 
 extension UIDevice{
-    public var isiPhoneSE2: Bool{
-        // 뷰 전체 폭 길이
-        let screenWidth = UIScreen.main.bounds.size.width
-        
-        // 뷰 전체 높이 길이
-        let screenHeight = UIScreen.main.bounds.size.height
-        
-        if screenHeight == 896 {
-            print("iPhone 11, 11proMax, iPhone XR")
+
+    public var isiPhoneXS: Bool{
+        if screenHeight == 812 {
+            return true
+        }else{
             return false
         }
-        else if screenHeight == 926 {
-            print("iPhone 12proMax")
-            return false
-        }
-        else if screenHeight == 844 {
-            print("iPhone 12, 12pro")
-            return false
-        }
-        else if screenHeight == 736 {
-            print("iPhone 8plus")
-            return false
-        }
-        else if screenHeight == 667 {
-            print("iPhone 8")
-            return false
-        }
-        else if screenHeight == 568 {
-            print("iPhone SE")
+    }
+    
+    public var isiPhoneSE: Bool{
+        if screenHeight == 568 {
             return true
         }
         else {
-            print("iPhone 12 mini, iPhone XS")
             return false
         }
     }
 
-    public var isiPhoneSE: Bool {
+    public var isiPhoneSE2: Bool {
         if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone && (UIScreen.main.bounds.size.height == 568 || UIScreen.main.bounds.size.width == 320) {
             return true
         }

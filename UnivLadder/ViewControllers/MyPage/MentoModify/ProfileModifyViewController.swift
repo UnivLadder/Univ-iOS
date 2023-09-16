@@ -12,6 +12,8 @@ class ProfileModifyViewController: UIViewController {
     
     @IBOutlet weak var modifyTableView: UITableView!
     var modifyList = ["제공 서비스 분야 등록", "서비스 상세설명 등록"]
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
