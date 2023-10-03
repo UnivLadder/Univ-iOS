@@ -4,22 +4,19 @@
 //
 //  Created by leeyeon2 on 2021/12/06.
 //
-//fork test
 
 import UIKit
 import AuthenticationServices
 import GoogleSignIn
-
-
 import KakaoSDKUser
+import Firebase
+import Alamofire
 
-
+// 로그인 화면
 class AccountsMainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate, UITextFieldDelegate, StoryboardInitializable {
     
     static var storyboardName: String = "Accounts"
-    
     static var storyboardID: String = "Accounts"
-    
     
     var userModel = UserModel() // 인스턴스 생성
     
@@ -61,9 +58,9 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         guard let email = emailTextField.text, !email.isEmpty else { return }
         guard let password = passwordTextField.text, !password.isEmpty else { return }
         
-//        if self.checkLogInInfo(email: email, password: password) {
-            self.serverLogIn(email: email, password: password)
-//        }
+        //        if self.checkLogInInfo(email: email, password: password) {
+        self.serverLogIn(email: email, password: password)
+        //        }
     }
     
     /// 로그인 입력 데이터 형식 체크 메소드
@@ -116,72 +113,56 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         let params = ["username" : email,
                       "password" : password]
         
-        //dummy data
-//        let params = ["username" : "leeyeon0527@naver.com",
-//                      "password" : "password"]
-        
         APIService.shared.signIn(param: params, completion: {
-            //nil, 빈값 2개 다 처리
-            if let token = APIService.shared.userAccessToken{
-                if !token.isEmpty{
-                    // 인자값으로 입력된 클로저 블록 실행
-                    // 로그인 성공
-                    // 1) 토큰 정보 키체인 저장
-                    if KeyChain.shared.addItem(id: "accessToken", token: token){
-                        print("⭐️accessToken 저장 성공⭐️")
-                        print("accessToken: \(token)")
-                    }else{
-                        print("👿accessToken 저장 실패👿")
-                    }
-                    
-                    // 2)자동 로그인 설정 시 로컬 디비에 설정 값 저장
-                    if self.isAutoLogin == true {
-                        UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
-                        print("자동 로그인 설정 완료")
-                    }else{
-                        UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
-                        print("자동 로그인 설정 안함")
-                    }
-                    
-                    // 3) coredata 확인(회원가입 이후 앱 삭제 시 서버 호출 필요)
-                    //                    let userInfo = CoreDataManager.shared.getUserInfo()
-                    ////                    CoreDataManager.shared.deleteAllUsers()
-                    //                    if userInfo.count == 0{
-                    //                        APIService.shared.getMyAccount()
-                    //                    }else{
-                    
-                    // 화면에 필요한 data들 한번만 부름
-                    // api 통신 성공 후 ㅕ 저장 + 메인화면 이동
-
-//                    APIService.shared.getSubjects(completion: {
-//                        var categories = [Category]()
-//
-//                        print("category list : \(categories)")
-//                        // 4) 메인화면으로 이동
-                        UIViewController.changeRootViewControllerToHome()
-//                    })
-
-                    //                    }
-                    
-                    //                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                    //                    let pushVC = mainStoryboard.instantiateViewController(withIdentifier: "MainPage")
-                    //                    self.show(pushVC, sender: self)
+            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+                
+                // 자동 로그인 설정 값 저장
+                if self.isAutoLogin == true {
+                    UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
                 }else{
-                    print("토큰 빈 값")
+                    UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
                 }
+                
+                // 추천 멘토 정보 불러옴
+                APIService.shared.getRecommendMentors(accessToken: accessToken)
+                
+                // 키체인 저장
+                if KeyChain.shared.addItem(id: "accessToken", token: accessToken){
+                    print("토큰 : \(accessToken)")
+                }else{
+                    print("👿키체인 저장 실패👿")
+                }
+                
+                // 유저의 채팅 리스트 불러오기
+                DispatchQueue.global().async {
+                    APIService.shared.getDirectListMessage(accessToken: accessToken, completion: { res in
+                        
+                    })
+                }
+
+                
+                // 내 계정 조회
+                APIService.shared.getMyAccount(accessToken: accessToken, completion: { accountId in
+                    UserDefaults.standard.setValue(accountId, forKey: "accountId")
+                    // 메인화면 이동
+                    if accountId > 0 {
+                        UIViewController.changeRootViewControllerToHome()
+                        // FCM 토큰 저장
+                        if let fcmToken = UserDefaults.standard.string(forKey: "fcmToken") {
+                            APIService.shared.putFCMToken(fcmToken: fcmToken, accessToken: accessToken, accountId: accountId)
+                            print("accountId = \(accountId)")
+                        }
+                    }
+                })
             }else{
                 let alert = UIAlertController(title:"👿로그인 실패👿",
-                                              message: "",
+                                              message: "로그인 정보를 확인하세요.",
                                               preferredStyle: UIAlertController.Style.alert)
-                //2. 확인 버튼 만들기
                 let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
-                //3. 확인 버튼을 경고창에 추가하기
                 alert.addAction(buttonLabel)
-                //4. 경고창 보이기
                 self.present(alert,animated: true,completion: nil)
             }
         })
-        
     }
     
     // 자동 로그인 액션
@@ -214,8 +195,23 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         })
     }
     
+    fileprivate func saveNewUser(_ accountId: Int, email: String, gender: String, name: String, password: String, thumbnail: String?, mentee: Bool, mentor: Bool) {
+        CoreDataManager.shared
+            .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, mentee: mentee, mentor: mentor,  onSuccess: { onSuccess in
+                UIViewController.changeRootViewControllerToHome()
+            })
+        User.name = name
+    }
+    
     //소셜 로그인 - 1. 카카오
     @IBAction func kakaoLogInAction(_ sender: Any) {
+        // 자동 로그인 설정 값 저장
+        if self.isAutoLogin == true {
+            UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
+        }else{
+            UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
+        }
+        
         // 카카오톡 설치 여부 확인
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
@@ -223,11 +219,37 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
                     print(error)
                 }
                 else {
-                    print("loginWithKakaoTalk() success.")
                     if let oauthToken = oauthToken{
                         LoginDataModel.token = oauthToken.accessToken
                         // kakaotalk login post
-                        APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "kakao")
+                        APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "kakao", completion: { restoken in
+                            APIService.shared.getMyAccount(accessToken: restoken, completion: { accountId in
+                                UserDefaults.standard.setValue(accountId, forKey: "accountId")
+                                self.getKakaoAccount(completion: { myEmail, myNickName   in
+                                    // 이름, 이메일 저장
+                                    let parameter: Parameters = [
+                                        "email": myEmail ?? "",
+                                        "name" : myNickName ?? "",
+                                    ]
+                                    
+                                    APIService.shared.modifyMyAccount(accessToken: restoken,
+                                                                      accountId: UserDefaults.standard.integer(forKey: "accountId"),
+                                                                      param: parameter,
+                                                                      completion: { res in
+                                        CoreDataManager.shared.deleteAllUsers()
+                                        self.saveNewUser(accountId,
+                                                         email: myEmail,
+                                                         gender: "",
+                                                         name: myNickName,
+                                                         password: "",
+                                                         thumbnail: "",
+                                                         mentee: true,
+                                                         mentor: false
+                                        )
+                                    })
+                                })
+                            })
+                        })
                         print("kakao accessToken : \(oauthToken.accessToken)")
                     } else {
                         print("Error : User Data Not Found")
@@ -237,30 +259,91 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         }
     }
     
+    // 카카오 계정 정보 가져오기
+    func getKakaoAccount(completion: @escaping (String, String) -> Void) {
+        var myEmail = ""
+        var myNickName = ""
+        
+        UserApi.shared.me() {(user, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                _ = user
+                if let email = user?.kakaoAccount?.email{
+                    myEmail = email
+                }
+                if let nickName = user?.kakaoAccount?.profile?.nickname{
+                    myNickName = nickName
+                }
+                completion(myEmail, myNickName)
+            }
+        }
+    }
     
     //소셜 로그인 - 2. 구글
     @IBAction func googleLogInAction(_ sender: Any) {
-        // OAuth 2.0 클라이언트 ID - Info URL Types에 입력한 clientID
-        let id = "895762202310-eerandoqatibn3hmlr62lmi7jejo7jqn.apps.googleusercontent.com"
-        let signInConfig = GIDConfiguration(clientID: id)
+        // 자동 로그인 설정 값 저장
+        if self.isAutoLogin == true {
+            UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
+        }else{
+            UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
+        }
         
-        //        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-        //            guard error == nil else { return }
-        //            guard let user = user else { return }
-        //
-        //            guard let accessToken = user.authentication.idToken, let _ = user.profile?.name else {
-        //                print("Error : User Data Not Found"); return }
-        //
-        //            LoginDataModel.token = accessToken
-        //            // google login post
-        //            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "google")
-        //            print("Google accessToken : \(accessToken)")
-        //        }
+        // GIDSignIn config 객체 설정
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] signInResult, _ in
+            guard let self,
+                  let result = signInResult,
+                  let token = result.user.idToken?.tokenString,
+                  let email = result.user.profile?.email,
+                  let nickName = result.user.profile?.name
+                    
+            else { return }
+            // 서버에 토큰을 보내기. 이 때 idToken, accessToken 차이에 주의할 것
+            LoginDataModel.token = token
+            // google login post
+            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "google", completion: { restoken in
+                APIService.shared.getMyAccount(accessToken: restoken, completion: { accountId in
+                    UserDefaults.standard.setValue(accountId, forKey: "accountId")
+                    // 이름, 이메일 저장
+                    let parameter: Parameters = [
+                        "email": email ?? "",
+                        "name" : nickName ?? "",
+                    ]
+                    
+                    APIService.shared.modifyMyAccount(accessToken: restoken,
+                                                      accountId: UserDefaults.standard.integer(forKey: "accountId"),
+                                                      param: parameter,
+                                                      completion: { res in
+                        CoreDataManager.shared.deleteAllUsers()
+                        self.saveNewUser(accountId,
+                                         email: email,
+                                         gender: "",
+                                         name: nickName,
+                                         password: "",
+                                         thumbnail: "",
+                                         mentee: true,
+                                         mentor: false
+                        )
+                    })
+                })
+            })
+        }
     }
     
     
     //소셜 로그인 - 3. 애플
     @IBAction func appleLogIn(_ sender: Any) {
+        // 자동 로그인 설정 값 저장
+        if self.isAutoLogin == true {
+            UserDefaults.standard.setValue(true, forKey: "isAutoLogin")
+        }else{
+            UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
+        }
+        
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -282,20 +365,44 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             
             // 계정 정보 가져오기
+            // 애플은 최초 로그인때만 정보 줌;;
             let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
             let email = appleIDCredential.email
+            
             // accessToken (Data -> 아스키 인코딩 -> 스트링)
             let accessToken = String(data: appleIDCredential.identityToken!, encoding: .ascii) ?? ""
             LoginDataModel.token = accessToken
             
-            print("User ID : \(userIdentifier)")
-            print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
-            print("Token Value : \(accessToken)")
-            
             // apple login post
-            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "apple")
-            
+            //
+            APIService.shared.signinSocial(param: LoginDataModel.registeParam, domain: "apple", completion: { res in
+                APIService.shared.getMyAccount(accessToken: res, completion: { accountId in
+                    UserDefaults.standard.setValue(accountId, forKey: "accountId")
+                    
+                    // 이름, 이메일 저장
+                    let parameter: Parameters = [
+                        "email": "\(email ?? "")",
+                        "name" : "\((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))",
+                    ]
+                    
+                    APIService.shared.modifyMyAccount(accessToken: accessToken,
+                                                      accountId: UserDefaults.standard.integer(forKey: "accountId"),
+                                                      param: parameter,
+                                                      completion: { res in
+                        CoreDataManager.shared.deleteAllUsers()
+                        self.saveNewUser(accountId,
+                                         email: "\(email ?? "")",
+                                         gender: "",
+                                         name: "\((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))",
+                                         password: "",
+                                         thumbnail: "",
+                                         mentee: true,
+                                         mentor: false
+                        )
+                    })
+                })
+            })
         default:
             break
         }
@@ -304,8 +411,6 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
     // Apple ID 연동 실패 시 - 에러코드 정제 필요
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error)
-        
-        
         let alert = UIAlertController()
         alert.title = "ERROR"
         
@@ -318,9 +423,8 @@ class AccountsMainViewController: UIViewController, ASAuthorizationControllerPre
             alert.message = "\(error)"
             break
         }
-        
-        
     }
+    
     @IBAction func moveToRegist(_ sender: Any) {
         performSegue(withIdentifier: "toRegist", sender: nil)
     }

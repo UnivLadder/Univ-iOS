@@ -9,9 +9,12 @@ import UIKit
 
 class MyPageViewController: UIViewController {
     @IBOutlet weak var userStatusToggleBtn: UIButton!
-    //userStatusBool > true > 멘토인 경우
-    //userStatusBool > false > 멘티인 경우
-    var userStatusBool : Bool = true
+
+    var mentoRegistStatus : Bool = false
+    
+    // core data에서 user 정보 가져옴
+    let userInfo = CoreDataManager.shared.getUserInfo()
+    var myMentoAccount: RecommendMentor?
     
     @IBOutlet weak var myPageImg: UIImageView!
     @IBOutlet weak var myPageName: UILabel!
@@ -42,62 +45,92 @@ class MyPageViewController: UIViewController {
         self.navigationController?.navigationBar.transparentNavigationBar()
         self.navigationItem.title = ""
         self.myProfileViewSetting()
+        
     }
     
     // 프로필 뷰
     func myProfileViewSetting() {
-        // core data에서 user 정보 가져옴
-        let userInfo = CoreDataManager.shared.getUserInfo()
+        // 멘토인지 아는지 확인(현재 user 정보의 mentor 값으로 확인)
+        // 멘토인 경우 > 멘토 정보 가져오기
+        if userInfo[0].mentor {
+            // 내가 멘토 등록된 경우
+            self.mentoRegistStatus = true
+            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+                APIService.shared.getMyMentoAccount(accessToken: accessToken, completion: { [self] response in
+                    myMentoAccount = response
+                    
+                    if let score = myMentoAccount?.averageReviewScore{
+                        self.mentoScoreLabel.text = "\(score)"
+                    }else{
+                        self.mentoScoreLabel.text = "\(0)"
+                    }
+                    
+                    if let score = myMentoAccount?.reviewCount{
+                        self.reviewLabel.text = "\(score)"
+                    }else{
+                        self.reviewLabel.text = "\(0)"
+                    }
+                    
+                    //채팅방 개수
+                    let score = UserDefaults.standard.integer(forKey: "ChatCount")
+                    self.employeeLabel.text = "\(score)"
+                    
+                 
+                    //멘토 아이디 전역 변수 저장
+                    UserDefaults.standard.setValue(myMentoAccount?.mentoId, forKey: "MyMentoId")
+                })
+            }
+        }
         
         if userInfo.count > 0{
             self.myPageName.text = userInfo[0].name
             self.myPageEmail.text = userInfo[0].email
+            
         }else{
             self.myPageName.text = "홍길동"
-            self.myPageEmail.text = "lxxyeon@gmail.com"
+            self.myPageEmail.text = "test@gmail.com"
         }
         
-        // 없는 경우 기본 이미지
-        self.myPageImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(#colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), renderingMode: .alwaysOriginal)
-        
-//        if userInfo[0].thumbnail != nil {
-//            self.myPageImg.image = UIImage(named: userInfo[0].thumbnail)
-//        }
-//
+        if let thumbnail = userInfo[0].thumbnail{
+            self.myPageImg.loadwithURLSession(url: URL(string:thumbnail)!)
+        }else{
+            self.myPageImg.image = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
+        }
+            
+
         self.userStatusToggleBtn.setTitleColor(UIColor.black, for: .normal)
         self.userStatusToggleBtn.layer.borderWidth = 1
         self.userStatusToggleBtn.layer.borderColor = UIColor.black.cgColor
         self.userStatusToggleBtn.layer.cornerRadius = 5
       
-        if userStatusBool{
-            // 유저 상태가 true 면 멘티로 등록
-            self.userStatusToggleBtn.setTitle("멘티로 전환", for: .normal)
+        //멘토 등록 상태인지 확인
+        if mentoRegistStatus{
+            // 멘토 등록된 경우
+            self.userStatusToggleBtn.isHidden = true
             self.mentoView.isHidden = false
             self.userStatusViewSetting()
         }else{
-            // 유저 상태가 false 면 멘토로 등록
-            self.userStatusToggleBtn.setTitle("멘토로 전환", for: .normal)
+            // 멘토 등록 안된 경우
+            self.userStatusToggleBtn.isHidden = false
             self.mentoView.isHidden = true
+            self.userStatusToggleBtn.setTitle("멘토 등록", for: .normal)
         }
     }
     
     func userStatusViewSetting() {
         self.profileModifyBtn.layer.cornerRadius = 10
-        self.mentoScoreLabel.text = "0"
-        self.reviewLabel.text = "0"
-        self.employeeLabel.text = "0"
     }
 
-    /// 멘토 등록
+    /// 멘토 등록 action
     /// - Parameter sender: 상태 변경
     @IBAction func userStatusChangeBtn(_ sender: Any) {
-            //멘토인 경우
-        if userStatusBool{
-            userStatusBool = false
+        //멘토인 경우
+        if mentoRegistStatus{
+            mentoRegistStatus = true
             myProfileViewSetting()
         }else{
             // 멘티인 경우 - 멘토로 등록 API 수행
-            userStatusBool = true
+            mentoRegistStatus = false
             myProfileViewSetting()
             let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoRegister")
             self.navigationController?.pushViewController(pushVC!, animated: true)
@@ -136,7 +169,11 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        if UIDevice.current.isiPhoneSE{
+            return 50
+        }else {
+            return 70
+        }
     }
     
     // 마이페이지 테이블 뷰
@@ -169,11 +206,15 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             alert = UIAlertController(title:"로그아웃 하시겠습니까?",
                                       message: "",
                                       preferredStyle: UIAlertController.Style.alert)
+            
             let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: { action in
+                // 자동로그인 해제
+                UserDefaults.standard.setValue(false, forKey: "isAutoLogin")
                 self.signOut()
             })
             alert.addAction(buttonLabel)
-            self.present(alert,animated: true,completion: nil)
+            alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler : nil))
+            self.present(alert, animated: true,completion: nil)
             return
         }
     }
@@ -181,5 +222,15 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     func signOut() {
         UIViewController.changeRootViewControllerToLogin()
         CoreDataManager.shared.deleteAllUsers()
+    }
+}
+extension UIImageView {
+    func loadwithURLSession(url: URL){
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async { /// execute on main thread
+                self.image = UIImage(data: data)
+            }
+        }.resume()
     }
 }

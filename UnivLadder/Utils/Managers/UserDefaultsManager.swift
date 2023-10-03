@@ -15,7 +15,7 @@ struct UserDefaultsManager {
     static var categoryList: [String]?
     
     @UserDefaultWrapper(key: "subjectDictionary", defaultValue: nil)
-    static var subjectDictionary: [String:[String]]?
+    static var subjectDictionary: [String:[Int:String]]?
     
     @UserDefaultWrapper(key: "recommendMentor", defaultValue: nil)
     static var recommendMentorList: [RecommendMentor]?
@@ -31,6 +31,12 @@ struct UserDefaultsManager {
     
     @UserDefaultWrapper(key: "mentorSubjectList", defaultValue: nil)
     static var mentorSubjectList: [String]?
+    
+    @UserDefaultWrapper(key: "subjectHash", defaultValue: nil)
+    static var subjectHash: Dictionary<Int,[Int]>?
+    
+    @UserDefaultWrapper(key: "selectedSubject", defaultValue: nil)
+    static var selectedSubject: Set<Int>?
 }
 
 @propertyWrapper

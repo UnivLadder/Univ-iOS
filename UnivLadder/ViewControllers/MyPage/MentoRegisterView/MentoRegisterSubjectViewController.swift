@@ -11,11 +11,13 @@ class MentoRegisterSubjectViewController: UIViewController {
     
     //과목 리스트
     let categoryList = UserDefaultsManager.categoryList
-    var subjectList: [String] = []
-    var selectedSubjectList: [String] = []
+
+    var subjectList: [Int:String] = [:]
+    var selectedSubjectList: [Int] = []
     var categoryName = ""
+    var code: [Int] = []
     var delegate: SendData?
-    var subjectDictionary : [String:[String]] = [:]
+    var subjectDictionary = [String:[Int:String]]()
     @IBOutlet weak var subjectCollectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!{
         didSet{
@@ -35,28 +37,30 @@ class MentoRegisterSubjectViewController: UIViewController {
         subjectCollectionView.allowsMultipleSelection = true
         if let subjectDictionary = UserDefaultsManager.subjectDictionary{
             subjectList = subjectDictionary[categoryName]!
+            code = Array(subjectList.keys)
         }
     }
     
     func dataParsing(){
         let subjects = UserDefaultsManager.subjectList
-        
         if let categoryList = categoryList {
             categoryList.enumerated().forEach({
+                var tmpDict: [Int:String] = [:]
                 var tmpArr: [String] = []
                 for j in 0..<subjects!.count{
                     if subjects.map({$0[j].topic})! == categoryList[$0.offset]{
-                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
+                        tmpDict[subjects.map({$0[j].code})!] = subjects.map({$0[j].value})!
+//                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
                     }
                 }
-                subjectDictionary.updateValue(tmpArr, forKey: $0.element)
+                subjectDictionary.updateValue(tmpDict, forKey: $0.element)
             })
             UserDefaultsManager.subjectDictionary = subjectDictionary
         }
     }
     @IBAction func sendMentoCategorySubjects(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "MentoRegister") as! MentoRegisterViewController
-        self.delegate?.sendData(subjects: selectedSubjectList)
+//        self.delegate?.sendData(subjects: selectedSubjectList)
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -69,7 +73,8 @@ extension MentoRegisterSubjectViewController: UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubjectCell", for: indexPath) as! SubjectCollectionViewCell
         cell.backgroundColor = .white
-        cell.subjectLabel.text = subjectList[indexPath.row]
+        cell.subjectLabel.text = Array(subjectList.values)[indexPath.row]
+        
         return cell
     }
     
@@ -77,8 +82,13 @@ extension MentoRegisterSubjectViewController: UICollectionViewDelegate, UICollec
         guard let cell = collectionView.cellForItem(at: indexPath) as? SubjectCollectionViewCell else{
             fatalError()
         }
-        
-        selectedSubjectList.append(subjectList[indexPath.row])
+        selectedSubjectList.append(code[indexPath.row])
+        if (UserDefaultsManager.selectedSubject == nil){
+            UserDefaultsManager.selectedSubject = []
+            UserDefaultsManager.selectedSubject?.insert(code[indexPath.row])
+        }else{
+            UserDefaultsManager.selectedSubject?.insert(code[indexPath.row])
+        }
         cell.isSelected = true
     }
     
@@ -86,8 +96,8 @@ extension MentoRegisterSubjectViewController: UICollectionViewDelegate, UICollec
         guard let cell = collectionView.cellForItem(at: indexPath) as? SubjectCollectionViewCell else{
             fatalError()
         }
-        
-        if let indexRow = selectedSubjectList.firstIndex(of: subjectList[indexPath.row]) {
+        UserDefaultsManager.selectedSubject?.remove(code[indexPath.row])
+        if let indexRow = selectedSubjectList.firstIndex(of: code[indexPath.row]) {
             selectedSubjectList.remove(at: indexRow)
         }
         cell.isSelected = false

@@ -7,18 +7,17 @@
 
 import UIKit
 import Alamofire
+
 class MentoListViewController: UIViewController {
     
     let mainView = MainView()
     var categoryArr = [String]()
-    // 지금 뜨고 있는 멘토
-    var recommendMentoArr = [RecommendMentor]()
-    
     let categoryList = UserDefaultsManager.categoryList
-    // 지금 뜨고 있는 멘토 data
-    //id, thumbnail, name
-    var mentoList = [[100, 10, "w4.jpg", "이정은"], [200, 11, nil, "박강현"]]
+    // 지금 뜨고 있는 멘토
+    var mentoList = [RecommendMentor]()
     var customImage: UIImage?
+    
+    
     static func instance() -> MentoListViewController {
         return MentoListViewController.init(nibName: nil, bundle: nil)
     }
@@ -35,8 +34,8 @@ class MentoListViewController: UIViewController {
         let parameter: Parameters = [
             "fcmToken" : UserDefaults.standard.string(forKey: "fcmToken") ?? ""
         ]
-        APIService.shared.putFCMToken(param: parameter)
-        //카테고리
+        
+        // 카테고리(topic)
         let subjects = UserDefaultsManager.subjectList
         var tmpArr: [String] = []
         for i in 0..<subjects!.count{
@@ -47,12 +46,8 @@ class MentoListViewController: UIViewController {
         
         // 추천 멘토
         if let serverrecommnedMentorList = UserDefaultsManager.recommendMentorList{
-            recommendMentoArr = serverrecommnedMentorList
+            mentoList = serverrecommnedMentorList
         }
-        
-        recommendMentoArr.enumerated().forEach({
-            mentoList.append([$0.element.mentoId, $0.element.id, $0.element.thumbnail, $0.element.name])
-        })
     }
     
     private func setupCollectionView() {
@@ -85,7 +80,7 @@ class MentoListViewController: UIViewController {
     /// - Returns: 카테고리 이미지 파일명
     func categoryImgSetting(categoryName: String) -> String {
         var findCategry = categoryName
-
+        
         if let findIdx: String.Index = categoryName.firstIndex(of: "/"){
             findCategry = String(categoryName[..<findIdx])
         }
@@ -156,27 +151,17 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MentoListCell.mentoRegisterId, for: indexPath) as? MentoListCell else {
                 return UICollectionViewCell()
             }
-            //UI용
-            //[100, 10, "w4.jpg", "이정은"]
-            cell.label.text = mentoList[indexPath.row][3] as? String
             
-            if let mentoImg = mentoList[indexPath.row][2] {
-                customImage =  UIImage(named: (mentoImg as? String)!)
+            cell.label.text = mentoList[indexPath.row].account.name
+            
+            
+            if let mentoImg = mentoList[indexPath.row].account.thumbnail {
+                customImage = UIImage(named: (mentoImg as? String)!)
             }else{
-                customImage = UIImage(systemName: "person.crop.circle.fill")
+                customImage = UIImage(systemName: "person.crop.circle.fill")?.withTintColor(.systemGray2, renderingMode: .alwaysOriginal)
             }
-            
-            //실데이터
-            //cell.label.text = recommendMentoArr[indexPath.row].name
-            //            let customImage = (recommendMentoArr[indexPath.row].thumbnail == nil) ? UIImage(systemName: "person.crop.circle.fill") : UIImage(named: mentoList[indexPath.row][1])
-            let newImageRect = CGRect(x: 0, y: 0, width: Constant.profileImgSize, height: Constant.profileImgSize)
-            UIGraphicsBeginImageContext(CGSize(width: Constant.profileImgSize, height: Constant.profileImgSize))
-            customImage?.draw(in: newImageRect)
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()?.withRenderingMode(.alwaysOriginal)
-            UIGraphicsEndImageContext()
-            
-            cell.tvImageView.image = newImage
-            cell.tvImageView.layer.cornerRadius = CGFloat(Constant.profileImgSize/2)
+
+            cell.tvImageView.image = customImage
             cell.tvImageView.clipsToBounds = true
             
             return cell
@@ -208,26 +193,12 @@ extension MentoListViewController: UICollectionViewDelegate, UICollectionViewDat
                 CategoryMentoListVC!.category = categoryList
             }
         }else{
-            let params = ["accountId" : 2,
-                          "message" : "민지차",
-                          "type" : "TEXT"] as [String : Any]
-            
-            APIService.shared.sendDirectMessage(param: params)
-            // 추천 아이디 "id" : 1,
-            // 해당 멘토 페이지 이동
-            // 추천멘토 클릭
-            //            var mentoId = mentoList[indexPath.row][0]
-            //            APIService.shared.getMentorInfo(mentoId: mentoId as! Int, completion:{ _ in
-            //                
-            //            })
-            //            
-            //            APIService.shared.getMentorSubjects(mentoId: mentoId as! Int, completion: { _ in
-            //                
-            //                let MentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController")
-            //                
-            //                self.navigationController?.pushViewController(MentoListVC!, animated: true)
-            //            })
-            
+            // 추천멘토 아이디를 통한 해당 멘토 페이지 이동
+            let mentoId = mentoList[indexPath.row].mentoId
+            guard let MentoListVC = self.storyboard?.instantiateViewController(withIdentifier: "MentoInfoViewController") as?  MentoInfoViewController else { return }
+            self.navigationController?.pushViewController(MentoListVC, animated: true)
+            MentoListVC.mentoInfo = self.mentoList[indexPath.row]
+
         }
     }
 }

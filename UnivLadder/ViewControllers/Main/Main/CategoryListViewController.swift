@@ -14,8 +14,10 @@ class CategoryListViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var subjectListTable: UITableView!
     
     let categoryList = UserDefaultsManager.categoryList
-    var subjectDictionary : [String:[String]] = [:]
-
+    var subjectDictionary = [String:[Int:String]]()
+    // 필터링된 검색어 list
+    var filteredSearchList = [String]()
+    
     override func viewDidLoad() {
         self.navigationItem.title = "카테고리"
         super.viewDidLoad()
@@ -23,7 +25,7 @@ class CategoryListViewController: UIViewController, UISearchBarDelegate {
         registerXib()
         self.subjectListTable.dataSource = self
         self.subjectListTable.delegate = self
-        setupSearchController()
+//        setupSearchController()
         self.subjectListTable.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
@@ -32,13 +34,16 @@ class CategoryListViewController: UIViewController, UISearchBarDelegate {
         
         if let categoryList = categoryList {
             categoryList.enumerated().forEach({
-                var tmpArr: [String] = []
+                var tmpDict: [Int:String] = [:]
+//                var tmpArr: [String] = []
                 for j in 0..<subjects!.count{
                     if subjects.map({$0[j].topic})! == categoryList[$0.offset]{
-                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
+//                        tmpArr.insert(subjects.map({$0[j].value})!, at: 0)
+                        tmpDict[subjects.map({$0[j].code})!] = subjects.map({$0[j].value})!
+                        
                     }
                 }
-                subjectDictionary.updateValue(tmpArr, forKey: $0.element)
+                subjectDictionary.updateValue(tmpDict, forKey: $0.element)
             })
             UserDefaultsManager.subjectDictionary = subjectDictionary
         }
@@ -132,8 +137,10 @@ extension CategoryListViewController : UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MentoSubjectTableViewCell", for: indexPath) as? MentoSubjectTableViewCell else { return UITableViewCell() }
-        
-        cell.setData(list: subjectDictionary[categoryList![indexPath.section]]!, index: indexPath.section)
+//        var subjectDictionary = [String:[Int:String]]()
+        var tmpDict = subjectDictionary[categoryList![indexPath.section]]!
+        var list = Array(tmpDict.values)
+        cell.setData(list: list, index: indexPath.section)
 //        cell.setData(list: subjectDictionary[categoryList![indexPath.section]]!, index: indexPath.section)
         cell.didSelectItemAction = { [weak self] indexPath in
             self?.performSegue(withIdentifier: "CategoryMentoSegue", sender: cell.categoryIndex)

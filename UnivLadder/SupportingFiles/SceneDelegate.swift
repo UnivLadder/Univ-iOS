@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         //isAutoLogin
         //자동로그인이 설정되어 있는 경우 홈화면으로 시작
-        if UserDefaults.standard.bool(forKey:"isAutoLogin") == true{
+        if UserDefaults.standard.bool(forKey:"isAutoLogin") == true {
             let vc = MainTabBarViewController.instantiate()
             DispatchQueue.main.async {
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {

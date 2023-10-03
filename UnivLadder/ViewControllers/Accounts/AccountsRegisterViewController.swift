@@ -37,14 +37,10 @@ class AccountsRegisterViewController: UIViewController {
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
     
-    @IBOutlet weak var nextBtn: UIButton!{
-        didSet{
-            nextBtn.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var backBtn: UIButton!
-
-
+    
+    
     
     @IBAction func maleBtn(_ sender: Any) {
         maleBtn.backgroundColor = #colorLiteral(red: 0.4406229556, green: 0.350309521, blue: 0.9307079911, alpha: 1)
@@ -65,9 +61,7 @@ class AccountsRegisterViewController: UIViewController {
     @IBAction func saveBtnAction(_ sender: Any) {
         
     }
-    
-  
-    
+
     //회원가입
     //1. 자체 회원가입
     //2. 소셜 회원가입
@@ -84,9 +78,6 @@ class AccountsRegisterViewController: UIViewController {
     
     // MARK: - View Components
     func viewComponents() {
-        nextBtn.setBackgroundColor(.lightGray, for: .normal)
-        nextBtn.layer.cornerRadius = 10
-        
         if #available(iOS 12.0, *) {
             registerPassword.textContentType = .oneTimeCode
             registerPassword2.textContentType = .oneTimeCode
@@ -101,6 +92,10 @@ class AccountsRegisterViewController: UIViewController {
         femaleBtn.layer.borderWidth = 1
         femaleBtn.layer.borderColor = Colors.mainPurple.color.cgColor
         femaleBtn.layer.cornerRadius = 10
+    
+        nextBtn.layer.cornerRadius = 10
+        nextBtn.tintColor = UIColor.white
+        nextBtn.setTitle(NSLocalizedString("nextBtnTitle", comment: ""), for: .normal)
         
         emailAuthErrorLabel.isHidden = true
         passwordErrorLabel.isHidden = true
@@ -114,10 +109,8 @@ class AccountsRegisterViewController: UIViewController {
                                                selector: #selector(keyboardWillShow(_:)),
                                                name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
-        
-        
-        
     }
+    
     //화면 터치 감지
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
@@ -152,11 +145,8 @@ class AccountsRegisterViewController: UIViewController {
             let alert = UIAlertController(title:"이메일 인증번호 전송 완료",
                                           message: "메일로 받은 인증번호를 입력해주세요.",
                                           preferredStyle: UIAlertController.Style.alert)
-            //2. 확인 버튼 만들기
             let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
-            //3. 확인 버튼을 경고창에 추가하기
             alert.addAction(buttonLabel)
-            //4. 경고창 보이기
             present(alert,animated: true,completion: nil)
         }
         // 이메일 validate - ERROR
@@ -236,12 +226,13 @@ class AccountsRegisterViewController: UIViewController {
     // 3. 이메일 인증 성공하는 경우(emailAuth가 true인 경우)
     // 위 경우가 모두 성공인 경우, sign up API 수행> coredata 저장 > 로그인 화면으로 돌아감
     @IBAction func registerCompleteAction(_ sender: Any) {
+
         // 1. textfield 파라미터 validate
         // 옵셔널 바인딩 & 예외 처리 Textfield가 빈문자열이 아니고, nil이 아닐 때
         guard let name = registerName.text, !name.isEmpty else { return }
         guard let password = registerPassword.text, !password.isEmpty else { return }
         guard let password2 = registerPassword2.text, !password.isEmpty else { return }
-        
+
         // 2. 비밀번호 validate 처리
         // 1-1. 비밀번호 형식 validate
         if userModel.isValidPassword(pwd: password){
@@ -256,7 +247,7 @@ class AccountsRegisterViewController: UIViewController {
             passwordErrorLabel.tag = 101
             passwordErrorLabel.isHidden = false
         }
-        
+
         if userModel.isValidPassword(pwd: password2){
             if let removable = self.view.viewWithTag(101) {
                 removable.removeFromSuperview()
@@ -266,81 +257,28 @@ class AccountsRegisterViewController: UIViewController {
                 registerPassword2.text{
                 // 3. 이메일 인증 성공하는 경우(emailAuth가 true인 경우)
                 if UserDefaults.standard.bool(forKey: "emailAuth"){
-                    // 회원가입 정보 입력 완료
-                    // dummy test
-                    let registerDummyParam: Parameters = [
-                        "email" : "lxxyeon@gmail.com",
-                        "password" : "PASSWORD",
-                        "name" : "이연",
-                        "thumbnail" : "THUMBNAIL",
-                        "gender" : User.gender
-                    ]
-                    
+
                     // 실데이터
                     let registerUserParam: Parameters = [
                         "email" : User.email,
                         "password" : password2,
                         "name" : name,
-                        "thumbnail" : "THUMBNAIL",
+                        "thumbnail" : "",
                         "gender" : User.gender
                     ]
-                    
+
                     APIService.shared.signUp(param: registerUserParam, completion: {
-                        //nil, 빈값 2개 다 처리
-                        if let accountId = APIService.shared.accountId{
-                            if (accountId != 0){
-                                // 회원 가입 성공 시 1. Core data - User Entity 저장
-                                // 1) 기존 로그인한 User 데이터 삭제
-//                                CoreDataManager.shared.deleteAllUsers()
-                                
-                                // 2) User 데이터 추가
-                                // 인자값으로 입력된 클로저 블록 실행
-                                // dummy 저장
-//                                self.saveNewUser(accountId,
-//                                                 email: registerUserParam.obj,
-//                                                 gender: "WOMAN",
-//                                                 name: "여니",
-//                                                 password: "PASSWORD"
-//                                                 , thumbnail: "THUMBNAIL")
-//                                
-                                
-                                // 3) 테스트 용 User 데이터 조회
-                                let array: [UserEntity] = CoreDataManager.shared.getUserInfo()
-                                print(array)
-                                print("⭐️accountId 저장 성공⭐️")
-                                
-                                // 회원 가입 성공 시 2. FCMTOKEN 전송 >추후 로직 수정 필요
-//                                let parameter: Parameters = [
-//                                    "fcmToken" : UserDefaults.standard.string(forKey: "fcmToken") ?? ""
-//                                ]
-//                                APIService.shared.putFCMToken(param: parameter)
-//
-                                //회원가입 성공 알림 화면 출력
-                                let alert = UIAlertController(title: "💙 회원가입 성공 💙", message: "로그인 하세요.", preferredStyle: .alert)
-                                //2. 확인 버튼 만들기
-                                let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
-                                //3. 확인 버튼을 경고창에 추가하기
-                                alert.addAction(buttonLabel)
-                                //4. 경고창 보이기
-                                self.present(alert, animated: true,completion: nil)
-                                
-                                // 로그인 화면으로 돌아감
-                                self.dismiss(animated: true, completion: nil)
-                                
-                            }else{
-                                print("👿accountId 저장 실패👿")
-                            }
-                        }else{
-                            print("👿회원가입 실패👿")
-                        }
+                        let alert = UIAlertController(title: "💙 회원가입 성공 💙", message: "로그인 하세요.", preferredStyle: .alert)
+                        let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: {_ in
+                            self.dismiss(animated:true, completion: nil)
+                        })
+                        alert.addAction(buttonLabel)
+                        self.present(alert, animated: true, completion: nil)
                     })
                 }else{
                     let alert = UIAlertController(title: "이메일 인증 실패", message: "이메일 인증 성공 후 다시 시도해주세요.", preferredStyle: .alert)
-                    //2. 확인 버튼 만들기
                     let buttonLabel = UIAlertAction(title: "확인", style: .default, handler: nil)
-                    //3. 확인 버튼을 경고창에 추가하기
                     alert.addAction(buttonLabel)
-                    //4. 경고창 보이기
                     present(alert,animated: true,completion: nil)
                 }
             }
@@ -360,32 +298,11 @@ class AccountsRegisterViewController: UIViewController {
             passwordErrorLabel.tag = 101
             passwordErrorLabel.isHidden = false
         }
-        
-        
-        // 성공시 accoundId 받아옴
-        // 2. accoundId local DB 저장
-        let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-        let context = container.viewContext
-        let userEntity = UserEntity(context: context)
-        
-        //        userEntity.name = name
-        //        userEntity.gender = gender
-        //        userEntity.email = email
-        //        userEntity.password = password
-        //        userEntity.thumbnail = thumbnail
-        
-        //        userEntity.name = textFie ld.text!
-        //        userEntity.name = textField.text!
-        do {
-            try context.save()
-        } catch {
-            print("Error saving contet \(error)")
-        }
     }
     
-    fileprivate func saveNewUser(_ accountId: Int64, email: String, gender: String, name: String, password: String, thumbnail: String?) {
+    fileprivate func saveNewUser(_ accountId: Int, email: String, gender: String, name: String, password: String, thumbnail: String?, mentee: Bool, mentor: Bool) {
         CoreDataManager.shared
-            .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, onSuccess: { onSuccess in
+            .saveUserEntity(accountId: accountId, email: email, gender: gender, name: name, password: password, thumbnail: thumbnail, mentee: mentee, mentor: mentor,  onSuccess: { onSuccess in
                 print("saved = \(onSuccess)")
             })
         User.name = name

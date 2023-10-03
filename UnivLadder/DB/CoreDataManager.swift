@@ -23,19 +23,20 @@ class CoreDataManager {
     
     // MARK: - User coredata 관리
     // 1. User 저장
-    func saveUserEntity(accountId: Int64, email: String, gender: String, name: String, password: String?, thumbnail: String?, onSuccess: @escaping ((Bool) -> Void)) {
+    func saveUserEntity(accountId: Int, email: String, gender: String, name: String, password: String?, thumbnail: String?, mentee: Bool, mentor: Bool, onSuccess: @escaping ((Bool) -> Void)) {
         if let context = context {
             //1) entity 생성
             if let entity: NSEntityDescription = NSEntityDescription.entity(forEntityName: modelNameUser as String, in: context) {
                 //2) 객체 생성
                 if let UserEntity: UserEntity = NSManagedObject(entity: entity, insertInto: context) as? UserEntity {
-                    UserEntity.accountId = Int(accountId)
+                    UserEntity.accountId = accountId
                     UserEntity.email = email
                     UserEntity.gender = gender
                     UserEntity.name = name
                     UserEntity.password = password
                     UserEntity.thumbnail = thumbnail
-                    
+                    UserEntity.mentee = mentee
+                    UserEntity.mentor = mentor
                     // coredata 저장
                     contextSave { success in
                         onSuccess(success)
@@ -70,7 +71,21 @@ class CoreDataManager {
         }
     }
     
-    // 4. 모든 User 삭제
+    // 4. User 이미지 변경사항 반영 수정
+    func updateUserInfo(thumbnail: String, email: String, name: String, gender: String, onSuccess: @escaping ((Bool) -> Void)) {
+        let fetchResults = getUserInfo()
+        for result in fetchResults {
+            result.gender = gender
+            result.name = name
+            result.email = email
+            result.thumbnail = thumbnail
+        }
+        contextSave { success in
+            onSuccess(success)
+        }
+    }
+    
+    // 5. 모든 User 삭제
     func deleteAllUsers() {
         let fetrequest = NSFetchRequest<NSFetchRequestResult>(entityName: modelNameUser)
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetrequest)
